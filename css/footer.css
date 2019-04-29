@@ -1,11 +1,4 @@
 body>footer p~a{-webkit-transition:all 350ms ease;-moz-transition:all 350ms ease;-ms-transition:all 350ms ease;-o-transition:all 350ms ease}
-nav-content ul li a:hover svg{fill:#FF7779}
-@media (max-width:450px){nav-content ul li a svg{width:1.875rem;height:1.875rem}
-    nav-content b~b{margin-top:2.5rem}
-}
-header.expanded nav-content{opacity:1;z-index:1}
-@media (max-width:768px){nav-content{padding:2.5rem!important;position:relative!important;top:0!important;left:0!important;width:100%!important;-webkit-transform:translateX(0) translateY(0)!important;-moz-transform:translateX(0) translateY(0)!important;-ms-transform:translateX(0) translateY(0)!important;-o-transform:translateX(0) translateY(0)!important;transform:translateX(0) translateY(0)!important}
-}
 body>footer,
 body>footer p~a{display:block;position:relative}
 body>footer{background-color:#FFF;padding:7.5rem 0 24.25rem;text-align:center;z-index:2}
@@ -58,7 +51,6 @@ footer ol a:hover { color: #FF7779; text-decoration: underline; }
     footer ol li { float: none; display: table; width: 100%; text-align: left; }
     footer ol li + li { margin-left: 0; margin-top: 0.5rem; }
 }
-
 
 footer .policies {
     position: absolute;
