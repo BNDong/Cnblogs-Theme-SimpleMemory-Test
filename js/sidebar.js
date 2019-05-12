@@ -26,7 +26,7 @@ var sidebarHtml =
     '            <div class="m-icon-list" id="sb-sidebarRecentposts"></div>' +
     '            <!-- 我的标签 -->' +
     '            <div class="m-list-title"><span>我的标签</span></div>' +
-    '            <div class="m-icon-list" id="sb-toptags"></div>' +
+    '            <div class="m-icon-list asadsd" id="sb-toptags"></div>' +
     '            <!-- 随笔分类 -->' +
     '            <div class="m-list-title"><span>随笔分类</span></div>' +
     '            <div class="m-icon-list" id="sb-classify"></div>' +
@@ -102,7 +102,7 @@ $.getScript(getJsDelivrUrl('loading.js'), function () {
 
 // get file url
 function getJsDelivrUrl(file, directory) {
-    file = setFileNameMin(file, directory)       ;
+    file = setFileNameMin(file, directory);
     return 'https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/' + (file ? file : '');
 }
 
