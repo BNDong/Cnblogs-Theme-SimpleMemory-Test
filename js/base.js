@@ -569,6 +569,7 @@ function Base() {
         $('body').css('overflow', 'auto');
         pageLoading.spinner.setComplete();
         $('#loading').fadeOut(300);
+        $('a[name="top"]').fadeOut(300);
     };
 
     /**
