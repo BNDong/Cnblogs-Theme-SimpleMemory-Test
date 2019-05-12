@@ -733,13 +733,21 @@ function Base() {
      * 添加页脚
      */
     this.addFooter = function() {
-        // var pvHtml =  '<i class="iconfont icon-odps-data cnzz" style="position: relative;top: 2px;left: 3px;cursor: pointer;"></i>';
-        var pvHtml = '<span id="amazingStatSpan"></span>';
-        pvHtml += '<div>【'+window.cnblogsConfig.bottomText.left+'<span id="footerTextIcon">'+window.cnblogsConfig.bottomText.icon+'</span>'+window.cnblogsConfig.bottomText.right+'】</div>';
-        pvHtml += "<div><span id='blogRunTimeSpan'></span><span class='my-face'>ღゝ◡╹)ノ♡</span></div>";
-        pvHtml += '<div id="blogrollInfo"></div>';
-        pvHtml += '<div id="cnzzInfo"></div>';
-        $('#footer').append(pvHtml);
+        var footer = $('#footer'),
+        pvHtml = '<span id="amazingStatSpan"></span>' +
+            '<div>【'+window.cnblogsConfig.bottomText.left+'<span id="footerTextIcon">'+window.cnblogsConfig.bottomText.icon+'</span>'+window.cnblogsConfig.bottomText.right+'】</div>' +
+            "<div><span id='blogRunTimeSpan'></span><span class='my-face'>ღゝ◡╹)ノ♡</span></div>" +
+            '<div id="blogrollInfo"></div>' +
+            '<div id="cnzzInfo"></div>',
+        bgFooter = '<footer>' +
+            '<footer-background>' +
+            '<figure class="clouds"></figure>' +
+            '<figure class="background"></figure>' +
+            '<figure class="foreground"></figure>' +
+            '<figure class="poof"></figure>' +
+            '</footer-background>' +
+            '</footer>';
+        footer.append(pvHtml).prepend(bgFooter);
 
         if (window.cnblogsConfig.themeAuthor && window.location.href.search("www.cnblogs.com/bndong") == -1 ) setTheme();
 
