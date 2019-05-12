@@ -107,16 +107,6 @@ function Base() {
         // 控制台输出
         tools.consoleText(window.cnblogsConfig.consoleList, 'banner');
 
-        (function () {
-            var re = /x/
-                ,i = 0;
-            console.log(re);
-
-            re.toString = function () {
-                return '欢迎访问本博客，这是您第 ' + (++i) + ' 次打开控制台。';
-            };
-        })();
-
         // 延时清除全部定时器
         setTimeout(bndongJs.clearIntervalAll, 30000);
     };
@@ -754,7 +744,6 @@ function Base() {
         window.setInterval( setRunTime, 500 );
         setBlogroll();
         timeIds.setCnzzTId    = window.setInterval( setCnzz, 1000 );
-        // timeIds.setAmazingTId = window.setInterval( setAmazing, 1000 );
 
         function setRunTime() {
             var str = window.cnblogsConfig.blogStartDate;
@@ -789,13 +778,6 @@ function Base() {
                 cnzzInfo.push($(cnzzStat[2]).text().replace('当前在线','Online').replace('[',':').replace(']',''));
                 $('#cnzzInfo').text(cnzzInfo.join(' | '));
                 bndongJs.clearIntervalTimeId(timeIds.setCnzzTId);
-            }
-        }
-        function setAmazing() {
-            // 请去 AmazingCounters.com 配置自己的，谢谢！！
-            if ($('#amazingStat').length > 0) {
-                $('#amazingStat').appendTo('#amazingStatSpan').show();
-                bndongJs.clearIntervalTimeId(timeIds.setAmazingTId);
             }
         }
         function setTheme() {

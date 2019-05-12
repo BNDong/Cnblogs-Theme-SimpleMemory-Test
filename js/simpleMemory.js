@@ -175,7 +175,6 @@ window.cnblogsConfigDefault = {
     },
 
     // ---- 主页配置 ----
-    // ---- 主页配置 ----
     homeTopImg    : [ // 主页图片Url，推荐尺寸>= 1920*1080，支持多张，每次刷新随机设置一张
         "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg"
     ],
@@ -211,7 +210,6 @@ window.cnblogsConfigDefault = {
 };
 
 window.cnblogsConfig = $.extend( true, window.cnblogsConfigDefault, window.cnblogsConfig );
-console.log(window.cnblogsConfig);
 
 // start cache
 $.ajaxSetup({cache: true});
