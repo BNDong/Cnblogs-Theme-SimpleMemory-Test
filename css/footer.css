@@ -1,15 +1,11 @@
 footer p~a{-webkit-transition:all 350ms ease;-moz-transition:all 350ms ease;-ms-transition:all 350ms ease;-o-transition:all 350ms ease}
 footer,
 footer p~a{display:block;position:relative}
-footer{background-color:#FFF;padding:7.5rem 0 24.25rem;text-align:center;z-index:2}
+footer{background-color:#FFF;text-align:center;position: relative;top: 150px;z-index: -1;}
 footer p~a{background-color:transparent;padding:0 .5rem;color:inherit;z-index:3;transition:all 350ms ease}
 footer p~a:hover{color:#FFF}
 footer p~a:not(.hireUs):before{background-color:#FF7779;position:absolute;top:0;right:100%;bottom:0;left:0;z-index:-1;-webkit-transition:right 350ms ease;-moz-transition:right 350ms ease;-ms-transition:right 350ms ease;-o-transition:right 350ms ease;transition:right 350ms ease}
 footer p~a:not(.hireUs):hover:before{right:0}
-@media (min-width:721px){footer{margin:7.5rem 0 0;padding:0 0 24.25rem}
-}
-@media (max-width:720px){footer{margin:3.75rem 0 0;padding:0 1rem 20.25rem}
-}
 footer ul{display:table;list-style-type:none;margin:0 auto;padding:0}
 footer ul li{display:block;float:left}
 footer ul li a{display:block;padding:0 .563rem}

@@ -1257,21 +1257,11 @@ button {
     margin-top: 200px;
     left: 0;
     right: 0;
-    background: #232323;
     padding: 17px 0 27px;
     text-align: center;
     color: #888;
     font-size: 12px;
     line-height: 1.5;
-}
-.footer-image {
-    background: url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/footer.png) no-repeat 50%;
-    height: 368px;
-    z-index: 1;
-    position: absolute;
-    bottom: 70px;
-    width: 100%;
-    pointer-events: none;
 }
 
 .my-face {
