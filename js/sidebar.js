@@ -67,7 +67,7 @@ var sidebarHtml =
     '        <i class="scroll-down-icon iconfont icon-fanhui"></i>' +
     '    </a>' +
     '</div>' +
-    '<div id="loading"></div>' +
+    '<div id="loading"></div>'  +
     '<div id="bottomProgressBar"></div>' +
     '<div id="rightMenu"></div>';
 

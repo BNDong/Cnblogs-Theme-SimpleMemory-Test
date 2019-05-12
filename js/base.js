@@ -188,7 +188,7 @@ function Base() {
                 (homeTopImg.length > 1 ? bgImg = homeTopImg[tools.randomNum(0, homeTopImg.length - 1)] : bgImg = homeTopImg[0])
             : bgImg = "";
         $('.main-header').css({
-            'background': '#222 url('+bgImg+')  center center no-repeat',
+            'background': '#f0f0f0 url('+bgImg+')  center center no-repeat',
             'background-size': 'cover'
         });
 
@@ -361,7 +361,7 @@ function Base() {
 
         $('.main-header').css({
             'height': '40vh',
-            'background': '#222 url('+bgImg+')  center center no-repeat',
+            'background': '#f0f0f0 url('+bgImg+')  center center no-repeat',
             'background-size': 'cover'
         });
         $('#homeTopTitle').hide();
