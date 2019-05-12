@@ -3792,7 +3792,7 @@ span.cnblogs_code {
     display: none !important;
 }
 
-#aplayer {
+body>meting-js, #aplayer {
     -webkit-transform: translateZ(0);
 }
 
@@ -4118,7 +4118,7 @@ a#green_channel_wechat {
         line-height: 1.3em;
     }
 
-    #sideToolbar, #music-box, .scroll-down, #evanyou, #aplayer, #homeTopCanvas, #notHomeTopCanvas {
+    #sideToolbar, #music-box, .scroll-down, #evanyou, body>meting-js, #aplayer, #homeTopCanvas, #notHomeTopCanvas {
         display: none !important;
     }
 }
@@ -4207,7 +4207,7 @@ a#green_channel_wechat {
         width: 31px !important;
     }
 
-    #pageAnimationOffOn, #sideToolbar, #music-box, .scroll-down, #evanyou, #canvas, #aplayer,
+    #pageAnimationOffOn, #sideToolbar, #music-box, .scroll-down, #evanyou, #canvas, body>meting-js, #aplayer,
     #homeTopCanvas, #notHomeTopCanvas, #bgCanvas
     {
         display: none !important;

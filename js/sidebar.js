@@ -1,3 +1,9 @@
+/*!
+ * UPDATES AND DOCS AT: https://github.com/BNDong
+ * https://www.cnblogs.com/bndong/
+ * @author: BNDong, dbnuo@foxmail.com
+ **/
+
 var sidebarHtml =
     '<div class="container">' +
     '    <div class="menu-wrap optiscroll" id="menuWrap" style="display:none">' +
@@ -73,15 +79,12 @@ var sidebarHtml =
 
 $('#blog-news').prepend(sidebarHtml);
 
-/**
- * 博客全局配置，请仔细配置！！
- */
 window.cnblogsConfigDefault = {
 
     // ---- GitHub文件源配置 ----
     GhUserName: 'BNDong', // GitHub用户名(不是昵称)，注意大小写
     GhRepositories: 'Cnblogs-Theme-SimpleMemory-Test', // GitHub主题仓库名称
-    GhVersions : '', // GitHub提交版本哈希值，根据版本加载代码，我有时候会提交代码进行调试，大家最好加载我仓库代码此处的版本 https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master
+    GhVersions : 'v1.1.0', // GitHub提交版本哈希值，根据版本加载代码，我有时候会提交代码进行调试，大家最好加载我仓库代码此处的版本 https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master
 
     // ---- 基础信息配置 ----
     blogUser      : "未配置", // 博主名称，文章后缀和主页图片上都会使用此名称
