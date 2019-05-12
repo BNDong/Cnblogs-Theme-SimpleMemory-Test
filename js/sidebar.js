@@ -1,4 +1,4 @@
-var sidebarHtml = '<!-- menu html -->' +
+var sidebarHtml =
     '<div class="container">' +
     '    <div class="menu-wrap optiscroll" id="menuWrap" style="display:none">' +
     '        <nav class="menu">' +
@@ -52,8 +52,6 @@ var sidebarHtml = '<!-- menu html -->' +
     '    <button class="menu-button" id="open-button">MENU</button>' +
     '    <div class="content-wrap" id="content-wrap"></div><!-- /content-wrap -->' +
     '</div>' +
-    '<!-- menu html end -->' +
-    '<!-- banner html -->' +
     '<div class="main-header">' +
     '    <canvas id="notHomeTopCanvas" style=" position: absolute;margin: auto;width: 100%;height: 100%;top: 0;bottom: 0;left: 0;right: 0;"></canvas>' +
     '    <div class="vertical">' +
@@ -69,7 +67,9 @@ var sidebarHtml = '<!-- menu html -->' +
     '        <i class="scroll-down-icon iconfont icon-fanhui"></i>' +
     '    </a>' +
     '</div>' +
-    '<!-- banner html end -->';
+    '<div id="loading"></div>' +
+    '<div id="bottomProgressBar"></div>' +
+    '<div id="rightMenu"></div>';
 
 $('#blog-news').prepend(sidebarHtml);
 
