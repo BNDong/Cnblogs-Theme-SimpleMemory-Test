@@ -101,6 +101,9 @@ function Base() {
         // html5-title
         bndongJs.htmlTitle();
 
+        // 添加扩展字体图标库
+        if (window.cnblogsConfig.fontIconExtend !== '') tools.dynamicLoadingCss(window.cnblogsConfig.fontIconExtend);
+
         // 添加页面特效控制
         bndongJs.setPageAnimationControl();
 

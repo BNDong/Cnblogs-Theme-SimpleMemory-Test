@@ -1254,7 +1254,7 @@ button {
     _height: 15px;
     position: absolute;
     margin: 0;
-    margin-top: 200px;
+    margin-top: 20vh;
     left: 0;
     right: 0;
     padding: 17px 0 27px;
@@ -3675,6 +3675,7 @@ blockquote p {
 #bottomProgressBar {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 998;
 }

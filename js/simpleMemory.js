@@ -82,20 +82,21 @@ $('#blog-news').prepend(sidebarHtml);
 window.cnblogsConfigDefault = {
     GhUserName: 'BNDong',
     GhRepositories: 'Cnblogs-Theme-SimpleMemory',
-    GhVersions : 'v1.1.0',
-    blogUser      : "unconfigured",
-    blogAvatar    : "",
-    blogStartDate : "2019-01-01",
+    GhVersions: 'v1.1.0',
+    blogUser: "unconfigured",
+    blogAvatar: "",
+    blogStartDate: "2019-01-01",
     menuCustomList: {},
-    webpageTitleOnblur        : "(oﾟvﾟ)ノ Hi",
-    webpageTitleOnblurTimeOut : 500,
-    webpageTitleFocus         : "(*´∇｀*) 欢迎回来！",
-    webpageTitleFocusTimeOut  : 1000,
-    webpageIcon : "",
+    webpageTitleOnblur: "(oﾟvﾟ)ノ Hi",
+    webpageTitleOnblurTimeOut: 500,
+    webpageTitleFocus: "(*´∇｀*) 欢迎回来！",
+    webpageTitleFocusTimeOut: 1000,
+    webpageIcon: "",
+    fontIconExtend: "",
     progressBar: {
-        id      : 'top-progress-bar',
-        color   : '#77b6ff',
-        height  : '2px',
+        id: 'top-progress-bar',
+        color: '#77b6ff',
+        height: '2px',
         duration: 0.2
     },
     loading: {
@@ -128,15 +129,15 @@ window.cnblogsConfigDefault = {
     },
     essayTopAnimationRendered: true,
     essayTopAnimation: {
-        triW : 14,
-        triH : 20,
-        neighbours : ["side", "top", "bottom"],
-        speedTrailAppear : .1,
-        speedTrailDisappear : .1,
-        speedTriOpen : 1,
-        trailMaxLength : 30,
-        trailIntervalCreation : 100,
-        delayBeforeDisappear : 2,
+        triW: 14,
+        triH: 20,
+        neighbours: ["side", "top", "bottom"],
+        speedTrailAppear: .1,
+        speedTrailDisappear: .1,
+        speedTriOpen: 1,
+        trailMaxLength: 30,
+        trailIntervalCreation: 100,
+        delayBeforeDisappear: 2,
         colors: [
             '#D9B6D4', '#A29AC3',
             '#9091BF', '#9394C2',
@@ -145,7 +146,7 @@ window.cnblogsConfigDefault = {
         ]
     },
     bgAnimationRendered: true,
-    backgroundAnimation : {
+    backgroundAnimation: {
         colorSaturation: "60%",
         colorBrightness: "50%",
         colorAlpha: 0.5,
@@ -157,7 +158,7 @@ window.cnblogsConfigDefault = {
         parallaxAmount: -0.2,
         animateSections: true
     },
-    homeTopImg    : [
+    homeTopImg: [
         "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg"
     ],
     homeBannerText: "",
@@ -166,15 +167,15 @@ window.cnblogsConfigDefault = {
     ],
     essayCodeHighlightingType: 'cnblogs',
     essayCodeHighlighting: '',
-    essaySuffix:{
-        aboutHtml    : '',
+    essaySuffix: {
+        aboutHtml: '',
         copyrightHtml: '',
-        supportHtml  : ''
+        supportHtml: ''
     },
     bottomBlogroll: [],
     bottomText: {
         icon: "❤️",
-        left : "图标左侧文字",
+        left: "图标左侧文字",
         right: "图标右侧文字"
     },
     consoleList: [],
