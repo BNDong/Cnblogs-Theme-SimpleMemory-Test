@@ -725,7 +725,7 @@ function Base() {
      */
     this.addFooter = function() {
         var footer = $('#footer'),
-        pvHtml = '<span id="amazingStatSpan"></span>' +
+        pvHtml =
             '<div>【'+window.cnblogsConfig.bottomText.left+'<span id="footerTextIcon">'+window.cnblogsConfig.bottomText.icon+'</span>'+window.cnblogsConfig.bottomText.right+'】</div>' +
             "<div><span id='blogRunTimeSpan'></span><span class='my-face'>ღゝ◡╹)ノ♡</span></div>" +
             '<div id="blogrollInfo"></div>' +
@@ -738,7 +738,7 @@ function Base() {
             '<figure class="poof"></figure>' +
             '</footer-background>' +
             '</footer>';
-        footer.append(pvHtml).prepend(bgFooter);
+        footer.prepend(pvHtml).prepend(bgFooter).append('<span> / ThemeVersion: '+(window.cnblogsConfig.GhVersions).substring(0,7)+'</span>');;
 
         if (window.cnblogsConfig.themeAuthor && window.location.href.search("www.cnblogs.com/bndong") == -1 ) setTheme();
 

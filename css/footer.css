@@ -20,7 +20,7 @@ footer grid-column>a+a+a{margin:0 auto 2.75rem}
 footer grid-column p{font-size:1.375rem}
 footer h2{margin-bottom:1.5rem}
 footer .copyright{color:#BDBDBD;position:absolute;font-size:.75rem;font-weight:600;bottom:3rem;text-align:right;right:10%;z-index:3}
-footer footer-background{bottom:6.25rem;left:0;height:18rem;position:absolute;width:100%;z-index:1;transform:translate3d(0, 0, 0)}
+footer footer-background{bottom:7.25rem;left:0;height:18rem;position:absolute;width:100%;z-index:1;transform:translate3d(0, 0, 0)}
 footer footer-background figure{bottom:0;left:0;height:15rem;margin:0;position:absolute;width:100%}
 footer footer-background .foreground{background-repeat:repeat-x!important;background:url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory-Test/master/img/foreground.png) repeat-x;background-size:225em 15em;position:absolute;top:1rem;right:0;bottom:0;left:0}
 footer footer-background .background{background-repeat:repeat-x!important;background:url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory-Test/master/img/background.png) repeat-x;background-size:225em 21.313em;position:absolute;top:-1em;right:0;bottom:0;left:0}

@@ -80,36 +80,24 @@ var sidebarHtml =
 $('#blog-news').prepend(sidebarHtml);
 
 window.cnblogsConfigDefault = {
-
-    // ---- GitHub文件源配置 ----
-    GhUserName: 'BNDong', // GitHub用户名(不是昵称)，注意大小写
-    GhRepositories: 'Cnblogs-Theme-SimpleMemory-Test', // GitHub主题仓库名称
-    GhVersions : 'v1.1.0', // GitHub提交版本哈希值，根据版本加载代码，我有时候会提交代码进行调试，大家最好加载我仓库代码此处的版本 https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master
-
-    // ---- 基础信息配置 ----
-    blogUser      : "未配置", // 博主名称，文章后缀和主页图片上都会使用此名称
-    blogAvatar    : "", // 用户头像URL
-    blogStartDate : "2019-01-01", // 入园时间，年-月-日，入园时间查看方法：鼠标停留园龄时间上，会显示入园时间
-
-    // ---- 菜单配置 ----
+    GhUserName: 'BNDong',
+    GhRepositories: 'Cnblogs-Theme-SimpleMemory',
+    GhVersions : 'v1.1.0',
+    blogUser      : "unconfigured",
+    blogAvatar    : "",
+    blogStartDate : "2019-01-01",
     menuCustomList: {},
-
-    // ---- 网站配置 ----
-    webpageTitleOnblur        : "(oﾟvﾟ)ノ Hi", // 当前页失去焦点，页面title显示文字
-    webpageTitleOnblurTimeOut : 500, // 当前页失去焦点，页面title变化，延时时间，单位毫秒
-    webpageTitleFocus         : "(*´∇｀*) 欢迎回来！", // 当前页获取焦点，页面title显示文字，显示后延时恢复原title
-    webpageTitleFocusTimeOut  : 1000, // 当前页获取焦点，页面title变化，延时时间，单位毫秒
-    webpageIcon : "", // 网站图标
-
-    // ---- 进度条配置 ----
+    webpageTitleOnblur        : "(oﾟvﾟ)ノ Hi",
+    webpageTitleOnblurTimeOut : 500,
+    webpageTitleFocus         : "(*´∇｀*) 欢迎回来！",
+    webpageTitleFocusTimeOut  : 1000,
+    webpageIcon : "",
     progressBar: {
         id      : 'top-progress-bar',
         color   : '#77b6ff',
         height  : '2px',
         duration: 0.2
     },
-
-    // ---- Loading配置 ----
     loading: {
         rebound: {
             tension: 16,
@@ -126,23 +114,20 @@ window.cnblogsConfigDefault = {
                 base: null,
                 child: '#272633'
             },
-            alwaysForward: true, // When false the spring will reverse normally.
-            restAt: 0.5,         // A number from 0.1 to 0.9 || null for full rotation
+            alwaysForward: true,
+            restAt: 0.5,
             renderBase: false
         }
     },
-
-    // ---- 页面动效配置 ----
-    homeTopAnimationRendered: true, // true || false ,是否渲染主页头图动效
-    homeTopAnimation: { // 主页头图动效设置
+    homeTopAnimationRendered: true,
+    homeTopAnimation: {
         radius: 15,
         density: 0.2,
-        color: 'rgba(255,255,255, .2)', // 颜色设置，“random” 为随机颜色
+        color: 'rgba(255,255,255, .2)',
         clearOffset: 0.3
     },
-
-    essayTopAnimationRendered: true, // true || false ,是否渲染随笔页头图动效
-    essayTopAnimation: { // 随笔页头图动效设置
+    essayTopAnimationRendered: true,
+    essayTopAnimation: {
         triW : 14,
         triH : 20,
         neighbours : ["side", "top", "bottom"],
@@ -159,9 +144,8 @@ window.cnblogsConfigDefault = {
             '#FCD5CE', '#6C79B5'
         ]
     },
-
-    bgAnimationRendered: true, // true || false ,是否渲染背景动效
-    backgroundAnimation : { // 背景动效设置
+    bgAnimationRendered: true,
+    backgroundAnimation : {
         colorSaturation: "60%",
         colorBrightness: "50%",
         colorAlpha: 0.5,
@@ -173,40 +157,28 @@ window.cnblogsConfigDefault = {
         parallaxAmount: -0.2,
         animateSections: true
     },
-
-    // ---- 主页配置 ----
-    homeTopImg    : [ // 主页图片Url，推荐尺寸>= 1920*1080，支持多张，每次刷新随机设置一张
+    homeTopImg    : [
         "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg"
     ],
-    homeBannerText: "", // 主页头图上的标语，设置此选项会固定显示文字，默认为空，自动获取一句。
-
-    // ---- 随笔页配置 ----
-    essayTopImg: [ // 随笔页图片Url，支持多张，每次刷新随机设置一张
+    homeBannerText: "",
+    essayTopImg: [
         "https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-569548.png"
     ],
-    essayCodeHighlightingType: 'cnblogs', // 代码主题插件类型：cnblogs || highlightjs || prettify
-    essayCodeHighlighting: '', // 代码高亮主题，具体主题参考文档
-    essaySuffix:{ // 随笔后缀处配置
-        aboutHtml    : '', // 关于博主，不配置使用默认
-        copyrightHtml: '', // 版权声明，不配置使用默认
-        supportHtml  : ''  // 声援博主，不配置使用默认
+    essayCodeHighlightingType: 'cnblogs',
+    essayCodeHighlighting: '',
+    essaySuffix:{
+        aboutHtml    : '',
+        copyrightHtml: '',
+        supportHtml  : ''
     },
-
-    // ---- 页脚配置 ----
-    bottomBlogroll: [ // 友情链接，[[链接名,链接]....]
-
-    ],
-    bottomText: {  // 页脚标语
-        icon: "❤️", // 图标
-        left : "图标左侧文字", // 图标左侧文字
-        right: "图标右侧文字"  // 图标右侧文字
+    bottomBlogroll: [],
+    bottomText: {
+        icon: "❤️",
+        left : "图标左侧文字",
+        right: "图标右侧文字"
     },
-
-    // ---- 控制台输出 ----
-    consoleList: [
-
-    ],
-    themeAuthor: true, // 是否显示主题作者（原谅我的臭屁，O(∩_∩)O哈哈~）
+    consoleList: [],
+    themeAuthor: true,
 };
 
 window.cnblogsConfig = $.extend( true, window.cnblogsConfigDefault, window.cnblogsConfig );
