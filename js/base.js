@@ -740,8 +740,11 @@ function Base() {
             '<figure class="foreground"></figure>' +
             '<figure class="poof"></figure>' +
             '</footer-background>' +
-            '</footer>';
-        footer.prepend(pvHtml).prepend(bgFooter).append(' / ThemeVersion: <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory" target="_blank">'+(window.cnblogsConfig.GhVersions).substring(0,7)+'</a>');;
+            '</footer>',
+        rHref = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
+        footer.prepend(pvHtml).prepend(bgFooter).append(' / ThemeVersion: <a href="'+rHref
+                                +'" target="_blank" style="color: #888;text-decoration: underline;">'
+                                +(window.cnblogsConfig.GhVersions).substring(0,7)+'</a>');
 
         if (window.cnblogsConfig.themeAuthor && window.location.href.search("www.cnblogs.com/bndong") == -1 ) setTheme();
 
