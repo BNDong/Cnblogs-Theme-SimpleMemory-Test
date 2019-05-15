@@ -179,7 +179,7 @@ window.cnblogsConfigDefault = {
         right: "图标右侧文字"
     },
     consoleList: [],
-    themeAuthor: true,
+    themeAuthor: false,
 };
 
 window.cnblogsConfig = $.extend( true, window.cnblogsConfigDefault, window.cnblogsConfig );
