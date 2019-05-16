@@ -159,7 +159,7 @@ window.cnblogsConfigDefault = {
         animateSections: true
     },
     homeTopImg: [
-        "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg"
+        "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/src/images/home_top_bg.jpg"
     ],
     homeBannerText: "",
     essayTopImg: [
@@ -221,9 +221,20 @@ function getJsDelivrUrl(file, directory) {
 function setFileNameMin(file, directory) {
     if (typeof file == 'undefined') return '';
     var suffix  = null,fileArr = file.split('.');
-    if (fileArr.length > 0 && $.inArray(fileArr[(fileArr.length -1)], ['js', 'css']) != -1)
-    {suffix    = fileArr.pop(); directory = suffix;}
-    file.search('.min') == -1 && fileArr.push('min');
+    if (fileArr.length > 0 && $.inArray(fileArr[(fileArr.length -1)], ['js', 'css']) != -1) {
+        suffix = fileArr.pop();
+        switch (suffix) {
+            case 'js':directory = 'script';break;
+            case 'css':directory = 'style';break;
+        }
+    } else {
+        if (typeof directory == 'undefined') return '';
+        // switch (directory) {
+        //     case 'script':suffix = 'js';break;
+        //     case 'style':suffix = 'css';break;
+        // }
+    }
+    file.search('.min') === -1 && fileArr.push('min');
     suffix != null && fileArr.push(suffix);
-    return (typeof directory !== 'undefined' ? (directory + '/' + fileArr.join('.')) : (fileArr.join('.')));
+    return (typeof directory !== 'undefined' ? ('src/' + directory + '/' + fileArr.join('.')) : (fileArr.join('.')));
 }
