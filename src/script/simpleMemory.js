@@ -229,10 +229,10 @@ function setFileNameMin(file, directory) {
         }
     } else {
         if (typeof directory == 'undefined') return '';
-        // switch (directory) {
-        //     case 'script':suffix = 'js';break;
-        //     case 'style':suffix = 'css';break;
-        // }
+        switch (directory) {
+            case 'js':directory = 'script';break;
+            case 'css':directory = 'style';break;
+        }
     }
     file.search('.min') === -1 && fileArr.push('min');
     suffix != null && fileArr.push(suffix);
