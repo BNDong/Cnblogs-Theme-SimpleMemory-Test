@@ -21,3 +21,20 @@
 📖 本主题以阅读为核心，美化博客园的显示效果，提高用户体验。
 <br>🍰 基于博皮“SimpleMemor”进行的修改；[页面效果](https://www.cnblogs.com/bndong/)
 <br>🧀 支持响应，尺寸分别为：(1200px,∞px)，(960px,1200px]，(720px,960px]，(0px,720px]
+
+# Docs
+
+[v1.1.0](http://doc.dbnuo.org/cnblogs-theme-docs/v1.1.0/)
+
+[v1.0.0](http://doc.dbnuo.org/cnblogs-theme-docs/v1.0.0/)
+
+# contributors
+
+<a href="https://github.com/alessandrocyc" target="_blank">
+    <img src="https://avatars1.githubusercontent.com/u/43987494?s=460&amp;v=4" style="width: 50px;height: 50px;border-radius: 50%;margin: 0 10px;border: 5px solid #f9f9f9;">
+</a>
+
+<a href="https://github.com/ElderJames" target="_blank">
+    <img src="https://avatars3.githubusercontent.com/u/7550366?s=460&v=4" style="width: 50px;height: 50px;border-radius: 50%;margin: 0 10px;border: 5px solid #f9f9f9;">
+</a>
+
