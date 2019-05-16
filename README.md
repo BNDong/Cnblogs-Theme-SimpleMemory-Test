@@ -24,17 +24,16 @@
 
 # Docs
 
-[v1.1.0](http://doc.dbnuo.org/cnblogs-theme-docs/v1.1.0/)
-
-[v1.0.0](http://doc.dbnuo.org/cnblogs-theme-docs/v1.0.0/)
+- [v1.1.0](http://doc.dbnuo.org/cnblogs-theme-docs/v1.1.0/)
+- [v1.0.0](http://doc.dbnuo.org/cnblogs-theme-docs/v1.0.0/)
 
 # contributors
 
 <a href="https://github.com/alessandrocyc" target="_blank">
-    <img src="https://avatars1.githubusercontent.com/u/43987494?s=460&amp;v=4" style="width: 50px;height: 50px;border-radius: 50%;margin: 0 10px;border: 5px solid #f9f9f9;">
+    <img width=50 src="https://avatars1.githubusercontent.com/u/43987494?s=50&v=4" wi>
 </a>
 
 <a href="https://github.com/ElderJames" target="_blank">
-    <img src="https://avatars3.githubusercontent.com/u/7550366?s=460&v=4" style="width: 50px;height: 50px;border-radius: 50%;margin: 0 10px;border: 5px solid #f9f9f9;">
+    <img width=50 src="https://avatars3.githubusercontent.com/u/7550366?s=50&v=4">
 </a>
 
