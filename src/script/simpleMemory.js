@@ -18,13 +18,7 @@ if (initCheck()) {
         '            <!-- 导航 -->' +
         '            <div class="nav-title"></div>' +
         '            <div class="icon-list">' +
-        '                <ul>' +
-        '                    <li><a href="https://www.cnblogs.com/bndong/" target="_self">首页</a></li>' +
-        '                    <li><a href="https://msg.cnblogs.com/send/BNDong" target="_blank">联系</a></li>' +
-        '                    <li><a href="https://www.cnblogs.com/bndong/rss" target="_blank">订阅</a></li>' +
-        '                    <li><a href="https://i.cnblogs.com/" target="_blank">管理</a></li>' +
-        '                    <li><a href="https://github.com/BNDong" target="_blank">GitHub</a></li>' +
-        '                    <li><a href="https://www.cnblogs.com/" target="_blank">CNBlogs</a></li>' +
+        '                <ul id="m-nav-list">' +
         '                </ul>' +
         '            </div>' +
         '            <!-- 最新随笔 -->' +
@@ -85,6 +79,7 @@ if (initCheck()) {
         blogAvatar: "",
         blogStartDate: "2019-01-01",
         menuCustomList: {},
+        menuNavList: {},
         webpageTitleOnblur: "(oﾟvﾟ)ノ Hi",
         webpageTitleOnblurTimeOut: 500,
         webpageTitleFocus: "(*´∇｀*) 欢迎回来！",
@@ -180,9 +175,23 @@ if (initCheck()) {
         themeAuthor: false,
     };
 
-    $('#blog-news').prepend(sidebarHtml);
-
     window.cnblogsConfig = $.extend( true, window.cnblogsConfigDefault, window.cnblogsConfig );
+
+    // set sidebar html
+    var url = window.location.href,tmp = [];
+    tmp = url.split("/");
+    var user = tmp[3];
+    var navListHtml = '<li><a href="https://www.cnblogs.com/'+user+'/" target="_self">首页</a></li>' +
+    '<li><a href="https://msg.cnblogs.com/send/'+user+'" target="_blank">联系</a></li>' +
+    '<li><a href="https://www.cnblogs.com/'+user+'/rss" target="_blank">订阅</a></li>' +
+    '<li><a href="https://i.cnblogs.com/" target="_blank">管理</a></li>';
+
+    if (window.cnblogsConfig.menuNavList.length > 0) {
+        console.log('sss');
+    }
+
+    $('#blog-news').prepend(sidebarHtml);
+    $('#m-nav-list').append(navListHtml);
 
     // start cache
     $.ajaxSetup({cache: true});
