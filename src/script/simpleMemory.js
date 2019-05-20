@@ -74,12 +74,12 @@ if (initCheck()) {
     window.cnblogsConfigDefault = {
         GhUserName: 'BNDong',
         GhRepositories: 'Cnblogs-Theme-SimpleMemory',
-        GhVersions: 'v1.1.0',
+        GhVersions: 'v1.1.2',
         blogUser: "unconfigured",
         blogAvatar: "",
         blogStartDate: "2019-01-01",
         menuCustomList: {},
-        menuNavList: {},
+        menuNavList: [],
         webpageTitleOnblur: "(oﾟvﾟ)ノ Hi",
         webpageTitleOnblurTimeOut: 500,
         webpageTitleFocus: "(*´∇｀*) 欢迎回来！",
@@ -186,8 +186,11 @@ if (initCheck()) {
     '<li><a href="https://www.cnblogs.com/'+user+'/rss" target="_blank">订阅</a></li>' +
     '<li><a href="https://i.cnblogs.com/" target="_blank">管理</a></li>';
 
-    if (window.cnblogsConfig.menuNavList.length > 0) {
-        console.log('sss');
+    var menuNavList = window.cnblogsConfig.menuNavList;
+    if (menuNavList.length > 0) {
+        $.each(menuNavList, function (i) {
+            console.log(menuNavList[i]);
+        });
     }
 
     $('#blog-news').prepend(sidebarHtml);
