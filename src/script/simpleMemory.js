@@ -75,7 +75,7 @@ if (initCheck()) {
         GhUserName: 'BNDong',
         GhRepositories: 'Cnblogs-Theme-SimpleMemory',
         GhVersions: 'v1.1.2',
-        blogUser: "unconfigured",
+        blogUser: "",
         blogAvatar: "",
         blogStartDate: "2019-01-01",
         menuCustomList: {},
@@ -189,12 +189,15 @@ if (initCheck()) {
     var menuNavList = window.cnblogsConfig.menuNavList;
     if (menuNavList.length > 0) {
         $.each(menuNavList, function (i) {
-            console.log(menuNavList[i]);
+            navListHtml += '<li><a href="'+(menuNavList[i][1])+'" target="_blank">'+(menuNavList[i][0])+'</a></li>';
         });
     }
 
     $('#blog-news').prepend(sidebarHtml);
     $('#m-nav-list').append(navListHtml);
+
+    // set userName
+    if (window.cnblogsConfig.blogUser === "") window.cnblogsConfig.blogUser = user;
 
     // start cache
     $.ajaxSetup({cache: true});
