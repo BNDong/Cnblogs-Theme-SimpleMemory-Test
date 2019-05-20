@@ -242,7 +242,7 @@ function initCheck() {
     var baseStyle = $('#mobile-style').attr('href');
     if (typeof baseStyle != 'undefined') {
         var bt = baseStyle.split('/');
-        if($.inArray('SimpleMemory', bt) != -1) {
+        if($.inArray('SimpleMemory', bt) !== -1) {
             return true;
         }
     }
@@ -259,7 +259,7 @@ function getJsDelivrUrl(file, directory) {
 function setFileNameMin(file, directory) {
     if (typeof file == 'undefined') return '';
     var suffix  = null,fileArr = file.split('.');
-    if (fileArr.length > 0 && $.inArray(fileArr[(fileArr.length -1)], ['js', 'css']) != -1) {
+    if (fileArr.length > 0 && $.inArray(fileArr[(fileArr.length -1)], ['js', 'css']) !== -1) {
         suffix = fileArr.pop();
         switch (suffix) {
             case 'js':directory = 'script';break;
