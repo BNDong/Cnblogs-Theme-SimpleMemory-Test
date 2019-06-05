@@ -155,8 +155,9 @@ if (initCheck()) {
             "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg"
         ],
         homeBannerText: "",
+        homeBannerTextType: "jinrishici",
         essayTopImg: [
-            "https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-569548.png"
+            "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg"
         ],
         essayCodeHighlightingType: 'cnblogs',
         essayCodeHighlighting: '',

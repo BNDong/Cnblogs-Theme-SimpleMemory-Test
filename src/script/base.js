@@ -6,10 +6,10 @@
  **/
 function Base() {
 
-    var bndongJs    = this,
-        tools       = new myTools,
-        progressBar = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'), // 进度条
-        temScroll   = 0,  // 上一次页面滚动位置
+    const bndongJs    = this,
+          tools       = new myTools;
+      var progressBar = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'), // 进度条
+          temScroll   = 0,  // 上一次页面滚动位置
 
         /** 定时器 **/
         timeIds    = {
@@ -25,26 +25,23 @@ function Base() {
             setCnzzTId             : null, // 网站统计Cnzz设置定时器ID
             setAmazingTId          : null, // 网站统计Amazing设置定时器ID
             setCatalogTId          : null, // 文章目录设置定时器ID
-        }
-    ;
+        };
+
+//----------------------------------- 初始化 -----------------------------------------//
 
     /**
      * 初始化
      */
     this.init = function () {
-
-        // Loading前初始化
-        bndongJs.loadingBeforeInit();
-
-        // Loading结束
-        bndongJs.endLoading();
-
-        // Loading后初始化
-        bndongJs.loadingAfterInit();
+        bndongJs.loadingBeforeInit(); // Loading 前初始化
+        bndongJs.endLoading();        // Loading 结束
+        bndongJs.loadingAfterInit();  // Loading 后初始化
     };
 
+//----------------------------- Loading 前后逻辑处理 ----------------------------------//
+
     /**
-     * Loading前初始化
+     * Loading 前初始化
      */
     this.loadingBeforeInit = function () {
 
@@ -79,7 +76,7 @@ function Base() {
         $(window).resize( function() { bndongJs.resizeMonitor(); });
 
         // 更换网站图标
-        var linkObject  = document.createElement('link');
+        let linkObject  = document.createElement('link');
         linkObject.rel  = "shortcut icon";
         linkObject.href = window.cnblogsConfig.webpageIcon;
         document.getElementsByTagName("head")[0].appendChild(linkObject);
@@ -88,7 +85,7 @@ function Base() {
         bndongJs.addFooter();
 
         // 设置菜单侧边栏内容
-        var setMenuData = bndongJs.setMenuData();
+        let setMenuData = bndongJs.setMenuData();
         timeIds.setMenuIntroduceTId    = window.setInterval( setMenuData.setIntroduce, 1000 );
         timeIds.setMenuSidebarTId      = window.setInterval( setMenuData.setSidebar, 1000 );
         timeIds.setMenuToptagsTId      = window.setInterval( setMenuData.setToptags, 1000 );
@@ -113,6 +110,8 @@ function Base() {
         // 延时清除全部定时器
         setTimeout(bndongJs.clearIntervalAll, 30000);
     };
+
+//---------------------------------- 逻辑处理 --------------------------------------//
 
     /**
      * 清除全部定时器
@@ -174,8 +173,7 @@ function Base() {
     this.homeInit = function() {
 
         // 设置主页图片
-        var homeTopImg = window.cnblogsConfig.homeTopImg,
-            bgImg;
+        let homeTopImg = window.cnblogsConfig.homeTopImg, bgImg;
 
         homeTopImg.length > 0 ?
                 (homeTopImg.length > 1 ? bgImg = homeTopImg[tools.randomNum(0, homeTopImg.length - 1)] : bgImg = homeTopImg[0])
@@ -186,7 +184,9 @@ function Base() {
         });
 
         // 头图点击滚动到内容位置
-        $('.scroll-down').click(function () { var endScroll = $('#home').offset().top + 10; tools.actScroll(endScroll, 1000);});
+        $('.scroll-down').click(function () {
+            let endScroll;
+            endScroll = $('#home').offset().top + 10; tools.actScroll(endScroll, 1000);});
 
         // 设置右下角菜单
         timeIds.setHomeRightMenuTId = window.setInterval( bndongJs.addHomeRightMenu, 1000 );
@@ -207,7 +207,7 @@ function Base() {
     this.notHomeInit = function() {
 
         // 设置随笔标题
-        var sbTitle = $('#cb_post_title_url').text();
+        const sbTitle = $('#cb_post_title_url').text();
         $('.main-header-content').append('<h1 class="sb-title">'+sbTitle+'</h1>');
         $('.inner').css('max-width', '100vw');
 
@@ -217,13 +217,13 @@ function Base() {
         require(['baguetteBox', 'marvin', 'articleStatement'], function(baguetteBox) {
 
             // 设置图片点击查看
-            var cpb     = $('#cnblogs_post_body')
-                ,imgList = $('#cnblogs_post_body img');
+            const cpb     = $('#cnblogs_post_body')
+                 ,imgList = $('#cnblogs_post_body img');
 
             if (cpb.length > 0 && imgList.length > 0) {
                 $.each(imgList, function (i) {
-                    var tem = $(imgList[i]);
-                    var flg = tem.attr('id');
+                    let tem = $(imgList[i]);
+                    let flg = tem.attr('id');
                     if (typeof flg == 'undefined' && tem.outerWidth() > 50) {
                         tem.wrap("<a class='lightbox' href='"+tem.attr('src')+"'></a>");
                     }
@@ -248,9 +248,9 @@ function Base() {
      * 初始化文章目录插件位置
      */
     this.initCatalog = function() {
-        var sideToolbar = $('#sideToolbar');
+        const sideToolbar = $('#sideToolbar');
         if (sideToolbar.length > 0) {
-            var sideToolbarTop   = $('.main-header').outerHeight();
+            const sideToolbarTop = $('.main-header').outerHeight();
             sideToolbar.css('top', (sideToolbarTop + 20) + 'px');
             bndongJs.resizeMonitor();
             sideToolbar.fadeIn(300);
@@ -289,54 +289,63 @@ function Base() {
             '当你凝视深渊时，深渊也在凝视着你。',
             '有的人25岁就死了，只是到75岁才埋葬'
         ];
+        
+        switch (window.cnblogsConfig.homeBannerTextType) {
+            case "one":
+                // ===================  ONE . 每日一句  =================================
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://api.hibai.cn/api/index/index",
+                    "method": "POST",
+                    "headers": {
+                        "content-type": "application/x-www-form-urlencoded",
+                    },
+                    "data": {
+                        "TransCode": "030111",
+                        "OpenId": "123456789",
+                        "Body": ""
+                    }
+                };
 
-        // ===================  ONE . 每日一句  =================================
-        // var settings = {
-        //     "async": true,
-        //     "crossDomain": true,
-        //     "url": "https://api.hibai.cn/api/index/index",
-        //     "method": "POST",
-        //     "headers": {
-        //         "content-type": "application/x-www-form-urlencoded",
-        //     },
-        //     "data": {
-        //         "TransCode": "030111",
-        //         "OpenId": "123456789",
-        //         "Body": ""
-        //     }
-        // };
-        //
-        // $.ajax(settings).done(function (response) {
-        //     if (response.ResultCode == 1) {
-        //         $('#hitokoto').text(response.Body.word).css('display', '-webkit-box');
-        //         $('#hitokotoAuthor').text('- '+response.Body.word_from).show();
-        //     } else {
-        //         var listIndex = tools.randomNum(0, topTitleList.length - 1);
-        //         $('#hitokoto').text(topTitleList[listIndex]).css('display', '-webkit-box');
-        //     }
-        //     bndongJs.setDomHomePosition();
-        //     return false;
-        // });
+                $.ajax(settings).done(function (response) {
+                    if (response.ResultCode == 1) {
+                        $('#hitokoto').text(response.Body.word).css('display', '-webkit-box');
+                        $('#hitokotoAuthor').text('- '+response.Body.word_from).show();
+                    } else {
+                        var listIndex = tools.randomNum(0, topTitleList.length - 1);
+                        $('#hitokoto').text(topTitleList[listIndex]).css('display', '-webkit-box');
+                    }
+                    bndongJs.setDomHomePosition();
+                    return false;
+                });
 
-        // ===================  今日诗词  =================================
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://v2.jinrishici.com/one.json",
-            "method": "GET"
-        };
 
-        $.ajax(settings).done(function (response) {
-            if (response && response.status == "success") {
-                $('#hitokoto').text(response.data.content).css('display', '-webkit-box');
-                $('#hitokotoAuthor').text('《'+response.data.origin.title+'》 - '+response.data.origin.dynasty+' - '+response.data.origin.author).show();
-            } else {
-                var listIndex = tools.randomNum(0, topTitleList.length - 1);
-                $('#hitokoto').text(topTitleList[listIndex]).css('display', '-webkit-box');
-            }
-            bndongJs.setDomHomePosition();
-            return false;
-        });
+                break;
+
+            case "jinrishici":
+            default:
+                // ===================  今日诗词  =================================
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://v2.jinrishici.com/one.json",
+                    "method": "GET"
+                };
+
+                $.ajax(settings).done(function (response) {
+                    if (response && response.status == "success") {
+                        $('#hitokoto').text(response.data.content).css('display', '-webkit-box');
+                        $('#hitokotoAuthor').text('《'+response.data.origin.title+'》 - '+response.data.origin.dynasty+' - '+response.data.origin.author).show();
+                    } else {
+                        var listIndex = tools.randomNum(0, topTitleList.length - 1);
+                        $('#hitokoto').text(topTitleList[listIndex]).css('display', '-webkit-box');
+                    }
+                    bndongJs.setDomHomePosition();
+                    return false;
+                });
+                break;
+        }
     };
 
     /**
@@ -927,7 +936,7 @@ function Base() {
      * 添加主页右下角菜单
      */
     this.addHomeRightMenu = function() {
-        var rightMenu = $('#rightMenu');
+        const rightMenu = $('#rightMenu');
         if (rightMenu.length > 0) {
 
             // 添加上下滚动

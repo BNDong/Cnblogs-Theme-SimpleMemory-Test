@@ -3379,6 +3379,7 @@ blockquote p {
     bottom: 10px;
     right: 10px;
     min-width: 24px;
+    z-index: 1;
 }
 
 #rightMenu i {
