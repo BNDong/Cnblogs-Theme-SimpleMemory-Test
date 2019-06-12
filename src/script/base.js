@@ -736,7 +736,7 @@ function Base() {
 
         // 设置随笔标题
         const sbTitle = $('#cb_post_title_url').text();
-        $('.main-header-content').append('<h1 class="sb-title">'+sbTitle+'</h1>');
+        $('#sbTitle').text(sbTitle);
         $('.inner').css('max-width', '100vw');
 
         // 设置文章信息
@@ -759,7 +759,7 @@ function Base() {
      * 设置文章信息-作者
      */
     this.setArticleInfoAuthor = function () {
-        const date = $('#post-date');
+        const date = $('#post-date').text();
         var articleAuthor = $('#articleAuthor').val();
         var author = '';
         if (articleAuthor != undefined) {
@@ -768,7 +768,7 @@ function Base() {
             author = window.cnblogsConfig.blogUser;
         }
         var str = 'Posted by ' + author + ' on ' + date;
-        $('#articleInfo').append('<p>'+str+'</p>');
+        $('#articleInfo').append('<p class="article-info-text">'+str+'</p>');
     };
 
     /**
