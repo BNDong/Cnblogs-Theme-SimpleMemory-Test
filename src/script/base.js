@@ -781,7 +781,7 @@ function Base() {
                 var tag = $(obj[i]);
                 $('#articleInfo').append('<span class="article-info-tag article-tag-class-color">'+(tag.text())+'</span>');
             });
-            bndongJs.clearIntervalTimeId(timeIds.blogPostCategoryTId);
+            bndongJs.clearIntervalTimeId(timeIds.entryTagTId);
         }
     };
 
