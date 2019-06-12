@@ -777,9 +777,9 @@ function Base() {
     this.setArticleInfoClass = function () {
         var obj = $('#BlogPostCategory').find('a');
         if (obj.length > 0) {
-            $.each(function (i) {
+            $.each(obj, function (i) {
                 var tag = $(obj[i]);
-                $('#articleInfo').append('<span class="article-info-tag">'+(tag.text())+'</span>');
+                $('#articleInfo').append('<span class="article-info-tag article-tag-class-color">'+(tag.text())+'</span>');
             });
             bndongJs.clearIntervalTimeId(timeIds.blogPostCategoryTId);
         }
