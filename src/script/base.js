@@ -789,7 +789,14 @@ function Base() {
      * 设置文章信息-标签
      */
     this.setArticleInfoTag = function () {
-        bndongJs.clearIntervalTimeId(timeIds.blogPostCategoryTId);
+        var obj = $('#EntryTag').find('a');
+        if (obj.length > 0) {
+            $.each(obj, function (i) {
+                var tag = $(obj[i]);
+                $('#articleInfo').append('<span class="article-info-tag article-tag-color">'+(tag.text())+'</span>');
+            });
+            bndongJs.clearIntervalTimeId(timeIds.blogPostCategoryTId);
+        }
     };
 
     /**
