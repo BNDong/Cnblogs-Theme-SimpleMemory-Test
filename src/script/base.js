@@ -775,7 +775,14 @@ function Base() {
      * 设置文章信息-分类
      */
     this.setArticleInfoClass = function () {
-        bndongJs.clearIntervalTimeId(timeIds.blogPostCategoryTId);
+        var obj = $('#BlogPostCategory').find('a');
+        if (obj.length > 0) {
+            $.each(function (i) {
+                var tag = $(obj[i]);
+                $('#articleInfo').append('<span class="article-info-tag">'+(tag.text())+'</span>');
+            });
+            bndongJs.clearIntervalTimeId(timeIds.blogPostCategoryTId);
+        }
     };
 
     /**
