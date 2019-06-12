@@ -759,21 +759,30 @@ function Base() {
      * 设置文章信息-作者
      */
     this.setArticleInfoAuthor = function () {
-
+        const date = $('#post-date');
+        var articleAuthor = $('#articleAuthor').val();
+        var author = '';
+        if (articleAuthor != undefined) {
+            author = articleAuthor;
+        } else {
+            author = window.cnblogsConfig.blogUser;
+        }
+        var str = 'Posted by ' + author + ' on ' + date;
+        $('#articleInfo').append('<p>'+str+'</p>');
     };
 
     /**
      * 设置文章信息-分类
      */
     this.setArticleInfoClass = function () {
-
+        bndongJs.clearIntervalTimeId(timeIds.blogPostCategoryTId);
     };
 
     /**
      * 设置文章信息-标签
      */
     this.setArticleInfoTag = function () {
-
+        bndongJs.clearIntervalTimeId(timeIds.blogPostCategoryTId);
     };
 
     /**
