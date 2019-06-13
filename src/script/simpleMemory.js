@@ -171,8 +171,8 @@ if (initCheck()) {
         bottomBlogroll: [],
         bottomText: {
             icon: "❤️",
-            left: "图标左侧文字",
-            right: "图标右侧文字"
+            left: "",
+            right: ""
         },
         consoleList: [],
         themeAuthor: false,

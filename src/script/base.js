@@ -498,34 +498,42 @@ function Base() {
      * 添加页脚
      */
     this.addFooter = function() {
-        var footer = $('#footer'),
-            pvHtml =
-                '<div>【'+window.cnblogsConfig.bottomText.left+'<span id="footerTextIcon">'+window.cnblogsConfig.bottomText.icon+'</span>'+window.cnblogsConfig.bottomText.right+'】</div>' +
-                "<div><span id='blogRunTimeSpan'></span><span class='my-face'>ღゝ◡╹)ノ♡</span></div>" +
-                '<div id="blogrollInfo"></div>' +
-                '<div id="cnzzInfo"></div>',
-            bgFooter = '<footer>' +
-                '<footer-background>' +
-                '<figure class="clouds"></figure>' +
-                '<figure class="background"></figure>' +
-                '<figure class="foreground"></figure>' +
-                '<figure class="poof"></figure>' +
-                '</footer-background>' +
-                '</footer>',
-            rHref = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
+        const footer = $('#footer');
+        var pvHtml = '';
+
+        // 页脚title
+        if (window.cnblogsConfig.bottomText.left || window.cnblogsConfig.bottomText.right) {
+            pvHtml += '<div>【'+window.cnblogsConfig.bottomText.left+'<span id="footerTextIcon">'+window.cnblogsConfig.bottomText.icon+'</span>'+window.cnblogsConfig.bottomText.right+'】</div>';
+        }
+
+        pvHtml +=
+            "<div><span id='blogRunTimeSpan'></span><span class='my-face'>ღゝ◡╹)ノ♡</span></div>" +
+            '<div id="blogrollInfo"></div>' +
+            '<div id="cnzzInfo"></div>';
+
+        var bgFooter = '<footer>' +
+            '<footer-background>' +
+            '<figure class="clouds"></figure>' +
+            '<figure class="background"></figure>' +
+            '<figure class="foreground"></figure>' +
+            '<figure class="poof"></figure>' +
+            '</footer-background>' +
+            '</footer>',
+        rHref = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
+
+        // 添加页脚
         footer.prepend(pvHtml).prepend(bgFooter).append(' / ThemeVersion: <a href="'+rHref
             +'" target="_blank" style="color: #888;text-decoration: underline;">'
             +(window.cnblogsConfig.GhVersions).substring(0,7)+'</a>');
 
-        if (window.cnblogsConfig.themeAuthor && window.location.href.search("www.cnblogs.com/bndong") == -1 ) setTheme();
-
+        if (window.cnblogsConfig.themeAuthor && window.location.href.search("www.cnblogs.com/bndong") === -1 ) setTheme();
         window.setInterval( setRunTime, 500 );
         setBlogroll();
-        timeIds.setCnzzTId    = window.setInterval( setCnzz, 1000 );
+        timeIds.setCnzzTId = window.setInterval( setCnzz, 1000 );
 
         function setRunTime() {
             var str = window.cnblogsConfig.blogStartDate;
-            str = str ? str : '2016-11-17';
+            str = str ? str : '2019-01-01';
             var runDate = tools.getRunDate(str);
             $('#blogRunTimeSpan').text('This blog has running : '+runDate.daysold+' d '+runDate.hrsold+' h '+runDate.minsold+' m '+runDate.seconds+' s');
         }
