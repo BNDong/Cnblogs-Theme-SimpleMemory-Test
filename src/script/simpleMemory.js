@@ -209,9 +209,9 @@ if (initCheck()) {
         $.getScript(getJsDelivrUrl('require.min.js'), function () {
             $.getScript(getJsDelivrUrl('config.js'), function () {
                 var staticResource = [
-                    'optiscroll',
-                    'ToProgress',
-                    'rotate',
+                    // 'optiscroll',
+                    // 'ToProgress',
+                    // 'rotate',
                     // 'snapSvg',
                     // 'classie',
                     // 'main4',
