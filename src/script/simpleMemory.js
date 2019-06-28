@@ -212,10 +212,10 @@ if (initCheck()) {
                     'optiscroll',
                     'ToProgress',
                     'rotate',
-                    'snapSvg',
-                    'classie',
-                    'main4',
-                    'tools'
+                    // 'snapSvg',
+                    // 'classie',
+                    // 'main4',
+                    // 'tools'
                 ];
                 require(staticResource, function() {
                     // require(['base'], function() {
