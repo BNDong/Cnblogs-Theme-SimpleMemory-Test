@@ -6,6 +6,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/issues)
 [![GitHub forks](https://img.shields.io/github/forks/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/network)
 [![GitHub stars](https://img.shields.io/github/stars/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/stargazers)
+[![](https://data.jsdelivr.com/v1/package/gh/BNDong/Cnblogs-Theme-SimpleMemory/badge)](https://www.jsdelivr.com/package/gh/BNDong/Cnblogs-Theme-SimpleMemory)
 
 [![GitHub contributors](https://img.shields.io/github/contributors/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/graphs/contributors)
 [![GitHub last commit](https://img.shields.io/github/last-commit/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master)
