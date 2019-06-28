@@ -209,12 +209,18 @@ if (initCheck()) {
         $.getScript(getJsDelivrUrl('require.min.js'), function () {
             $.getScript(getJsDelivrUrl('config.js'), function () {
                 var staticResource = [
-                    'optiscroll', 'ToProgress', 'rotate',
-                    'snapSvg', 'classie', 'main4', 'tools'];
+                    'optiscroll',
+                    'ToProgress',
+                    'rotate',
+                    'snapSvg',
+                    'classie',
+                    'main4',
+                    'tools'
+                ];
                 require(staticResource, function() {
-                    require(['base'], function() {
-                        (new Base).init();
-                    });
+                    // require(['base'], function() {
+                    //     (new Base).init();
+                    // });
                 });
             });
         });
