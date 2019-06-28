@@ -254,6 +254,7 @@ function initCheck() {
 
 // get file url
 function getJsDelivrUrl(file, directory) {
+    console.log(file);
     file = setFileNameMin(file, directory);
     return 'https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/' + (file ? file : '');
 }
