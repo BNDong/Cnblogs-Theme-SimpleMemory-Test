@@ -205,50 +205,29 @@ if (initCheck()) {
     // start cache
     $.ajaxSetup({cache: true});
 
-    $.getScript(getJsDelivrUrl('jquery.mCustomScrollbar.min.js'), function () {
-        $.getScript(getJsDelivrUrl('require.min.js'), function () {
-            $.getScript(getJsDelivrUrl('config.js'), function () {
-                var staticResource = [
-                    // 'optiscroll',
-                    'ToProgress',
-                    // 'rotate',
-                    // 'snapSvg',
-                    // 'classie',
-                    // 'main4',
-                    // 'tools'
-                ];
-                require(staticResource, function() {
-                    // require(['base'], function() {
-                    //     (new Base).init();
-                    // });
+    // load loadingJs
+    $.getScript(getJsDelivrUrl('loading.js'), function () {
+
+        // Loading start
+        pageLoading.initRebound();
+        pageLoading.initSpinner();
+        pageLoading.spinner.init(pageLoading.spring, true);
+
+        $.getScript(getJsDelivrUrl('jquery.mCustomScrollbar.min.js'), function () {
+            $.getScript(getJsDelivrUrl('require.min.js'), function () {
+                $.getScript(getJsDelivrUrl('config.js'), function () {
+                    var staticResource = [
+                        'optiscroll', 'ToProgress', 'rotate',
+                        'snapSvg', 'classie', 'main4', 'tools'];
+                    require(staticResource, function() {
+                        require(['base'], function() {
+                            (new Base).init();
+                        });
+                    });
                 });
             });
         });
     });
-
-    // load loadingJs
-    // $.getScript(getJsDelivrUrl('loading.js'), function () {
-    //
-    //     // Loading start
-    //     pageLoading.initRebound();
-    //     pageLoading.initSpinner();
-    //     pageLoading.spinner.init(pageLoading.spring, true);
-    //
-    //     $.getScript(getJsDelivrUrl('jquery.mCustomScrollbar.min.js'), function () {
-    //         $.getScript(getJsDelivrUrl('require.min.js'), function () {
-    //             $.getScript(getJsDelivrUrl('config.js'), function () {
-    //                 var staticResource = [
-    //                     'optiscroll', 'ToProgress', 'rotate',
-    //                     'snapSvg', 'classie', 'main4', 'tools'];
-    //                 require(staticResource, function() {
-    //                     require(['base'], function() {
-    //                         (new Base).init();
-    //                     });
-    //                 });
-    //             });
-    //         });
-    //     });
-    // });
 } else {
     $('a[name="top"]').text("SimpleMemory：基础配置有误，请阅读文档，检查配置！").css({
         'display': 'block',
@@ -275,8 +254,6 @@ function initCheck() {
 
 // get file url
 function getJsDelivrUrl(file, directory) {
-    console.log(file);
-    console.log(directory);
     file = setFileNameMin(file, directory);
     return 'https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/' + (file ? file : '');
 }
