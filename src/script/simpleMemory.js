@@ -210,7 +210,7 @@ if (initCheck()) {
             $.getScript(getJsDelivrUrl('config.js'), function () {
                 var staticResource = [
                     'optiscroll',
-                    'ToProgress',
+                    // 'ToProgress',
                     // 'rotate',
                     // 'snapSvg',
                     // 'classie',
