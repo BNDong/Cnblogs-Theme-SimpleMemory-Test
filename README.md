@@ -3,12 +3,12 @@
 <img src="./img/logo.png" height="150" />
 
 [![GitHub release](https://img.shields.io/github/release/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/releases)
+[![GitHub issues](https://img.shields.io/github/issues/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/issues)
 [![GitHub forks](https://img.shields.io/github/forks/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/network)
 [![GitHub stars](https://img.shields.io/github/stars/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/stargazers)
-[![](https://data.jsdelivr.com/v1/package/gh/BNDong/Cnblogs-Theme-SimpleMemory/badge?style=rounded)](https://www.jsdelivr.com/package/gh/BNDong/Cnblogs-Theme-SimpleMemory)
 
+[![](https://data.jsdelivr.com/v1/package/gh/BNDong/Cnblogs-Theme-SimpleMemory/badge?style=rounded)](https://www.jsdelivr.com/package/gh/BNDong/Cnblogs-Theme-SimpleMemory)
 [![GitHub contributors](https://img.shields.io/github/contributors/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/graphs/contributors)
-[![GitHub issues](https://img.shields.io/github/issues/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/issues)
 [![GitHub last commit](https://img.shields.io/github/last-commit/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master)
 [![GitHub license](https://img.shields.io/github/license/esofar/cnblogs-theme-silence.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/blob/master/LICENSE)
 
