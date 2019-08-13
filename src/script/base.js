@@ -374,7 +374,7 @@ function Base() {
      */
     this.setMenuData = function() {
         var introduceHtml    = $('#profile_block').html(),        // 个人信息
-            sidebarSearch    = $('#sidebar_search'),              // 找找看
+            sidebarSearch    = $('#sidebar_search_box'),          // 找找看
             sidebar          = $('#sidebar_recentposts ul li'),   // 最新随笔
             toptags          = $('#sidebar_toptags ul li'),       // 我的标签
             sbClassify       = $('#sidebar_postcategory ul li'),  // 随笔分类
