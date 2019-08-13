@@ -901,15 +901,20 @@ function Base() {
 
         // 设置代码复制
         function setCopyBtn() {
-            var copyHtml = '<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="background-color: rgb(246, 248, 250);"><a href="javascript:void(0);" style="z-index: 1;" onclick="copyCnblogsCode(this)" title="复制代码"><i class="iconfont icon-code5" style="color: #999;"></i></a></span></div>',
-                cnCode   = $('div.cnblogs_code');
+            var sCopyHtml = '<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="background-color: rgb(246, 248, 250);">',
+                eCopyHtml = '<i class="iconfont icon-code5" style="color: #999;"></i></a></span></div>',
+                cnCode    = $('div.cnblogs_code');
             cnCode.each(function (i) {
                 var obj = $(cnCode[i]);
-                if (obj.find('.cnblogs_code_toolbar').length === 0 && (obj.height() > 90 || obj.find('.code_img_closed').length > 0)) {
-                    obj.append(copyHtml);
+                var copyHtml = '';
+                obj.find('.cnblogs_code_toolbar').remove();
+                if (obj.find('.code_img_closed').length > 0) {
+                    copyHtml = sCopyHtml + '<a href="javascript:void(0);" style="z-index: 1;" onclick="copyCnblogsCode(this)" title="复制代码">' + eCopyHtml;
+                } else if (obj.height() > 90) {
+                    copyHtml = sCopyHtml + '<a href="javascript:void(0);" style="z-index: 1; top: 30px;" onclick="copyCnblogsCode(this)" title="复制代码">' + eCopyHtml;
                 }
+                obj.append(copyHtml);
             });
-
         }
 
         // 使用博客园代码样式
