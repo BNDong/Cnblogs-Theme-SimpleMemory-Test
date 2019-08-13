@@ -10,7 +10,7 @@ $(document).ready(function () {
     ch1 = s.find('h1');
     ch2 = s.find('h2');
 
-    if (ch1.length > 0) {
+    if (ch1.length > 1) {
         for (var i = 0; i < ch1.length; i++) {
             var th1 = $(ch1[i]);
             th1.wrap('<span title-type="h1" class="header__span"></span>');
@@ -34,7 +34,7 @@ $(document).ready(function () {
         }
     }
 
-    if (ch1.length > 0 && ch2.length > 0) {
+    if (ch1.length > 1 && ch2.length > 0) {
         var num  = 0;
         var last = 0;
         for (i = 0; i < ch2.length; i++) {
