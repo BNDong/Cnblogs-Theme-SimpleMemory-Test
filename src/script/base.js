@@ -499,7 +499,7 @@ function Base() {
      */
     this.addFooter = function() {
         const footer = $('#footer');
-        var pvHtml = '';
+        var   pvHtml = '';
 
         // 页脚title
         if (window.cnblogsConfig.bottomText.left || window.cnblogsConfig.bottomText.right) {
@@ -880,7 +880,7 @@ function Base() {
     };
 
     /**
-     * 设置代码高亮
+     * 设置代码
      */
     this.setCodeHighlighting = function () {
         var pre       = $('pre'),
@@ -897,6 +897,20 @@ function Base() {
             default: cnblogsCode(); break;
         }
         setScrollbarStyle();
+        setCopyBtn();
+
+        // 设置代码复制
+        var copyHtml = '<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="background-color: rgb(246, 248, 250);"><a href="javascript:void(0);" style="z-index: 1;" onclick="copyCnblogsCode(this)" title="复制代码"><i class="iconfont icon-code5" style="color: #999;"></i></a></span></div>';
+        function setCopyBtn() {
+            var cnCode = $('div.cnblogs_code');
+            cnCode.each(function (i) {
+                var obj = $(cnCode[i]);
+                if (obj.find('.cnblogs_code_toolbar').length === 0) {
+                    obj.append(copyHtml);
+                }
+            });
+
+        }
 
         // 使用博客园代码样式
         function cnblogsCode() {
