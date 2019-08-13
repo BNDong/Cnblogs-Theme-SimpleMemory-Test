@@ -4121,6 +4121,50 @@ a#green_channel_wechat {
 }
 
 /* ==========================================================================
+   文章后缀
+   ========================================================================== */
+.essaySuffix-eof {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    color: #ddd;
+    text-indent: 0;
+}
+
+.essaySuffix-box {
+    font-family: Microsoft YaHei, 微软雅黑, MicrosoftJhengHei, 华文细黑, STHeiti, MingLiu;
+    font-size: 14px;
+    background: hsl(220, 23%, 98%) !important;
+    padding: 17px;
+    border: 1px solid hsl(220, 16%, 94%) !important;
+    border-radius: 3px;
+    color: #414857;
+    text-indent: 0;
+}
+
+.essaySuffix-box-left {
+    width: 15%;
+    float: left;
+}
+
+.essaySuffix-box-left img {
+    width: 80%;
+    max-height: 80%;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.essaySuffix-box-right {
+    width: 85%;
+    float: right;
+}
+
+.essaySuffix-right-title {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* ==========================================================================
    Media Queries - Smaller than 1200px
    ========================================================================== */
 
