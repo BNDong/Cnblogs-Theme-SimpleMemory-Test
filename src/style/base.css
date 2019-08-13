@@ -4240,12 +4240,8 @@ a#green_channel_wechat {
         display: none;
     }
 
-    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas {
+    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas, .essaySuffix-box-left {
         display: none !important;
-    }
-
-    .essaySuffix-box-left {
-        display: none;
     }
 
     .essaySuffix-box-right {
@@ -4312,13 +4308,9 @@ a#green_channel_wechat {
     }
 
     #pageAnimationOffOn, #sideToolbar, #music-box, .scroll-down, #evanyou, #canvas, body>meting-js, #aplayer,
-    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas
+    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas, .essaySuffix-box-left
     {
         display: none !important;
-    }
-
-    .essaySuffix-box-left {
-        display: none;
     }
 
     .essaySuffix-box-right {

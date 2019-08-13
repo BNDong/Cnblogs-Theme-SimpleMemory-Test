@@ -100,6 +100,6 @@ $(document).ready(function(){
     bottom_html += '</div>';
     bottom_html += '<div style="clear: both;"></div>';
     bottom_html += '</div>';
-console.log(bottom_html);
+
     $("#cnblogs_post_body").append(bottom_html);
 });
