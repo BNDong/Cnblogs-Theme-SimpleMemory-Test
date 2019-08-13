@@ -14,6 +14,7 @@ function Base() {
         /** 定时器 **/
         timeIds    = {
             setMenuIntroduceTId    : null, // 菜单设置-个人信息定时器ID
+            setSidebarSearchTId    : null, // 菜单设置-找找看定时器ID
             setMenuSidebarTId      : null, // 菜单设置-最新随笔定时器ID
             setMenuToptagsTId      : null, // 菜单设置-我的标签定时器ID
             setMenuClassifyTId     : null, // 菜单设置-随笔分类定时器ID
@@ -89,6 +90,7 @@ function Base() {
         // 设置菜单侧边栏内容
         let setMenuData = bndongJs.setMenuData();
         timeIds.setMenuIntroduceTId    = window.setInterval( setMenuData.setIntroduce, 1000 );
+        timeIds.setSidebarSearchTId    = window.setInterval( setMenuData.setSidebarSearch, 1000 );
         timeIds.setMenuSidebarTId      = window.setInterval( setMenuData.setSidebar, 1000 );
         timeIds.setMenuToptagsTId      = window.setInterval( setMenuData.setToptags, 1000 );
         timeIds.setMenuClassifyTId     = window.setInterval( setMenuData.setClassify, 1000 );
@@ -372,6 +374,7 @@ function Base() {
      */
     this.setMenuData = function() {
         var introduceHtml    = $('#profile_block').html(),        // 个人信息
+            sidebarSearch    = $('#sidebar_search'),              // 找找看
             sidebar          = $('#sidebar_recentposts ul li'),   // 最新随笔
             toptags          = $('#sidebar_toptags ul li'),       // 我的标签
             sbClassify       = $('#sidebar_postcategory ul li'),  // 随笔分类
@@ -379,6 +382,7 @@ function Base() {
             sbTopview        = $('#TopViewPostsBlock ul li'),     // 阅读排行
             topDiggPosts     = $('#TopDiggPostsBlock ul li'),     // 推荐排行
             menuIntroduce    = $('#introduce'),
+            menuSearchBox    = $('#sb-sidebarSearchBox'),
             menuSidebar      = $('#sb-sidebarRecentposts'),
             menuToptags      = $('#sb-toptags'),
             menuClassify     = $('#sb-classify'),
@@ -391,6 +395,14 @@ function Base() {
             if ((typeof introduceHtml == 'string') && menuIntroduce.html() === '') {
                 menuIntroduce.html(tools.htmlFiltrationScript(introduceHtml));
                 bndongJs.clearIntervalTimeId(timeIds.setMenuIntroduceTId);
+            }
+        }
+
+        // 添加找找看
+        function setSidebarSearch() {
+            if (sidebarSearch.length > 0 && menuSearchBox.html() === ''){
+                menuSearchBox.html('<div id="sb_widget_my_zzk" class="div_my_zzk"><input id="q" type="text" onkeydown="return zzk_go_enter(event);" class="input_my_zzk"></div>').prev('.m-list-title').show();
+                bndongJs.clearIntervalTimeId(timeIds.setSidebarSearchTId);
             }
         }
 
@@ -478,6 +490,7 @@ function Base() {
         }
 
         return {
+            setSidebarSearch: setSidebarSearch,
             setIntroduce: setIntroduce,
             setSidebar: setSidebar,
             setToptags: setToptags,

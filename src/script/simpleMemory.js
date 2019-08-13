@@ -22,8 +22,8 @@ if (initCheck()) {
         '                </ul>' +
         '            </div>' +
         '            <!-- 找找看 -->' +
-        '            <div class="m-list-title" style="display: block;"><span>找找看</span></div>' +
-        '            <div class="m-icon-list" id="sb-sidebarSearchBox"><div id="sb_widget_my_zzk" class="div_my_zzk"><input id="q" type="text" onkeydown="return zzk_go_enter(event);" class="input_my_zzk"></div></div>' +
+        '            <div class="m-list-title"><span>找找看</span></div>' +
+        '            <div class="m-icon-list" id="sb-sidebarSearchBox"></div>' +
         '            <!-- 最新随笔 -->' +
         '            <div class="m-list-title"><span>最新随笔</span></div>' +
         '            <div class="m-icon-list" id="sb-sidebarRecentposts"></div>' +
