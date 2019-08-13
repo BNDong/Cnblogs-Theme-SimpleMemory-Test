@@ -929,7 +929,7 @@ function Base() {
 
         // 使用 highlightjs 代码样式
         function highlightjsCode() {
-            tools.dynamicLoadingCss('https://highlightjs.org/static/demo/styles/'+hltheme+'.css');
+            tools.dynamicLoadingCss('https://cdn.bootcss.com/highlight.js/9.15.9/styles/'+hltheme+'.min.css');
             setCodeBefore();
             require(['highlightjs'], function() {
                 $('pre').each(function(i, block) {
