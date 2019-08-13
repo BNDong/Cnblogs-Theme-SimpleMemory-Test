@@ -909,9 +909,9 @@ function Base() {
                 var copyHtml = '';
                 obj.find('.cnblogs_code_toolbar').remove();
                 if (obj.find('.code_img_closed').length > 0) {
-                    copyHtml = sCopyHtml + '<a href="javascript:void(0);" style="z-index: 1;" onclick="copyCnblogsCode(this)" title="复制代码">' + eCopyHtml;
-                } else if (obj.height() > 90) {
                     copyHtml = sCopyHtml + '<a href="javascript:void(0);" style="z-index: 1; top: 30px;" onclick="copyCnblogsCode(this)" title="复制代码">' + eCopyHtml;
+                } else if (obj.height() > 90) {
+                    copyHtml = sCopyHtml + '<a href="javascript:void(0);" style="z-index: 1;" onclick="copyCnblogsCode(this)" title="复制代码">' + eCopyHtml;
                 }
                 obj.append(copyHtml);
             });
