@@ -167,6 +167,7 @@ if (initCheck()) {
         essayCodeHighlightingType: 'cnblogs',
         essayCodeHighlighting: '',
         essaySuffix: {
+            codeImgUrl: '',
             aboutHtml: '',
             copyrightHtml: '',
             supportHtml: ''

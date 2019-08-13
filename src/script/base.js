@@ -490,8 +490,8 @@ function Base() {
         }
 
         return {
-            setSidebarSearch: setSidebarSearch,
             setIntroduce: setIntroduce,
+            setSidebarSearch: setSidebarSearch,
             setSidebar: setSidebar,
             setToptags: setToptags,
             setClassify: setClassify,
