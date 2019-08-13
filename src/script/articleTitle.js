@@ -4,9 +4,9 @@ $(document).ready(function () {
         ch1,
         ch2,
         s = $('#' + cparent);
-    if (s.length === 0) {
-        return
-    }
+
+    if (s.length === 0) return;
+
     ch1 = s.find('h1');
     ch2 = s.find('h2');
 
@@ -34,7 +34,7 @@ $(document).ready(function () {
         }
     }
 
-    if (ch2.length > 0) {
+    if (ch1.length > 0 && ch2.length > 0) {
         var num  = 0;
         var last = 0;
         for (i = 0; i < ch2.length; i++) {
