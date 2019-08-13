@@ -905,7 +905,7 @@ function Base() {
                 cnCode   = $('div.cnblogs_code');
             cnCode.each(function (i) {
                 var obj = $(cnCode[i]);
-                if (obj.find('.cnblogs_code_toolbar').length === 0 && obj.height() > 90) {
+                if (obj.find('.cnblogs_code_toolbar').length === 0 && (obj.height() > 90 || obj.find('.code_img_closed').length > 0)) {
                     obj.append(copyHtml);
                 }
             });
