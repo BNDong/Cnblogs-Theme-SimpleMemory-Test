@@ -4243,6 +4243,14 @@ a#green_channel_wechat {
     #homeTopCanvas, #notHomeTopCanvas, #bgCanvas {
         display: none !important;
     }
+
+    .essaySuffix-box-left {
+        display: none;
+    }
+
+    .essaySuffix-box-right {
+        width: 100%;
+    }
 }
 
 /* ==========================================================================
@@ -4307,5 +4315,13 @@ a#green_channel_wechat {
     #homeTopCanvas, #notHomeTopCanvas, #bgCanvas
     {
         display: none !important;
+    }
+
+    .essaySuffix-box-left {
+        display: none;
+    }
+
+    .essaySuffix-box-right {
+        width: 100%;
     }
 }
