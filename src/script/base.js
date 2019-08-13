@@ -900,9 +900,9 @@ function Base() {
         setCopyBtn();
 
         // 设置代码复制
-        var copyHtml = '<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="background-color: rgb(246, 248, 250);"><a href="javascript:void(0);" style="z-index: 1;" onclick="copyCnblogsCode(this)" title="复制代码"><i class="iconfont icon-code5" style="color: #999;"></i></a></span></div>';
         function setCopyBtn() {
-            var cnCode = $('div.cnblogs_code');
+            var copyHtml = '<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="background-color: rgb(246, 248, 250);"><a href="javascript:void(0);" style="z-index: 1;" onclick="copyCnblogsCode(this)" title="复制代码"><i class="iconfont icon-code5" style="color: #999;"></i></a></span></div>',
+                cnCode   = $('div.cnblogs_code');
             cnCode.each(function (i) {
                 var obj = $(cnCode[i]);
                 if (obj.find('.cnblogs_code_toolbar').length === 0) {
