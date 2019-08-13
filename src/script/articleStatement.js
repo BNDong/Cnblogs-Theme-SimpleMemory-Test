@@ -39,7 +39,7 @@ $(document).ready(function(){
 
 
     var bottom_html = '<br><p class="essaySuffix-eof">__EOF__</p>';
-    bottom_html += '<p class="essaySuffix-box">';
+    bottom_html += '<div class="essaySuffix-box">';
 
 
     // =============== 二维码部分 ===============
@@ -99,7 +99,7 @@ $(document).ready(function(){
 
     bottom_html += '</div>';
     bottom_html += '<div style="clear: both;"></div>';
-    bottom_html += '</p>';
+    bottom_html += '</div>';
 console.log(bottom_html);
     $("#cnblogs_post_body").append(bottom_html);
 });
