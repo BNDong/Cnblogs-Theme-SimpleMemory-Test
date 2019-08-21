@@ -693,8 +693,6 @@ function Base() {
                     bndongJs.setDomHomePosition();
                     return false;
                 });
-
-
                 break;
 
             case "jinrishici":
@@ -901,7 +899,6 @@ function Base() {
      */
     this.setCodeHighlighting = function () {
         var pre       = $('pre'),
-            codeCopyA = $('.cnblogs_code_copy a'),
             codeSpan  = $('.cnblogs_code span'),
             codePre   = $('.post pre'),
             hltype    = window.cnblogsConfig.essayCodeHighlightingType.toLowerCase(),
@@ -934,6 +931,8 @@ function Base() {
             });
         }
 
+        var codeCopyA = $('.cnblogs_code_copy a');
+
         // 使用博客园代码样式
         function cnblogsCode() {
             codeCopyA.html('<i class="iconfont icon-code5" style="color: #999;"></i>');
@@ -948,6 +947,7 @@ function Base() {
         function highlightjsCode() {
             tools.dynamicLoadingCss('https://cdn.bootcss.com/highlight.js/9.15.9/styles/'+hltheme+'.min.css');
             setCodeBefore();
+            setScrollbarStyle();
             require(['highlightjs'], function() {
                 $('pre').each(function(i, block) {
                     codeCopyA.html('<i class="iconfont icon-code5 hljs-comment" style="font-style: inherit;"></i>');
@@ -1014,6 +1014,21 @@ function Base() {
                 }
             }, 500 );
         }
+        
+        // 去除博客园默认代码样式文件
+        function delCssblogCommon() {
+            const cssLink = $('link[rel="stylesheet"]');
+            cssLink.each(function (i) {
+                var obj = $(cssLink[i]),
+                    par = /^\/css\/blog-common\.min\.css.*$/,
+                    href = obj.attr('href');
+                if (par.test(href)) {
+                    obj.remove();
+                    return false;
+                }
+            });
+        }
+
     };
 
     /**
