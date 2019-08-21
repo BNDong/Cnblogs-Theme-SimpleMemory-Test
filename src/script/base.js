@@ -512,17 +512,15 @@ function Base() {
      */
     this.addFooter = function() {
         const footer = $('#footer');
-        var   pvHtml = '';
+        var pvHtml = '';
 
-        // 页脚title
-        if (window.cnblogsConfig.bottomText.left || window.cnblogsConfig.bottomText.right) {
+        if (window.cnblogsConfig.bottomText.left || window.cnblogsConfig.bottomText.right)
             pvHtml += '<div>【'+window.cnblogsConfig.bottomText.left+'<span id="footerTextIcon">'+window.cnblogsConfig.bottomText.icon+'</span>'+window.cnblogsConfig.bottomText.right+'】</div>';
-        }
 
-        pvHtml +=
-            "<div><span id='blogRunTimeSpan'></span><span class='my-face'>ღゝ◡╹)ノ♡</span></div>" +
+        pvHtml += "<div><span id='blogRunTimeSpan'></span><span class='my-face'>ღゝ◡╹)ノ♡</span></div>" +
             '<div id="blogrollInfo"></div>' +
-            '<div id="cnzzInfo"></div>';
+            '<div id="cnzzInfo"></div>' +
+            '<div id="themeInfo"></div>';
 
         var bgFooter = '<footer>' +
             '<footer-background>' +
@@ -532,24 +530,33 @@ function Base() {
             '<figure class="poof"></figure>' +
             '</footer-background>' +
             '</footer>',
+
         rHref = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
 
-        // 添加页脚
-        footer.prepend(pvHtml).prepend(bgFooter).append(' / ThemeVersion: <a href="'+rHref
-            +'" target="_blank" style="color: #888;text-decoration: underline;">'
-            +(window.cnblogsConfig.GhVersions).substring(0,7)+'</a>');
-
-        if (window.cnblogsConfig.themeAuthor && window.location.href.search("www.cnblogs.com/bndong") === -1 ) setTheme();
-        window.setInterval( setRunTime, 500 );
+        addFooterHtml();
         setBlogroll();
+        setTheme();
+        window.setInterval( setRunTime, 500 );
         timeIds.setCnzzTId = window.setInterval( setCnzz, 1000 );
 
+        // 添加页脚
+        function addFooterHtml() {
+            const poweredby = $('#poweredby');
+            footer.prepend(bgFooter);
+            if (poweredby.length > 0) {
+                poweredby.before(pvHtml);
+            } else {
+                footer.append(pvHtml);
+            }
+        }
+
+        // 设置运行时间
         function setRunTime() {
-            var str = window.cnblogsConfig.blogStartDate;
-            str = str ? str : '2019-01-01';
-            var runDate = tools.getRunDate(str);
+            var runDate = tools.getRunDate(window.cnblogsConfig.blogStartDate ? window.cnblogsConfig.blogStartDate : '2019-01-01');
             $('#blogRunTimeSpan').text('This blog has running : '+runDate.daysold+' d '+runDate.hrsold+' h '+runDate.minsold+' m '+runDate.seconds+' s');
         }
+
+        // 设置友情链接
         function setBlogroll() {
             if (window.cnblogsConfig.bottomBlogroll.length > 0) {
                 var blogrollArr  = window.cnblogsConfig.bottomBlogroll;
@@ -561,8 +568,9 @@ function Base() {
                 $('#blogrollInfo').html(blogrollHtml);
             }
         }
+
+        // 设置网站统计，请去 CNZZ 配置自己的，谢谢！！
         function setCnzz() {
-            // 请去 CNZZ 配置自己的，谢谢！！
             var cnzzStat = $('.id_cnzz_stat_icon a');
             if (cnzzStat.length > 0) {
                 var cnzzInfo = [];
@@ -579,17 +587,13 @@ function Base() {
                 bndongJs.clearIntervalTimeId(timeIds.setCnzzTId);
             }
         }
+
+        // 设置加载主题信息
         function setTheme() {
-            $('#footer').prepend('<div class="footer-image"></div>');
-            setInterval(function(){
-                var footer = $('#footer');
-                var themeHtml = '<p id="ThemeAuthors" style="color: #444;z-index: 999;">- Theme Author：<a href="https://www.cnblogs.com/bndong/" target="_blank" style="color:#444;">BNDong</a> -</p></div>';
-                if ($('#ThemeAuthors').length == 0) {
-                    $('#footer').append(themeHtml);
-                } else {
-                    $('#ThemeAuthors').show().css('visibility', 'visible');
-                }
-            },3000);
+
+            $('#themeInfo').html(window.cnblogsConfig.GhRepositories + ' / Version: <a href="'+rHref
+                +'" target="_blank" style="color: #888;text-decoration: underline;">'
+                +(window.cnblogsConfig.GhVersions).substring(0,7)+'</a>');
         }
     };
 
