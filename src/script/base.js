@@ -1005,7 +1005,7 @@ function Base() {
                         axis:"yx"
                     });
                     switch (hltype) {
-                        case 'highlightjs':$('.mCSB_dragger_bar').css('background-color', $('.hljs-comment').css('color')); break;
+                        case 'highlightjs': $('.mCSB_dragger_bar').css('background-color', $('.hljs-comment').css('color')); break;
                         case 'prettify': $('.mCSB_dragger_bar').css('background-color', $('.com').css('color')); break;
                         case 'cnblogs':
                         default:  break;
@@ -1028,7 +1028,6 @@ function Base() {
                 }
             });
         }
-
     };
 
     /**
