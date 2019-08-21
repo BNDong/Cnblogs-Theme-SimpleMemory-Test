@@ -900,6 +900,7 @@ function Base() {
     this.setCodeHighlighting = function () {
         var pre       = $('pre'),
             codeSpan  = $('.cnblogs_code span'),
+            codeCopyA = $('.cnblogs_code_copy a'),
             codePre   = $('.post pre'),
             hltype    = window.cnblogsConfig.essayCodeHighlightingType.toLowerCase(),
             hltheme   = window.cnblogsConfig.essayCodeHighlighting.toLowerCase();
@@ -930,8 +931,6 @@ function Base() {
                 obj.append(copyHtml);
             });
         }
-
-        var codeCopyA = $('.cnblogs_code_copy a');
 
         // 使用博客园代码样式
         function cnblogsCode() {
