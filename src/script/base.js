@@ -947,7 +947,7 @@ function Base() {
         function highlightjsCode() {
             tools.dynamicLoadingCss('https://cdn.bootcss.com/highlight.js/9.15.9/styles/'+hltheme+'.min.css');
             setCodeBefore();
-            setScrollbarStyle();
+            delCssblogCommon();
             require(['highlightjs'], function() {
                 $('pre').each(function(i, block) {
                     codeCopyA.html('<i class="iconfont icon-code5 hljs-comment" style="font-style: inherit;"></i>');
