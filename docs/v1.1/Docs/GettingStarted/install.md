@@ -2,32 +2,59 @@
 
 !> 本主题需要JS权限，没有的请先申请权限。
 
-进入管理后台设置界面：[管理后台](https://i.cnblogs.com/Configure.aspx)
+## 视频介绍
+
+[百度云](https://pan.baidu.com/s/1wDCrM1Uo9iZ6ppBZDU7wKQ)
+
+## 关于博客园后台
+
+进入管理后台：[管理后台](https://i.cnblogs.com/Configure.aspx)
+
+会看到如下设置页面：
 
 <img src="./Images/install_01.png" width="750" />
 
-## 设置博客皮肤
+本主题当前页面所涉及的配置有：
 
-博客皮肤：SimpleMemory
+- 博客皮肤
+- 页面定制CSS代码
+- 禁用模板默认CSS
+- 博客侧边栏公告
+- 页脚Html代码
+
+## 获取需要使用的版本
+
+进入主题仓库：[GitHub](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory)
+
+切换版本：
+
+![install_05](../../Images/install_05.png)
+
+## 博客设置
+
+### 设置博客皮肤
+
+博客皮肤：```SimpleMemory```
 
 ![install_02](../../Images/install_02.png)
 
-## 设置CSS代码
+### 设置页面定制CSS代码
 
-设置页面定制CSS代码：[/src/style/base.min.css](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/blob/master/src/style/base.min.css)
-（拷贝此文件代码至页面，禁用模板默认CSS）
+CSS代码位置：```/src/style/base.min.css``` 拷贝此文件代码至页面定制CSS代码文本框处。
 
-!> /css/base.min.css 的修改参考 /css/base.css。博客设置请使用压缩版本，直接使用 /css/base.css 会字符超限！
+!> /src/style/base.min.css 的修改参考 /src/style/base.css。博客设置请使用压缩版本，直接使用 /src/style/base.css 会字符超限！
 
 ![install_03](../../Images/install_03.png)
 
-## 配置及JS文件引入
+### 禁用模板默认CSS
+
+选中页面定制CSS代码文本框下面的禁用模板默认CSS。
+
+### 设置博客侧边栏公告
 
 ?> 推荐版本 >= v1.1.2，建议使用最新版本：[![GitHub release](https://img.shields.io/github/release/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/releases)
 
 在侧边栏HTML代码中设置以下代码：
-
-详细配置参考相关[文档](http://doc.dbnuo.org/cnblogs-theme-docs/v1.1.0/#/Docs/Customization/config)。
 
 ```html
 <script type="text/javascript">
@@ -40,6 +67,8 @@
 </script>
 <script src="https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@v1.1.4/src/script/simpleMemory.min.js"></script>
 ```
+
+详细配置参考相关[文档](http://doc.dbnuo.org/cnblogs-theme-docs/v1.1.0/#/Docs/Customization/config)。
 
 ![install_04](../../Images/install_04.png)
 
