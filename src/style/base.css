@@ -4120,8 +4120,8 @@ a#green_channel_wechat {
    ========================================================================== */
 #footerTextIcon {
     display: inline-block;
-    animation: beating 1s infinite;
-    animation-timing-function: ease-out;
+    /*animation: beating 1s infinite;*/
+    /*animation-timing-function: ease-out;*/
     margin: 0 3px;
 }
 
