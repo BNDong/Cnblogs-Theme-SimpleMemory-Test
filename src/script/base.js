@@ -98,6 +98,7 @@ function Base() {
         timeIds.setMenuSidebarTId      = window.setInterval( setMenuData.setSidebar, 1000 );
         timeIds.setMenuToptagsTId      = window.setInterval( setMenuData.setToptags, 1000 );
         timeIds.setMenuClassifyTId     = window.setInterval( setMenuData.setClassify, 1000 );
+        timeIds.setMenuArticleTId      = window.setInterval( setMenuData.setArticle, 1000 );
         timeIds.setMenuRecordTId       = window.setInterval( setMenuData.setRecord, 1000 );
         timeIds.setMenuTopviewTId      = window.setInterval( setMenuData.setTopview, 1000 );
         timeIds.setMenuTopDiggPostsTId = window.setInterval( setMenuData.setTopDiggPosts, 1000 );
@@ -385,11 +386,13 @@ function Base() {
             toptags          = $('#sidebar_toptags ul li'),       // 我的标签
             sbClassify       = $('#sidebar_postcategory ul li'),  // 随笔分类
             sbRecord         = $('#sidebar_postarchive ul li'),   // 随笔档案
+            sbArticle        = $('#sidebar_articlearchive ul li'),// 文章档案
             sbTopview        = $('#TopViewPostsBlock ul li'),     // 阅读排行
             topDiggPosts     = $('#TopDiggPostsBlock ul li'),     // 推荐排行
             menuIntroduce    = $('#introduce'),
             menuCalendar     = $('#calendar-box'),
             menuSearchBox    = $('#sb-sidebarSearchBox'),
+            menuArticle      = $('#sb-article'),
             menuSidebar      = $('#sb-sidebarRecentposts'),
             menuToptags      = $('#sb-toptags'),
             menuClassify     = $('#sb-classify'),
@@ -455,6 +458,14 @@ function Base() {
                 bndongJs.clearIntervalTimeId(timeIds.setMenuRecordTId);
             }
         }
+        
+        // 添加文章档案
+        function setArticle() {
+            if (sbArticle.length > 0 && menuArticle.html() === '') {
+                menuArticle.html(getMenuData(sbArticle, 'icon-document_fill')).prev('.m-list-title').show();
+                bndongJs.clearIntervalTimeId(timeIds.setMenuArticleTId);
+            }
+        }
 
         // 添加阅读排行
         function setTopview() {
@@ -514,6 +525,7 @@ function Base() {
             setSidebar: setSidebar,
             setToptags: setToptags,
             setClassify: setClassify,
+            setArticle: setArticle,
             setRecord: setRecord,
             setTopview: setTopview,
             setTopDiggPosts: setTopDiggPosts,

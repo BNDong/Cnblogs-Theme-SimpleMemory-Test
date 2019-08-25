@@ -504,7 +504,7 @@ button {
 /**日历控件样式开始**/
 
 #blog-calendar {
-    margin: 10px 5px 5px 5px;
+    margin: 10px 5px 5px 10px;
     visibility:hidden;
 }
 
@@ -608,7 +608,7 @@ button {
 
 .Cal td {
     height: 20px;
-    border: solid 1px #171716;
+    /*border: solid 1px #171716;*/
     font-size: 10px
 }
 
