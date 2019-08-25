@@ -509,6 +509,7 @@ button {
     margin-bottom: 35px;
     box-shadow: 0 1px 3px #ccc;
     border: 1px solid #EDEDED;
+    display: none;
 }
 
 #blog-calendar td {
@@ -3669,7 +3670,7 @@ blockquote p {
 /* ==========================================================================
    隐藏不需要部分
    ========================================================================== */
-#header, .catListTitle, #profile_block, #blog-calendar, #leftcontentcontainer, #blog-calendar {
+#header, .catListTitle, #profile_block, #leftcontentcontainer {
     display: none !important;
 }
 
