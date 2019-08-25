@@ -504,16 +504,14 @@ button {
 /**日历控件样式开始**/
 
 #blog-calendar {
-    width: 228px;
-    padding-bottom: 5px;
-    margin-bottom: 35px;
-    box-shadow: 0 1px 3px #ccc;
-    border: 1px solid #EDEDED;
+    margin: 10px 5px 5px 5px;
+    visibility:hidden;
 }
 
 #blog-calendar td {
     font-size: 12px;
     font-family: "Comic Sans MS";
+    text-align: center;
 }
 
 #blog-calendar th {
@@ -526,6 +524,10 @@ button {
     margin-bottom: 35px;
     border: 1px solid #EDEDED;
     box-shadow: 0 1px 3px #ccc;
+}
+
+.calendar {
+    border: 0 solid #000
 }
 
 #calendar .Cal {
@@ -542,6 +544,10 @@ button {
 .Cal { /**日历容器table**/
     border: none;
     color: #666;
+    width: 100%;
+    font-size: 12px;
+    font-family: arial;
+    padding: 0
 }
 
 #calendar table a:link, #calendar table a:visited, #calendar table a:active {
@@ -554,18 +560,19 @@ button {
 }
 
 .CalTodayDay { /**今天日期样式**/
-    background: #3671a5 !important;
-    color: #FFF;
+    color: #b8b8b8;
     font-weight: bold;
+    background: #2d2d2b;
 }
 
 .CalWeekendDay {
+    background: #111;
     padding-top: 4px;
     padding-bottom: 4px;
 }
 
 .CalOtherMonthDay {
-    color: #ccc;
+    color: #3c3c3c;
     padding-top: 4px;
     padding-bottom: 4px;
 }
@@ -577,28 +584,48 @@ button {
 }
 
 .CalDayHeader {
-    background: #F8F8F8;
-    font-weight: 100;
-    color: #5E5F63;
+    font-weight: bold;
+    background: #111;
+    padding-bottom: 5px;
 }
 
 .CalTitle { /**日历年月头部样式**/
     background: #6293bb;
     width: 100%;
-    height: 25px;
+    height: 30px;
     text-align: center;
     font-size: 14px;
     font-weight: bold;
     padding: 5px 0;
-    color: #FFF;
 }
 
 .CalTitle td {
-    background: #F8F8F8 !important;
-    border: 0px !important;
-    color: #5E5F63;
-    font-family: "Comic Sans MS";
+    background: #000;
+    font-family: verdana;
+    font-size: 12px;
+    font-weight: bold
 }
+
+.Cal td {
+    height: 20px;
+    border: solid 1px #171716;
+    font-size: 10px
+}
+
+.Cal a:link,.Cal a:visited,.Cal a:active {
+    color: #ff9;
+    text-decoration: underline
+}
+
+.Cal a:hover {
+    text-decoration: none;
+}
+
+.CalSelector {
+    background: #efefef
+}
+
+
 /**日历控件样式结束**/
 .catListTitle {
     font-weight: bold;
@@ -3673,7 +3700,7 @@ blockquote p {
     display: none !important;
 }
 
-#under_post_kb, #ad_t1, #ad_t2, #ad_c1, #ad_c2, #under_post_news, #cnblogs_c1, #cnblogs_c2, #blogCalendar {
+#under_post_kb, #ad_t1, #ad_t2, #ad_c1, #ad_c2, #under_post_news, #cnblogs_c1, #cnblogs_c2 {
     display: none;
 }
 
