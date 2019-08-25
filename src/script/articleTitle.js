@@ -37,10 +37,10 @@ console.log(th);
         th1.text('');
         th1.addClass('header__dev');
 
-        var th1Html = '<b class="dev__fe"><i>'+(i+1)+'</i></b>';
+        var th1Html = '<b class="dev__fe"><i>' + (th1i+1) + '</i></b>';
         th1Html += '<span class="dev__slash">|</span>';
         th1Html += '<b class="dev__ux"><i>0</i></b>';
-        th1Html += '<b class="dev__developer"><span class="dev__title">'+th1Text+'</span></b>';
+        th1Html += '<b class="dev__developer"><span class="dev__title">' + th1Text + '</span></b>';
 
         th1.append(th1Html);
         th1.parents('.header__span').after('<br>');
