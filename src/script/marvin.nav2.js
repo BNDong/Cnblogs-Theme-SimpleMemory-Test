@@ -31,13 +31,16 @@ $(document).ready(function () {
             rserialNum = u.find('.dev__ux').text(),
             titleContent = u.find('.dev__developer').text();
 
-        if (eval("typeof titleObj."+titleContent+" == 'undefined'")) {
-            eval("titleObj."+titleContent+" = 0");
+        if (eval("typeof titleObj." + titleContent + " == 'undefined'")) {
+            eval("titleObj." + titleContent + " = 0");
         } else {
-            eval("titleObj."+titleContent+" = titleObj."+titleContent+" + 1");
+            eval("titleObj." + titleContent + " = titleObj." + titleContent + " + 1");
         }
 
-        u.attr('id', 'autoid-' + l + '-' + m + '-' + n);
+        var titleVal = eval('titleObj.' + titleContent);
+
+        // u.attr('id', 'autoid-' + l + '-' + m + '-' + n);
+        u.attr('id', titleVal === 0 ? titleContent : titleContent + '-' + titleVal);
 
         if (v.localName === 'h1') {
             l++;
@@ -59,7 +62,7 @@ $(document).ready(function () {
     console.log(titleObj);
 
 
-    
+
 
     $('#' + f + '>ul').html(j);
     b.data('spy', 'scroll');
