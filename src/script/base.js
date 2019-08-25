@@ -7,9 +7,9 @@
 function Base() {
 
     const bndongJs    = this,
-          tools       = new myTools;
-      var progressBar = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'), // 进度条
-          temScroll   = 0,  // 上一次页面滚动位置
+          tools       = new myTools,
+          progressBar = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'); // 进度条
+     var  temScroll   = 0,  // 上一次页面滚动位置
 
         /** 定时器 **/
         timeIds    = {
@@ -51,9 +51,6 @@ function Base() {
         // 设置名称
         $('#homeTopTitle').text(window.cnblogsConfig.blogUser);
 
-        // 设置菜单个人简介头像
-        $('#menuBlogAvatar').append("<img src='"+window.cnblogsConfig.blogAvatar+"'>");
-
         // 背景动画
 		if (window.cnblogsConfig.bgAnimationRendered) require(['RibbonsEffect']);
 
@@ -66,11 +63,11 @@ function Base() {
      */
     this.loadingAfterInit = function () {
 
+        // 设置菜单个人简介头像
+        $('#menuBlogAvatar').append("<img src='"+window.cnblogsConfig.blogAvatar+"'>");
+
         // 初始化菜单滚动条样式
         $('#menuWrap').optiscroll({ forceScrollbars: true, maxTrackSize: 20, preventParentScroll: true });
-
-        // 音乐播放器初始化
-        bndongJs.musicInit();
 
         // 滚动监听
         $(window).scroll( function() { bndongJs.scrollMonitor(); });
@@ -87,6 +84,9 @@ function Base() {
         // 添加页脚
         bndongJs.addFooter();
 
+        // html5-title
+        bndongJs.htmlTitle();
+
         // 设置菜单侧边栏内容
         let setMenuData = bndongJs.setMenuData();
         timeIds.setMenuIntroduceTId    = window.setInterval( setMenuData.setIntroduce, 1000 );
@@ -99,11 +99,11 @@ function Base() {
         timeIds.setMenuTopDiggPostsTId = window.setInterval( setMenuData.setTopDiggPosts, 1000 );
         setMenuData.setCustomData();
 
-        // html5-title
-        bndongJs.htmlTitle();
-
         // 添加扩展字体图标库
         if (window.cnblogsConfig.fontIconExtend !== '') tools.dynamicLoadingCss(window.cnblogsConfig.fontIconExtend);
+
+        // 设置菜单个人信息背景图片
+        bndongJs.setMenuUserInfoImg();
 
         // 添加页面特效控制
         bndongJs.setPageAnimationControl();
@@ -503,9 +503,16 @@ function Base() {
     };
 
     /**
-     * 播放器初始化
+     * 设置菜单个人信息背景图片
      */
-    this.musicInit = function() {};
+    this.setMenuUserInfoImg = function () {
+        if (window.cnblogsConfig.menuUserInfoBgImg) {
+            $('.introduce-box').css({
+                'background': '#000 url('+window.cnblogsConfig.menuUserInfoBgImg+') center no-repeat',
+                'background-size': '100%'
+            });
+        }
+    };
 
     /**
      * 添加页脚
@@ -665,9 +672,10 @@ function Base() {
             '有的人25岁就死了，只是到75岁才埋葬'
         ];
 
+        var settings = {};
         switch (window.cnblogsConfig.homeBannerTextType) {
             case "one": //  ONE . 每日一句
-                var settings = {
+                settings = {
                     "async": true,
                     "crossDomain": true,
                     "url": "https://api.hibai.cn/api/index/index",
@@ -697,7 +705,7 @@ function Base() {
 
             case "jinrishici":
             default: // 今日诗词
-                var settings = {
+                settings = {
                     "async": true,
                     "crossDomain": true,
                     "url": "https://v2.jinrishici.com/one.json",
@@ -705,7 +713,7 @@ function Base() {
                 };
 
                 $.ajax(settings).done(function (response) {
-                    if (response && response.status == "success") {
+                    if (response && response.status === "success") {
                         $('#hitokoto').text(response.data.content).css('display', '-webkit-box');
                         $('#hitokotoAuthor').text('《'+response.data.origin.title+'》 - '+response.data.origin.dynasty+' - '+response.data.origin.author).show();
                     } else {
@@ -737,10 +745,11 @@ function Base() {
                 clickStr = $('#p_b_follow a').attr('onclick');
             }
 
+            var attHtml = '';
             if (clickStr.indexOf('unfollow') > 0 || clickStr == '') {
-                var attHtml = '<div id="attention" clickflg="true"><span class="rightMenuSpan attentionSpan">已关注</span><i class="iconfont icon-dianzan1"></i></div>';
+                attHtml = '<div id="attention" clickflg="true"><span class="rightMenuSpan attentionSpan">已关注</span><i class="iconfont icon-dianzan1"></i></div>';
             } else {
-                var attHtml = '<div id="attention" onclick="' + clickStr.replace('unfollow', 'follow') + '" clickflg="false"><span class="rightMenuSpan attentionSpan">关注</span><i class="iconfont icon-dianzan"></i></div>';
+                attHtml = '<div id="attention" onclick="' + clickStr.replace('unfollow', 'follow') + '" clickflg="false"><span class="rightMenuSpan attentionSpan">关注</span><i class="iconfont icon-dianzan"></i></div>';
             }
 
             rightMenu.prepend(attHtml);
@@ -1045,7 +1054,7 @@ function Base() {
                         var patch = op.text();
                         var html = '<img class="comment-avatar" src="'+patch+'"/>';
                     } else {
-                        var html = '<img class="comment-avatar" src="https://files.cnblogs.com/files/bndong/no_avatar.gif"/>';
+                        var html = '<img class="comment-avatar" src="https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/default_avatar.jpeg"/>';
                     }
                     $(commentList[i]).before(html);
                 }

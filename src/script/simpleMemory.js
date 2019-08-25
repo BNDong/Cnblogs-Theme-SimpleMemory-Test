@@ -81,10 +81,11 @@ if (initCheck()) {
         GhRepositories: 'Cnblogs-Theme-SimpleMemory',
         GhVersions: 'v1.1.2',
         blogUser: "",
-        blogAvatar: "",
+        blogAvatar: "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/default_avatar.jpeg",
         blogStartDate: "2019-01-01",
         menuCustomList: {},
         menuNavList: [],
+        menuUserInfoBgImg: '',
         webpageTitleOnblur: "(oﾟvﾟ)ノ Hi",
         webpageTitleOnblurTimeOut: 500,
         webpageTitleFocus: "(*´∇｀*) 欢迎回来！",
@@ -232,7 +233,9 @@ if (initCheck()) {
             });
         });
     });
+
 } else {
+
     $('a[name="top"]').text("SimpleMemory：基础配置有误，请阅读文档，检查配置！").css({
         'display': 'block',
         'text-align': 'center',
