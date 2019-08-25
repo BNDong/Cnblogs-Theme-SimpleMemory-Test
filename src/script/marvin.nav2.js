@@ -30,7 +30,7 @@ $(document).ready(function () {
         var lserialNum = u.find('.dev__fe').text(),
             rserialNum = u.find('.dev__ux').text(),
             titleContent = u.find('.dev__developer').text(),
-            titleHre  = titleContent.replace(/\s/g,'_$_');
+            titleHre  = titleContent.replace(/\s/g,'_$_').replace(/\./g,'_*_');
 
         if (eval("typeof titleObj." + titleHre + " == 'undefined'")) {
             eval("titleObj." + titleHre + " = 0");
@@ -38,10 +38,11 @@ $(document).ready(function () {
             eval("titleObj." + titleHre + " = titleObj." + titleHre + " + 1");
         }
 
-        var titleVal = eval('titleObj.' + titleHre);
+        var titleVal = eval('titleObj.' + titleHre),
+            titleHreText = titleHre.replace(/_\$_/g,'-').replace(/_\*_/g,'.')
 
         // u.attr('id', 'autoid-' + l + '-' + m + '-' + n);
-        u.attr('id', titleVal === 0 ? titleHre.replace(/_\$_/g,'-') : titleHre.replace(/_\$_/g,'-') + '-' + titleVal);
+        u.attr('id', titleVal === 0 ? titleHreText : titleHreText + '-' + titleVal);
 
         if (v.localName === 'h1') {
             l++; m = 0;
