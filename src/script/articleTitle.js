@@ -73,7 +73,7 @@ $(document).ready(function () {
         });
 
         if (their.length > 0) {
-            their = $(their[0]);
+            their = $(their[their.length - 1]);
             var current  = their.find('.dev__fe i').text();
             if (parseInt(current) !== th2last) {
                 th2num  = 0;
