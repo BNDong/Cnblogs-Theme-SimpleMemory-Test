@@ -408,8 +408,8 @@ function Base() {
         function setCalendar() {
             if (calendar.length > 0 && menuCalendar.html() === ''){
                 var calendarHtml = '</div id="blog-calendar">' + calendar.html() + '</div>';
-                menuCalendar.html(calendarHtml);
                 calendar.remove();
+                menuCalendar.html(calendarHtml);
                 bndongJs.clearIntervalTimeId(timeIds.setMenuCalendarTId);
             }
         }
