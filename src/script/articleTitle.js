@@ -74,11 +74,18 @@ $(document).ready(function () {
 
         if (their.length > 0) {
             their = $(their[their.length - 1]);
+            console.log('--------------');
+            console.log(th2num);
+            console.log(th2last);
+            console.log(their);
             var current  = their.find('.dev__fe i').text();
+            console.log(current);
             if (parseInt(current) !== th2last) {
                 th2num  = 0;
             }
             th2last = current;
+            console.log(th2last);
+            console.log(th2num);
         } else {
             th2num = 0;
         }
