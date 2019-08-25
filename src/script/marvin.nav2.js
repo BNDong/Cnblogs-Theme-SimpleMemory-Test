@@ -21,8 +21,9 @@ $(document).ready(function () {
     b.append(i);
 
     o = s.find(':header');
-    var titleObj = {};
-    o.each(function (t) {
+
+    var titleArr = [];
+    o.each(function () {
         var u = $(this),
             v = u[0];
         if ($.inArray((v.tagName.toLowerCase()), ["h1", "h2"]) === -1) return true;
@@ -30,18 +31,13 @@ $(document).ready(function () {
         var lserialNum = u.find('.dev__fe').text(),
             rserialNum = u.find('.dev__ux').text(),
             titleContent = u.find('.dev__developer').text(),
-            titleHre  = titleContent.replace(/\s/g,'__a__').replace(/\./g,'__b__');
+            titleHre  = titleContent.replace(/\s/g,'__a__');
 
-        if (eval("typeof titleObj." + titleHre + " == 'undefined'")) {
-            eval("titleObj." + titleHre + " = 0");
-        } else {
-            eval("titleObj." + titleHre + " = titleObj." + titleHre + " + 1");
-        }
+        titleArr.push(titleHre);
 
-        var titleVal = eval('titleObj.' + titleHre),
-            titleHreText = titleHre.replace(/__a__/g,'-').replace(/__b__/g,'.')
+        var titleVal = countTitleHre(titleHre),
+            titleHreText = titleHre.replace(/__a__/g,'-');
 
-        // u.attr('id', 'autoid-' + l + '-' + m + '-' + n);
         u.attr('id', titleVal === 0 ? titleHreText : titleHreText + '-' + titleVal);
 
         if (v.localName === 'h1') {
@@ -59,6 +55,18 @@ $(document).ready(function () {
             }
         }
     });
+
+    function countTitleHre(titleHre) {
+        var num = 0;
+        if ($.inArray(titleHre, titleArr) === -1) return num;
+
+        $.each(titleArr, function (i) {
+            if (titleArr[i] === titleHre) {
+                num++;
+            }
+        });
+        return num;
+    }
 
     $('#' + f + '>ul').html(j);
     b.data('spy', 'scroll');
