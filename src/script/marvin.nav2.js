@@ -29,18 +29,19 @@ $(document).ready(function () {
         
         var lserialNum = u.find('.dev__fe').text(),
             rserialNum = u.find('.dev__ux').text(),
-            titleContent = u.find('.dev__developer').text();
+            titleContent = u.find('.dev__developer').text(),
+            titleHre  = titleContent.replace(' ','-');
 
-        if (eval("typeof titleObj." + titleContent + " == 'undefined'")) {
-            eval("titleObj." + titleContent + " = 0");
+        if (eval("typeof titleObj." + titleHre + " == 'undefined'")) {
+            eval("titleObj." + titleHre + " = 0");
         } else {
-            eval("titleObj." + titleContent + " = titleObj." + titleContent + " + 1");
+            eval("titleObj." + titleHre + " = titleObj." + titleHre + " + 1");
         }
 
-        var titleVal = eval('titleObj.' + titleContent);
+        var titleVal = eval('titleObj.' + titleHre);
 
         // u.attr('id', 'autoid-' + l + '-' + m + '-' + n);
-        u.attr('id', titleVal === 0 ? titleContent : titleContent + '-' + titleVal);
+        u.attr('id', titleVal === 0 ? titleHre : titleHre + '-' + titleVal);
 
         if (v.localName === 'h1') {
             l++; m = 0;
