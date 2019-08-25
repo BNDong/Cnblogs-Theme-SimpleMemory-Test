@@ -65,7 +65,7 @@ $(document).ready(function () {
                 num++;
             }
         });
-        return num;
+        return num > 0 ? num - 1 : 0;
     }
 
     $('#' + f + '>ul').html(j);
