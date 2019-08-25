@@ -22,6 +22,7 @@ $(document).ready(function () {
 
     o = s.find(':header');
 
+    var titleObj = {};
     o.each(function (t) {
         var u = $(this),
             v = u[0];
