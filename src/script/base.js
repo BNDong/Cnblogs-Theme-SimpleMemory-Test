@@ -379,6 +379,7 @@ function Base() {
     this.setMenuData = function() {
         var introduceHtml    = $('#profile_block').html(),        // 个人信息
             calendar         = $('#blog-calendar'),               // 日历
+            calendarTable    = $('#blogCalendar'),                // 日历
             sidebarSearch    = $('#sidebar_search_box'),          // 找找看
             sidebar          = $('#sidebar_recentposts ul li'),   // 最新随笔
             toptags          = $('#sidebar_toptags ul li'),       // 我的标签
@@ -406,11 +407,10 @@ function Base() {
 
         // 添加日历
         function setCalendar() {
-            if (calendar.length > 0 && menuCalendar.html() === ''){
+            if (calendarTable.length > 0 && menuCalendar.html() === ''){
                 var calendarHtml = '<div id="blog-calendar">' + calendar.html() + '</div>';
-                // calendar.remove();
-                // menuCalendar.html(calendarHtml);
-                // $('#blog-calendar').show();
+                calendar.remove();
+                menuCalendar.html(calendarHtml);
                 bndongJs.clearIntervalTimeId(timeIds.setMenuCalendarTId);
             }
         }
