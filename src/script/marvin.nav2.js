@@ -30,7 +30,7 @@ $(document).ready(function () {
         var lserialNum = u.find('.dev__fe').text(),
             rserialNum = u.find('.dev__ux').text(),
             titleContent = u.find('.dev__developer').text(),
-            titleHre  = titleContent.replace(' ','-');
+            titleHre  = titleContent.replace(/\s/g,'-');
 
         if (eval("typeof titleObj." + titleHre + " == 'undefined'")) {
             eval("titleObj." + titleHre + " = 0");
