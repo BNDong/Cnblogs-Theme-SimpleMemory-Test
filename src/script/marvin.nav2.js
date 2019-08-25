@@ -21,7 +21,7 @@ $(document).ready(function () {
     b.append(i);
 
     o = s.find(':header');
-    var titleObj = {};
+
     o.each(function (t) {
         var u = $(this),
             v = u[0];
@@ -93,8 +93,9 @@ $(document).ready(function () {
     }
 
     nav_li.on('activate.bs.scrollspy', function () {
-        var gu = $(this).attr("g");
-        $('#sideCatalog-catalog').find('.h2Offset').hide();
-        $('#sideCatalog-catalog').find('.ceg' + gu).show();
+        var gu = $(this).attr("g"),
+            catalog = $('#sideCatalog-catalog');
+        catalog.find('.h2Offset').hide();
+        catalog.find('.ceg' + gu).show();
     })
 });
