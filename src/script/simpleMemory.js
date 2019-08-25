@@ -21,6 +21,8 @@ if (initCheck()) {
         '                <ul id="m-nav-list">' +
         '                </ul>' +
         '            </div>' +
+        '            <!-- 日历 -->' +
+        '            <span id="calendar-box"></span>' +
         '            <!-- 找找看 -->' +
         '            <div class="m-list-title"><span>找找看</span></div>' +
         '            <div class="m-icon-list" id="sb-sidebarSearchBox"></div>' +
@@ -36,6 +38,9 @@ if (initCheck()) {
         '            <!-- 随笔档案 -->' +
         '            <div class="m-list-title"><span>随笔档案</span></div>' +
         '            <div class="m-icon-list" id="sb-record"></div>' +
+        '            <!-- 文章档案 -->' +
+        '            <div class="m-list-title"><span>文章档案</span></div>' +
+        '            <div class="m-icon-list" id="sb-articlearchive"></div>' +
         '            <!-- 阅读排行 -->' +
         '            <div class="m-list-title"><span>阅读排行</span></div>' +
         '            <div class="m-icon-list" id="sb-topview"></div>' +

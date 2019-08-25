@@ -14,11 +14,13 @@ function Base() {
         /** 定时器 **/
         timeIds    = {
             setMenuIntroduceTId    : null, // 菜单设置-个人信息定时器ID
+            setMenuCalendarTId     : null, // 菜单设置-日历定时器ID
             setSidebarSearchTId    : null, // 菜单设置-找找看定时器ID
             setMenuSidebarTId      : null, // 菜单设置-最新随笔定时器ID
             setMenuToptagsTId      : null, // 菜单设置-我的标签定时器ID
             setMenuClassifyTId     : null, // 菜单设置-随笔分类定时器ID
             setMenuRecordTId       : null, // 菜单设置-随笔档案定时器ID
+            setMenuArticleTId      : null, // 菜单设置-文章档案定时器ID
             setMenuTopviewTId      : null, // 菜单设置-阅读排行定时器ID
             setMenuTopDiggPostsTId : null, // 菜单设置-推荐排行定时器ID
             setHomeRightMenuTId    : null, // 主页右下角菜单设置定时器ID
@@ -91,6 +93,7 @@ function Base() {
         // 设置菜单侧边栏内容
         let setMenuData = bndongJs.setMenuData();
         timeIds.setMenuIntroduceTId    = window.setInterval( setMenuData.setIntroduce, 1000 );
+        timeIds.setMenuCalendarTId     = window.setInterval( setMenuData.setCalendar, 1000 );
         timeIds.setSidebarSearchTId    = window.setInterval( setMenuData.setSidebarSearch, 1000 );
         timeIds.setMenuSidebarTId      = window.setInterval( setMenuData.setSidebar, 1000 );
         timeIds.setMenuToptagsTId      = window.setInterval( setMenuData.setToptags, 1000 );
@@ -375,6 +378,7 @@ function Base() {
      */
     this.setMenuData = function() {
         var introduceHtml    = $('#profile_block').html(),        // 个人信息
+            calendar         = $('#blog-calendar'),               // 日历
             sidebarSearch    = $('#sidebar_search_box'),          // 找找看
             sidebar          = $('#sidebar_recentposts ul li'),   // 最新随笔
             toptags          = $('#sidebar_toptags ul li'),       // 我的标签
@@ -383,6 +387,7 @@ function Base() {
             sbTopview        = $('#TopViewPostsBlock ul li'),     // 阅读排行
             topDiggPosts     = $('#TopDiggPostsBlock ul li'),     // 推荐排行
             menuIntroduce    = $('#introduce'),
+            menuCalendar     = $('#calendar-box'),
             menuSearchBox    = $('#sb-sidebarSearchBox'),
             menuSidebar      = $('#sb-sidebarRecentposts'),
             menuToptags      = $('#sb-toptags'),
@@ -396,6 +401,16 @@ function Base() {
             if ((typeof introduceHtml == 'string') && menuIntroduce.html() === '') {
                 menuIntroduce.html(tools.htmlFiltrationScript(introduceHtml));
                 bndongJs.clearIntervalTimeId(timeIds.setMenuIntroduceTId);
+            }
+        }
+
+        // 添加日历
+        function setCalendar() {
+            if (calendar.length > 0 && menuCalendar.html() === ''){
+                var calendarHtml = '</div id="blog-calendar">' + calendar.html() + '</div>';
+                menuCalendar.html(calendarHtml);
+                calendar.remove();
+                bndongJs.clearIntervalTimeId(timeIds.setMenuCalendarTId);
             }
         }
 
@@ -492,6 +507,7 @@ function Base() {
 
         return {
             setIntroduce: setIntroduce,
+            setCalendar: setCalendar,
             setSidebarSearch: setSidebarSearch,
             setSidebar: setSidebar,
             setToptags: setToptags,
