@@ -3669,11 +3669,11 @@ blockquote p {
 /* ==========================================================================
    隐藏不需要部分
    ========================================================================== */
-#header, .catListTitle, #profile_block, #leftcontentcontainer, #sideBar {
+#header, .catListTitle, #profile_block, #leftcontentcontainer {
     display: none !important;
 }
 
-#under_post_kb, #ad_t1, #ad_t2, #ad_c1, #ad_c2, #under_post_news, #cnblogs_c1, #cnblogs_c2 {
+#under_post_kb, #ad_t1, #ad_t2, #ad_c1, #ad_c2, #under_post_news, #cnblogs_c1, #cnblogs_c2, #blogCalendar {
     display: none;
 }
 
