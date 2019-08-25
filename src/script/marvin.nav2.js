@@ -1,5 +1,4 @@
-var a = $(document);
-a.ready(function () {
+$(document).ready(function () {
     var b = $('body'),
         c = 'cnblogs_post_body',
         d = 'sideToolbar',
@@ -17,28 +16,26 @@ a.ready(function () {
         q = true,
         r = true,
         s = $('#' + c);
-    if (s.length === 0) {
-        return
-    };
+
+    if (s.length === 0) { return };
     b.append(i);
+
     o = s.find(':header');
-    // if (o.length > p) {
-    //     r = false;
-    //     var t = s.find('h1');
-    //     var u = s.find('h2');
-    //     if (t.length + u.length > p) {
-    //         q = false
-    //     }
-    // };
+    var titleObj = {};
     o.each(function (t) {
         var u = $(this),
             v = u[0];
+        if ($.inArray((v.tagName.toLowerCase()), ["h1", "h2"]) === -1) return true;
         
-        if ($.inArray((v.tagName.toLowerCase()), ["h1", "h2"]) == -1) return true;
-        
-        var lserialNum = u.find('.dev__fe').text();
-        var rserialNum = u.find('.dev__ux').text();
-        var titleContent = u.find('.dev__developer').text();
+        var lserialNum = u.find('.dev__fe').text(),
+            rserialNum = u.find('.dev__ux').text(),
+            titleContent = u.find('.dev__developer').text();
+
+        if (eval("typeof titleObj."+titleContent+" == 'undefined'")) {
+            eval("titleObj."+titleContent+" = 0");
+        } else {
+            eval("titleObj."+titleContent+" = titleObj."+titleContent+" + 1");
+        }
 
         u.attr('id', 'autoid-' + l + '-' + m + '-' + n);
 
@@ -58,6 +55,12 @@ a.ready(function () {
             }
         }
     });
+
+    console.log(titleObj);
+
+
+    
+
     $('#' + f + '>ul').html(j);
     b.data('spy', 'scroll');
     b.data('target', '.sideCatalogBg');

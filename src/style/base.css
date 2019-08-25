@@ -3913,6 +3913,10 @@ body>meting-js, #aplayer {
 .list .inc .conmts{background:#c0e668;/*text-shadow:0 1px 0 #dfa;*/}
 .list .out .conmts img{max-height:100px;}
 
+.toc {
+    margin-bottom: 30px;
+}
+
 /* ==========================================================================
    目录
    ========================================================================== */
