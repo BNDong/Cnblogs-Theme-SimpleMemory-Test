@@ -13,9 +13,9 @@ $(document).ready(function () {
         if ($.inArray((v.tagName.toLowerCase()), ["h1", "h2"]) === -1) return true;
         th.push(u);
     });
-
+console.log(th);
     if (th.length > 0) {
-        th.each(function (i) {
+        $.each(th, function (i) {
             var u = $(this), v = u[0];
 
             switch (v.tagName.toLowerCase()) {
@@ -65,7 +65,7 @@ $(document).ready(function () {
         th2.addClass('header__dev');
 
         var their = [];
-        th.each(function (i) {
+        $.each(th, function (i) {
             if (i > index) return false;
             var u = $(this), v = u[0];
             if (v.tagName.toLowerCase() === 'h1') {
