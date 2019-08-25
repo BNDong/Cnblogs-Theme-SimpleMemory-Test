@@ -37,7 +37,7 @@ if (initCheck()) {
         '            <div class="m-icon-list" id="sb-classify"></div>' +
         '            <!-- 随笔档案 -->' +
         '            <div class="m-list-title"><span>随笔档案</span></div>' +
-        '            <div class="m-icon-list" id="sb-article"></div>' +
+        '            <div class="m-icon-list" id="sb-record"></div>' +
         '            <!-- 文章档案 -->' +
         '            <div class="m-list-title"><span>文章档案</span></div>' +
         '            <div class="m-icon-list" id="sb-articlearchive"></div>' +

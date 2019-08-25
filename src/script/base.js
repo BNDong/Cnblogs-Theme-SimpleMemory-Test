@@ -392,7 +392,7 @@ function Base() {
             menuIntroduce    = $('#introduce'),
             menuCalendar     = $('#calendar-box'),
             menuSearchBox    = $('#sb-sidebarSearchBox'),
-            menuArticle      = $('#sb-article'),
+            menuArticle      = $('#sb-articlearchive'),
             menuSidebar      = $('#sb-sidebarRecentposts'),
             menuToptags      = $('#sb-toptags'),
             menuClassify     = $('#sb-classify'),
