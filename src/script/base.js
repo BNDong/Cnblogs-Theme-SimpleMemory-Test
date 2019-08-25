@@ -409,6 +409,7 @@ function Base() {
             if (calendar.length > 0 && menuCalendar.html() === ''){
                 var calendarHtml = '</div id="blog-calendar">' + calendar.html() + '</div>';
                 calendar.remove();
+                console.log(calendarHtml);
                 menuCalendar.html(calendarHtml);
                 bndongJs.clearIntervalTimeId(timeIds.setMenuCalendarTId);
             }
