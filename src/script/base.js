@@ -64,7 +64,8 @@ function Base() {
     this.loadingAfterInit = function () {
 
         // 设置菜单个人简介头像
-        $('#menuBlogAvatar').append("<img src='"+window.cnblogsConfig.blogAvatar+"'>");
+        var blogAvatar = window.cnblogsConfig.blogAvatar ? window.cnblogsConfig.blogAvatar : 'https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/default_avatar.jpeg';
+        $('#menuBlogAvatar').append("<img src='"+blogAvatar+"'>");
 
         // 初始化菜单滚动条样式
         $('#menuWrap').optiscroll({ forceScrollbars: true, maxTrackSize: 20, preventParentScroll: true });

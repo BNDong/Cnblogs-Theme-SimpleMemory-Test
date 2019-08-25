@@ -81,7 +81,7 @@ if (initCheck()) {
         GhRepositories: 'Cnblogs-Theme-SimpleMemory',
         GhVersions: 'v1.1.2',
         blogUser: "",
-        blogAvatar: "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/default_avatar.jpeg",
+        blogAvatar: "",
         blogStartDate: "2019-01-01",
         menuCustomList: {},
         menuNavList: [],

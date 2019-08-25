@@ -43,36 +43,32 @@ $(document).ready(function () {
         u.attr('id', titleVal === 0 ? titleContent : titleContent + '-' + titleVal);
 
         if (v.localName === 'h1') {
-            l++;
-            m = 0;
-            if(titleContent.length>26) titleContent=titleContent.substr(0,26)+"...";
+            l++; m = 0;
+            if(titleContent.length>26) titleContent=titleContent.substr(0,26) + "...";
 
             j += '<li h="1" g="'+ lserialNum +'"><a href="#' + u.attr('id') + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
         } else if (v.localName === 'h2') {
-            m++;
-            n = 0;
+            m++; n = 0;
             if(q){
-                if(titleContent.length>30) titleContent=titleContent.substr(0,30)+"...";
+
+                if(titleContent.length>30) titleContent=titleContent.substr(0,30) + "...";
 
                 j += '<li h="2" g="'+ lserialNum +'" class="h2Offset ceg'+lserialNum+'"><a href="#' + u.attr('id') + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
             }
         }
     });
 
-    console.log(titleObj);
-
-
-
-
     $('#' + f + '>ul').html(j);
     b.data('spy', 'scroll');
     b.data('target', '.sideCatalogBg');
-    $("body").scrollspy({
+
+    b.scrollspy({
         target: '.sideCatalogBg'
     });
     $sideCatelog = $('#' + e);
+
     $('#' + g).on('click', function () {
-        if ($(this).hasClass('sideCatalogBtnDisable') && $sideCatelog.css('visibility') == 'visible') {
+        if ($(this).hasClass('sideCatalogBtnDisable') && $sideCatelog.css('visibility') === 'visible') {
             $sideCatelog.css('visibility', 'hidden');
             $(this).removeClass('sideCatalogBtnDisable');
         } else {
@@ -80,16 +76,18 @@ $(document).ready(function () {
             $(this).addClass('sideCatalogBtnDisable');
         }
     });
+
     $('#' + h).on('click', function () {
         $("html,body").animate({
             scrollTop: 0
         }, 500)
     });
+
     $sideToolbar = $('#' + d);
 
     var nav_li = $('#sideCatalog-catalog').find('ul li');
     
-    if (nav_li.length == 0) {
+    if (nav_li.length === 0) {
         $sideCatelog.css('visibility', 'hidden');
         $('#' + g).removeClass('sideCatalogBtnDisable');
     }
