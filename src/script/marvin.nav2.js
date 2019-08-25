@@ -33,8 +33,8 @@ $(document).ready(function () {
             titleContent = u.find('.dev__developer').text(),
             titleHre  = titleContent.replace(/\s/g,'__a__');
 
-        var titleRex = titleHre.match(/[A-Z a-z 0-9 \. \_ \- \u4E00-\u9FA5\uF900-\uFA2D]/g).toLowerCase();
-        titleHre = titleRex.join('');
+        var titleRex = titleHre.match(/[A-Z a-z 0-9 \. \_ \- \u4E00-\u9FA5\uF900-\uFA2D]/g);
+        titleHre = titleRex.join('').toLowerCase();
 
         titleArr.push(titleHre);
 
