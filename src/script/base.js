@@ -407,9 +407,8 @@ function Base() {
         // 添加日历
         function setCalendar() {
             if (calendar.length > 0 && menuCalendar.html() === ''){
-                var calendarHtml = '</div id="blog-calendar">' + calendar.html() + '</div>';
+                var calendarHtml = '<div id="blog-calendar">' + calendar.html() + '</div>';
                 calendar.remove();
-                console.log(calendarHtml);
                 menuCalendar.html(calendarHtml);
                 bndongJs.clearIntervalTimeId(timeIds.setMenuCalendarTId);
             }
