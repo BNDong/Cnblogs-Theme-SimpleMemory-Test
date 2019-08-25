@@ -1,6 +1,5 @@
 $(document).ready(function () {
-    const cbody   = $('body'),
-          cparent = 'cnblogs_post_body',
+    const cparent = 'cnblogs_post_body',
           s       = $('#' + cparent);
 
     if (s.length === 0) return;
@@ -13,7 +12,7 @@ $(document).ready(function () {
         if ($.inArray((v.tagName.toLowerCase()), ["h1", "h2"]) === -1) return true;
         th.push(u);
     });
-console.log(th);
+
     if (th.length > 0) {
         $.each(th, function (i) {
             var u = $(this), v = u[0];
@@ -69,7 +68,7 @@ console.log(th);
             if (i > index) return false;
             var u = $(this), v = u[0];
             if (v.tagName.toLowerCase() === 'h1') {
-                their.push(u);
+                their.push(u.parents('.header__span'));
             }
         });
 
