@@ -2,10 +2,16 @@
 
 你可以配置在```window.cnblogsConfig```里。
 
+!> Url 类型的配置，请尽量配置支持 Https 的地址！
+
+## 示例
+
+例如我原配置为：
+
 ```html
 <script type="text/javascript">
     window.cnblogsConfig = {
-        GhVersions    : 'v1.1.2',
+        GhVersions    : 'v1.1.5',
         blogUser      : "userName",
         blogAvatar    : "https://xxxx.png",
         blogStartDate : "2016-11-17"
@@ -13,7 +19,28 @@
 <script>
 ```
 
-!> Url 类型的配置，请尽量配置支持 Https 的地址！
+我需要新增关于主页图片的配置：```homeTopImg```
+
+新增配置为：
+
+```html
+<script type="text/javascript">
+    window.cnblogsConfig = {
+        GhVersions    : 'v1.1.5',
+        blogUser      : "userName",
+        blogAvatar    : "https://xxxx.png",
+        blogStartDate : "2016-11-17",
+        homeTopImg    : [
+            "https://x1.jpg",
+            "https://x2.jpg",
+            "https://x3.jpg",
+        ]
+    }
+<script>
+```
+
+!> JavaScript 对象是被命名值的容器。值以名称:值对的方式来书写（名称和值由冒号分隔）。
+       
 
 ## 仓库配置
 
