@@ -47,7 +47,7 @@
     <img width=50 src="https://avatars2.githubusercontent.com/u/12370628?s=460&v=4">
 </a>
 
-> 提交代码或改进方案并被采纳的同学会出现在这里。
+> 提交代码或改进方案，被采纳的同学会出现在这里。
 
 # Author
 
