@@ -959,6 +959,25 @@ function Base() {
             var sCopyHtml = '<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="background-color: rgb(246, 248, 250);">',
                 eCopyHtml = '<i class="iconfont icon-code5" style="color: #999;"></i></a></span></div>',
                 cnCode    = $('div.cnblogs_code');
+
+            // 设置Md代码拷贝
+            if (cnCode.length === 0) {
+                cnCode = $('pre');
+                cnCode.length > 0 && require(['encoder'], function() {
+                    cnCode.each(function (i) {
+                        var obj = $(cnCode[i]);
+                        var copyHtml = '';
+                        obj.find('.cnblogs_code_toolbar').remove();
+                        if (obj.find('.code_img_closed').length > 0) {
+                            copyHtml = sCopyHtml + '<a href="javascript:void(0);" style="z-index: 1; top: 30px;" onclick="copyCnblogsCode(this)" title="复制代码">' + eCopyHtml;
+                        } else {
+                            copyHtml = sCopyHtml + '<a href="javascript:void(0);" style="z-index: 1;" onclick="copyCnblogsCode(this)" title="复制代码">' + eCopyHtml;
+                        }
+                        obj.append(copyHtml);
+                    });
+                });
+            }
+
             cnCode.each(function (i) {
                 var obj = $(cnCode[i]);
                 var copyHtml = '';

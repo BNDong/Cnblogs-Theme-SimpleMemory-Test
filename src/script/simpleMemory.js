@@ -228,7 +228,7 @@ if (initCheck()) {
                 $.getScript(getJsDelivrUrl('config.js'), function () {
                     var staticResource = [
                         'optiscroll', 'ToProgress', 'rotate',
-                        'snapSvg', 'classie', 'main4', 'tools', 'clipboard'];
+                        'snapSvg', 'classie', 'main4', 'tools'];
                     require(staticResource, function() {
                         require(['base'], function() {
                             (new Base).init();

@@ -37,7 +37,7 @@ require.config({
         //-- 代码高亮 - highlightjs
         highlightjs: setFileNameMin('highlight.min', 'js'),
         //-- 拷贝
-        clipboard: setFileNameMin('clipboard.min', 'js'),
+        encoder: setFileNameMin('encoder', 'js'),
         //-- 主页头图动画
         circleMagic: setFileNameMin('circleMagic', 'js'),
         //-- 非主页头图动画
