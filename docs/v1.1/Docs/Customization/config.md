@@ -39,7 +39,7 @@
 <script>
 ```
 
-!> JavaScript 对象是被命名值的容器。值以名称:值对的方式来书写（名称和值由冒号分隔）。
+?> JavaScript 对象是被命名值的容器。值以名称:值对的方式来书写（名称和值由冒号分隔）。
        
 
 ## 仓库配置
@@ -73,13 +73,13 @@ window.cnblogsConfig = {
 ### GhVersions - 主题版本
 
 * 类型：```String```
-* 默认值：```v1.1.0```
+* 默认值：```v1.1.2```
 
 GitHub发布版本或提交哈希值，根据版本加载代码。
 
 ```javascript
 window.cnblogsConfig = {
-    GhVersions: 'v1.1.0',
+    GhVersions: 'v1.1.2',
     // or
     GhVersions: 'd2c2e52cfef...38998f0e' // 全哈希值，不要使用七位的部分哈希值
 }
@@ -266,6 +266,21 @@ window.cnblogsConfig = {
 }
 ```
 
+### menuUserInfoBgImg - 菜单个人信息背景图片
+
+?> 版本 >= v1.1.5
+
+* 类型：```Url```
+* 默认值：```""```
+
+菜单个人信息背景图片设置。
+
+```javascript
+window.cnblogsConfig = {
+    menuUserInfoBgImg: 'https://xxx,jpg'
+}
+```
+
 ## 进度条配置
 
 ### progressBar
@@ -275,7 +290,7 @@ window.cnblogsConfig = {
 
 ```json
 {
-    id      : 'top-progress-bar', // 非必需，请勿修改该值
+    id      : 'top-progress-bar', // 请勿修改该值
     color   : '#77b6ff',
     height  : '2px',
     duration: 0.2
@@ -560,6 +575,7 @@ window.cnblogsConfig = {
 
 ```json
 {
+    codeImgUrl   : '', // >= v1.1.5 左侧图片设置，不配置使用 window.cnblogsConfig.blogAvatar
     aboutHtml    : '', // 关于博主，不配置使用默认
     copyrightHtml: '', // 版权声明，不配置使用默认
     supportHtml  : ''  // 声援博主，不配置使用默认
@@ -711,6 +727,8 @@ window.cnblogsConfig = {
 ```
 
 页脚标语。
+
+?> v1.1.4 版本之前不配置使用默认标语，v1.1.4 版本及以后不配置不会显示。
 
 ```javascript
 window.cnblogsConfig = {
