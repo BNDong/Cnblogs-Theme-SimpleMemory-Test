@@ -998,9 +998,8 @@ function Base() {
 
         // 使用 highlightjs 代码样式
         function highlightjsCode() {
-            tools.dynamicLoadingCss('https://cdn.bootcss.com/highlight.js/9.15.9/styles/'+hltheme+'.min.css');
+            tools.dynamicLoadingCss('https://cdn.jsdelivr.net/gh/BNDong/' + window.cnblogsConfig.GhRepositories + '/src/style/highlightjs/'+hltheme+'.min.css');
             setCodeBefore();
-            delCssblogCommon();
             require(['highlightjs'], function() {
                 $('pre').each(function(i, block) {
                     codeCopyA.html('<i class="iconfont icon-code5 hljs-comment" style="font-style: inherit;"></i>');
@@ -1066,20 +1065,6 @@ function Base() {
                     bndongJs.clearIntervalTimeId(scrollbarTimeId);
                 }
             }, 500 );
-        }
-        
-        // 去除博客园默认代码样式文件
-        function delCssblogCommon() {
-            // const cssLink = $('link[rel="stylesheet"]');
-            // cssLink.each(function (i) {
-            //     var obj = $(cssLink[i]),
-            //         par = /^\/css\/blog-common\.min\.css.*$/,
-            //         href = obj.attr('href');
-            //     if (par.test(href)) {
-            //         obj.remove();
-            //         return false;
-            //     }
-            // });
         }
     };
 
