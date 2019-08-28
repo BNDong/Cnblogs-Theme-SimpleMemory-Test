@@ -30,6 +30,7 @@ function Base() {
             setCatalogTId          : null, // 文章目录设置定时器ID
             blogPostCategoryTId    : null, // 文章信息分类设置定时器ID
             entryTagTId            : null, // 文章信息标签设置定时器ID
+            commentTId             : null, // 评论框设置定时器ID
         };
 
 //----------------------------------- 初始化 -----------------------------------------//
@@ -1087,30 +1088,39 @@ function Base() {
      */
     this.setCommentStyle = function() {
 
-        var commentAvatar = function(commentList) {
+        var commentList        = $('.blog_comment_body'),
+            commentPlaceholder = $('#blog-comments-placeholder');
+
+        commentAvatar(commentList);
+        commentList.addClass('hvr-bob');
+
+        //气泡效果
+        timeIds.commentTId = window.setInterval(function(){
+                if (commentPlaceholder.html() != '') {
+                    CommentBubble();
+                    bndongJs.clearIntervalTimeId(timeIds.commentTId);
+                }
+            },1000);
+
+        function commentAvatar(commentList) {
             commentList.each(function (i) {
-                var p = $(commentList[i]).attr('id').split('_');
+                var p    = $(commentList[i]).attr('id').split('_'),
+                    html = '';
                 if (p.length > 0) {
                     var idIndex = p.length - 1;
                     var id = p[idIndex];
                     var op = $('#comment_'+id+'_avatar');
                     if (op.length > 0 && op.text() != '') {
                         var patch = op.text();
-                        var html = '<img class="comment-avatar" src="'+patch+'"/>';
+                        html += '<img class="comment-avatar" src="'+patch+'"/>';
                     } else {
-                        var html = '<img class="comment-avatar" src="https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/default_avatar.jpeg"/>';
+                        html += '<img class="comment-avatar" src="https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/default_avatar.jpeg"/>';
                     }
                     $(commentList[i]).before(html);
                 }
             });
-        };
+        }
 
-        var commentList = $('.blog_comment_body');
-        commentAvatar(commentList);
-        commentList.addClass('hvr-bob');
-
-        //气泡效果
-        var commentTime = setInterval(function(){if($("#comments_pager_bottom").length>0){CommentBubble();clearTimeout(commentTime);}},50);
         function CommentBubble() {
             var w1 = '<div class="list">' +
                 '<table class="out" border="0" cellspacing="0" cellpadding="0"> ' +
