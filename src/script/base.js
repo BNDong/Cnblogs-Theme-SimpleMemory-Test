@@ -1096,7 +1096,7 @@ function Base() {
 
         //气泡效果
         timeIds.commentTId = window.setInterval(function(){
-                if (commentPlaceholder.html() != '') {
+                if (commentPlaceholder.html() != '' || $("#comments_pager_bottom").length > 0) {
                     CommentBubble();
                     bndongJs.clearIntervalTimeId(timeIds.commentTId);
                 }
