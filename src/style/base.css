@@ -4040,6 +4040,7 @@ a#green_channel_digg, a#green_channel_follow, a#green_channel_favorite, a#green_
     color: #fff;
     margin: auto;
     width: 80px;
+    height: 30px;
     display: inline-block;
     line-height: 30px;
     font-size: 12px;
@@ -4047,11 +4048,11 @@ a#green_channel_digg, a#green_channel_follow, a#green_channel_favorite, a#green_
     letter-spacing: 2px;
     border-radius: 3px;
     text-transform: uppercase;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    -o-transition: all 0.4s;
+    transition: all .4s;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    -ms-transition: all .4s;
+    -o-transition: all .4s;
     position: relative;
     background-image: none;
     margin-top: 10px;
@@ -4086,22 +4087,18 @@ a#green_channel_favorite {
 }
 
 a#green_channel_weibo {
-    padding: 3px 8px !important;
-    background-color: #FF464B !important;
-    box-shadow: 0px 15px 18px -6px rgba(255,70,75, 0.65) !important;
+    background-color: #ff464b!important;
+    box-shadow: 0 15px 18px -6px rgba(255,70,75,0.65)!important;
     margin-left: 10px;
-    width: 35px;
-    /*display:none;*/
+    width: 45px;
 }
 
 
 a#green_channel_wechat {
-    padding: 3px 8px !important;
-    background-color: #3CB034 !important;
-    box-shadow: 0px 15px 18px -6px rgba(60,176,52, 0.65) !important;
+    background-color: #3cb034!important;
+    box-shadow: 0 15px 18px -6px rgba(60,176,52,0.65)!important;
     margin-left: 10px;
-    width: 35px;
-    /*display:none;*/
+    width: 45px;
 }
 
 #author_profile_info img.author_avatar {
@@ -4111,6 +4108,13 @@ a#green_channel_wechat {
     padding: 0;
     margin-left: 3px;
     margin-right: 7px;
+}
+
+div#green_channel img {
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: 5px;
 }
 
 

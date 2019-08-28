@@ -1070,16 +1070,16 @@ function Base() {
         
         // 去除博客园默认代码样式文件
         function delCssblogCommon() {
-            const cssLink = $('link[rel="stylesheet"]');
-            cssLink.each(function (i) {
-                var obj = $(cssLink[i]),
-                    par = /^\/css\/blog-common\.min\.css.*$/,
-                    href = obj.attr('href');
-                if (par.test(href)) {
-                    obj.remove();
-                    return false;
-                }
-            });
+            // const cssLink = $('link[rel="stylesheet"]');
+            // cssLink.each(function (i) {
+            //     var obj = $(cssLink[i]),
+            //         par = /^\/css\/blog-common\.min\.css.*$/,
+            //         href = obj.attr('href');
+            //     if (par.test(href)) {
+            //         obj.remove();
+            //         return false;
+            //     }
+            // });
         }
     };
 
