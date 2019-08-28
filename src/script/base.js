@@ -508,14 +508,11 @@ function Base() {
                 ret  = /^[1-9]+[0-9]*$/;
             obj.each(function (i) {
                 var p = $(obj[i]),
-                    o = $(p.html());
-                var textArr = $.trim(p.text()).split('.');
-                console.log('===================');
-                console.log($.trim(p.text()));
-                console.log(textArr);
+                    o = $(p.html()),
+                    textArr = $.trim(p.text()).split('.');
                 if (ret.test(textArr[0])) textArr.splice(0,1);
-                var text = $.trim(textArr.join('.'));
-                var iconHtml = '<span class="iconfont '+icon+'" style="color: #888;font-size: 14px;margin-right: 5px;"></span>';
+                var text = $.trim(textArr.join('.')),
+                    iconHtml = '<span class="iconfont '+icon+'" style="color: #888;font-size: 14px;margin-right: 5px;"></span>';
                 o.html(iconHtml + text);
                 html += '<li>' + o.prop("outerHTML") + '</li>';
             });
