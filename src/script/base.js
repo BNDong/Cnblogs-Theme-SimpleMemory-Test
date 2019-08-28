@@ -504,12 +504,15 @@ function Base() {
         }
 
         function getMenuData(obj, icon) {
-            var html = '<div><ul>';
-            var ret  = /^[1-9]+[0-9]*$/;
+            var html = '<div><ul>',
+                ret  = /^[1-9]+[0-9]*$/;
             obj.each(function (i) {
                 var p = $(obj[i]),
                     o = $(p.html());
-                var textArr = p.text().split('.');
+                var textArr = $.trim(p.text()).split('.');
+                console.log('===================');
+                console.log($.trim(p.text()));
+                console.log(textArr);
                 if (ret.test(textArr[0])) textArr.splice(0,1);
                 var text = $.trim(textArr.join('.'));
                 var iconHtml = '<span class="iconfont '+icon+'" style="color: #888;font-size: 14px;margin-right: 5px;"></span>';
