@@ -85,6 +85,7 @@ if (initCheck()) {
         GhUserName: 'BNDong',
         GhRepositories: 'Cnblogs-Theme-SimpleMemory',
         GhVersions: 'v1.1.2',
+        CnVersions: "",
         blogUser: "",
         blogAvatar: "",
         blogStartDate: "2019-01-01",
@@ -279,10 +280,12 @@ function getVersionConfig() {
             conf = conf.replace(/\./g, '__a__');
             var thisGhVersion = (window.cnblogsConfigDefault.GhVersions).replace(/\./g, '__a__');
             var confObj = JSON.parse(conf);
-            console.log(confObj);
             if (eval("typeof confObj." + thisGhVersion + " != 'undefined'")) {
                 var confVersion = eval("confObj." + thisGhVersion);
+                window.cnblogsConfigDefault.CnVersions = window.cnblogsConfigDefault.GhVersions;
                 window.cnblogsConfigDefault.GhVersions = confVersion.replace(/__a__/g, '.');
+            } else {
+                window.cnblogsConfigDefault.CnVersions = window.cnblogsConfigDefault.GhVersions;
             }
         }
     });
