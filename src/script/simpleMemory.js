@@ -189,6 +189,7 @@ if (initCheck()) {
     };
 
     window.cnblogsConfig = $.extend( true, window.cnblogsConfigDefault, window.cnblogsConfig );
+    getVersionConfig();
 
     // set sidebar html
     var url = window.location.href,tmp = [];
@@ -262,6 +263,29 @@ function initCheck() {
         }
     }
     return false;
+}
+
+// get version config
+function getVersionConfig() {
+    var url = 'https://raw.githubusercontent.com/' + window.cnblogsConfigDefault.GhUserName + '/' + window.cnblogsConfigDefault.GhRepositories + '/master/version.json';
+
+    $.ajax({
+        type: "get",
+        url: url,
+        dataType: "text",
+        async: false,
+        success: function(conf)
+        {
+            conf = conf.replace(/\./g, '__a__');
+            var thisGhVersion = (window.cnblogsConfigDefault.GhVersions).replace(/\./g, '__a__');
+            var confObj = JSON.parse(conf);
+            console.log(confObj);
+            if (eval("typeof confObj." + thisGhVersion + " != 'undefined'")) {
+                var confVersion = eval("confObj." + thisGhVersion);
+                window.cnblogsConfigDefault.GhVersions = confVersion.replace(/__a__/g, '.');
+            }
+        }
+    });
 }
 
 // get file url
