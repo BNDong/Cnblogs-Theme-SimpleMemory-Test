@@ -268,7 +268,7 @@ function initCheck() {
 
 // get version config
 function getVersionConfig() {
-    var url = 'https://raw.githubusercontent.com/' + window.cnblogsConfigDefault.GhUserName + '/' + window.cnblogsConfigDefault.GhRepositories + '/master/version.json';
+    var url = 'https://raw.githubusercontent.com/' + window.cnblogsConfigDefault.GhUserName + '/' + window.cnblogsConfigDefault.GhRepositories + '/master/version.conf';
 
     $.ajax({
         type: "get",
@@ -277,22 +277,25 @@ function getVersionConfig() {
         async: false,
         success: function(conf)
         {
-            conf = conf.replace(/\./g, '__a__');
-            var thisGhVersion = (window.cnblogsConfigDefault.GhVersions).replace(/\./g, '__a__');
-            var confObj = JSON.parse(conf);
-            if (eval("typeof confObj." + thisGhVersion + " != 'undefined'")) {
-                var confVersion = getEndConfVal(confObj, thisGhVersion);
-                window.cnblogsConfigDefault.CnVersions = window.cnblogsConfigDefault.GhVersions;
-                window.cnblogsConfigDefault.GhVersions = confVersion.replace(/__a__/g, '.');
-            } else {
-                window.cnblogsConfigDefault.CnVersions = window.cnblogsConfigDefault.GhVersions;
+            var confObj = conf ? JSON.parse(conf) : false;
+            var confVersion = getEndConfVal(window.cnblogsConfigDefault.GhVersions);
+            window.cnblogsConfigDefault.CnVersions = window.cnblogsConfigDefault.GhVersions;
+
+            if (confVersion) {
+                window.cnblogsConfigDefault.GhVersions = confVersion;
             }
 
-            function getEndConfVal(confObj, key) {
-                if (eval("typeof confObj." + key + " != 'undefined'")) {
-                    return getEndConfVal(confObj, eval("confObj." + key));
+            function getEndConfVal(thisGhVersion) {
+                var endVal = '';
+                confObj && $.each(confObj, function (i) {
+                    if (confObj[i][0] === thisGhVersion) {
+                        endVal = confObj[i][1];return false;
+                    }
+                });
+                if (endVal === '') {
+                    return thisGhVersion;
                 } else {
-                    return eval("confObj." + key);
+                    return getEndConfVal(endVal);
                 }
             }
         }
