@@ -281,11 +281,19 @@ function getVersionConfig() {
             var thisGhVersion = (window.cnblogsConfigDefault.GhVersions).replace(/\./g, '__a__');
             var confObj = JSON.parse(conf);
             if (eval("typeof confObj." + thisGhVersion + " != 'undefined'")) {
-                var confVersion = eval("confObj." + thisGhVersion);
+                var confVersion = getEndConfVal(confObj, thisGhVersion);
                 window.cnblogsConfigDefault.CnVersions = window.cnblogsConfigDefault.GhVersions;
                 window.cnblogsConfigDefault.GhVersions = confVersion.replace(/__a__/g, '.');
             } else {
                 window.cnblogsConfigDefault.CnVersions = window.cnblogsConfigDefault.GhVersions;
+            }
+
+            function getEndConfVal(confObj, key) {
+                if (eval("typeof confObj." + key + " != 'undefined'")) {
+                    return getEndConfVal(confObj, eval("confObj." + key));
+                } else {
+                    return eval("confObj." + key);
+                }
             }
         }
     });
