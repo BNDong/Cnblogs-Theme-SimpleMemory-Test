@@ -909,10 +909,7 @@ function Base() {
 
         if (window.cnblogsConfig.essayTopAnimationRendered)
             require(['TweenMax', 'MyTween'], function() {
-            $('.main-header').css({
-                'height': '40vh',
-            });
-            initCanvas('notHomeTopCanvas');
+            // initCanvas('notHomeTopCanvas');
             start();
         });
     };
