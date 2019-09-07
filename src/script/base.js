@@ -901,9 +901,6 @@ function Base() {
             'background': '#222 url('+bgImg+')  center center no-repeat',
             'background-size': 'cover'
         });
-        $('#notHomeTopCanvas').css({
-            'position': 'absolute'
-        });
 
         $('#homeTopTitle').hide();
         $('.scroll-down').hide();
