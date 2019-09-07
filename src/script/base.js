@@ -901,6 +901,7 @@ function Base() {
             'background': '#222 url('+bgImg+')  center center no-repeat',
             'background-size': 'cover'
         });
+
         $('#homeTopTitle').hide();
         $('.scroll-down').hide();
         $('#home').css('margin-top', '40vh');
@@ -908,7 +909,10 @@ function Base() {
 
         if (window.cnblogsConfig.essayTopAnimationRendered)
             require(['TweenMax', 'MyTween'], function() {
-            // initCanvas('notHomeTopCanvas');
+            $('.main-header').css({
+                'height': '40vh',
+            });
+            initCanvas('notHomeTopCanvas');
             start();
         });
     };

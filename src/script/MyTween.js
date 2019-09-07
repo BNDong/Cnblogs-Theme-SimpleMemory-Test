@@ -331,10 +331,6 @@ var mouseX = mouseY = mouseOldX = mouseOldY = 0,
                         c = C.getContext('2d'),
                         viewWidth = C.width = C.scrollWidth,
                         viewHeight = C.height  = C.scrollHeight,
-
-                    console.log(viewWidth);
-                    console.log(viewHeight);
-
                         initParams();
                 //document.onmousemove = handleMouseMove;
                 window.addEventListener("resize", handleResize);
