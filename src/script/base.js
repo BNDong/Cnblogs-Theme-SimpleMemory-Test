@@ -901,6 +901,9 @@ function Base() {
             'background': '#222 url('+bgImg+')  center center no-repeat',
             'background-size': 'cover'
         });
+        $('#notHomeTopCanvas').css({
+            'position': 'absolute'
+        });
 
         $('#homeTopTitle').hide();
         $('.scroll-down').hide();
@@ -909,7 +912,16 @@ function Base() {
 
         if (window.cnblogsConfig.essayTopAnimationRendered)
             require(['TweenMax', 'MyTween'], function() {
-            // initCanvas('notHomeTopCanvas');
+                $('#notHomeTopCanvas').css({
+                    'margin': 'auto',
+                    'width': '100%',
+                    'height': '100%',
+                    'top': '0',
+                    'bottom': '0',
+                    'left': '0',
+                    'right': '0'
+                });
+            initCanvas('notHomeTopCanvas');
             start();
         });
     };
