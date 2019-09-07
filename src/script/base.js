@@ -908,7 +908,7 @@ function Base() {
 
         if (window.cnblogsConfig.essayTopAnimationRendered)
             require(['TweenMax', 'MyTween'], function() {
-            initCanvas('notHomeTopCanvas');
+            // initCanvas('notHomeTopCanvas');
             start();
         });
     };
