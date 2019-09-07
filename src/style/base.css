@@ -3542,7 +3542,7 @@ blockquote p {
 
 #cnblogs_post_body > p {
     margin: 10px auto;
-    text-indent: 2em;
+    padding: 0 20px;
 }
 
 #cnblogs_post_body ul li {
@@ -3561,7 +3561,7 @@ blockquote p {
     height: 100%;
     position: relative;
     display: inline-block;
-    left: -35px;
+    left: -20px;
     margin: 25px 0 0px 0;
     width: 110%;
     transition: border-color 0.3s;
@@ -3672,7 +3672,7 @@ blockquote p {
 }
 .header__span h1 .dev__developer {
     top: -20px;
-    left: 94px;
+    left: 90px;
     min-height: 34px;
 }
 .header__span h2 .dev__developer {
@@ -3708,6 +3708,7 @@ blockquote p {
 
 #m-nav-list li {
     position: relative;
+    overflow: hidden;
 }
 
 /* ==========================================================================

@@ -189,12 +189,12 @@ body{
     display: inline-block;
     font-size: 1.2rem;
     vertical-align: bottom;
-    color: #b8b8b8;
+    color: #666;
     content: counter(item,lower-roman);
     text-align: center;
     counter-increment: item;
     position: absolute;
-    right: -40px;
+    right: -38px;
     width: 10px;
     background: #000;
     height: 20px;
