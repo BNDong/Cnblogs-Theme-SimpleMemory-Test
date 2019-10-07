@@ -563,9 +563,12 @@ function Base() {
     /**
      * 添加页脚
      */
-    this.addFooter111 = function() {
-        const footer = $('#footer');
-        var pvHtml = '';
+    this.addFooter = function() {
+        const footer = $('#footer'),
+              rHref  = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.CnVersions,
+              lHref  = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
+
+        var pvHtml   = '', bgFooter = '';
 
         if (window.cnblogsConfig.bottomText.left || window.cnblogsConfig.bottomText.right)
             pvHtml += '<div>【'+window.cnblogsConfig.bottomText.left+'<span id="footerTextIcon">'+window.cnblogsConfig.bottomText.icon+'</span>'+window.cnblogsConfig.bottomText.right+'】</div>';
@@ -575,18 +578,6 @@ function Base() {
             '<div id="cnzzInfo"></div>' +
             '<div id="themeInfo"></div>';
 
-        var bgFooter = '<footer>' +
-            '<footer-background>' +
-            '<figure class="clouds"></figure>' +
-            '<figure class="background"></figure>' +
-            '<figure class="foreground"></figure>' +
-            '<figure class="poof"></figure>' +
-            '</footer-background>' +
-            '</footer>',
-
-        rHref = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.CnVersions,
-        lHref = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
-
         addFooterHtml();
         setBlogroll();
         setTheme();
@@ -595,13 +586,32 @@ function Base() {
 
         // 添加页脚
         function addFooterHtml() {
+            init_t1();
             const poweredby = $('#poweredby');
-            footer.prepend(bgFooter);
+            bgFooter && footer.prepend(bgFooter);
             if (poweredby.length > 0) {
                 poweredby.before(pvHtml);
             } else {
                 footer.append(pvHtml);
             }
+        }
+
+        // v1.0 页脚
+        function init_t1() {
+            pvHtml = '<div class="footer-image"></div>' + pvHtml;
+        }
+
+        // v1.1+ 页脚
+        function init_t2() {
+
+            bgFooter = '<footer>' +
+                '<footer-background>' +
+                '<figure class="clouds"></figure>' +
+                '<figure class="background"></figure>' +
+                '<figure class="foreground"></figure>' +
+                '<figure class="poof"></figure>' +
+                '</footer-background>' +
+                '</footer>';
         }
 
         // 设置运行时间
@@ -652,75 +662,6 @@ function Base() {
                 +'" target="_blank" style="color: #888;text-decoration: underline;">'
                 +(window.cnblogsConfigDefault.GhVersions).substring(0,7)+'</a>'
             );
-        }
-    };
-
-    /**
-     * 添加页脚
-     */
-    this.addFooter = function() {
-        // var pvHtml =  '<i class="iconfont icon-odps-data cnzz" style="position: relative;top: 2px;left: 3px;cursor: pointer;"></i>';
-        var pvHtml = '<span id="amazingStatSpan"></span>';
-        pvHtml += '<div>【'+window.cnblogsConfig.bottomText.left+'<span id="footerTextIcon">'+window.cnblogsConfig.bottomText.icon+'</span>'+window.cnblogsConfig.bottomText.right+'】</div>';
-        pvHtml += "<div><span id='blogRunTimeSpan'></span><span class='my-face'>ღゝ◡╹)ノ♡</span></div>";
-        pvHtml += '<div id="blogrollInfo"></div>';
-        pvHtml += '<div id="cnzzInfo"></div>';
-        $('#footer').append(pvHtml).prepend('<div class="footer-image"></div>');
-
-        if (window.cnblogsConfig.themeAuthor && window.location.href.search("www.cnblogs.com/bndong") == -1 ) setTheme();
-
-        window.setInterval( setRunTime, 500 );
-        setBlogroll();
-        timeIds.setCnzzTId    = window.setInterval( setCnzz, 1000 );
-        // timeIds.setAmazingTId = window.setInterval( setAmazing, 1000 );
-
-        function setRunTime() {
-            var str = window.cnblogsConfig.blogStartDate;
-            str = str ? str : '2016-11-17';
-            var runDate = tools.getRunDate(str);
-            $('#blogRunTimeSpan').text('This blog has running : '+runDate.daysold+' d '+runDate.hrsold+' h '+runDate.minsold+' m '+runDate.seconds+' s');
-        }
-        function setBlogroll() {
-            if (window.cnblogsConfig.bottomBlogroll.length > 0) {
-                var blogrollArr  = window.cnblogsConfig.bottomBlogroll;
-                var blogrollHtml = '友情链接：';
-                for(var i = 0; i < blogrollArr.length; i++) {
-                    blogrollHtml += '<a href="'+(blogrollArr[i][1])+'" target="_blank">'+(blogrollArr[i][0])+'</a>';
-                    if (i < blogrollArr.length-1) blogrollHtml += '<span style="margin: 0 3px;">/</span>';
-                }
-                $('#blogrollInfo').html(blogrollHtml);
-            }
-        }
-        function setCnzz() {
-            // 请去 CNZZ 配置自己的，谢谢！！
-            var cnzzStat = $('.id_cnzz_stat_icon a');
-            if (cnzzStat.length > 0) {
-                var cnzzInfo = [];
-                var cnzzArr  = $(cnzzStat[1]).text().split('|');
-                $.each(cnzzArr, function (i) {
-                    var str = $.trim(cnzzArr[i]);
-                    if (str != '') {
-                        str = str.replace('今日','Today').replace('昨日','Yesterday').replace('[',':').replace(']','');
-                        cnzzInfo.push(str)
-                    }
-                });
-                cnzzInfo.push($(cnzzStat[2]).text().replace('当前在线','Online').replace('[',':').replace(']',''));
-                $('#cnzzInfo').text(cnzzInfo.join(' | '));
-                bndongJs.clearIntervalTimeId(timeIds.setCnzzTId);
-            }
-        }
-
-        function setTheme() {
-            $('#footer').prepend('<div class="footer-image"></div>');
-            setInterval(function(){
-                var footer = $('#footer');
-                var themeHtml = '<p id="ThemeAuthors" style="color: #444;z-index: 999;">- Theme Author：<a href="https://www.cnblogs.com/bndong/" target="_blank" style="color:#444;">BNDong</a> -</p></div>';
-                if ($('#ThemeAuthors').length == 0) {
-                    $('#footer').append(themeHtml);
-                } else {
-                    $('#ThemeAuthors').show().css('visibility', 'visible');
-                }
-            },3000);
         }
     };
 
