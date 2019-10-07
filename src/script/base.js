@@ -526,7 +526,7 @@ function Base() {
                 var text = $.trim(textArr.join('.')),
                     iconHtml = '<span class="iconfont '+icon+'" style="color: #888;font-size: 14px;margin-right: 5px;"></span>';
                 o.length > 0 && o.html(iconHtml + text);
-                html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : iconHtml + text) + '</li>';
+                html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : "<a href='javascript:void(0);'>" + iconHtml + text + "</a>") + '</li>';
             });
             html += '</ul></div>';
             return html;
