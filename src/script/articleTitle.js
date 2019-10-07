@@ -86,7 +86,6 @@ $(document).ready(function () {
         var th2Html = '<b class="dev__fe"><i>' + th2last + '</i></b>';
         th2Html += '<span class="dev__slash">|</span>';
         th2Html += '<b class="dev__ux"><i>' + (++th2num) + '</i></b>';
-        console.log(th2Text);
         th2Html += '<b class="dev__developer"><span class="dev__title">' + th2Text + '</span></b>';
 
         th2.append(th2Html);
