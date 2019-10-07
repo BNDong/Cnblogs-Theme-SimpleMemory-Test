@@ -13,15 +13,11 @@ require.config({
         ToProgress: setFileNameMin('ToProgress.min', 'js'),
         //-- 旋转
         rotate: setFileNameMin('jquery.rotate.min', 'js'),
-        //-- 菜单滚动条&&进度条&&旋转 - 合并压缩文件
-        optiscroll_ToProgress_rotate: setFileNameMin('optiscroll_ToProgress_rotate.min', 'js'),
         //-- snap svg
         snapSvg: setFileNameMin('snap.svg-min', 'js'),
         //-- 菜单
         classie: setFileNameMin('classie', 'js'),
         main4: setFileNameMin('main4', 'js'),
-        //-- snap svg&&菜单 - 合并压缩文件
-        snapSvg_classie_main4: setFileNameMin('snapSvg_classie_main4.min', 'js'),
         //-- bootstrap
         bootstrap: setFileNameMin('bootstrap.min', 'js'),
         //-- baguetteBox 图片灯箱
@@ -53,12 +49,15 @@ require.config({
         tools: setFileNameMin('tools', 'js'),
         //-- base
         base: setFileNameMin('base', 'js'),
+
+        // == 合并压缩文件 == //
+        //-- 菜单滚动条 && 进度条 && 旋转
+        optiscroll_ToProgress_rotate: setFileNameMin('optiscroll_ToProgress_rotate.min', 'js'),
+        //-- 非主页头图动画
+        TweenMax_MyTween: setFileNameMin('TweenMax_MyTween.min', 'js'),
     },
     shim:{
         optiscroll: {
-            deps: ['css!'+getJsDelivrUrl('optiscroll.css')]
-        },
-        optiscroll_ToProgress_rotate: {
             deps: ['css!'+getJsDelivrUrl('optiscroll.css')]
         },
         classie: {
@@ -66,9 +65,6 @@ require.config({
         },
         main4: {
             deps: ['snapSvg','classie', 'css!'+getJsDelivrUrl('menu_bubble.css')]
-        },
-        snapSvg_classie_main4: {
-            deps: ['css!'+getJsDelivrUrl('menu_bubble.css')]
         },
         baguetteBox: {
             exports: 'baguetteBox',
@@ -101,6 +97,11 @@ require.config({
                 'css!'+getJsDelivrUrl('footer.css'),
                 'css!https://at.alicdn.com/t/font_543384_ezv3l7gd9r7.css', // 阿里云字体图标
             ]
-        }
+        },
+
+        // == 合并压缩文件 == //
+        optiscroll_ToProgress_rotate: {
+            deps: ['css!'+getJsDelivrUrl('optiscroll.css')]
+        },
     }
 });

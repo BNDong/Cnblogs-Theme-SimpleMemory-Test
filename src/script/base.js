@@ -967,7 +967,7 @@ function Base() {
         $('#cb_post_title_url').addClass('post-del-title');
 
         if (window.cnblogsConfig.essayTopAnimationRendered)
-            require(['TweenMax', 'MyTween'], function() {
+            require(['TweenMax_MyTween'], function() {
                 $('#notHomeTopCanvas').css({
                     'margin': 'auto',
                     'width': '100%',

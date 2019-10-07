@@ -235,9 +235,7 @@ if (initCheck()) {
                     var staticResource = [
                         // 'optiscroll', 'ToProgress', 'rotate',
                         'optiscroll_ToProgress_rotate',
-                        // 'snapSvg', 'classie', 'main4',
-                        'snapSvg_classie_main4',
-                        'tools'];
+                        'snapSvg', 'classie', 'main4', 'tools'];
                     require(staticResource, function() {
                         require(['base'], function() {
                             (new Base).init();
