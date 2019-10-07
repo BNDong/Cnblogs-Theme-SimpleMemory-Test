@@ -525,8 +525,8 @@ function Base() {
                 if (ret.test(textArr[0])) textArr.splice(0,1);
                 var text = $.trim(textArr.join('.')),
                     iconHtml = '<span class="iconfont '+icon+'" style="color: #888;font-size: 14px;margin-right: 5px;"></span>';
-                o.html(iconHtml + text);
-                html += '<li>' + o.prop("outerHTML") + '</li>';
+                // o.html(iconHtml + text);
+                html += '<li>' + iconHtml + text + '</li>';
             });
             html += '</ul></div>';
             return html;
