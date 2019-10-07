@@ -27,7 +27,7 @@ $(document).ready(function () {
         var u = $(this),
             v = u[0];
         if ($.inArray((v.tagName.toLowerCase()), ["h1", "h2"]) === -1) return true;
-        
+
         var lserialNum = u.find('.dev__fe').text(),
             rserialNum = u.find('.dev__ux').text(),
             titleContent = u.find('.dev__developer').text(),
@@ -38,7 +38,6 @@ $(document).ready(function () {
 
         titleArr.push(titleHre);
 
-        titleContent = HTMLEncode(titleContent);
         var titleVal = countTitleHre(titleHre),
             titleHreText = titleHre.replace(/__a__/g,'-');
 
@@ -47,6 +46,7 @@ $(document).ready(function () {
         if (v.localName === 'h1') {
             l++; m = 0;
             if(titleContent.length>26) titleContent=titleContent.substr(0,26) + "...";
+            titleContent = HTMLEncode(titleContent);
 
             j += '<li h="1" g="'+ lserialNum +'"><a href="#' + u.attr('id') + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
         } else if (v.localName === 'h2') {
@@ -54,6 +54,7 @@ $(document).ready(function () {
             if(q){
 
                 if(titleContent.length>30) titleContent=titleContent.substr(0,30) + "...";
+                titleContent = HTMLEncode(titleContent);
 
                 j += '<li h="2" g="'+ lserialNum +'" class="h2Offset ceg'+lserialNum+'"><a href="#' + u.attr('id') + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
             }
@@ -111,7 +112,7 @@ $(document).ready(function () {
     $sideToolbar = $('#' + d);
 
     var nav_li = $('#sideCatalog-catalog').find('ul li');
-    
+
     if (nav_li.length === 0) {
         $sideCatelog.css('visibility', 'hidden');
         $('#' + g).removeClass('sideCatalogBtnDisable');
