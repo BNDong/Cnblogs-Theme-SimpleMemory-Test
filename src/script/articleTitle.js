@@ -58,6 +58,7 @@ $(document).ready(function () {
     function setTh2(th2, index) {
 
         var th2Text = th2.text();
+        console.log(th2Text);
 
         th2.wrap('<span title-type="h2" class="header__span"></span>');
         th2.text('');
