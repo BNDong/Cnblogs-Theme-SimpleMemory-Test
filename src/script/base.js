@@ -986,7 +986,7 @@ function Base() {
      * 设置图片灯箱效果
      */
     this.baguetteBox = function () {
-        require(['baguetteBox', 'marvin', 'articleStatement'], function(baguetteBox) {
+        require(['baguetteBox', 'title_marvin_articleStatement'], function(baguetteBox) {
 
             // 设置图片点击查看
             const cpb    = $('#cnblogs_post_body')
