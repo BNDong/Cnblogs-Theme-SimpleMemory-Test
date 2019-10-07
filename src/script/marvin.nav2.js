@@ -32,9 +32,12 @@ $(document).ready(function () {
             rserialNum = u.find('.dev__ux').text(),
             titleContent = u.find('.dev__developer').text(),
             titleHre  = titleContent.replace(/\s/g,'__a__');
-
+console.log(titleHre);
         var titleRex = titleHre.match(/[A-Z a-z 0-9 \. \_ \- \u4E00-\u9FA5\uF900-\uFA2D]/g);
+        console.log(titleRex);
         titleHre = titleRex.join('').toLowerCase();
+        console.log(titleHre);
+        console.log('-----');
 
         titleArr.push(titleHre);
 
