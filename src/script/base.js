@@ -578,12 +578,12 @@ function Base() {
             '<div id="cnzzInfo"></div>' +
             '<div id="themeInfo"></div>';
 
-        switch (window.cnblogsConfig.footerStyle) {
-            case '1':
+        switch (parseInt(window.cnblogsConfig.footerStyle)) {
+            case 1:
                 init_t1();
                 break;
 
-            case '2':
+            case 2:
             default:
                 init_t2();
                 break;
