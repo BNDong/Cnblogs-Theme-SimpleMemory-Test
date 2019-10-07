@@ -33,13 +33,12 @@ $(document).ready(function () {
             titleContent = u.find('.dev__developer').text(),
             titleHre  = titleContent.replace(/\s/g,'__a__');
 
-        console.log(titleHre);
-
         var titleRex = titleHre.match(/[A-Z a-z 0-9 \. \_ \- \u4E00-\u9FA5\uF900-\uFA2D]/g);
         titleHre = titleRex.join('').toLowerCase();
 
         titleArr.push(titleHre);
 
+        titleContent = HTMLEncode(titleContent);
         var titleVal = countTitleHre(titleHre),
             titleHreText = titleHre.replace(/__a__/g,'-');
 
@@ -71,6 +70,17 @@ $(document).ready(function () {
             }
         });
         return num > 0 ? num - 1 : 0;
+    }
+
+    /**
+     * @return {string}
+     */
+    function HTMLEncode(html) {
+        var temp = document.createElement("div");
+        (temp.textContent != null) ? (temp.textContent = html) : (temp.innerText = html);
+        var output = temp.innerHTML;
+        temp = null;
+        return output;
     }
 
     $('#' + f + '>ul').html(j);
