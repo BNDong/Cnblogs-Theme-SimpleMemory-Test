@@ -26,6 +26,9 @@ if (initCheck()) {
         '            <!-- 找找看 -->' +
         '            <div class="m-list-title"><span>找找看</span></div>' +
         '            <div class="m-icon-list" id="sb-sidebarSearchBox"></div>' +
+        '            <!-- 积分与排名 -->' +
+        '            <div class="m-list-title"><span>积分与排名</span></div>' +
+        '            <div class="m-icon-list" id="sb-sidebarScorerank"></div>' +
         '            <!-- 最新随笔 -->' +
         '            <div class="m-list-title"><span>最新随笔</span></div>' +
         '            <div class="m-icon-list" id="sb-sidebarRecentposts"></div>' +
