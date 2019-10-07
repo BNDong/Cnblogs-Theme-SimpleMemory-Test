@@ -578,27 +578,50 @@ function Base() {
             '<div id="cnzzInfo"></div>' +
             '<div id="themeInfo"></div>';
 
-        addFooterHtml();
+        switch (window.cnblogsConfig.footerStyle) {
+            case '1':
+                init_t1();
+                break;
+
+            case '2':
+            default:
+                init_t2();
+                break;
+        }
+
         setBlogroll();
         setTheme();
         window.setInterval( setRunTime, 500 );
         timeIds.setCnzzTId = window.setInterval( setCnzz, 1000 );
 
-        // 添加页脚
-        function addFooterHtml() {
-            init_t1();
-            const poweredby = $('#poweredby');
-            bgFooter && footer.prepend(bgFooter);
-            if (poweredby.length > 0) {
-                poweredby.before(pvHtml);
-            } else {
-                footer.append(pvHtml);
-            }
-        }
-
         // v1.0 页脚
         function init_t1() {
             pvHtml = '<div class="footer-image"></div>' + pvHtml;
+            addFooterHtml();
+            $('#footer').css({
+                'min-height': '130px',
+                '_height': '15px',
+                'position': 'absolute',
+                'margin': '200px 0 0 0',
+                'left': '0',
+                'right': '0',
+                'background': '#232323',
+                'padding': '17px 0 27px',
+                'text-align': 'center',
+                'color': '#888',
+                'font-size': '12px',
+                'line-height': '1.5',
+            });
+
+            $('footer-image').css({
+                'background': 'url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/footer.png) no-repeat 50%',
+                'height': '368px',
+                'z-index': '1',
+                'position': 'absolute',
+                'bottom': '100px',
+                'width': '100%',
+                'pointer-events': 'none'
+            });
         }
 
         // v1.1+ 页脚
@@ -612,6 +635,19 @@ function Base() {
                 '<figure class="poof"></figure>' +
                 '</footer-background>' +
                 '</footer>';
+
+            addFooterHtml();
+        }
+
+        // 添加页脚
+        function addFooterHtml() {
+            const poweredby = $('#poweredby');
+            bgFooter && footer.prepend(bgFooter);
+            if (poweredby.length > 0) {
+                poweredby.before(pvHtml);
+            } else {
+                footer.append(pvHtml);
+            }
         }
 
         // 设置运行时间

@@ -188,6 +188,7 @@ if (initCheck()) {
             left: "",
             right: ""
         },
+        footerStyle: 2,
         consoleList: [],
         themeAuthor: false,
     };
