@@ -613,7 +613,7 @@ function Base() {
                 'line-height': '1.5',
             });
 
-            $('footer-image').css({
+            $('.footer-image').css({
                 'background': 'url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/footer.png) no-repeat 50%',
                 'height': '368px',
                 'z-index': '1',
