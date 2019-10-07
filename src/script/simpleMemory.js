@@ -233,7 +233,8 @@ if (initCheck()) {
             $.getScript(getJsDelivrUrl('require.min.js'), function () {
                 $.getScript(getJsDelivrUrl('config.js'), function () {
                     var staticResource = [
-                        'optiscroll', 'ToProgress', 'rotate',
+                        // 'optiscroll', 'ToProgress', 'rotate',
+                        'optiscroll_ToProgress_rotate',
                         'snapSvg', 'classie', 'main4', 'tools'];
                     require(staticResource, function() {
                         require(['base'], function() {

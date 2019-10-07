@@ -13,6 +13,8 @@ require.config({
         ToProgress: setFileNameMin('ToProgress.min', 'js'),
         //-- 旋转
         rotate: setFileNameMin('jquery.rotate.min', 'js'),
+        optiscroll_ToProgress_rotate: setFileNameMin('optiscroll_ToProgress_rotate.min', 'js'),
+
         //-- snap svg
         snapSvg: setFileNameMin('snap.svg-min', 'js'),
         //-- 菜单
@@ -52,6 +54,9 @@ require.config({
     },
     shim:{
         optiscroll: {
+            deps: ['css!'+getJsDelivrUrl('optiscroll.css')]
+        },
+        optiscroll_ToProgress_rotate: {
             deps: ['css!'+getJsDelivrUrl('optiscroll.css')]
         },
         classie: {
