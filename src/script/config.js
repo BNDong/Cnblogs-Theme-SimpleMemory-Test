@@ -55,8 +55,6 @@ require.config({
         optiscroll_ToProgress_rotate: setFileNameMin('optiscroll_ToProgress_rotate.min', 'js'),
         //-- 文章标题 && 文章目录 && 文章后缀
         title_marvin_articleStatement: setFileNameMin('title_marvin_articleStatement.min', 'js'),
-        //-- snap svg && 菜单
-        snapSvg_classie_main4: setFileNameMin('snapSvg_classie_main4.min', 'js'),
         //-- 非主页头图动画
         TweenMax_MyTween: setFileNameMin('TweenMax_MyTween.min', 'js'),
     },
@@ -109,9 +107,6 @@ require.config({
         },
         title_marvin_articleStatement: {
             deps: ['bootstrap', 'css!'+getJsDelivrUrl('marvin.nav2.css')]
-        },
-        snapSvg_classie_main4: {
-            deps: ['css!'+getJsDelivrUrl('menu_bubble.css')]
         },
     }
 });
