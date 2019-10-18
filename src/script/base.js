@@ -1169,7 +1169,7 @@ function Base() {
                 if (p.length > 0) {
                     var idIndex = p.length - 1;
                     var id = p[idIndex];
-                    var idTmp = id.toString().match(/0-9/g);
+                    var idTmp = id.toString().match(/[0-9]/g);
                     if ($.isArray(idTmp)) id = idTmp.join('');
                     var op = $('#comment_'+id+'_avatar');
                     if (op.length > 0 && op.text() != '') {
