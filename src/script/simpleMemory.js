@@ -67,7 +67,7 @@ if (initCheck()) {
         '    <canvas id="notHomeTopCanvas"></canvas>' +
         '    <div class="vertical">' +
         '        <div class="main-header-content inner">' +
-        '            <link href="https://fonts.googleapis.com/css?family=Playball" rel="stylesheet">' +
+        '            <link href="https://fonts.proxy.ustclug.org/css?family=Playball" rel="stylesheet">' +
         '            <h1 class="page-title" style="font-family: \'Playball\', cursive;" id="homeTopTitle"></h1>' +
         '            <h2 class="page-description" id="hitokoto"></h2>' +
         '            <h3 class="page-author" id="hitokotoAuthor"></h3>' +
