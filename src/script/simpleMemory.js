@@ -181,7 +181,7 @@ function getVersionConfig() {
     $.ajax({
         type: "get",
         url: url,
-        dataType: "text",
+        dataType: "json",
         async: false,
         success: function(conf)
         {
