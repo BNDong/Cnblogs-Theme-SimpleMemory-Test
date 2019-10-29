@@ -274,8 +274,8 @@ function initCheck() {
 // get version config
 function getVersionConfig() {
 
-    $.getScript('https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/test.js', function () {
-        console.log(window.testversion);
+    $.getJSON('https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/test.js', function (data) {
+        console.log(data);
     });
 
     var url = 'https://raw.githubusercontent.com/' + window.cnblogsConfigDefault.GhUserName + '/' + window.cnblogsConfigDefault.GhRepositories + '/master/version.conf';
