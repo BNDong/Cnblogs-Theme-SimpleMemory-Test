@@ -151,6 +151,31 @@ function Base() {
         $('#blog-news').prepend(sidebarHtml);
         $('#m-nav-list').append(navListHtml);
 
+        // load loadingJs
+        $.getScript(getJsDelivrUrl('loading.js'), function () {
+
+            // Loading start
+            pageLoading.initRebound();
+            pageLoading.initSpinner();
+            pageLoading.spinner.init(pageLoading.spring, true);
+
+            $.getScript(getJsDelivrUrl('jquery.mCustomScrollbar.min.js'), function () {
+                $.getScript(getJsDelivrUrl('require.min.js'), function () {
+                    $.getScript(getJsDelivrUrl('config.js'), function () {
+                        var staticResource = [
+                            // 'optiscroll', 'ToProgress', 'rotate',
+                            'optiscroll_ToProgress_rotate',
+                            'snapSvg', 'classie', 'main4', 'tools'];
+                        require(staticResource, function() {
+                            require(['base'], function() {
+                                (new Base).init();
+                            });
+                        });
+                    });
+                });
+            });
+        });
+
         // set userName
         if (window.cnblogsConfig.blogUser === "") window.cnblogsConfig.blogUser = user;
 

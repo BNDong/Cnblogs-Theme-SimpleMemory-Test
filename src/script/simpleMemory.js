@@ -120,31 +120,6 @@ if (initCheck()) {
     // start cache
     $.ajaxSetup({cache: true});
 
-    // load loadingJs
-    $.getScript(getJsDelivrUrl('loading.js'), function () {
-
-        // Loading start
-        pageLoading.initRebound();
-        pageLoading.initSpinner();
-        pageLoading.spinner.init(pageLoading.spring, true);
-
-        $.getScript(getJsDelivrUrl('jquery.mCustomScrollbar.min.js'), function () {
-            $.getScript(getJsDelivrUrl('require.min.js'), function () {
-                $.getScript(getJsDelivrUrl('config.js'), function () {
-                    var staticResource = [
-                        // 'optiscroll', 'ToProgress', 'rotate',
-                        'optiscroll_ToProgress_rotate',
-                        'snapSvg', 'classie', 'main4', 'tools'];
-                    require(staticResource, function() {
-                        require(['base'], function() {
-                            (new Base).init();
-                        });
-                    });
-                });
-            });
-        });
-    });
-
 } else {
 
     $('a[name="top"]').text("SimpleMemory：基础配置有误，请阅读文档，检查配置！").css({
