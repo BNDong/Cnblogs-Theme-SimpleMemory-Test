@@ -167,12 +167,12 @@ if (initCheck()) {
             animateSections: true
         },
         homeTopImg: [
-            "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg"
+            "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/home_top_bg.jpg"
         ],
         homeBannerText: "",
         homeBannerTextType: "jinrishici",
         essayTopImg: [
-            "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/nothome_top_bg.jpg"
+            "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/nothome_top_bg.jpg"
         ],
         essayCodeHighlightingType: 'cnblogs',
         essayCodeHighlighting: '',
@@ -274,42 +274,48 @@ function initCheck() {
 // get version config
 function getVersionConfig() {
 
-    $.getJSON('https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/test.js', function (data) {
-        console.log(data);
-    });
+    var confObj;
+    window.cnblogsConfigDefault.CnVersions = window.cnblogsConfigDefault.GhVersions;
+    if (window.cnblogsConfigDefault.GhUserName === 'BNDong') {
 
-    var url = 'https://raw.githubusercontent.com/' + window.cnblogsConfigDefault.GhUserName + '/' + window.cnblogsConfigDefault.GhRepositories + '/master/version.conf';
+        $.getScript('https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/version.js', function () {
+            confObj = window.themeVersion;
+        });
 
-    $.ajax({
-        type: "get",
-        url: url,
-        dataType: "text",
-        async: false,
-        success: function(conf)
-        {
-            var confObj = conf ? JSON.parse(conf) : false;
-            var confVersion = getEndConfVal(window.cnblogsConfigDefault.GhVersions);
-            window.cnblogsConfigDefault.CnVersions = window.cnblogsConfigDefault.GhVersions;
+    } else {
+        var url = 'https://raw.githubusercontent.com/' + window.cnblogsConfigDefault.GhUserName + '/' + window.cnblogsConfigDefault.GhRepositories + '/master/version.conf';
 
-            if (confVersion) {
-                window.cnblogsConfigDefault.GhVersions = confVersion;
+        $.ajax({
+            type: "get",
+            url: url,
+            dataType: "text",
+            async: false,
+            success: function(conf)
+            {
+                confObj = conf ? JSON.parse(conf) : false;
             }
+        });
+    }
 
-            function getEndConfVal(thisGhVersion) {
-                var endVal = '';
-                confObj && $.each(confObj, function (i) {
-                    if (confObj[i][0] === thisGhVersion) {
-                        endVal = confObj[i][1];return false;
-                    }
-                });
-                if (endVal === '') {
-                    return thisGhVersion;
-                } else {
-                    return getEndConfVal(endVal);
-                }
+    var confVersion = getEndConfVal(window.cnblogsConfigDefault.GhVersions);
+
+    if (confVersion) {
+        window.cnblogsConfigDefault.GhVersions = confVersion;
+    }
+
+    function getEndConfVal(thisGhVersion) {
+        var endVal = '';
+        confObj && $.each(confObj, function (i) {
+            if (confObj[i][0] === thisGhVersion) {
+                endVal = confObj[i][1]; return false;
             }
+        });
+        if (endVal === '') {
+            return thisGhVersion;
+        } else {
+            return getEndConfVal(endVal);
         }
-    });
+    }
 }
 
 // get file url
