@@ -110,6 +110,9 @@ function Base() {
         // 设置菜单个人信息背景图片
         bndongJs.setMenuUserInfoImg();
 
+        // 设置菜单展开收缩
+        $('.m-list-title-select').click(function(){ $(this).parents('.m-list-title').next('.m-icon-list').slideToggle(500) });
+
         // html5-title
         bndongJs.htmlTitle();
 

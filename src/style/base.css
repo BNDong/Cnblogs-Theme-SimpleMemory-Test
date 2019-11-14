@@ -3222,16 +3222,22 @@ b {
     position: relative;
     border-bottom: #3B3B3B 1px solid;
     word-wrap: break-word;
-    margin: 20px 0;
+    margin: 24px 0;
     font-family: "Merriweather","Open Sans","Microsoft Jhenghei","Microsoft Yahei",sans-serif;
     display: none;
 }
 
 .m-list-title-select {
     color: #888;
-    font-size: 22px;
+    font-size: 22px !important;
     position: absolute;
-    right: -8px;
+    right: -7px;
+    top: 1px;
+}
+
+.m-list-title-select:hover{
+    color: #B8B8B8;
+    cursor:pointer;
 }
 
 .m-list-title > span{
