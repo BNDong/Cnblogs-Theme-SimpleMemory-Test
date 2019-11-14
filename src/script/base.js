@@ -258,10 +258,9 @@ function Base() {
                 if (subObject === '.rightBuryitSpan' || subObject === '.rightDiggitSpan') {
                     // 点击顶踩，数值变化
                     if ($(this).attr('clickflg') === 'false') {
-                        var rightSpan = $(subObject);
-                        var i = parseInt(rightSpan.text()) + 1;
-                        rightSpan.text(i);
                         $(this).attr('clickflg', 'true');
+                        $(subObject).text('提交中..');
+                        setTimeout("$("+subObject+").text($('#digg_tips').text())",2000);
                     }
                 }
 
