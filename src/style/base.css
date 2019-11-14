@@ -3454,10 +3454,10 @@ blockquote p {
 
 .rightMenuSpan {
     position: absolute;
-    left: -106px;
+    left: -150px;
     font-size: 14px;
     font-weight: bold;
-    width: 100px;
+    width: 140px;
     text-align: right;
     display: none;
 }
