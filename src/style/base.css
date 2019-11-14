@@ -3227,17 +3227,25 @@ b {
     display: none;
 }
 
-.m-list-title span{
+.m-list-title-select {
+    color: #888;
+    font-size: 22px;
+    position: absolute;
+    right: -8px;
+}
+
+.m-list-title > span{
     display: block;
-    width: 60px;
+    width: 74px;
     text-align: center;
     position: absolute;
     bottom: -9px;
-    left: 43%;
+    left: 35%;
     margin-left: -5px;
     background: #000;
     box-shadow: #000 0 0 0 6px;
     color: #B8B8B8;
+    line-height: 20px;
 }
 
 .introduce-box {
