@@ -224,7 +224,7 @@ function Base() {
 
             $('#sideCatalog').css('right', (rightPx > 0 ? rightPx : 0) + 'px');
             // if (bothWidth > listWidth + 50 && bodyWidth > 1230) {
-            if (bodyWidth > 1230) {
+            if (bodyWidth > 1360) {
                 $('#sideToolbar').css('visibility', 'visible');
             } else {
                 $('#sideToolbar').css('visibility', 'hidden');
@@ -987,7 +987,7 @@ function Base() {
      * 设置图片灯箱效果
      */
     this.baguetteBox = function () {
-        require(['baguetteBox', 'title_marvin_articleStatement'], function(baguetteBox) {
+        require(['baguetteBox', 'title', 'marvin', 'articleStatement'], function(baguetteBox) {
 
             // 设置图片点击查看
             const cpb    = $('#cnblogs_post_body')
