@@ -223,7 +223,8 @@ function Base() {
             var rightPx          = bothWidth - listWidth - 50;
 
             $('#sideCatalog').css('right', (rightPx > 0 ? rightPx : 0) + 'px');
-            if (bothWidth > listWidth + 50 && bodyWidth > 1230) {
+            // if (bothWidth > listWidth + 50 && bodyWidth > 1230) {
+            if (bodyWidth > 1230) {
                 $('#sideToolbar').css('visibility', 'visible');
             } else {
                 $('#sideToolbar').css('visibility', 'hidden');
