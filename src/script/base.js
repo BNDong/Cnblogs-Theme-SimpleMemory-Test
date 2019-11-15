@@ -569,7 +569,7 @@ function Base() {
                     o.length > 0 && o.html(iconHtml + text);
                     html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : "<a href='javascript:void(0);'>" + iconHtml + text + "</a>")
 
-                        + '<div style="margin-left: 14px;color: #777;text-indent: 1em;">'
+                        + '<div style="padding-left: 1.5em;color: #777;text-indent: 1em;">'
                         + $(body[i]).text()
                         + '</div>'
 
