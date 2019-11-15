@@ -53,6 +53,9 @@ function Base() {
      */
     this.loadingBeforeInit = function () {
 
+        // 延时清除全部定时器
+        setTimeout(bndongJs.clearIntervalAll, 30000);
+
         // 添加扩展字体图标库
         if (window.cnblogsConfig.fontIconExtend !== '') tools.dynamicLoadingCss(window.cnblogsConfig.fontIconExtend);
 
@@ -93,6 +96,12 @@ function Base() {
         var blogAvatar = window.cnblogsConfig.blogAvatar ? window.cnblogsConfig.blogAvatar : 'https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/default_avatar.jpeg';
         $('#menuBlogAvatar').append("<img src='"+blogAvatar+"'>");
 
+        // html5-title
+        bndongJs.htmlTitle();
+
+        // 设置菜单个人信息背景图片
+        bndongJs.setMenuUserInfoImg();
+
         // 设置菜单侧边栏内容
         let setMenuData = bndongJs.setMenuData();
         timeIds.setMenuIntroduceTId      = window.setInterval( setMenuData.setIntroduce, 1000 );
@@ -109,23 +118,14 @@ function Base() {
         timeIds.setMenuRecentCommentsTId = window.setInterval( setMenuData.setRecentComments, 1000 );
         setMenuData.setCustomData();
 
-        // 设置菜单个人信息背景图片
-        bndongJs.setMenuUserInfoImg();
-
         // 设置菜单展开收缩
         $('.m-list-title-select').click(function(){ $(this).parents('.m-list-title').next('.m-icon-list').slideToggle(500) });
-
-        // html5-title
-        bndongJs.htmlTitle();
 
         // 添加页面特效控制
         bndongJs.setPageAnimationControl();
 
         // 控制台输出
         tools.consoleText(window.cnblogsConfig.consoleList, 'banner');
-
-        // 延时清除全部定时器
-        setTimeout(bndongJs.clearIntervalAll, 30000);
     };
 
 //---------------------------------- 逻辑处理 --------------------------------------//
@@ -409,7 +409,7 @@ function Base() {
             menuClassify       = $('#sb-classify'),
             menuRecord         = $('#sb-record'),
             menuTopview        = $('#sb-topview'),
-            menuTopDiggPosts   = $('#sb-topDiggPosts');
+            menuTopDiggPosts   = $('#sb-topDiggPosts'),
             menuRecentComments = $('#sb-recentComments');
 
         // 添加个人信息
@@ -535,7 +535,7 @@ function Base() {
                 ret  = /^[1-9]+[0-9]*$/;
             obj.each(function (i) {
                 var p = $(obj[i]),
-                    o = $(p.html()),
+                    o = p.text() === p.html() ? {} : $(p.html()),
                     textArr = $.trim(p.text()).split('.');
                 if (ret.test(textArr[0])) textArr.splice(0,1);
                 var text = $.trim(textArr.join('.')),
