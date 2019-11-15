@@ -398,7 +398,7 @@ function Base() {
             sbArticle          = $('#sidebar_articlearchive ul li'),// 文章档案
             sbTopview          = $('#TopViewPostsBlock ul li'),     // 阅读排行
             topDiggPosts       = $('#TopDiggPostsBlock ul li'),     // 推荐排行
-            recentComments     = $('#sidebar_recentcomments ul li'),// 最新评论
+            recentComments     = $('#sidebar_recentcomments ul'),   // 最新评论
             menuIntroduce      = $('#introduce'),
             menuCalendar       = $('#calendar-box'),
             menuScorerank      = $('#sb-sidebarScorerank'),
@@ -506,7 +506,7 @@ function Base() {
         // 添加最新评论
         function setRecentComments() {
             if (recentComments.length > 0 && menuRecentComments.html() === '') {
-                menuRecentComments.html(getMenuData(recentComments, 'icon-like_fill')).prev('.m-list-title').show();
+                menuRecentComments.html(getMenuCommentsData(recentComments, 'icon-like_fill')).prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setMenuRecentCommentsTId);
             }
         }
@@ -543,6 +543,41 @@ function Base() {
                 o.length > 0 && o.html(iconHtml + text);
                 html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : "<a href='javascript:void(0);'>" + iconHtml + text + "</a>") + '</li>';
             });
+            html += '</ul></div>';
+            return html;
+        }
+
+        function getMenuCommentsData(obj, icon) {
+            var html = '<div><ul>',
+                ret  = /^[1-9]+[0-9]*$/,
+                title, body, author;
+
+            if (obj.find('li').length > 2) {
+                title  = obj.find('li.recent_comment_title');
+                body   = obj.find('li.recent_comment_body');
+                author = obj.find('li.recent_comment_author');
+
+                if (title.length !== body.length || title.length !== author.length) return ;
+
+                title.each(function (i) {
+                    var p = $(title[i]),
+                        o = p.text() === p.html() ? {} : $(p.html()),
+                        textArr = $.trim(p.text()).split('.');
+                    if (ret.test(textArr[0])) textArr.splice(0,1);
+                    var text = $.trim(textArr.join('.')),
+                        iconHtml = '<span class="iconfont '+icon+'" style="color: #888;font-size: 14px;margin-right: 5px;"></span>';
+                    o.length > 0 && o.html(iconHtml + text);
+                    html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : "<a href='javascript:void(0);'>" + iconHtml + text + "</a>")
+
+                        + '<div style="margin-left: 14px;color: #777;text-indent: 1em;">'
+                        + $(body[i]).text()
+                        + '</div>'
+
+                        + '<div style="text-align: right;color: #444;">'
+                        + $(author[i]).text()
+                        + '</div></li>';
+                });
+            }
             html += '</ul></div>';
             return html;
         }
