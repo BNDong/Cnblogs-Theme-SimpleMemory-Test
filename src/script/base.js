@@ -569,11 +569,11 @@ function Base() {
                     o.length > 0 && o.html(iconHtml + text);
                     html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : "<a href='javascript:void(0);'>" + iconHtml + text + "</a>")
 
-                        + '<div style="padding-left: 1.5em;color: #777;">'
+                        + '<div style="padding-left: 1.5em;color: #777;position: relative;top: -5px;">'
                         + $(body[i]).text()
                         + '</div>'
 
-                        + '<div style="text-align: right;color: #444;">'
+                        + '<div style="text-align: right;color: #444;position: relative;top: -10px;">'
                         + $(author[i]).text()
                         + '</div></li>';
                 });
