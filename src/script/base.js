@@ -506,7 +506,7 @@ function Base() {
         // 添加最新评论
         function setRecentComments() {
             if (recentComments.length > 0 && menuRecentComments.html() === '') {
-                menuRecentComments.html(getMenuCommentsData(recentComments, 'icon-like_fill')).prev('.m-list-title').show();
+                menuRecentComments.html(getMenuCommentsData(recentComments, 'icon-pinglunzu')).prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setMenuRecentCommentsTId);
             }
         }
@@ -565,11 +565,11 @@ function Base() {
                         textArr = $.trim(p.text()).split('.');
                     if (ret.test(textArr[0])) textArr.splice(0,1);
                     var text = $.trim(textArr.join('.')),
-                        iconHtml = '<span class="iconfont '+icon+'" style="color: #888;font-size: 14px;margin-right: 5px;"></span>';
+                        iconHtml = '<span class="iconfont '+icon+'" style="color: #888;font-size: 15px;margin-right: 5px;"></span>';
                     o.length > 0 && o.html(iconHtml + text);
                     html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : "<a href='javascript:void(0);'>" + iconHtml + text + "</a>")
 
-                        + '<div style="padding-left: 1.5em;color: #777;text-indent: 1em;">'
+                        + '<div style="padding-left: 1.5em;color: #777;">'
                         + $(body[i]).text()
                         + '</div>'
 
