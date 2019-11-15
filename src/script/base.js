@@ -13,25 +13,26 @@ function Base() {
 
         /** 定时器 **/
         timeIds    = {
-            setMenuIntroduceTId    : null, // 菜单设置-个人信息定时器ID
-            setMenuCalendarTId     : null, // 菜单设置-日历定时器ID
-            setSidebarSearchTId    : null, // 菜单设置-找找看定时器ID
-            setSidebarScorerankTId : null, // 菜单设置-积分与排名定时器ID
-            setMenuSidebarTId      : null, // 菜单设置-最新随笔定时器ID
-            setMenuToptagsTId      : null, // 菜单设置-我的标签定时器ID
-            setMenuClassifyTId     : null, // 菜单设置-随笔分类定时器ID
-            setMenuRecordTId       : null, // 菜单设置-随笔档案定时器ID
-            setMenuArticleTId      : null, // 菜单设置-文章档案定时器ID
-            setMenuTopviewTId      : null, // 菜单设置-阅读排行定时器ID
-            setMenuTopDiggPostsTId : null, // 菜单设置-推荐排行定时器ID
-            setHomeRightMenuTId    : null, // 主页右下角菜单设置定时器ID
-            setNotHomeRightMenuTId : null, // 非主页右下角菜单设置定时器ID
-            setCnzzTId             : null, // 网站统计Cnzz设置定时器ID
-            setAmazingTId          : null, // 网站统计Amazing设置定时器ID
-            setCatalogTId          : null, // 文章目录设置定时器ID
-            blogPostCategoryTId    : null, // 文章信息分类设置定时器ID
-            entryTagTId            : null, // 文章信息标签设置定时器ID
-            commentTId             : null, // 评论框设置定时器ID
+            setMenuIntroduceTId      : null, // 菜单设置-个人信息定时器ID
+            setMenuCalendarTId       : null, // 菜单设置-日历定时器ID
+            setSidebarSearchTId      : null, // 菜单设置-找找看定时器ID
+            setSidebarScorerankTId   : null, // 菜单设置-积分与排名定时器ID
+            setMenuSidebarTId        : null, // 菜单设置-最新随笔定时器ID
+            setMenuToptagsTId        : null, // 菜单设置-我的标签定时器ID
+            setMenuClassifyTId       : null, // 菜单设置-随笔分类定时器ID
+            setMenuRecordTId         : null, // 菜单设置-随笔档案定时器ID
+            setMenuArticleTId        : null, // 菜单设置-文章档案定时器ID
+            setMenuTopviewTId        : null, // 菜单设置-阅读排行定时器ID
+            setMenuTopDiggPostsTId   : null, // 菜单设置-推荐排行定时器ID
+            setMenuRecentCommentsTId : null, // 菜单设置-最新评论定时器ID
+            setHomeRightMenuTId      : null, // 主页右下角菜单设置定时器ID
+            setNotHomeRightMenuTId   : null, // 非主页右下角菜单设置定时器ID
+            setCnzzTId               : null, // 网站统计Cnzz设置定时器ID
+            setAmazingTId            : null, // 网站统计Amazing设置定时器ID
+            setCatalogTId            : null, // 文章目录设置定时器ID
+            blogPostCategoryTId      : null, // 文章信息分类设置定时器ID
+            entryTagTId              : null, // 文章信息标签设置定时器ID
+            commentTId               : null, // 评论框设置定时器ID
         };
 
 //----------------------------------- 初始化 -----------------------------------------//
@@ -94,17 +95,18 @@ function Base() {
 
         // 设置菜单侧边栏内容
         let setMenuData = bndongJs.setMenuData();
-        timeIds.setMenuIntroduceTId    = window.setInterval( setMenuData.setIntroduce, 1000 );
-        timeIds.setMenuCalendarTId     = window.setInterval( setMenuData.setCalendar, 1000 );
-        timeIds.setSidebarSearchTId    = window.setInterval( setMenuData.setSidebarSearch, 1000 );
-        timeIds.setSidebarScorerankTId = window.setInterval( setMenuData.setSidebarScorerank, 1000 );
-        timeIds.setMenuSidebarTId      = window.setInterval( setMenuData.setSidebar, 1000 );
-        timeIds.setMenuToptagsTId      = window.setInterval( setMenuData.setToptags, 1000 );
-        timeIds.setMenuClassifyTId     = window.setInterval( setMenuData.setClassify, 1000 );
-        timeIds.setMenuArticleTId      = window.setInterval( setMenuData.setArticle, 1000 );
-        timeIds.setMenuRecordTId       = window.setInterval( setMenuData.setRecord, 1000 );
-        timeIds.setMenuTopviewTId      = window.setInterval( setMenuData.setTopview, 1000 );
-        timeIds.setMenuTopDiggPostsTId = window.setInterval( setMenuData.setTopDiggPosts, 1000 );
+        timeIds.setMenuIntroduceTId      = window.setInterval( setMenuData.setIntroduce, 1000 );
+        timeIds.setMenuCalendarTId       = window.setInterval( setMenuData.setCalendar, 1000 );
+        timeIds.setSidebarSearchTId      = window.setInterval( setMenuData.setSidebarSearch, 1000 );
+        timeIds.setSidebarScorerankTId   = window.setInterval( setMenuData.setSidebarScorerank, 1000 );
+        timeIds.setMenuSidebarTId        = window.setInterval( setMenuData.setSidebar, 1000 );
+        timeIds.setMenuToptagsTId        = window.setInterval( setMenuData.setToptags, 1000 );
+        timeIds.setMenuClassifyTId       = window.setInterval( setMenuData.setClassify, 1000 );
+        timeIds.setMenuArticleTId        = window.setInterval( setMenuData.setArticle, 1000 );
+        timeIds.setMenuRecordTId         = window.setInterval( setMenuData.setRecord, 1000 );
+        timeIds.setMenuTopviewTId        = window.setInterval( setMenuData.setTopview, 1000 );
+        timeIds.setMenuTopDiggPostsTId   = window.setInterval( setMenuData.setTopDiggPosts, 1000 );
+        timeIds.setMenuRecentCommentsTId = window.setInterval( setMenuData.setRecentComments, 1000 );
         setMenuData.setCustomData();
 
         // 设置菜单个人信息背景图片
@@ -384,29 +386,31 @@ function Base() {
      * 设置菜单数据
      */
     this.setMenuData = function() {
-        var introduceHtml    = $('#profile_block').html(),        // 个人信息
-            calendar         = $('#blog-calendar'),               // 日历
-            calendarTable    = $('#blogCalendar'),                // 日历
-            sidebarSearch    = $('#sidebar_search_box'),          // 找找看
-            scorerank        = $('#sidebar_scorerank ul li'),     // 积分与排名
-            sidebar          = $('#sidebar_recentposts ul li'),   // 最新随笔
-            toptags          = $('#sidebar_toptags ul li'),       // 我的标签
-            sbClassify       = $('#sidebar_postcategory ul li'),  // 随笔分类
-            sbRecord         = $('#sidebar_postarchive ul li'),   // 随笔档案
-            sbArticle        = $('#sidebar_articlearchive ul li'),// 文章档案
-            sbTopview        = $('#TopViewPostsBlock ul li'),     // 阅读排行
-            topDiggPosts     = $('#TopDiggPostsBlock ul li'),     // 推荐排行
-            menuIntroduce    = $('#introduce'),
-            menuCalendar     = $('#calendar-box'),
-            menuScorerank    = $('#sb-sidebarScorerank'),
-            menuSearchBox    = $('#sb-sidebarSearchBox'),
-            menuArticle      = $('#sb-articlearchive'),
-            menuSidebar      = $('#sb-sidebarRecentposts'),
-            menuToptags      = $('#sb-toptags'),
-            menuClassify     = $('#sb-classify'),
-            menuRecord       = $('#sb-record'),
-            menuTopview      = $('#sb-topview'),
-            menuTopDiggPosts = $('#sb-topDiggPosts');
+        var introduceHtml      = $('#profile_block').html(),        // 个人信息
+            calendar           = $('#blog-calendar'),               // 日历
+            calendarTable      = $('#blogCalendar'),                // 日历
+            sidebarSearch      = $('#sidebar_search_box'),          // 找找看
+            scorerank          = $('#sidebar_scorerank ul li'),     // 积分与排名
+            sidebar            = $('#sidebar_recentposts ul li'),   // 最新随笔
+            toptags            = $('#sidebar_toptags ul li'),       // 我的标签
+            sbClassify         = $('#sidebar_postcategory ul li'),  // 随笔分类
+            sbRecord           = $('#sidebar_postarchive ul li'),   // 随笔档案
+            sbArticle          = $('#sidebar_articlearchive ul li'),// 文章档案
+            sbTopview          = $('#TopViewPostsBlock ul li'),     // 阅读排行
+            topDiggPosts       = $('#TopDiggPostsBlock ul li'),     // 推荐排行
+            recentComments     = $('#sidebar_recentcomments ul li'),// 最新评论
+            menuIntroduce      = $('#introduce'),
+            menuCalendar       = $('#calendar-box'),
+            menuScorerank      = $('#sb-sidebarScorerank'),
+            menuSearchBox      = $('#sb-sidebarSearchBox'),
+            menuArticle        = $('#sb-articlearchive'),
+            menuSidebar        = $('#sb-sidebarRecentposts'),
+            menuToptags        = $('#sb-toptags'),
+            menuClassify       = $('#sb-classify'),
+            menuRecord         = $('#sb-record'),
+            menuTopview        = $('#sb-topview'),
+            menuTopDiggPosts   = $('#sb-topDiggPosts');
+            menuRecentComments = $('#sb-recentComments');
 
         // 添加个人信息
         function setIntroduce() {
@@ -499,6 +503,14 @@ function Base() {
             }
         }
 
+        // 添加最新评论
+        function setRecentComments() {
+            if (recentComments.length > 0 && menuRecentComments.html() === '') {
+                menuRecentComments.html(getMenuData(recentComments, 'icon-like_fill')).prev('.m-list-title').show();
+                bndongJs.clearIntervalTimeId(timeIds.setMenuRecentCommentsTId);
+            }
+        }
+
         // 添加自定义列表
         function setCustomData() {
             var customData = window.cnblogsConfig.menuCustomList;
@@ -547,7 +559,8 @@ function Base() {
             setRecord: setRecord,
             setTopview: setTopview,
             setTopDiggPosts: setTopDiggPosts,
-            setCustomData: setCustomData
+            setCustomData: setCustomData,
+            setRecentComments: setRecentComments
         }
     };
 

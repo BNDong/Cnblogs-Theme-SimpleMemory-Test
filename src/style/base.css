@@ -3494,7 +3494,7 @@ blockquote p {
 
 #cnblogs_post_body table {
     position: relative;
-    overflow: hidden;
+    overflow: hidden !important;
     box-sizing: border-box;
     width: 96%!important;
     max-width: 96%!important;
