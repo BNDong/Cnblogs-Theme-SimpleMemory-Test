@@ -278,9 +278,9 @@ function Base() {
                         setTimeout(hanFollow, 1500);
                         function hanFollow() {
                             if ('关注成功' === $.trim($('#p_b_follow').text())) {
-                                $(this).attr('clickflg', 'true');
+                                $(parentObject).attr('clickflg', 'true');
                                 $(subObject).text('已关注');
-                                $(this).find('i').removeClass('icon-dianzan').addClass('icon-dianzan1');
+                                $(parentObject).find('i').removeClass('icon-dianzan').addClass('icon-dianzan1');
                             }
                         }
                     }
