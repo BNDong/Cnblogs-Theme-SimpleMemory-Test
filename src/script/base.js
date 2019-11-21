@@ -265,19 +265,19 @@ function Base() {
                     if ($(this).attr('clickflg') === 'false') {
                         $(this).attr('clickflg', 'true');
                         $(subObject).text('提交中..');
-                        setTimeout("$('"+subObject+"').text($('#digg_tips').text())",2000);
+                        for(var i = 1; i <= 10; i++) {
+                            var t = i * 300;
+                            setTimeout("$('"+subObject+"').text($('#digg_tips').text())",t);
+                        }
                     }
                 }
 
                 if (subObject === '.attentionSpan') {
-                    var attDiv = $('#attention');
                     // 点击关注
-                    if ($('#p_b_follow').text() == '' || $(parentObject + ' a').text().indexOf('成功') > 0) {
+                    if ($(this).attr('clickflg') === 'false') {
+                        $(this).attr('clickflg', 'true');
                         $(subObject).text('已关注');
-                        attDiv.find('i').removeClass('icon-dianzan').addClass('icon-dianzan1');
-                    } else {
-                        $(subObject).text('关注');
-                        attDiv.find('i').removeClass('icon-dianzan1').addClass('icon-dianzan');
+                        $(this).find('i').removeClass('icon-dianzan').addClass('icon-dianzan1');
                     }
                 }
 
@@ -888,13 +888,10 @@ function Base() {
             bndongJs.rightMenuMous('#toUpDown', '.toUpDownSpan');
 
             // 添加关注
-            var clickStr = '';
-            if ($('#p_b_follow').text() != '') {
-                clickStr = $('#p_b_follow a').attr('onclick');
-            }
+            var clickStr = $('#p_b_follow').text() !== '' ? $('#p_b_follow a').attr('onclick') : '';
 
             var attHtml = '';
-            if (clickStr.indexOf('unfollow') > 0 || clickStr == '') {
+            if (!clickStr || clickStr.indexOf('unfollow') > 0) {
                 attHtml = '<div id="attention" clickflg="true"><span class="rightMenuSpan attentionSpan">已关注</span><i class="iconfont icon-dianzan1"></i></div>';
             } else {
                 attHtml = '<div id="attention" onclick="' + clickStr.replace('unfollow', 'follow') + '" clickflg="false"><span class="rightMenuSpan attentionSpan">关注</span><i class="iconfont icon-dianzan"></i></div>';
