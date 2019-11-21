@@ -281,7 +281,9 @@ function getVersionConfig() {
     window.cnblogsConfig.CnVersions = window.cnblogsConfig.GhVersions;
     if (window.cnblogsConfig.GhUserName === 'BNDong') {
 
-        $.getScript('https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/version.js');
+        $.getScript('https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/version.js', function () {
+            console.log(window.themeVersion);
+        });
         console.log(window.themeVersion);
 
         $.ajax({
