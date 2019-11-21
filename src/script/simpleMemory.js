@@ -284,6 +284,17 @@ function getVersionConfig() {
         $.getScript('https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/version.js');
         console.log(window.themeVersion);
 
+        $.ajax({
+            type: "get",
+            url: 'https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/version.js',
+            dataType: "text",
+            async: false,
+            success: function(conf)
+            {
+                console.log(conf);
+            }
+        });
+
         confObj = window.themeVersion;
     } else {
         var url = 'https://raw.githubusercontent.com/' + window.cnblogsConfig.GhUserName + '/' + window.cnblogsConfig.GhRepositories + '/master/version.conf';
