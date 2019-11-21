@@ -298,11 +298,13 @@ function getVersionConfig() {
             }
         });
     }
-
+    console.log(confObj);
     var confVersion = getEndConfVal(window.cnblogsConfig.GhVersions);
+    console.log(confVersion);
 
     if (confVersion) {
         window.cnblogsConfig.GhVersions = confVersion;
+        console.log(window.cnblogsConfig.GhVersions);
     }
 
     function getEndConfVal(thisGhVersion) {
