@@ -277,7 +277,7 @@ function Base() {
                     if ($(this).attr('clickflg') === 'false') {
                         setTimeout(hanFollow, 1500);
                         function hanFollow() {
-                            if ($('#p_b_follow').text() === '关注成功') {
+                            if ('关注成功' === $.trim($('#p_b_follow').text())) {
                                 $(this).attr('clickflg', 'true');
                                 $(subObject).text('已关注');
                                 $(this).find('i').removeClass('icon-dianzan').addClass('icon-dianzan1');
