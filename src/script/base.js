@@ -243,17 +243,20 @@ function Base() {
     this.rightMenuMous = function(parentObject, subObject) {
         $(parentObject).on({
             mouseover : function(){
+                var str = '';
+
                 if (subObject === '.rightBuryitSpan') {
                     // 鼠标移入，更新踩值
-                    var str = $('#bury_count').text();
-                    if ($(subObject).text() != str) {$(parentObject).attr('clickflg', 'false');$(subObject).text(str);}
+                    str = $('#bury_count').text();
+                    if ($(subObject).text() !== str) {$(parentObject).attr('clickflg', 'false'); $(subObject).text(str);}
                 }
 
                 if (subObject === '.rightDiggitSpan') {
                     // 鼠标移入，更新顶值
-                    var str = $('#digg_count').text();
-                    if ($(subObject).text() != str) {$(parentObject).attr('clickflg', 'false');$(subObject).text(str);}
+                    str = $('#digg_count').text();
+                    if ($(subObject).text() !== str) {$(parentObject).attr('clickflg', 'false'); $(subObject).text(str);}
                 }
+
                 $(subObject).show();
             },
             mouseout : function(){
@@ -265,19 +268,21 @@ function Base() {
                     if ($(this).attr('clickflg') === 'false') {
                         $(this).attr('clickflg', 'true');
                         $(subObject).text('提交中..');
-                        for(var i = 1; i <= 10; i++) {
-                            var t = i * 300;
-                            setTimeout("$('"+subObject+"').text($('#digg_tips').text())",t);
-                        }
+                        setTimeout("$('"+subObject+"').text($('#digg_tips').text())", 1500);
                     }
                 }
 
                 if (subObject === '.attentionSpan') {
                     // 点击关注
                     if ($(this).attr('clickflg') === 'false') {
-                        $(this).attr('clickflg', 'true');
-                        $(subObject).text('已关注');
-                        $(this).find('i').removeClass('icon-dianzan').addClass('icon-dianzan1');
+                        setTimeout(hanFollow, 1500);
+                        function hanFollow() {
+                            if ($('#p_b_follow').text() === '关注成功') {
+                                $(this).attr('clickflg', 'true');
+                                $(subObject).text('已关注');
+                                $(this).find('i').removeClass('icon-dianzan').addClass('icon-dianzan1');
+                            }
+                        }
                     }
                 }
 
