@@ -282,6 +282,7 @@ function getVersionConfig() {
     if (window.cnblogsConfig.GhUserName === 'BNDong') {
 
         $.getScript('https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/version.js');
+        console.log(window.themeVersion);
 
         confObj = window.themeVersion;
     } else {
