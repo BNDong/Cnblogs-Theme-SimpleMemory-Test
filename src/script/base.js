@@ -1091,8 +1091,10 @@ function Base() {
                         '    <div class="title">' + book.name +
                         '    </div>' +
                         '    <div class="abstract">' +
+                (book.formerNname ? '原名: '  + book.formerNname + '<br>' : '') +
                         '          作者: ' + book.author +
                         '            <br>' +
+                (book.translator ? '译者: '  + book.translator + '<br>' : '') +
                         '          出版社: ' + book.press +
                         '            <br>' +
                         '          出版年: ' + book.year +
