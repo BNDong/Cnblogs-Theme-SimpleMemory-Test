@@ -927,9 +927,15 @@ function Base() {
         timeIds.entryTagTId         = window.setInterval( bndongJs.setArticleInfoTag, 1000 );
 
         bndongJs.setDomHomePosition();
-        bndongJs.setCodeHighlighting();
         bndongJs.setNotHomeTopImg();
-        bndongJs.baguetteBox();
+
+        // 验证是否是书单文章
+        if ($('#bookListFlg').length > 0) {
+            bndongJs.setBookList();
+        } else {
+            bndongJs.setCodeHighlighting();
+            bndongJs.baguetteBox();
+        }
 
         // 设置右下角菜单
         timeIds.setNotHomeRightMenuTId = window.setInterval( bndongJs.addNotHomeRightMenu, 1000 );
@@ -1061,6 +1067,48 @@ function Base() {
 
             bndongJs.scrollMonitor();
         });
+    };
+
+    /**
+     * 设置书单页面
+     */
+    this.setBookList = function () {
+        if (window.cnblogsConfig.bookList.length > 0) {
+            var postBody = $('#cnblogs_post_body'),
+                html = '';
+
+            $.each(window.cnblogsConfig.bookList, function (i) {
+                var list = window.cnblogsConfig.bookList[i];
+                html += '<h1>' + list.title + '</h1>';
+
+                $.each(list.books, function (j) {
+                    var book = list.books[j];
+                    html += '<div class="doulist-item">' +
+                        '    <div class="mod">' +
+                        '  <div class="hd">' +
+                        '  </div>' +
+                        '  <div class="bd doulist-subject">' +
+                        '    <div class="post">' +
+                        '      <img width="100" src="' + book.cover + '">' +
+                        '    </div>' +
+                        '    <div class="title">' + book.name +
+                        '    </div>' +
+                        '    <div class="abstract">' +
+                        '          作者: ' + book.author +
+                        '            <br>' +
+                        '          出版社: ' + book.press +
+                        '            <br>' +
+                        '          出版年: ' + book.year +
+                        '    </div>' +
+                        '  </div>' +
+                        '    </div>' +
+                        '  </div>';
+                });
+            });
+
+            postBody.append(html);
+        }
+        require(['title', 'marvin', 'articleStatement']);
     };
 
     /**
