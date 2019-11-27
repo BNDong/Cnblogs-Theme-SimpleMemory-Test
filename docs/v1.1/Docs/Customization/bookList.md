@@ -82,12 +82,12 @@ window.cnblogsConfig = {
 
 |**Key**|**Description**|
 |:-----:|:-----:|
-|**title**|```书目标题```|
-|**books**|```书目数据```|
-|**books.cover**|```封面```|
-|**books.name**|```书名```|
-|**books.formerNname**|```原书名```|
-|**books.author**|```作者```|
-|**books.translator**|```译者```|
-|**books.press**|```出版社```|
-|**books.year**|```出版年```|
+|**title**|书目标题|
+|**books**|书目数据|
+|**books.cover**|封面|
+|**books.name**|书名|
+|**books.formerNname**|原书名|
+|**books.author**|作者|
+|**books.translator**|译者|
+|**books.press**|出版社|
+|**books.year**|出版年|
