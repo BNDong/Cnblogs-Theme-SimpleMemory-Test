@@ -926,16 +926,13 @@ function Base() {
         timeIds.blogPostCategoryTId = window.setInterval( bndongJs.setArticleInfoClass, 1000 );
         timeIds.entryTagTId         = window.setInterval( bndongJs.setArticleInfoTag, 1000 );
 
+        // 验证是否是书单文章
+        if ($('#bookListFlg').length > 0) bndongJs.setBookList();
+
         bndongJs.setDomHomePosition();
         bndongJs.setNotHomeTopImg();
-
-        // 验证是否是书单文章
-        if ($('#bookListFlg').length > 0) {
-            bndongJs.setBookList();
-        } else {
-            bndongJs.setCodeHighlighting();
-            bndongJs.baguetteBox();
-        }
+        bndongJs.setCodeHighlighting();
+        bndongJs.baguetteBox();
 
         // 设置右下角菜单
         timeIds.setNotHomeRightMenuTId = window.setInterval( bndongJs.addNotHomeRightMenu, 1000 );
@@ -1108,7 +1105,6 @@ function Base() {
 
             postBody.append(html);
         }
-        require(['title', 'marvin', 'articleStatement']);
     };
 
     /**
