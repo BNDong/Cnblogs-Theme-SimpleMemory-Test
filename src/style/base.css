@@ -4064,7 +4064,8 @@ a[name=top], #loading{
    书单
    ========================================================================== */
 .doulist-item {
-    margin: 20px 0
+    margin: 20px 0;
+    background: #f9f9f9;
 }
 
 .doulist-item .mod {

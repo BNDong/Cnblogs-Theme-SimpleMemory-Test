@@ -1080,28 +1080,15 @@ function Base() {
 
                 $.each(list.books, function (j) {
                     var book = list.books[j];
-                    html += '<div class="doulist-item">' +
-                        '    <div class="mod">' +
-                        '  <div class="hd">' +
-                        '  </div>' +
-                        '  <div class="bd doulist-subject">' +
-                        '    <div class="post">' +
-                        '      <img width="100" src="' + book.cover + '">' +
-                        '    </div>' +
-                        '    <div class="title">' + book.name +
-                        '    </div>' +
-                        '    <div class="abstract">' +
-                (book.formerNname ? '原名: '  + book.formerNname + '<br>' : '') +
-                        '          作者: ' + book.author +
-                        '            <br>' +
-                (book.translator ? '译者: '  + book.translator + '<br>' : '') +
-                        '          出版社: ' + book.press +
-                        '            <br>' +
-                        '          出版年: ' + book.year +
-                        '    </div>' +
-                        '  </div>' +
-                        '    </div>' +
-                        '  </div>';
+                    html += '<div class="doulist-item"><div class="mod"><div class="hd"></div><div class="bd doulist-subject">' +
+                        '    <div class="post"><img width="100" src="' + book.cover + '"></div>' +
+                        '    <div class="title">' + book.name + '</div><div class="abstract">' +
+                        (book.formerNname ? '原名: '    + book.formerNname + '<br>' : '') +
+                        (book.author      ? '作者: '    + book.author + '<br>' : '') +
+                        (book.translator  ? '译者: '    + book.translator + '<br>' : '') +
+                        (book.press       ? '出版社: '  + book.press + '<br>' : '') +
+                        (book.year        ? '出版年: '  + book.year : '') +
+                        '</div></div></div></div>';
                 });
             });
 
