@@ -30,8 +30,8 @@ $(document).ready(function () {
 
         var lserialNum   = u.find('.dev__fe').text(),
             rserialNum   = u.find('.dev__ux').text(),
-            titleContent = u.find('.dev__developer').text(),
-            titleId      = v.attr('id');
+            titleContent = u.find('.dev__developer').text();
+            // titleId      = u.attr('id');
 
         // var titleRex = titleHre.match(/[A-Z a-z 0-9 \. \_ \- \u4E00-\u9FA5\uF900-\uFA2D]/g);
 
@@ -42,7 +42,7 @@ $(document).ready(function () {
         // var titleVal = countTitleHre(titleHre),
         //     titleHreText = titleHre.replace(/__a__/g,'-');
 
-        u.attr('id', titleId);
+        // u.attr('id', titleId);
 
         if (v.localName === 'h1') {
             l++; m = 0;
