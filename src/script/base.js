@@ -42,8 +42,8 @@ function Base() {
      */
     this.init = function () {
         bndongJs.loadingBeforeInit(); // Loading 前初始化
-        bndongJs.endLoading();        // Loading 结束
-        bndongJs.loadingAfterInit();  // Loading 后初始化
+        // bndongJs.endLoading();        // Loading 结束
+        // bndongJs.loadingAfterInit();  // Loading 后初始化
     };
 
 //----------------------------- Loading 前后逻辑处理 ----------------------------------//
@@ -1043,8 +1043,6 @@ function Base() {
      */
     this.baguetteBox = function () {
         require(['baguetteBox', 'title', 'marvin', 'articleStatement'], function(baguetteBox) {
-
-            $('.toc-list a').unbind('click');
 
             // 设置图片点击查看
             const cpb    = $('#cnblogs_post_body')
