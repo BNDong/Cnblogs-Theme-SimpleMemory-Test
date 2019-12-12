@@ -41,7 +41,7 @@ function Base() {
      * 初始化
      */
     this.init = function () {
-        bndongJs.loadingBeforeInit(); // Loading 前初始化
+        // bndongJs.loadingBeforeInit(); // Loading 前初始化
         bndongJs.endLoading();        // Loading 结束
         // bndongJs.loadingAfterInit();  // Loading 后初始化
     };
