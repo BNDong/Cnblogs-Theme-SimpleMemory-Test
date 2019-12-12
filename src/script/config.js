@@ -86,7 +86,7 @@ require.config({
             deps: ['css!'+getJsDelivrUrl('codeDoxy.css')]
         },
         marvin: {
-            deps: ['title', 'css!'+getJsDelivrUrl('marvin.nav2.css')]
+            deps: ['title', 'bootstrap', 'css!'+getJsDelivrUrl('marvin.nav2.css')]
         },
         MyTween: {
             deps: ['TweenMax']
