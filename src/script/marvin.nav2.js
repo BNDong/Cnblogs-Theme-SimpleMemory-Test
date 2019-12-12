@@ -31,18 +31,6 @@ $(document).ready(function () {
         var lserialNum   = u.find('.dev__fe').text(),
             rserialNum   = u.find('.dev__ux').text(),
             titleContent = u.find('.dev__developer').text();
-            // titleId      = u.attr('id');
-
-        // var titleRex = titleHre.match(/[A-Z a-z 0-9 \. \_ \- \u4E00-\u9FA5\uF900-\uFA2D]/g);
-
-        // if ($.isArray(titleRex)) titleHre = titleRex.join('').toLowerCase();
-
-        // titleArr.push(titleHre);
-
-        // var titleVal = countTitleHre(titleHre),
-        //     titleHreText = titleHre.replace(/__a__/g,'-');
-
-        // u.attr('id', titleId);
 
         if (v.localName === 'h1') {
             l++; m = 0;
@@ -61,18 +49,6 @@ $(document).ready(function () {
             }
         }
     });
-
-    // function countTitleHre(titleHre) {
-    //     var num = 0;
-    //     if ($.inArray(titleHre, titleArr) === -1) return num;
-    //
-    //     $.each(titleArr, function (i) {
-    //         if (titleArr[i] === titleHre) {
-    //             num++;
-    //         }
-    //     });
-    //     return num > 0 ? num - 1 : 0;
-    // }
 
     /**
      * @return {string}

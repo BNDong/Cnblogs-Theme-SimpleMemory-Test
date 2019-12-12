@@ -308,25 +308,25 @@ function init() {
     $.getScript(getJsDelivrUrl('loading.js'), function () {
 
         // Loading start
-        // pageLoading.initRebound();
-        // pageLoading.initSpinner();
-        // pageLoading.spinner.init(pageLoading.spring, true);
+        pageLoading.initRebound();
+        pageLoading.initSpinner();
+        pageLoading.spinner.init(pageLoading.spring, true);
 
-        // $.getScript(getJsDelivrUrl('jquery.mCustomScrollbar.min.js'), function () {
-        //     $.getScript(getJsDelivrUrl('require.min.js'), function () {
-        //         $.getScript(getJsDelivrUrl('config.js'), function () {
-        //             var staticResource = [
-        //                 // 'optiscroll', 'ToProgress', 'rotate',
-        //                 'optiscroll_ToProgress_rotate',
-        //                 'snapSvg', 'classie', 'main4', 'tools'];
-        //             require(staticResource, function() {
-        //                 require(['base'], function() {
-        //                     (new Base).init();
-        //                 });
-        //             });
-        //         });
-        //     });
-        // });
+        $.getScript(getJsDelivrUrl('jquery.mCustomScrollbar.min.js'), function () {
+            $.getScript(getJsDelivrUrl('require.min.js'), function () {
+                $.getScript(getJsDelivrUrl('config.js'), function () {
+                    var staticResource = [
+                        // 'optiscroll', 'ToProgress', 'rotate',
+                        'optiscroll_ToProgress_rotate',
+                        'snapSvg', 'classie', 'main4', 'tools'];
+                    require(staticResource, function() {
+                        require(['base'], function() {
+                            (new Base).init();
+                        });
+                    });
+                });
+            });
+        });
     });
 }
 
