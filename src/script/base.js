@@ -1100,52 +1100,68 @@ function Base() {
      * 设置代码
      */
     this.setCodeHighlighting = function () {
-        var pre       = $('#cnblogs_post_body pre'),
+        var pre       = $('.post pre'),
             codeSpan  = $('.cnblogs_code span'),
-            codeCopyA = $('.cnblogs_code_copy a'),
-            codePre   = $('.post pre'),
+            // codeCopyA = $('.cnblogs_code_copy a'),
+            // codePre   = $('.post pre'),
             hltype    = window.cnblogsConfig.essayCodeHighlightingType.toLowerCase(),
             hltheme   = window.cnblogsConfig.essayCodeHighlighting.toLowerCase();
 
         switch (hltype) {
-            case 'highlightjs': highlightjsCode(); break;
-            case 'prettify': prettifyCode(); break;
+            case 'highlightjs':
+                setCodeBefore();
+                highlightjsCode(); break;
+            case 'prettify':
+                setCodeBefore();
+                prettifyCode(); break;
             case 'cnblogs':
-            default: cnblogsCode(); break;
+            default:
+                cnblogsCode(); break;
         }
         setScrollbarStyle();
         setCopyBtn();
 
         // 设置代码复制
         function setCopyBtn() {
-            var sCopyHtml = '<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="background-color: rgb(246, 248, 250);">',
-                eCopyHtml = '<i class="iconfont icon-code5" style="color: #999;"></i></a></span></div>',
-                cnCode    = $('div.cnblogs_code');
 
-            if (cnCode.length === 0) {
-                pre.length > 0 && require(['encoder'], function() {
-                    setCopyHtml();
-                });
-            } else {
-                setCopyHtml();
-            }
+            // 删除原有复制功能
+            $('.cnblogs_code_toolbar').remove();
 
-            function setCopyHtml() {
-                pre.each(function (i) {
-                    var obj = $(pre[i]), copyHtml = '', objWidth = obj.outerWidth(true), top;
-                    obj.find('.cnblogs_code_toolbar').remove();
-                    top = obj.find('.code_img_closed').length > 0 ? 30 : 8;
-                    copyHtml = sCopyHtml + '<a href="javascript:void(0);" style="z-index: 1; top: '+top+'px;left: '+(objWidth-50)+'px;" onclick="copyCnblogsCode(this)" title="复制代码">' + eCopyHtml;
-                    obj.append(copyHtml);
-                });
-            }
+            pre.each(function (i) {
+                var obj = $(pre[i]), id = tools.randomString(8);
+                obj.wrap('<span id="'+id+'" style="position: relative;"></span>');
+            });
+
+
+            
+            // var sCopyHtml = '<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="background-color: rgb(246, 248, 250);">',
+            //     eCopyHtml = '<i class="iconfont icon-code5" style="color: #999;"></i></a></span></div>',
+            //     cnCode    = $('div.cnblogs_code');
+            //
+            // if (cnCode.length === 0) {
+            //     pre.length > 0 && require(['encoder'], function() {
+            //         setCopyHtml();
+            //     });
+            // } else {
+            //     setCopyHtml();
+            // }
+            //
+            // function setCopyHtml() {
+            //     pre.each(function (i) {
+            //         var obj = $(pre[i]), copyHtml = '', objWidth = obj.outerWidth(true), top;
+            //         obj.find('.cnblogs_code_toolbar').remove();
+            //         top = obj.find('.code_img_closed').length > 0 ? 30 : 8;
+            //         copyHtml = sCopyHtml + '<a href="javascript:void(0);" style="z-index: 1; top: '+top+'px;left: '+(objWidth-50)+'px;" onclick="copyCnblogsCode(this)" title="复制代码">' + eCopyHtml;
+            //         obj.append(copyHtml);
+            //     });
+            // }
         }
 
         // 使用博客园代码样式
         function cnblogsCode() {
-            codeCopyA.html('<i class="iconfont icon-code5" style="color: #999;"></i>');
+            // codeCopyA.html('<i class="iconfont icon-code5" style="color: #999;"></i>');
             codeSpan.css('background-color', '#f6f8fa');
-            codePre.css({
+            pre.css({
                 'background-color': '#f6f8fa',
                 'overflow-x': 'auto'
             });
@@ -1154,10 +1170,9 @@ function Base() {
         // 使用 highlightjs 代码样式
         function highlightjsCode() {
             tools.dynamicLoadingCss('https://cdn.jsdelivr.net/gh/BNDong/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/src/style/highlightjs/'+hltheme+'.min.css');
-            setCodeBefore();
             require(['highlightjs'], function() {
                 $('pre').each(function(i, block) {
-                    codeCopyA.html('<i class="iconfont icon-code5 hljs-comment" style="font-style: inherit;"></i>');
+                    // codeCopyA.html('<i class="iconfont icon-code5 hljs-comment" style="font-style: inherit;"></i>');
                     if ($.inArray(hltheme, [
                             'github-gist', 'googlecode', 'grayscale',
                             'idea', 'isbl-editor-light', 'qtcreator_light',
@@ -1174,34 +1189,33 @@ function Base() {
             pre.addClass('prettyprint');
             switch (hltheme) {
                 case 'prettify':
-                    setCodeBefore();
                     require(['codePrettify'], function() {
-                        $('pre').css('background-color', '#f6f8fa').css('border', '0'); setPrettifyCopy();
-                    });break;
+                        $('pre').css('background-color', '#f6f8fa').css('border', '0');
+                    }); break;
                 case 'desert':
-                    setCodeBefore(); require(['codeDesert'], function() { setPrettifyCopy(); });break;
+                    require(['codeDesert']); break;
                 case 'sunburst':
-                    setCodeBefore(); require(['codeSunburst'], function() { setPrettifyCopy(); }); break;
+                    require(['codeSunburst']); break;
                 case 'obsidian':
-                    setCodeBefore(); require(['codeObsidian'], function() { setPrettifyCopy(); }); break;
+                    require(['codeObsidian']); break;
                 case 'doxy':
-                    setCodeBefore(); require(['codeDoxy'], function() { setPrettifyCopy(); }); break;
+                    require(['codeDoxy']); break;
                 default: cnblogsCode(); break;
             }
         }
 
         function setCodeBefore() {
-            $.each(codePre, function (i) {
-                var obj = $(codePre[i]);
+            $.each(pre, function (i) {
+                var obj = $(pre[i]);
                 obj.find('br').after('&#10;');
                 var codetext = obj.text();
                 obj.html('').text(codetext).css('overflow-x', 'auto');
             });
         }
 
-        function setPrettifyCopy() {
-            codeCopyA.html('<i class="iconfont icon-code5 com" style="font-style: inherit;"></i>');
-        }
+        // function setPrettifyCopy() {
+        //     // codeCopyA.html('<i class="iconfont icon-code5 com" style="font-style: inherit;"></i>');
+        // }
 
         // 设置代码滚动条样式
         function setScrollbarStyle() {
