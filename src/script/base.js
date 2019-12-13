@@ -1118,7 +1118,6 @@ function Base() {
         }
         setCopyBtn();
         setScrollbarStyle();
-        setLineNumbersRows();
 
         // 设置代码复制
         function setCopyBtn() {
@@ -1243,7 +1242,7 @@ function Base() {
             tools.dynamicLoadingCss(getJsDelivrUrl('jquery.mCustomScrollbar.css'));
             var scrollbarTimeId = window.setInterval( function () {
                 if ($('.post pre span').length > 0) {
-                    $('code-box').mCustomScrollbar({
+                    $('.post pre').mCustomScrollbar({
                         theme:"minimal-dark",
                         axis:"yx"
                     });
@@ -1262,22 +1261,6 @@ function Base() {
                     bndongJs.clearIntervalTimeId(scrollbarTimeId);
                 }
             }, 500 );
-        }
-
-        // 设置行号
-        function setLineNumbersRows() {
-            $('.post pre').each(function (i) {
-                var obj = $(this), len = obj.text().split(/\r\n|\r|\n/).length,
-                    html = '<span class="my-line-numbers-rows">';
-
-                for (var ii = 1; ii <= len; ii++) {
-                    html += '<span>' + i + '</span>';
-                }
-
-                html += '</span>';
-
-                obj.parent('code-box').append(html);
-            });
         }
     };
 

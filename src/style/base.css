@@ -3778,17 +3778,17 @@ span.cnblogs_code {
     /*white-space: pre-wrap;*/
     font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace !important;
     font-weight: 400;
-    padding: 10px 10px 10px 45px!important;
+    padding: 10px!important;
     white-space: pre;
     word-wrap: normal;
     margin: 5px 15px;
-    border-radius: 4px;
 }
 
-code-box {
+.postBody pre {
     max-height: 70vh;
     word-break: break-all;
     word-wrap: break-word;
+    border-radius: 4px;
 }
 
 .cnblogs_code span {
