@@ -1118,8 +1118,8 @@ function Base() {
             default:
                 cnblogsCode(); break;
         }
-        setScrollbarStyle();
         setCopyBtn();
+        setScrollbarStyle();
 
         // 设置代码复制
         function setCopyBtn() {
@@ -1133,7 +1133,7 @@ function Base() {
             });
 
 
-            
+
             // var sCopyHtml = '<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="background-color: rgb(246, 248, 250);">',
             //     eCopyHtml = '<i class="iconfont icon-code5" style="color: #999;"></i></a></span></div>',
             //     cnCode    = $('div.cnblogs_code');
