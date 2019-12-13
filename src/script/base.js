@@ -1100,7 +1100,7 @@ function Base() {
      * 设置代码
      */
     this.setCodeHighlighting = function () {
-        var pre       = $('pre'),
+        var pre       = $('#cnblogs_post_body pre'),
             codeSpan  = $('.cnblogs_code span'),
             codeCopyA = $('.cnblogs_code_copy a'),
             codePre   = $('.post pre'),
@@ -1123,8 +1123,7 @@ function Base() {
                 cnCode    = $('div.cnblogs_code');
 
             if (cnCode.length === 0) {
-                cnCode = pre;
-                cnCode.length > 0 && require(['encoder'], function() {
+                pre.length > 0 && require(['encoder'], function() {
                     setCopyHtml();
                 });
             } else {
@@ -1132,15 +1131,11 @@ function Base() {
             }
 
             function setCopyHtml() {
-                cnCode.each(function (i) {
-                    var obj = $(cnCode[i]);
-                    var copyHtml = '';
+                pre.each(function (i) {
+                    var obj = $(pre[i]), copyHtml = '', objWidth = obj.outerWidth(true), top;
                     obj.find('.cnblogs_code_toolbar').remove();
-                    if (obj.find('.code_img_closed').length > 0) {
-                        copyHtml = sCopyHtml + '<a href="javascript:void(0);" style="z-index: 1; top: 30px;" onclick="copyCnblogsCode(this)" title="复制代码">' + eCopyHtml;
-                    } else {
-                        copyHtml = sCopyHtml + '<a href="javascript:void(0);" style="z-index: 1;" onclick="copyCnblogsCode(this)" title="复制代码">' + eCopyHtml;
-                    }
+                    top = obj.find('.code_img_closed').length > 0 ? 30 : 8;
+                    copyHtml = sCopyHtml + '<a href="javascript:void(0);" style="z-index: 1; top: '+top+'px;left: '+(objWidth-50)+'px;" onclick="copyCnblogsCode(this)" title="复制代码">' + eCopyHtml;
                     obj.append(copyHtml);
                 });
             }

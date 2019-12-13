@@ -1,6 +1,7 @@
 ## 2019.11.15 - v1.2.3
 * 增加书单配置：```bookList```
 * 增加关于书单设置[文档](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Customization/bookList)
+* 优化文章标题和目录生成逻辑
 * 更新文档
 
 ## 2019.11.15 - v1.2.2
