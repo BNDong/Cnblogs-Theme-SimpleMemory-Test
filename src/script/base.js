@@ -1148,7 +1148,6 @@ function Base() {
                         '    opacity: 0;' +
                         '    visibility: hidden;' +
                         '    background-color: hsla(0,0%,90.2%,.2);' +
-                        '    box-shadow: 0 2px 0 0 rgba(0,0,0,.25);' +
                         '    -webkit-user-select: none;' +
                         '    -moz-user-select: none;' +
                         '    -ms-user-select: none;' +
@@ -1247,12 +1246,18 @@ function Base() {
                         theme:"minimal-dark",
                         axis:"yx"
                     });
+                    var color;
                     switch (hltype) {
-                        case 'highlightjs': $('.mCSB_dragger_bar').css('background-color', $('.hljs-comment').css('color')); break;
-                        case 'prettify': $('.mCSB_dragger_bar').css('background-color', $('.com').css('color')); break;
+                        case 'highlightjs':
+                            color = $('.hljs-comment').css('color');
+                            $('.mCSB_dragger_bar').css('background-color', color); break;
+                        case 'prettify':
+                            color = $('.com').css('color');
+                            $('.mCSB_dragger_bar').css('background-color', color); break;
                         case 'cnblogs':
-                        default:  break;
+                            color = "rgb(153, 153, 153)"; break;
                     }
+                    $('code-box button').css('color', color);
                     bndongJs.clearIntervalTimeId(scrollbarTimeId);
                 }
             }, 500 );
