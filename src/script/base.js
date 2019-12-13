@@ -1146,6 +1146,8 @@ function Base() {
                     '    border: none;' +
                     '    border-radius: 6px;' +
                     '    color: #ccc;' +
+                    '    opacity: 0;' +
+                    '    visibility: hidden;' +
                     '    background-color: hsla(0,0%,90.2%,.2);' +
                     '    box-shadow: 0 2px 0 0 rgba(0,0,0,.25);' +
                     '    -webkit-user-select: none;' +
@@ -1157,13 +1159,26 @@ function Base() {
                     '"><i class="iconfont icon-fuzhi1"></i></button>';
 
                 $('#'+id).prepend(html);
-
-
             });
             
             $('code-box button').click(function () {
-                $(this).find('li').removeClass('icon-fuzhi1').addClass('icon-right');
-                setTimeout("$('code-box button li[code-id="+$(this).attr('code-id')+"]').removeClass('icon-right').addClass('icon-fuzhi1')", 1500);
+                $(this).find('i').removeClass('icon-fuzhi1').addClass('icon-right');
+                setTimeout("$('code-box button[code-id="+$(this).attr('code-id')+"] i').removeClass('icon-right').addClass('icon-fuzhi1')", 1500);
+            });
+
+            $('code-box').on({
+                mouseover : function(){
+                    $(this).find('button').css({
+                        opacity: 1,
+                        visibility: 'visible'
+                    });
+                },
+                mouseout : function(){
+                    $(this).find('button').css({
+                        opacity: 0,
+                        visibility: 'hidden'
+                    });
+                }
             });
         }
 
