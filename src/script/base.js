@@ -1128,14 +1128,14 @@ function Base() {
             $('.cnblogs_code_toolbar').remove();
 
             pre.each(function (i) {
-                var obj = $(pre[i]), id = tools.randomString(8), objWidth = obj.outerWidth(true), top;
+                var obj = $(pre[i]), id = tools.randomString(8);
                 obj.wrap('<code-box id="'+id+'" style="position: relative;display: block;"></code-box>');
                 obj.attr('code-id', id);
 
                 var html = '<button type="button" aria-label="复制代码" style="' +
                     '    position: absolute;' +
                     '    top: 8px;' +
-                    '    left: ' + (objWidth - 55) + 'px;' +
+                    '    right: 23px;' +
                     '    display: flex;' +
                     '    justify-content: center;' +
                     '    align-items: center;' +
