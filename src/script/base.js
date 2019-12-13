@@ -1128,10 +1128,39 @@ function Base() {
             $('.cnblogs_code_toolbar').remove();
 
             pre.each(function (i) {
-                var obj = $(pre[i]), id = tools.randomString(8);
+                var obj = $(pre[i]), id = tools.randomString(8), objWidth = obj.outerWidth(true), top;
                 obj.wrap('<span id="'+id+'" style="position: relative;"></span>');
-            });
+                obj.attr('code-id', id);
 
+                var html = '<button type="button" aria-label="复制代码" style="' +
+                    '    position: absolute;' +
+                    '    top: 10px;' +
+                    '    left: ' + (objWidth - 50) + 'px;' +
+                    '    display: flex;' +
+                    '    justify-content: center;' +
+                    '    align-items: center;' +
+                    '    width: 30px;' +
+                    '    height: 25px;' +
+                    '    cursor: pointer;' +
+                    '    font-size: 14px;' +
+                    '    padding: 0 0 0 2px;' +
+                    '    border: none;' +
+                    '    border-radius: 6px;' +
+                    '    color: #ccc;' +
+                    '    background-color: hsla(0,0%,90.2%,.2);' +
+                    '    box-shadow: 0 2px 0 0 rgba(0,0,0,.25);' +
+                    '    -webkit-user-select: none;' +
+                    '    -moz-user-select: none;' +
+                    '    -ms-user-select: none;' +
+                    '    user-select: none;' +
+                    '    transition: opacity .2s ease-in-out,visibility .2s ease-in-out;' +
+                    '    z-index: 1;' +
+                    '"><i class="iconfont icon-fuzhi1"></i></button>';
+
+                $('#'+id).prepend(html);
+
+
+            });
 
 
             // var sCopyHtml = '<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="background-color: rgb(246, 248, 250);">',
