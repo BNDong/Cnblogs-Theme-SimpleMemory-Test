@@ -1278,6 +1278,7 @@ function Base() {
 
                 obj.parent('code-box').append(html);
             });
+        }
     };
 
     /**
