@@ -1118,6 +1118,7 @@ function Base() {
         }
         setCopyBtn();
         setScrollbarStyle();
+        setLineNumbersRows();
 
         // 设置代码复制
         function setCopyBtn() {
@@ -1196,7 +1197,7 @@ function Base() {
         function highlightjsCode() {
             tools.dynamicLoadingCss('https://cdn.jsdelivr.net/gh/BNDong/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/src/style/highlightjs/'+hltheme+'.min.css');
             require(['highlightjs'], function() {
-                $('pre').each(function(i, block) {
+                $('.post pre').each(function(i, block) {
                     if ($.inArray(hltheme, [
                             'github-gist', 'googlecode', 'grayscale',
                             'idea', 'isbl-editor-light', 'qtcreator_light',
@@ -1262,6 +1263,21 @@ function Base() {
                 }
             }, 500 );
         }
+
+        // 设置行号
+        function setLineNumbersRows() {
+            pre.each(function (i) {
+                var obj = $(pre[i]), len = obj.text().split(/\r\n|\r|\n/).length,
+                    html = '<span class="my-line-numbers-rows">';
+
+                for (var ii = 1; ii <= len; ii++) {
+                    html += '<span>' + i + '</span>';
+                }
+
+                html += '</span>';
+
+                obj.parent('code-box').append(html);
+            });
     };
 
     /**

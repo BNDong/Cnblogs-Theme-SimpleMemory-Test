@@ -3778,7 +3778,7 @@ span.cnblogs_code {
     /*white-space: pre-wrap;*/
     font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace !important;
     font-weight: 400;
-    padding: 10px !important;
+    padding: 10px 10px 10px 45px!important;
     white-space: pre;
     word-wrap: normal;
     margin: 5px 15px;
@@ -3860,6 +3860,27 @@ span.cnblogs_code {
 
 #cnblogs_post_body > pre {
     margin: 10px 15px !important;
+}
+
+.my-line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 10px;
+    left: 0px;
+    width: 45px;
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.my-line-numbers-rows > span {
+    color: #999;
+    display: block;
+    padding-right: .8em;
+    text-align: right;
 }
 
 /* ==========================================================================
