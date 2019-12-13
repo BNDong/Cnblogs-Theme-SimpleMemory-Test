@@ -14,7 +14,7 @@ $(document).ready(function () {
         n = 0,
         o, p = 18,
         q = true,
-        r = true,
+        r = false,
         s = $('#' + c);
 
     if (s.length === 0) { return };
@@ -38,12 +38,12 @@ $(document).ready(function () {
         }
 
         if (v.localName === 'h1') {
-            l++; m = 0;
+            l++; m = 0; r = true;
             if(titleContent.length>26) titleContent=titleContent.substr(0,26) + "...";
             titleContent = HTMLEncode(titleContent);
 
             j += '<li h="1" g="'+ lserialNum +'"><a href="#' + titleId + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
-        } else if (v.localName === 'h2') {
+        } else if (r && v.localName === 'h2') {
             m++; n = 0;
             if(q){
 
