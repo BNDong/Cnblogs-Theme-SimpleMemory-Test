@@ -1129,13 +1129,13 @@ function Base() {
 
             pre.each(function (i) {
                 var obj = $(pre[i]), id = tools.randomString(8), objWidth = obj.outerWidth(true), top;
-                obj.wrap('<span id="'+id+'" style="position: relative;"></span>');
+                obj.wrap('<code-box id="'+id+'" style="position: relative;display: block;"></code-box>');
                 obj.attr('code-id', id);
 
                 var html = '<button type="button" aria-label="复制代码" style="' +
                     '    position: absolute;' +
-                    '    top: 10px;' +
-                    '    left: ' + (objWidth - 50) + 'px;' +
+                    '    top: 8px;' +
+                    '    left: ' + (objWidth - 40) + 'px;' +
                     '    display: flex;' +
                     '    justify-content: center;' +
                     '    align-items: center;' +
