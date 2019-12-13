@@ -1128,7 +1128,7 @@ function Base() {
 
             pre.each(function (i) {
                 var obj = $(pre[i]), id = tools.randomString(8);
-                obj.wrap('<code-box code-id="' + id + '" style="position: relative;display: block;"></code-box>');
+                obj.wrap('<code-box id="' + id + '" style="position: relative;display: block;"></code-box>');
                 obj.attr('code-id', id);
 
                 var html = '<button code-id="' + id + '" type="button" aria-label="复制代码" style="' +
