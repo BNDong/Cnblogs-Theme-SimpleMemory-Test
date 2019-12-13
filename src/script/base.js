@@ -1276,7 +1276,7 @@ function Base() {
 
                 html += '</span>';
 
-                obj.append(html);
+                obj.parent('code-box').append(html);
             });
         }
     };
