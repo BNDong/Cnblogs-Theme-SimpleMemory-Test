@@ -1124,15 +1124,14 @@ function Base() {
         // 设置代码复制
         function setCopyBtn() {
 
-            // 删除原有复制功能
             $('.cnblogs_code_toolbar').remove();
 
             pre.each(function (i) {
                 var obj = $(pre[i]), id = tools.randomString(8);
-                obj.wrap('<code-box id="'+id+'" style="position: relative;display: block;"></code-box>');
+                obj.wrap('<code-box code-id="' + id + '" style="position: relative;display: block;"></code-box>');
                 obj.attr('code-id', id);
 
-                var html = '<button type="button" aria-label="复制代码" style="' +
+                var html = '<button code-id="' + id + '" type="button" aria-label="复制代码" style="' +
                     '    position: absolute;' +
                     '    top: 8px;' +
                     '    right: 23px;' +
@@ -1161,34 +1160,15 @@ function Base() {
 
 
             });
-
-
-            // var sCopyHtml = '<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="background-color: rgb(246, 248, 250);">',
-            //     eCopyHtml = '<i class="iconfont icon-code5" style="color: #999;"></i></a></span></div>',
-            //     cnCode    = $('div.cnblogs_code');
-            //
-            // if (cnCode.length === 0) {
-            //     pre.length > 0 && require(['encoder'], function() {
-            //         setCopyHtml();
-            //     });
-            // } else {
-            //     setCopyHtml();
-            // }
-            //
-            // function setCopyHtml() {
-            //     pre.each(function (i) {
-            //         var obj = $(pre[i]), copyHtml = '', objWidth = obj.outerWidth(true), top;
-            //         obj.find('.cnblogs_code_toolbar').remove();
-            //         top = obj.find('.code_img_closed').length > 0 ? 30 : 8;
-            //         copyHtml = sCopyHtml + '<a href="javascript:void(0);" style="z-index: 1; top: '+top+'px;left: '+(objWidth-50)+'px;" onclick="copyCnblogsCode(this)" title="复制代码">' + eCopyHtml;
-            //         obj.append(copyHtml);
-            //     });
-            // }
+            
+            $('code-box button').click(function () {
+                $(this).find('li').removeClass('icon-fuzhi1').addClass('icon-right');
+                setTimeout("$('code-box button li[code-id="+$(this).attr('code-id')+"]').removeClass('icon-right').addClass('icon-fuzhi1')", 1500);
+            });
         }
 
         // 使用博客园代码样式
         function cnblogsCode() {
-            // codeCopyA.html('<i class="iconfont icon-code5" style="color: #999;"></i>');
             codeSpan.css('background-color', '#f6f8fa');
             pre.css({
                 'background-color': '#f6f8fa',
@@ -1201,7 +1181,6 @@ function Base() {
             tools.dynamicLoadingCss('https://cdn.jsdelivr.net/gh/BNDong/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/src/style/highlightjs/'+hltheme+'.min.css');
             require(['highlightjs'], function() {
                 $('pre').each(function(i, block) {
-                    // codeCopyA.html('<i class="iconfont icon-code5 hljs-comment" style="font-style: inherit;"></i>');
                     if ($.inArray(hltheme, [
                             'github-gist', 'googlecode', 'grayscale',
                             'idea', 'isbl-editor-light', 'qtcreator_light',
@@ -1241,10 +1220,6 @@ function Base() {
                 obj.html('').text(codetext).css('overflow-x', 'auto');
             });
         }
-
-        // function setPrettifyCopy() {
-        //     // codeCopyA.html('<i class="iconfont icon-code5 com" style="font-style: inherit;"></i>');
-        // }
 
         // 设置代码滚动条样式
         function setScrollbarStyle() {
