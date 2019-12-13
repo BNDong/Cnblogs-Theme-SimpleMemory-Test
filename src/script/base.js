@@ -1243,7 +1243,7 @@ function Base() {
             tools.dynamicLoadingCss(getJsDelivrUrl('jquery.mCustomScrollbar.css'));
             var scrollbarTimeId = window.setInterval( function () {
                 if ($('.post pre span').length > 0) {
-                    $('.post pre').mCustomScrollbar({
+                    $('code-box').mCustomScrollbar({
                         theme:"minimal-dark",
                         axis:"yx"
                     });
@@ -1266,7 +1266,7 @@ function Base() {
 
         // 设置行号
         function setLineNumbersRows() {
-            pre.each(function (i) {
+            $('.post pre').each(function (i) {
                 var obj = $(this), len = obj.text().split(/\r\n|\r|\n/).length,
                     html = '<span class="my-line-numbers-rows">';
 
