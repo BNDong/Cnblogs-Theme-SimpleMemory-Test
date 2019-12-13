@@ -1127,7 +1127,7 @@ function Base() {
 
             require(['clipboard'], function () {
                 pre.each(function (i) {
-                    var obj = $(pre[i]), id = tools.randomString(8);
+                    var obj = $(this), id = tools.randomString(8);
                     obj.wrap('<code-box id="' + id + '" style="position: relative;display: block;"></code-box>');
                     obj.attr('code-id', id);
 
@@ -1231,7 +1231,7 @@ function Base() {
 
         function setCodeBefore() {
             $.each(pre, function (i) {
-                var obj = $(pre[i]);
+                var obj = $(this);
                 obj.find('br').after('&#10;');
                 var codetext = obj.text();
                 obj.html('').text(codetext).css('overflow-x', 'auto');
@@ -1267,7 +1267,7 @@ function Base() {
         // 设置行号
         function setLineNumbersRows() {
             pre.each(function (i) {
-                var obj = $(pre[i]), len = obj.text().split(/\r\n|\r|\n/).length,
+                var obj = $(this), len = obj.text().split(/\r\n|\r|\n/).length,
                     html = '<span class="my-line-numbers-rows">';
 
                 for (var ii = 1; ii <= len; ii++) {
@@ -1276,7 +1276,7 @@ function Base() {
 
                 html += '</span>';
 
-                obj.parent('code-box').append(html);
+                obj.append(html);
             });
         }
     };
