@@ -1102,8 +1102,6 @@ function Base() {
     this.setCodeHighlighting = function () {
         var pre       = $('.post pre'),
             codeSpan  = $('.cnblogs_code span'),
-            // codeCopyA = $('.cnblogs_code_copy a'),
-            // codePre   = $('.post pre'),
             hltype    = window.cnblogsConfig.essayCodeHighlightingType.toLowerCase(),
             hltheme   = window.cnblogsConfig.essayCodeHighlighting.toLowerCase();
 
@@ -1126,59 +1124,63 @@ function Base() {
 
             $('.cnblogs_code_toolbar').remove();
 
-            pre.each(function (i) {
-                var obj = $(pre[i]), id = tools.randomString(8);
-                obj.wrap('<code-box id="' + id + '" style="position: relative;display: block;"></code-box>');
-                obj.attr('code-id', id);
+            require(['clipboard'], function () {
+                pre.each(function (i) {
+                    var obj = $(pre[i]), id = tools.randomString(8);
+                    obj.wrap('<code-box id="' + id + '" style="position: relative;display: block;"></code-box>');
+                    obj.attr('code-id', id);
 
-                var html = '<button code-id="' + id + '" type="button" aria-label="复制代码" style="' +
-                    '    position: absolute;' +
-                    '    top: 8px;' +
-                    '    right: 23px;' +
-                    '    display: flex;' +
-                    '    justify-content: center;' +
-                    '    align-items: center;' +
-                    '    width: 30px;' +
-                    '    height: 25px;' +
-                    '    cursor: pointer;' +
-                    '    font-size: 14px;' +
-                    '    padding: 0 0 0 2px;' +
-                    '    border: none;' +
-                    '    border-radius: 6px;' +
-                    '    color: #ccc;' +
-                    '    opacity: 0;' +
-                    '    visibility: hidden;' +
-                    '    background-color: hsla(0,0%,90.2%,.2);' +
-                    '    box-shadow: 0 2px 0 0 rgba(0,0,0,.25);' +
-                    '    -webkit-user-select: none;' +
-                    '    -moz-user-select: none;' +
-                    '    -ms-user-select: none;' +
-                    '    user-select: none;' +
-                    '    transition: opacity .2s ease-in-out,visibility .2s ease-in-out;' +
-                    '    z-index: 1;' +
-                    '"><i class="iconfont icon-fuzhi1"></i></button>';
+                    var html = '<button code-id="' + id + '" type="button" class="clipboard" data-clipboard-action="copy" data-clipboard-target="pre[code-id=' + id + ']" aria-label="复制代码" style="' +
+                        '    position: absolute;' +
+                        '    top: 8px;' +
+                        '    right: 23px;' +
+                        '    display: flex;' +
+                        '    justify-content: center;' +
+                        '    align-items: center;' +
+                        '    width: 30px;' +
+                        '    height: 25px;' +
+                        '    cursor: pointer;' +
+                        '    font-size: 14px;' +
+                        '    padding: 0 0 0 2px;' +
+                        '    border: none;' +
+                        '    border-radius: 6px;' +
+                        '    color: #ccc;' +
+                        '    opacity: 0;' +
+                        '    visibility: hidden;' +
+                        '    background-color: hsla(0,0%,90.2%,.2);' +
+                        '    box-shadow: 0 2px 0 0 rgba(0,0,0,.25);' +
+                        '    -webkit-user-select: none;' +
+                        '    -moz-user-select: none;' +
+                        '    -ms-user-select: none;' +
+                        '    user-select: none;' +
+                        '    transition: opacity .2s ease-in-out,visibility .2s ease-in-out;' +
+                        '    z-index: 1;' +
+                        '"><i class="iconfont icon-fuzhi1"></i></button>';
 
-                $('#'+id).prepend(html);
-            });
-            
-            $('code-box button').click(function () {
-                $(this).find('i').removeClass('icon-fuzhi1').addClass('icon-right');
-                setTimeout("$('code-box button[code-id="+$(this).attr('code-id')+"] i').removeClass('icon-right').addClass('icon-fuzhi1')", 1500);
-            });
+                    $('#'+id).prepend(html);
+                });
 
-            $('code-box').on({
-                mouseover : function(){
-                    $(this).find('button').css({
-                        opacity: 1,
-                        visibility: 'visible'
-                    });
-                },
-                mouseout : function(){
-                    $(this).find('button').css({
-                        opacity: 0,
-                        visibility: 'hidden'
-                    });
-                }
+                $('code-box button').click(function () {
+                    $(this).find('i').removeClass('icon-fuzhi1').addClass('icon-right');
+                    setTimeout("$('code-box button[code-id="+$(this).attr('code-id')+"] i').removeClass('icon-right').addClass('icon-fuzhi1')", 1500);
+                });
+
+                $('code-box').on({
+                    mouseover : function(){
+                        $(this).find('button').css({
+                            opacity: 1,
+                            visibility: 'visible'
+                        });
+                    },
+                    mouseout : function(){
+                        $(this).find('button').css({
+                            opacity: 0,
+                            visibility: 'hidden'
+                        });
+                    }
+                });
+
+                new ClipboardJS('.clipboard');
             });
         }
 
