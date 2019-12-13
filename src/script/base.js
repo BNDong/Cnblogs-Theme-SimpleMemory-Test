@@ -1135,7 +1135,7 @@ function Base() {
                 var html = '<button type="button" aria-label="复制代码" style="' +
                     '    position: absolute;' +
                     '    top: 8px;' +
-                    '    left: ' + (objWidth - 40) + 'px;' +
+                    '    left: ' + (objWidth - 55) + 'px;' +
                     '    display: flex;' +
                     '    justify-content: center;' +
                     '    align-items: center;' +

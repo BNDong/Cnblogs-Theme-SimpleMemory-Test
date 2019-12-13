@@ -3772,7 +3772,7 @@ span.cnblogs_code {
     z-index: 10;
 }
 
-.cnblogs_code pre {
+.post pre {
     font-size: 14px!important;
     /*word-wrap: break-word;*/
     /*white-space: pre-wrap;*/
@@ -3781,7 +3781,7 @@ span.cnblogs_code {
     padding: 10px !important;
     white-space: pre;
     word-wrap: normal;
-    margin: 0 15px;
+    margin: 5px 15px;
 }
 
 .postBody pre {
