@@ -22,7 +22,6 @@ $(document).ready(function () {
 
     o = s.find(':header');
 
-    // var titleArr = [];
     o.each(function () {
         var u = $(this),
             v = u[0];
@@ -30,22 +29,28 @@ $(document).ready(function () {
 
         var lserialNum   = u.find('.dev__fe').text(),
             rserialNum   = u.find('.dev__ux').text(),
-            titleContent = u.find('.dev__developer').text();
+            titleContent = u.find('.dev__developer').text(),
+            titleId      = u.attr('id');
+
+        if (!titleId) {
+            titleId = (new myTools).randomString(8);
+            u.attr('id', titleId);
+        }
 
         if (v.localName === 'h1') {
             l++; m = 0;
             if(titleContent.length>26) titleContent=titleContent.substr(0,26) + "...";
             titleContent = HTMLEncode(titleContent);
 
-            j += '<li h="1" g="'+ lserialNum +'"><a href="#' + u.attr('id') + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
+            j += '<li h="1" g="'+ lserialNum +'"><a href="#' + titleId + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
         } else if (v.localName === 'h2') {
             m++; n = 0;
             if(q){
 
-                if(titleContent.length>30) titleContent=titleContent.substr(0,30) + "...";
+                if(titleContent.length>30) titleContent = titleContent.substr(0,30) + "...";
                 titleContent = HTMLEncode(titleContent);
 
-                j += '<li h="2" g="'+ lserialNum +'" class="h2Offset ceg'+lserialNum+'"><a href="#' + u.attr('id') + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
+                j += '<li h="2" g="'+ lserialNum +'" class="h2Offset ceg'+lserialNum+'"><a href="#' + titleId + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
             }
         }
     });
