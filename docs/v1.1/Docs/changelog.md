@@ -2,7 +2,7 @@
 * 增加书单配置：```bookList```
 * 增加关于书单设置[文档](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Customization/bookList)
 * 优化文章标题和目录生成逻辑
-* 增加新的代码复制功能
+* 新的代码复制功能和样式
 * 更新基础 CSS 文件
 * 更新文档
 * 修复了文章目录生成出多余目录的问题
