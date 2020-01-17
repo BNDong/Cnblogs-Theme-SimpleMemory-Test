@@ -831,8 +831,9 @@ function Base() {
                 settings = {
                     "async": true,
                     "crossDomain": true,
-                    "url": "https://api.hibai.cn/api/index/index",
+                    "url": "https://sentence.iciba.com/index.php?callback=onecallback&c=dailysentence&m=getdetail&title=2020-01-17",
                     "method": "POST",
+                    "dataType": 'jsonp',
                     "headers": {
                         "content-type": "application/x-www-form-urlencoded",
                     },
@@ -844,6 +845,7 @@ function Base() {
                 };
 
                 $.ajax(settings).done(function (response) {
+                    console.log(response);
                     if (response.ResultCode == 1) {
                         $('#hitokoto').text(response.Body.word).css('display', '-webkit-box');
                         $('#hitokotoAuthor').text('- '+response.Body.word_from).show();
