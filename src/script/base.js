@@ -1263,10 +1263,14 @@ function Base() {
                 var obj = $(this);
                 obj.find('br').after('&#10;');
                 var codeLine = obj.text().split('\n');
+                obj.html('');
+                obj.append('<code-pre class="pre-code">');
                 $.each(codeLine, function (j) {
-                    codeLine[j] = '<code-rows class="line-numbers-rows"></code-rows>' + codeLine[j];
+                    var id = 'row-' + tools.randomString(6);
+                    obj.append('<code-rows class="line-numbers-rows"></code-rows><span id="'+id+'"></span>\n');
+                    $('#' + id).text(codeLine[j]);
                 });
-                obj.html('').html('<code-pre class="pre-code">' + codeLine.join('\n') + '</code-pre>').css('overflow-x', 'auto');
+                obj.append('</code-pre>');
             });
         }
 
