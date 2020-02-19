@@ -152,6 +152,7 @@ if (initCheck()) {
             trailMaxLength: 30,
             trailIntervalCreation: 100,
             delayBeforeDisappear: 2,
+            colorsRandom: false,
             colors: [
                 '#96EDA6', '#5BC6A9',
                 '#38668C', '#374D84',

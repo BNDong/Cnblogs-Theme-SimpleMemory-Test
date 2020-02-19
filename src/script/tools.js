@@ -160,7 +160,7 @@ function myTools() {
             strDate = "0" + strDate;
         }
         return year + seperator1 + month + seperator1 + strDate;
-    }
+    };
 
     /**
      * html 转义
@@ -172,5 +172,16 @@ function myTools() {
         var output = temp.innerHTML;
         temp = null;
         return output;
+    };
+
+    /**
+     * 产生随机颜色
+     * @returns {string}
+     */
+    this.getRandomColor = function(){
+        return  '#' + (function(color){
+            return (color +=  '0123456789abcdef'[Math.floor(Math.random()*16)])
+            && (color.length == 6) ?  color : arguments.callee(color);
+        })('');
     }
 }
