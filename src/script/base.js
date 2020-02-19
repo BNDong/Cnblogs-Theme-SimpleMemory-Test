@@ -1137,13 +1137,14 @@ function Base() {
 
         switch (hltype) {
             case 'highlightjs':
-                setCodeBefore();
+                setCodeBefore(1);
                 highlightjsCode(); break;
             case 'prettify':
                 setCodeBefore();
-                prettifyCode(); break;
+                prettifyCode(1); break;
             case 'cnblogs':
             default:
+                setCodeBefore(2);
                 cnblogsCode(); break;
         }
         setCopyBtn();
@@ -1156,7 +1157,7 @@ function Base() {
 
             require(['clipboard'], function () {
                 pre.each(function (i) {
-                    var obj = $(this), id = tools.randomString(8);
+                    var obj = $(this), id = tools.randomString(6);
                     obj.wrap('<code-box id="' + id + '" style="position: relative;display: block;"></code-box>');
                     obj.attr('code-id', id);
 
@@ -1258,17 +1259,35 @@ function Base() {
             }
         }
 
-        function setCodeBefore() {
+        function setCodeBefore(type) {
             $.each(pre, function (i) {
                 var obj = $(this), pid = 'pre-' + tools.randomString(6);
                 obj.find('br').after('&#10;');
                 var codeLine = obj.text().split('\n');
+
+                switch (type) {
+                    case 1:
+                        codeLine = obj.text().split('\n');
+                        break;
+
+                    case 2:
+                        codeLine = obj.html().split('\n');
+                        break;
+                }
                 obj.html('<code-pre class="code-pre" id="' + pid + '"></code-pre>');
                 var pobj =  $('#' + pid);
                 $.each(codeLine, function (j) {
-                    var id = 'row-' + tools.randomString(6);
-                    pobj.append('<code-line class="line-numbers-rows"></code-line><span id="' + id + '"></span>\n');
-                    $('#' + id).text(codeLine[j]);
+                    switch (type) {
+                        case 1:
+                            var id = 'row-' + tools.randomString(6);
+                            pobj.append('<code-line class="line-numbers-rows"></code-line><span id="' + id + '"></span>\n');
+                            $('#' + id).text(codeLine[j]);
+                            break;
+
+                        case 2:
+                            pobj.append('<code-line class="line-numbers-rows"></code-line>'+codeLine[j]+'\n');
+                            break;
+                    }
                 });
             });
         }
