@@ -1266,7 +1266,7 @@ function Base() {
                 $.each(codeLine, function (j) {
                     codeLine[j] = '<code-rows class="line-numbers-rows"></code-rows>' + codeLine[j];
                 });
-                obj.html('').html('<span>' + codeLine.join('\n') + '</span>').css('overflow-x', 'auto');
+                obj.html('').html('<span class="pre-code">' + codeLine.join('\n') + '</span>').css('overflow-x', 'auto');
             });
         }
 
