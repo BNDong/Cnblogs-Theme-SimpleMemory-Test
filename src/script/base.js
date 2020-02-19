@@ -948,10 +948,14 @@ function Base() {
         bndongJs.setCodeHighlighting();
         bndongJs.baguetteBox();
 
-        // 初始化文章目录位置
+        // 初始化文章目录
         require(['title', 'marvin', 'articleStatement'], function() {
             timeIds.setCatalogTId = window.setInterval( bndongJs.initCatalog, 1000 );
             bndongJs.scrollMonitor();
+            $('#sideCatalog-catalog').mCustomScrollbar({
+                theme:"minimal-dark",
+                axis:"yx"
+            });
         });
 
         // 设置右下角菜单
