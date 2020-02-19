@@ -948,6 +948,12 @@ function Base() {
         bndongJs.setCodeHighlighting();
         bndongJs.baguetteBox();
 
+        // 初始化文章目录位置
+        require(['title', 'marvin', 'articleStatement'], function() {
+            timeIds.setCatalogTId = window.setInterval( bndongJs.initCatalog, 1000 );
+            bndongJs.scrollMonitor();
+        });
+
         // 设置右下角菜单
         timeIds.setNotHomeRightMenuTId = window.setInterval( bndongJs.addNotHomeRightMenu, 1000 );
 
@@ -1056,43 +1062,17 @@ function Base() {
      * 设置图片灯箱效果
      */
     this.baguetteBox = function () {
-
-        // 设置图片点击查看
         const cpb    = $('#cnblogs_post_body')
             ,imgList = $('#cnblogs_post_body img');
 
         if (cpb.length > 0 && imgList.length > 0) {
             $.each(imgList, function (i) {
                 var tem = $(imgList[i]);
-                // if (typeof flg == 'undefined' && tem.outerWidth() > 50) {
                     tem.wrap('<a data-fancybox="gallery" href="'+tem.attr('src')+'"></a>');
-                // }
             });
-            // baguetteBox.run('.lightbox');
         }
 
-        require(['fancybox', 'title', 'marvin', 'articleStatement'], function() {
-
-            // 设置图片点击查看
-            // const cpb    = $('#cnblogs_post_body')
-            //     ,imgList = $('#cnblogs_post_body img');
-            //
-            // if (cpb.length > 0 && imgList.length > 0) {
-            //     $.each(imgList, function (i) {
-            //         let tem = $(imgList[i]);
-            //         let flg = tem.attr('id');
-            //         if (typeof flg == 'undefined' && tem.outerWidth() > 50) {
-            //             tem.wrap("<a class='lightbox' href='"+tem.attr('src')+"'></a>");
-            //         }
-            //     });
-            //     baguetteBox.run('.lightbox');
-            // }
-
-            // 初始化文章目录位置
-            timeIds.setCatalogTId = window.setInterval( bndongJs.initCatalog, 1000 );
-
-            bndongJs.scrollMonitor();
-        });
+        require(['fancybox']);
     };
 
     /**
@@ -1177,29 +1157,29 @@ function Base() {
                     obj.attr('code-id', id);
 
                     var html = '<button code-id="' + id + '" type="button" class="clipboard" data-clipboard-action="copy" data-clipboard-target="pre[code-id=' + id + ']" aria-label="复制代码" style="' +
-                        '    position: absolute;' +
-                        '    top: 8px;' +
-                        '    right: 23px;' +
-                        '    display: flex;' +
-                        '    justify-content: center;' +
-                        '    align-items: center;' +
-                        '    width: 30px;' +
-                        '    height: 25px;' +
-                        '    cursor: pointer;' +
-                        '    font-size: 14px;' +
-                        '    padding: 0 0 0 2px;' +
-                        '    border: none;' +
-                        '    border-radius: 6px;' +
-                        '    color: #ccc;' +
-                        '    opacity: 0;' +
-                        '    visibility: hidden;' +
-                        '    background-color: hsla(0,0%,90.2%,.2);' +
-                        '    -webkit-user-select: none;' +
-                        '    -moz-user-select: none;' +
-                        '    -ms-user-select: none;' +
-                        '    user-select: none;' +
-                        '    transition: opacity .2s ease-in-out,visibility .2s ease-in-out;' +
-                        '    z-index: 1;' +
+                        'position: absolute;' +
+                        'top: 8px;' +
+                        'right: 23px;' +
+                        'display: flex;' +
+                        'justify-content: center;' +
+                        'align-items: center;' +
+                        'width: 30px;' +
+                        'height: 25px;' +
+                        'cursor: pointer;' +
+                        'font-size: 14px;' +
+                        'padding: 0 0 0 2px;' +
+                        'border: none;' +
+                        'border-radius: 6px;' +
+                        'color: #ccc;' +
+                        'opacity: 0;' +
+                        'visibility: hidden;' +
+                        'background-color: hsla(0,0%,90.2%,.2);' +
+                        '-webkit-user-select: none;' +
+                        '-moz-user-select: none;' +
+                        '-ms-user-select: none;' +
+                        'user-select: none;' +
+                        'transition: opacity .2s ease-in-out,visibility .2s ease-in-out;' +
+                        'z-index: 1;' +
                         '"><i class="iconfont icon-fuzhi1"></i></button>';
 
                     $('#'+id).prepend(html);
