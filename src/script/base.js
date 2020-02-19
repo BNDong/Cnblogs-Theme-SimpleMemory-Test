@@ -1094,15 +1094,32 @@ function Base() {
 
                 $.each(list.books, function (j) {
                     var book = list.books[j];
-                    html += '<div class="doulist-item"><div class="mod"><div class="hd"></div><div class="bd doulist-subject">' +
-                        '    <div class="post"><img width="100" src="' + book.cover + '"></div>' +
-                        '    <div class="title">' + book.name + '</div><div class="abstract">' +
-                        (book.formerNname ? '原名: '    + book.formerNname + '<br>' : '') +
-                        (book.author      ? '作者: '    + book.author + '<br>' : '') +
-                        (book.translator  ? '译者: '    + book.translator + '<br>' : '') +
-                        (book.press       ? '出版社: '  + book.press + '<br>' : '') +
-                        (book.year        ? '出版年: '  + book.year : '') +
-                        '</div></div></div></div>';
+                    html += '<div class="books-item">' +
+                        '    <span class="books-item-span">' +
+                        '        <div class="_1P9uD _3D3vq">' +
+                        '            <div class="_2aw_6">'+(j+1)+'</div>' +
+                        '        </div>' +
+                        '        <div class="_28asT">' +
+                        '            <svg>' +
+                        '                <image xlink:href="'+ book.cover +'" x="0" y="0" width="100%" height="100%"></image>' +
+                        '            </svg>' +
+                        '        </div>' +
+                        '        <div class="_34CGc">' +
+                        '            <div class="_2girK">' +
+                        '                <div>' +
+                        '                    <div class="_1P9dH">' +
+                        (book.name        ? book.name : '') +
+                        '                    </div>' +
+                        (book.formerNname ? '<div class="_3Oa5I"><span class="_6Y7v3">原名：</span>' + book.formerNname + '</div>' : '') +
+                        (book.author      ? '<div class="_3Oa5I"><span class="_6Y7v3">作者：</span>' + book.author + '</div>' : '') +
+                        (book.translator  ? '<div class="_3Oa5I"><span class="_6Y7v3">译者：</span>' + book.translator + '</div>' : '') +
+                        (book.press       ? '<div class="_3Oa5I"><span class="_6Y7v3">出版社：</span>' + book.press + '</div>' : '') +
+                        (book.year        ? '<div class="_3Oa5I"><span class="_6Y7v3">出版年：</span>' + book.year + '</div>' : '') +
+                        '                </div>' +
+                        '            </div>' +
+                        '        </div>' +
+                        '    </span>' +
+                        '</div>';
                 });
             });
 
