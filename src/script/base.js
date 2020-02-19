@@ -1147,8 +1147,8 @@ function Base() {
                 setCodeBefore(2);
                 cnblogsCode(); break;
         }
-        setCopyBtn();
         setScrollbarStyle();
+        setCopyBtn();
 
         // 设置代码复制
         function setCopyBtn() {
