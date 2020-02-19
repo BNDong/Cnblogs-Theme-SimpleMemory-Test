@@ -22,6 +22,7 @@ require.config({
         bootstrap: setFileNameMin('bootstrap.min', 'js'),
         //-- baguetteBox 图片灯箱
         baguetteBox: setFileNameMin('baguetteBox.min', 'js'),
+        fancybox: setFileNameMin('jquery.fancybox.min', 'js'),
         //-- 文章标题
         title: setFileNameMin('articleTitle', 'js'),
         //-- 文章目录
@@ -74,6 +75,9 @@ require.config({
         },
         codePrettify: {
             deps: ['css!'+getJsDelivrUrl('codePrettify.css')]
+        },
+        fancybox: {
+            deps: ['css!'+getJsDelivrUrl('jquery.fancybox.min.css')]
         },
         codeDesert: {
             deps: ['css!'+getJsDelivrUrl('codeDesert.css')]

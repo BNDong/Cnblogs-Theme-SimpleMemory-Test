@@ -978,7 +978,7 @@ function Base() {
         if (obj.length > 0) {
             $.each(obj, function (i) {
                 var tag = $(obj[i]);
-                $('#articleInfo').append('<span class="article-info-tag article-tag-class-color">'+(tag.text())+'</span>');
+                $('#articleInfo').append('<a href="'+tag.attr('href')+'" target="_blank"><span class="article-info-tag article-tag-class-color">'+(tag.text())+'</span></a>');
             });
             bndongJs.clearIntervalTimeId(timeIds.blogPostCategoryTId);
         }
@@ -992,7 +992,7 @@ function Base() {
         if (obj.length > 0) {
             $.each(obj, function (i) {
                 var tag = $(obj[i]);
-                $('#articleInfo').append('<span class="article-info-tag article-tag-color">'+(tag.text())+'</span>');
+                $('#articleInfo').append('<a href="'+tag.attr('href')+'" target="_blank"><span class="article-info-tag article-tag-color">'+(tag.text())+'</span></a>');
             });
             bndongJs.clearIntervalTimeId(timeIds.entryTagTId);
         }
@@ -1056,22 +1056,37 @@ function Base() {
      * 设置图片灯箱效果
      */
     this.baguetteBox = function () {
-        require(['baguetteBox', 'title', 'marvin', 'articleStatement'], function(baguetteBox) {
+
+        // 设置图片点击查看
+        const cpb    = $('#cnblogs_post_body')
+            ,imgList = $('#cnblogs_post_body img');
+
+        if (cpb.length > 0 && imgList.length > 0) {
+            $.each(imgList, function (i) {
+                var tem = $(imgList[i]);
+                // if (typeof flg == 'undefined' && tem.outerWidth() > 50) {
+                    tem.wrap('<a data-fancybox="gallery" href="'+tem.attr('src')+'"></a>');
+                // }
+            });
+            // baguetteBox.run('.lightbox');
+        }
+
+        require(['fancybox', 'title', 'marvin', 'articleStatement'], function() {
 
             // 设置图片点击查看
-            const cpb    = $('#cnblogs_post_body')
-                ,imgList = $('#cnblogs_post_body img');
-
-            if (cpb.length > 0 && imgList.length > 0) {
-                $.each(imgList, function (i) {
-                    let tem = $(imgList[i]);
-                    let flg = tem.attr('id');
-                    if (typeof flg == 'undefined' && tem.outerWidth() > 50) {
-                        tem.wrap("<a class='lightbox' href='"+tem.attr('src')+"'></a>");
-                    }
-                });
-                baguetteBox.run('.lightbox');
-            }
+            // const cpb    = $('#cnblogs_post_body')
+            //     ,imgList = $('#cnblogs_post_body img');
+            //
+            // if (cpb.length > 0 && imgList.length > 0) {
+            //     $.each(imgList, function (i) {
+            //         let tem = $(imgList[i]);
+            //         let flg = tem.attr('id');
+            //         if (typeof flg == 'undefined' && tem.outerWidth() > 50) {
+            //             tem.wrap("<a class='lightbox' href='"+tem.attr('src')+"'></a>");
+            //         }
+            //     });
+            //     baguetteBox.run('.lightbox');
+            // }
 
             // 初始化文章目录位置
             timeIds.setCatalogTId = window.setInterval( bndongJs.initCatalog, 1000 );

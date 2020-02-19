@@ -4085,7 +4085,7 @@ a[name=top], #loading{
    书单
    ========================================================================== */
 .books-item .books-item-span {
-    width: 100%;
+    width: 98%;
     text-decoration: none;
     display: -webkit-box;
     display: flex;
