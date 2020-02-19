@@ -1262,8 +1262,8 @@ function Base() {
             $.each(pre, function (i) {
                 var obj = $(this);
                 obj.find('br').after('&#10;');
-                var codetext = obj.text();
-                obj.html('').text(codetext).css('overflow-x', 'auto');
+                var codeHtml = obj.text().split('\n');
+                obj.html('').html(codeHtml.join('<code-line class="line-increment"></code-line>')).css('overflow-x', 'auto');
             });
         }
 
