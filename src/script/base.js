@@ -1264,9 +1264,9 @@ function Base() {
                 obj.find('br').after('&#10;');
                 var codeLine = obj.text().split('\n');
                 $.each(codeLine, function (j) {
-                    codeLine[j] = '<span class="line-numbers-rows">' + codeLine[j] + '</span>';
+                    codeLine[j] = '<code-rows class="line-numbers-rows"></code-rows>' + codeLine[j];
                 });
-                obj.html('').html(codeLine.join('\n')).css('overflow-x', 'auto');
+                obj.html('').html('<span>' + codeLine.join('\n') + '</span>').css('overflow-x', 'auto');
             });
         }
 
