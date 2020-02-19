@@ -1264,9 +1264,7 @@ function Base() {
 
         function setCodeBefore(type) {
             $.each(pre, function (i) {
-                var obj = $(this), pid = 'pre-' + tools.randomString(6);
-                obj.find('br').after('&#10;');
-                var codeLine = obj.text().split('\n');
+                var obj = $(this), pid = 'pre-' + tools.randomString(6), codeLine, html = '';
 
                 switch (type) {
                     case 1:
@@ -1278,20 +1276,18 @@ function Base() {
                         break;
                 }
                 obj.html('<code-pre class="code-pre" id="' + pid + '"></code-pre>');
-                var pobj =  $('#' + pid);
                 $.each(codeLine, function (j) {
+                    html += '<code-line class="line-numbers-rows"></code-line>';
                     switch (type) {
                         case 1:
-                            var id = 'row-' + tools.randomString(6);
-                            pobj.append('<code-line class="line-numbers-rows"></code-line><span id="' + id + '"></span>\n');
-                            $('#' + id).text(codeLine[j]);
-                            break;
+                            html += tools.HTMLEncode(codeLine[j]) + '\n';break;
 
                         case 2:
-                            pobj.append('<code-line class="line-numbers-rows"></code-line>'+codeLine[j]+'\n');
+                            html += codeLine[j] + '\n';break;
                             break;
                     }
                 });
+                $('#' + pid).append(html);
             });
         }
 

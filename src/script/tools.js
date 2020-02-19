@@ -161,4 +161,16 @@ function myTools() {
         }
         return year + seperator1 + month + seperator1 + strDate;
     }
+
+    /**
+     * html 转义
+     * @return {string}
+     */
+    this.HTMLEncode = function(html) {
+        var temp = document.createElement("div");
+        (temp.textContent != null) ? (temp.textContent = html) : (temp.innerText = html);
+        var output = temp.innerHTML;
+        temp = null;
+        return output;
+    }
 }
