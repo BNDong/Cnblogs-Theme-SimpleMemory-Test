@@ -3794,7 +3794,7 @@ span.cnblogs_code {
 .postBody pre .line-numbers-rows {
     counter-increment: itemcounter;
     position: absolute;
-    left: -35px;
+    left: -34px;
     width: 30px;
     text-align: center;
     color: #999;
@@ -3809,6 +3809,32 @@ span.cnblogs_code {
     display: block;
     left: 30px;
     border-left: 1px solid #999;
+}
+
+.code-copay-btn {
+    position: absolute;
+    top: 8px;
+    right: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0 0 0 2px;
+    border: none;
+    border-radius: 6px;
+    color: #ccc;
+    opacity: 0;
+    visibility: hidden;
+    background-color: hsla(0,0%,90.2%,.2);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: opacity .2s ease-in-out,visibility .2s ease-in-out;
+    z-index: 1;
 }
 
 .cnblogs_code span {

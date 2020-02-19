@@ -1072,7 +1072,8 @@ function Base() {
         if (cpb.length > 0 && imgList.length > 0) {
             $.each(imgList, function (i) {
                 var tem = $(imgList[i]);
-                    tem.wrap('<a data-fancybox="gallery" href="'+tem.attr('src')+'"></a>');
+                    if (!tem.hasClass('code_img_closed') && !tem.hasClass('code_img_opened'))
+                        tem.wrap('<a data-fancybox="gallery" href="'+tem.attr('src')+'"></a>');
             });
         }
 
@@ -1161,31 +1162,7 @@ function Base() {
                     obj.wrap('<code-box id="' + id + '" style="position: relative;display: block;"></code-box>');
                     obj.attr('code-id', id);
 
-                    var html = '<button code-id="' + id + '" type="button" class="clipboard" data-clipboard-action="copy" data-clipboard-target="pre[code-id=' + id + ']" aria-label="复制代码" style="' +
-                        'position: absolute;' +
-                        'top: 8px;' +
-                        'right: 23px;' +
-                        'display: flex;' +
-                        'justify-content: center;' +
-                        'align-items: center;' +
-                        'width: 30px;' +
-                        'height: 25px;' +
-                        'cursor: pointer;' +
-                        'font-size: 14px;' +
-                        'padding: 0 0 0 2px;' +
-                        'border: none;' +
-                        'border-radius: 6px;' +
-                        'color: #ccc;' +
-                        'opacity: 0;' +
-                        'visibility: hidden;' +
-                        'background-color: hsla(0,0%,90.2%,.2);' +
-                        '-webkit-user-select: none;' +
-                        '-moz-user-select: none;' +
-                        '-ms-user-select: none;' +
-                        'user-select: none;' +
-                        'transition: opacity .2s ease-in-out,visibility .2s ease-in-out;' +
-                        'z-index: 1;' +
-                        '"><i class="iconfont icon-fuzhi1"></i></button>';
+                    var html = '<button code-id="' + id + '" type="button" class="clipboard code-copay-btn" data-clipboard-action="copy" data-clipboard-target="pre[code-id=' + id + ']" aria-label="复制代码" ><i class="iconfont icon-fuzhi1"></i></button>';
 
                     $('#'+id).prepend(html);
                 });
@@ -1280,11 +1257,10 @@ function Base() {
                     html += '<code-line class="line-numbers-rows"></code-line>';
                     switch (type) {
                         case 1:
-                            html += tools.HTMLEncode(codeLine[j]) + '\n';break;
+                            html += tools.HTMLEncode(codeLine[j]) + '\n'; break;
 
                         case 2:
-                            html += codeLine[j] + '\n';break;
-                            break;
+                            html += codeLine[j] + '\n'; break;
                     }
                 });
                 $('#' + pid).append(html);
