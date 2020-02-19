@@ -1260,17 +1260,16 @@ function Base() {
 
         function setCodeBefore() {
             $.each(pre, function (i) {
-                var obj = $(this);
+                var obj = $(this), pid = 'pre-' + tools.randomString(6);
                 obj.find('br').after('&#10;');
                 var codeLine = obj.text().split('\n');
-                obj.html('');
-                obj.append('<code-pre class="pre-code">');
+                obj.html('<code-pre class="code-pre" id="' + pid + '"></code-pre>');
+                var pobj =  $('#' + pid);
                 $.each(codeLine, function (j) {
                     var id = 'row-' + tools.randomString(6);
-                    obj.append('<code-rows class="line-numbers-rows"></code-rows><span id="'+id+'"></span>\n');
+                    pobj.append('<code-line class="line-numbers-rows"></code-line><span id="' + id + '"></span>\n');
                     $('#' + id).text(codeLine[j]);
                 });
-                obj.append('</code-pre>');
             });
         }
 
