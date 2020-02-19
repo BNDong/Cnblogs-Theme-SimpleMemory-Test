@@ -3788,7 +3788,27 @@ span.cnblogs_code {
     max-height: 70vh;
     word-break: break-all;
     word-wrap: break-word;
-    border-radius: 4px;
+    counter-reset: itemcounter;
+}
+
+.postBody pre .line-numbers-rows {
+    counter-increment: itemcounter;
+    position: absolute;
+    left: -35px;
+    width: 30px;
+    text-align: center;
+    color: #999;
+}
+.postBody pre .line-numbers-rows:before {
+    content: counter(itemcounter);
+}
+
+.postBody pre .pre-code {
+    position: relative;
+    padding-left: 10px;
+    display: block;
+    left: 30px;
+    border-left: 1px solid #999;
 }
 
 .cnblogs_code span {
