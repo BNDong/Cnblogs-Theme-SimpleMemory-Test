@@ -1221,6 +1221,9 @@ function Base() {
                 'background-color': '#f6f8fa',
                 'overflow-x': 'auto'
             });
+            var codeHljs = $('code.hljs');
+            codeHljs.after(codeHljs.html());
+            codeHljs.remove();
         }
 
         // 使用 highlightjs 代码样式
