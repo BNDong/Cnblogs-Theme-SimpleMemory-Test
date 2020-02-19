@@ -1263,7 +1263,7 @@ function Base() {
                 var obj = $(this);
                 obj.find('br').after('&#10;');
                 var codeHtml = obj.text().split('\n');
-                obj.html('').html(codeHtml.join('<code-line class="line-increment"></code-line>')).css('overflow-x', 'auto');
+                obj.html('').html(codeHtml.join('<code-line class="line-increment"></code-line>\n')).css('overflow-x', 'auto');
             });
         }
 
