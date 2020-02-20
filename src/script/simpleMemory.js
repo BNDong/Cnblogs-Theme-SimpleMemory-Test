@@ -174,12 +174,12 @@ if (initCheck()) {
             animateSections: true
         },
         homeTopImg: [
-            "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/home_top_bg.jpg"
+            "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/home_top_bg.webp"
         ],
         homeBannerText: "",
         homeBannerTextType: "jinrishici",
         essayTopImg: [
-            "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/nothome_top_bg.jpg"
+            "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/nothome_top_bg.webp"
         ],
         essayCodeHighlightingType: 'cnblogs',
         essayCodeHighlighting: '',

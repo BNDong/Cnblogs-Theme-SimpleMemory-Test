@@ -94,7 +94,7 @@ function Base() {
         $('#menuWrap').optiscroll({ forceScrollbars: true, maxTrackSize: 20, preventParentScroll: true });
 
         // 设置菜单个人简介头像
-        var blogAvatar = window.cnblogsConfig.blogAvatar ? window.cnblogsConfig.blogAvatar : 'https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/default_avatar.jpeg';
+        var blogAvatar = window.cnblogsConfig.blogAvatar ? window.cnblogsConfig.blogAvatar : 'https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/default_avatar.webp';
         $('#menuBlogAvatar').append("<img src='"+blogAvatar+"'>");
 
         // html5-title
@@ -683,7 +683,7 @@ function Base() {
             });
 
             $('.footer-image').css({
-                'background': 'url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/footer.png) no-repeat 50%',
+                'background': 'url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/footer.webp) no-repeat 50%',
                 'height': '368px',
                 'z-index': '1',
                 'position': 'absolute',
@@ -1331,7 +1331,7 @@ function Base() {
                         var patch = op.text();
                         html += '<img class="comment-avatar" src="'+patch+'"/>';
                     } else {
-                        html += '<img class="comment-avatar" src="https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/default_avatar.jpeg"/>';
+                        html += '<img class="comment-avatar" src="https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/default_avatar.webp"/>';
                     }
                     $(commentList[i]).before(html);
                 }
