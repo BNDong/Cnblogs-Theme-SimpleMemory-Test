@@ -1136,6 +1136,7 @@ function Base() {
      * 设置代码
      */
     this.setCodeHighlighting = function () {
+        return false;
         var pre       = $('.post pre'),
             codeSpan  = $('.cnblogs_code span'),
             hltype    = window.cnblogsConfig.essayCodeHighlightingType.toLowerCase(),
@@ -1204,8 +1205,11 @@ function Base() {
                 'overflow-x': 'auto'
             });
             var codeHljs = $('code.hljs');
-            codeHljs.after(codeHljs.html());
-            codeHljs.remove();
+            codeHljs.each(function () {
+                var hj = $(this);
+                hj.after(hj.html());
+                hj.remove();
+            });
         }
 
         // 使用 highlightjs 代码样式
