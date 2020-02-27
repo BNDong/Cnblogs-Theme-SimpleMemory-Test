@@ -1136,7 +1136,6 @@ function Base() {
      * 设置代码
      */
     this.setCodeHighlighting = function () {
-        return false;
         var pre       = $('.post pre'),
             codeSpan  = $('.cnblogs_code span'),
             hltype    = window.cnblogsConfig.essayCodeHighlightingType.toLowerCase(),
