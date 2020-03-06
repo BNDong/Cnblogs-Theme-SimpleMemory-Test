@@ -788,6 +788,8 @@ function Base() {
             'background-size': 'cover'
         });
 
+        bndongJs.setHomePost();
+
         // 头图点击滚动到内容位置
         $('.scroll-down').click(function () {
             let endScroll;
@@ -804,6 +806,27 @@ function Base() {
             require(['circleMagic'], function() {
                 $('.main-header').circleMagic(window.cnblogsConfig.homeTopAnimation);
             });
+    };
+
+    /**
+     * 设置主页文章信息样式
+     */
+    this.setHomePost = function () {
+        var day = $('#main .day');
+        $.each(day, function () {
+            var obj = $(this),
+                read = obj.find('a.c_b_p_desc_readmore'),
+                title = obj.find('.postTitle'),
+                titleText = title.text(),
+                postDescText = obj.find('.postDesc').text(),
+                info = postDescText.match(/.*posted\s*@\s*([0-9\-:\s]*)\s.*\s阅读\s*\(([0-9]*)\)\s*评论\s*\(([0-9]*)\).*/);
+            title.after('<div class="postMeta"><i class="iconfont icon-dianzan1"></i>发表于 '+info[1]+'<i class="iconfont icon-dianzan1"></i>阅读次数：'+info[2]+'<i class="iconfont icon-dianzan1"></i>评论次数：'+info[3]+'</div>');
+            read.text('阅读全文 »');
+            if (/\[置顶\]/.test(titleText)) {
+                title.append('<span class="postSticky">置顶</span>');
+            };
+            title.find('a').text(titleText.replace('[置顶]', ''));
+        });
     };
 
     /**
