@@ -393,7 +393,7 @@ a.c_b_p_desc_readmore {
 }
 
 .postMeta>i {
-    font-size: 14px;
+    font-size: 15px;
     margin: 0 5px;
 }
 
@@ -430,7 +430,7 @@ a.c_b_p_desc_readmore {
     padding: 1px 3px;
     border-radius: 3px;
     position: relative;
-    top: -5px;
+    top: -6px;
 }
 
 .postSeparator {
@@ -3593,12 +3593,17 @@ div#green_channel img {
     }
 
     .postMeta>i {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     a.c_b_p_desc_readmore {
         font-size: 13px;
         width: 68px;
         border-bottom: 1px solid #666;
+    }
+
+    .postSticky {
+        font-size: 12px;
+        top: -4px;
     }
 }
