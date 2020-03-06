@@ -986,19 +986,13 @@ function Base() {
     };
 
     /**
-     * 设置文章信息-作者
+     * 设置文章信息
      */
     this.setArticleInfoAuthor = function () {
-        const date = $('#post-date').text();
-        var articleAuthor = $('#articleAuthor').val();
-        var author = '';
-        if (articleAuthor != undefined) {
-            author = articleAuthor;
-        } else {
-            author = window.cnblogsConfig.blogUser;
-        }
-        var str = 'Posted by ' + author + ' on ' + date;
-        $('#articleInfo').append('<p class="article-info-text">'+str+'</p>');
+        var postDescText = $('.postDesc').text(),
+            info = postDescText.match(/.*posted\s*@\s*([0-9\-:\s]*)\s.*\s阅读\s*\(([0-9]*)\)\s*评论\s*\(([0-9]*)\).*/),
+            html = '<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+info[1]+'<i class="iconfont icon-browse"></i>阅读次数：'+info[2]+'<i class="iconfont icon-interactive"></i>评论次数：'+info[3]+'</span>';
+        $('#articleInfo').append('<p class="article-info-text">'+html+'</p>');
     };
 
     /**

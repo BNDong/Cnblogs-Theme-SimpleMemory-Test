@@ -100,11 +100,11 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
     outline: 0;
-    color: #2daebf
+    color: #5c8ec6
 }
 
 a:link, a:visited {
-    color: #2daebf;
+    color: #5c8ec6;
     text-decoration: none
 }
 
@@ -411,6 +411,17 @@ a.c_b_p_desc_readmore {
     line-height: 2.2rem;
     color: #9EABB3;
     display: none;
+}
+
+p.article-info-text>.postMeta {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(255,255,255,.8);
+    font-family: Noto Sans SC, serif;
+}
+
+p.article-info-text>.postMeta i {
+    font-size: 18px;
 }
 
 .postDesc a:active, .postDesc a:link, .postDesc a:visited {
@@ -728,7 +739,6 @@ a.c_b_p_desc_readmore {
 }
 
 .feedbackCon {
-    border-bottom: 1px solid #EEE;
     padding: 10px 20px 10px 5px;
     min-height: 35px;
     margin-bottom: 1em;
@@ -861,11 +871,12 @@ a.c_b_p_desc_readmore {
     border: 1px solid #ddd;
     border-radius: 3px;
     -moz-border-radius: 3px;
-    -webkit-border-radius: 3px
+    -webkit-border-radius: 3px;
+    min-height: 250px;
 }
 
 #comment_form_container .comment_textarea:hover {
-    border-color: rgba(82, 168, 236, .8);
+    border-color: #5c8ec6;
     outline: 0;
     transition: all .4s linear 0s
 }
@@ -874,32 +885,18 @@ a.c_b_p_desc_readmore {
     outline: 0
 }
 
+.commentbox_tab:hover, .commentbox_tab.active {
+     border-bottom: 0;
+    color: #5c8ec6;
+}
+
 .comment_btn {
-    width: 100px;
-    height: 38px;
-    padding: 8px 20px;
-    text-align: center;
-    font-size: 14px;
-    color: #fff;
     border: none;
-    background: #21759b;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -webkit-transition: all .4s ease;
-    -moz-transition: all .4s ease;
-    -o-transition: all .4s ease;
-    -ms-transition: all .4s ease;
-    transition: all .4s ease;
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: middle;
-    outline: 0;
-    text-decoration: none
+    background-color: #5c8ec6;
 }
 
 .comment_btn:hover {
-    background: #333
+    background: #71ace5
 }
 
 .PostListTitle, .entrylistTitle, .thumbTitle {
@@ -1917,7 +1914,7 @@ a.c_b_p_desc_readmore {
 
 .postBody {
     color: #222;
-    font-size: 1.5rem;
+    font-size: 1.55rem;
     line-height: 1.6
 }
 
@@ -2288,7 +2285,7 @@ a.c_b_p_desc_readmore {
 #cnblogs_post_body h6, blockquote {
     line-height: 20px;
     margin: 0 0 24px;
-    padding: 1.3em;
+    padding: 1.45em;
     color: #313131;
     background-color: #f7f7f7;
     font-size: 13px;
@@ -2496,7 +2493,7 @@ blockquote p {
     position: relative;
     display: inline-block;
     left: -20px;
-    margin: 25px 0 0;
+    margin: 34px 0 0;
     width: 110%;
     transition: border-color .3s;
     padding-bottom: 14px
@@ -2874,12 +2871,13 @@ span.cnblogs_code {
     padding: 10px;
     height: 200px;
     position: relative;
-    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/comment_bg.webp) right -65px no-repeat #fff;
+    /*background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/comment_bg.webp) right -65px no-repeat #fff;*/
     background-size: 250px
 }
 
 .commentbox_title {
-    width: 100%
+    width: 100%;
+    border-bottom: 1px dashed #dedede;
 }
 
 #tbCommentAuthor {
@@ -3079,13 +3077,11 @@ span.cnblogs_code {
 
 .article-info {
     color: #fff;
-    margin-top: 30px
+    margin-top: 5px
 }
 
 .article-info-text {
-    font-size: 18px;
-    font-family: Playball, cursive;
-    margin-bottom: 10px
+    margin-bottom: 15px
 }
 
 .article-info-tag {
@@ -3309,7 +3305,7 @@ span.cnblogs_code {
     vertical-align: middle
 }
 
-a#green_channel_digg, a#green_channel_favorite, a#green_channel_follow, a#green_channel_wechat, a#green_channel_weibo {
+a#green_channel_digg, a#green_channel_favorite, a#green_channel_follow, a#green_channel_wechat, a#green_channel_weibo, #btn_comment_submit {
     text-decoration: none;
     color: #fff;
     margin: 10px auto auto;
@@ -3341,7 +3337,7 @@ a#green_channel_digg:active, a#green_channel_favorite:active, a#green_channel_fo
 }
 
 a#green_channel_digg {
-    background-color: #2daebf;
+    background-color: #5c8ec6;
     box-shadow: 0 15px 18px -6px rgba(95, 193, 206, .65)
 }
 
