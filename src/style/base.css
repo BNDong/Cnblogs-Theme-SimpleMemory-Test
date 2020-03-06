@@ -149,7 +149,8 @@ b {
     width: 70%;
     max-width: 900px;
     background-color: rgba(255, 255, 255, .9);
-    padding: 0 20px 30px
+    padding: 0 20px 30px;
+    box-shadow: 0 0 20px 10px rgba(220, 220, 220, .3);
 }
 
 #header {
@@ -350,7 +351,7 @@ a.c_b_p_desc_readmore {
     background-color: rgba(0, 0, 0, 0);
     color: #4a4a4a;
     font-family: "Open Sans", "Microsoft Jhenghei", "Microsoft Yahei", sans-serif;
-    font-size: 3.2rem;
+    font-size: 3.1rem;
     font-weight: 700;
     letter-spacing: -1px;
     transition-delay: 0s;
@@ -3487,6 +3488,11 @@ div#green_channel img {
     #aplayer, #evanyou, #homeTopCanvas, #music-box, #notHomeTopCanvas, #sideToolbar, .scroll-down, body > meting-js {
         display: none !important
     }
+
+    a.c_b_p_desc_readmore {
+        font-size: 14px;
+        width: 75px;
+    }
 }
 
 @media only screen and (max-width: 960px) {
@@ -3580,5 +3586,19 @@ div#green_channel img {
 
     .essaySuffix-box-right {
         width: 100%
+    }
+
+    .postMeta {
+        font-size: 12px;
+    }
+
+    .postMeta>i {
+        font-size: 12px;
+    }
+
+    a.c_b_p_desc_readmore {
+        font-size: 13px;
+        width: 68px;
+        border-bottom: 1px solid #666;
     }
 }
