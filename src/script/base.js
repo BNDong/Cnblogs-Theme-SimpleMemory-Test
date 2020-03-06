@@ -1036,7 +1036,7 @@ function Base() {
         const sideToolbar = $('#sideToolbar');
         if (sideToolbar.length > 0) {
             const sideToolbarTop = $('.main-header').outerHeight();
-            sideToolbar.css('top', (sideToolbarTop + 20) + 'px');
+            sideToolbar.css('top', (sideToolbarTop + 5) + 'px');
             bndongJs.resizeMonitor();
             sideToolbar.fadeIn(300);
             bndongJs.clearIntervalTimeId(timeIds.setCatalogTId);

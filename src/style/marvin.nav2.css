@@ -7,7 +7,7 @@
 
 .sideToolbarFix {
     position: fixed !important;
-    top: 20px !important
+    top: 5px !important
 }
 
 #sideToolbar ol, #sideToolbar ul {
@@ -19,7 +19,8 @@
 }
 
 #sideCatalog {
-    position: absolute
+    position: absolute;
+    box-shadow: 0 0 20px 10px rgba(220, 220, 220, .3);
 }
 
 #sideCatalog-sidebar {
@@ -43,9 +44,10 @@
 #sideCatalog-catalog {
     position: relative;
     font-size: 14px;
-    background: rgba(255, 255, 255, .5);
+    background: rgba(255, 255, 255, .9);
     overflow: visible;
-    max-height: 90vh
+    max-height: 90vh;
+    padding: 5px;
 }
 
 #sideCatalog #sideCatalog-sidebar .sideCatalog-sidebar-top {
@@ -83,11 +85,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding: 3px 3px 3px 10px
+    padding: 3px 3px 3px 10px;
+    border-bottom: 1px dashed #f7f7f7;
 }
 
 #sideCatalog li.active:before {
-    background: rgba(0, 0, 0, .05)
+    background: rgba(80, 80, 80, .05)
 }
 
 #sideCatalog li.active:after {
