@@ -685,6 +685,11 @@ function Base() {
                 '</footer-background>' +
                 '</footer>';
             $('#footer').prepend(html);
+            $('#footer .footer-text').css({
+                'padding-bottom': '0',
+                'border-bottom': 'none',
+                'margin-bottom':  '0'
+            });
         }
 
         // 设置运行时间

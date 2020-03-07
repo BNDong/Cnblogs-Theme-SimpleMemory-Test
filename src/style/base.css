@@ -3452,6 +3452,8 @@ div#green_channel img {
     display: inline-block;
     margin: 0 0 0 7px;
     font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    animation: iconAnimate 1.33s ease-in-out infinite;
 }
 
 footer footer-background {
@@ -3504,6 +3506,62 @@ footer footer-background .clouds {
     right: 0;
     bottom: 0;
     left: 0
+}
+
+@-moz-keyframes iconAnimate {
+    0%,100% {
+        transform: scale(1)
+    }
+
+    10%,30% {
+        transform: scale(.9)
+    }
+
+    20%,40%,50%,60%,70%,80% {
+        transform: scale(1.1)
+    }
+}
+
+@-webkit-keyframes iconAnimate {
+    0%,100% {
+        transform: scale(1)
+    }
+
+    10%,30% {
+        transform: scale(.9)
+    }
+
+    20%,40%,50%,60%,70%,80% {
+        transform: scale(1.1)
+    }
+}
+
+@-o-keyframes iconAnimate {
+    0%,100% {
+        transform: scale(1)
+    }
+
+    10%,30% {
+        transform: scale(.9)
+    }
+
+    20%,40%,50%,60%,70%,80% {
+        transform: scale(1.1)
+    }
+}
+
+@keyframes iconAnimate {
+    0%,100% {
+        transform: scale(1)
+    }
+
+    10%,30% {
+        transform: scale(.9)
+    }
+
+    20%,40%,50%,60%,70%,80% {
+        transform: scale(1.1)
+    }
 }
 
 @media only screen and (max-width: 1200px) {
