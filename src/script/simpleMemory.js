@@ -183,6 +183,7 @@ if (initCheck()) {
         ],
         essayCodeHighlightingType: 'cnblogs',
         essayCodeHighlighting: '',
+        codeMaxHeight: false,
         essaySuffix: {
             codeImgUrl: '',
             aboutHtml: '',

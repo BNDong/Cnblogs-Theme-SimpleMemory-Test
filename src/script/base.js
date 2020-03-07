@@ -1147,6 +1147,8 @@ function Base() {
             hltype    = window.cnblogsConfig.essayCodeHighlightingType.toLowerCase(),
             hltheme   = window.cnblogsConfig.essayCodeHighlighting.toLowerCase();
 
+        if (window.cnblogsConfig.codeMaxHeight) pre.css('max-height', '70vh');
+
         switch (hltype) {
             case 'highlightjs':
                 setCodeBefore(1);

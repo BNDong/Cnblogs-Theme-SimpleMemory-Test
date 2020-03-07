@@ -30,12 +30,12 @@ $(document).ready(function(){
 
     $('#cnblogs_post_body pre').find('>code').parent().css({'border':'dashed 1px #aaa','border-left':'solid 2px #6CE26C'});
 
-    var url = window.location.href;      // 获取完整URL地址
-    var tmp = url.split("/");   // 按照"/"分割
-    var cc = tmp[tmp.length-1];          // 获取最后一部分，即文件名和参数
-    cc = cc.split("#")[0];      // 过滤#之后部分
-    var fileid = cc.split("?"); // 过滤参数
-    var uid = fileid[0].replace('.html', ''); // 获取文章ID
+    var url = window.location.href,      // 获取完整URL地址
+        tmp = url.split("/"),   // 按照"/"分割
+        cc = tmp[tmp.length-1];          // 获取最后一部分，即文件名和参数
+        cc = cc.split("#")[0];  // 过滤#之后部分
+    var fileid = cc.split("?"), // 过滤参数
+        uid = fileid[0].replace('.html', ''); // 获取文章ID
 
 
     var bottom_html = '<br><p class="essaySuffix-eof">__EOF__</p>';
@@ -61,20 +61,19 @@ $(document).ready(function(){
         source  = articleSource;
     } else {
 
-        var str     = window.cnblogsConfig.blogUser ? window.cnblogsConfig.blogUser : '',
-            homeUrl = tmp;
+        var user = window.cnblogsConfig.blogUser ? window.cnblogsConfig.blogUser : '',
+            url  = tmp;
 
-        homeUrl.pop();
-        homeUrl.pop();
-        homeUrl = homeUrl.join("/");
+        url.pop();
+        url = url.join("/") + '/' + uid + '.html';
 
-        author  = str ? str : tmp[3];
-        source  = homeUrl;
+        author  = user ? user : tmp[3];
+        source  = url;
     }
 
-    bottom_html += '<span class="essaySuffix-right-title">作　　者</span>：<strong><span style="font-size: 12px;">';
+    bottom_html += '<span class="essaySuffix-right-title">本文作者</span>：<strong><span style="font-size: 12px;">';
     bottom_html += '<a href="'+source+'" target="_blank">'+author+'</a></span></strong> <br>';
-    bottom_html += '<span style="font-weight: bold; white-space:nowrap;">出　　处</span>：<a href="'+source+'" target="_blank">'+source+'</a><br>';
+    bottom_html += '<span style="font-weight: bold; white-space:nowrap;">本文链接</span>：<a href="'+source+'" target="_blank">'+source+'</a><br>';
 
     // 设置关于作者
     var aboutHtml = window.cnblogsConfig.essaySuffix.aboutHtml
