@@ -790,6 +790,7 @@ function Base() {
         });
 
         bndongJs.setHomePost();
+        bndongJs.setEntryPost();
 
         // 头图点击滚动到内容位置
         $('.scroll-down').click(function () {
