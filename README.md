@@ -16,7 +16,7 @@
 
 </div>
 
-# Silence
+# 简介
 
 📖 本主题以阅读为核心，美化博客园的显示效果，提高用户体验。 
 
@@ -24,21 +24,16 @@
 
 🧀 支持响应，尺寸分别为：(1200px,∞px)，(960px,1200px]，(720px,960px]，(0px,720px]
 
-# Docs
+# 文档
 
-<ul>
-<li><a href="https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1" rel="nofollow" style="width: 55px;display: inline-block;letter-spacing: 3px;">v1.*.*</a>　<a href="https://www.dbnuo.com/Cnblogs-Theme-SimpleMemory/docs/v1.1/" rel="nofollow">备用地址</a></li>
-<li><a href="https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.0" rel="nofollow" style="width: 55px;display: inline-block;letter-spacing: 3px;">v1.0.*</a>　<a href="https://www.dbnuo.com/Cnblogs-Theme-SimpleMemory/docs/v1.0/" rel="nofollow">备用地址</a></li>
-</ul>
-
-- [v1.\*.*](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1)[备用地址](https://www.dbnuo.com/Cnblogs-Theme-SimpleMemory/docs/v1.1/)
-- [v1.0.*](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.0)　　[备用地址](https://www.dbnuo.com/Cnblogs-Theme-SimpleMemory/docs/v1.0/)
+- v1.\*.*版本：[永久地址](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1)　[备用地址](https://www.dbnuo.com/Cnblogs-Theme-SimpleMemory/docs/v1.1/)
+- v1.0.*版本：[永久地址](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.0)　[备用地址](https://www.dbnuo.com/Cnblogs-Theme-SimpleMemory/docs/v1.0/)
 
 > 推荐大家使用最新版本，新版本的发布往往代表着功能的完善和bug的修复！
 > <br>文档的源文件在 /docs 目录，大家有更完善的文档或建议可以 Pull Request 或 Issues 给我。
 > <br>文档我已经禁止浏览器缓存，但仍可能存在缓存，大家可以尝试强制刷新下(ctrl+f5 / command+shift+r)
 
-# Contributors
+# 贡献者
 
 <a href="https://github.com/QQ2017" target="_blank">
     <img width=50 src="https://avatars0.githubusercontent.com/u/23667705?s=50&v=4"/>
@@ -58,7 +53,7 @@
 
 > 提交代码或改进方案，被采纳的同学会出现在这里。
 
-# Author
+# 关于
 
 **Cnblogs-Theme-SimpleMemory** © [BNDong](https://github.com/BNDong), Released under the [MIT](./LICENSE) License.<br>
 
