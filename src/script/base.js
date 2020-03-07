@@ -702,7 +702,6 @@ function Base() {
                 '<figure class="clouds"></figure>' +
                 '<figure class="background"></figure>' +
                 '<figure class="foreground"></figure>' +
-                '<figure class="poof"></figure>' +
                 '</footer-background>' +
                 '</footer>';
 
