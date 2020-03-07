@@ -3422,18 +3422,10 @@ div#green_channel img {
 }
 
 .footer-t1 {
-    min-height: 130px;
-    _height: 15px;
-    position: absolute;
-    margin: 250px 0 0 0;
-    left: 0;
-    right: 0;
+    min-height: 130px !important;
+    margin: 250px 0 0 0 !important;
+    _height: 15px !important;
     background: #232323;
-    padding: 17px 0 27px;
-    text-align: center;
-    color: #888;
-    font-size: 12px;
-    line-height: 1.5;
 }
 
 .footer-image {
