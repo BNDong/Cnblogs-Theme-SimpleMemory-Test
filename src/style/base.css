@@ -1206,6 +1206,7 @@ p.article-info-text > .postMeta i {
     color: #888;
     font-size: 12px;
     line-height: 1.5;
+    z-index: 1;
 }
 
 .my-face {
