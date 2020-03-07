@@ -392,12 +392,12 @@ b {
     display: inline-block;
 }
 
-.postMeta>i {
+.postMeta > i {
     font-size: 15px;
     margin: 0 5px;
 }
 
-.postMeta>i:not(:first-child) {
+.postMeta > i:not(:first-child) {
     margin-left: 10px;
 }
 
@@ -413,14 +413,14 @@ b {
     display: none;
 }
 
-p.article-info-text>.postMeta {
+p.article-info-text > .postMeta {
     font-size: 16px;
     font-weight: 700;
-    color: rgba(255,255,255,.8);
+    color: rgba(255, 255, 255, .8);
     font-family: Noto Sans SC, serif;
 }
 
-p.article-info-text>.postMeta i {
+p.article-info-text > .postMeta i {
     font-size: 16px;
 }
 
@@ -886,7 +886,7 @@ p.article-info-text>.postMeta i {
 }
 
 .commentbox_tab:hover, .commentbox_tab.active {
-     border-bottom: 0;
+    border-bottom: 0;
     color: #5c8ec6;
 }
 
@@ -2026,13 +2026,13 @@ p.article-info-text>.postMeta i {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 10;
     overflow: hidden;
-    font-family: 'Long Cang',cursive;
+    font-family: 'Long Cang', cursive;
 }
 
 .page-author {
     font-size: 1.5rem !important;
     line-height: 1.3em;
-    font-family: 'Ubuntu Mono',monospace;
+    font-family: 'Ubuntu Mono', monospace;
     -webkit-animation: fade-in-down .9s;
     animation: fade-in-down .9s both;
     -webkit-animation-delay: .1s;
@@ -2207,9 +2207,9 @@ p.article-info-text>.postMeta i {
     width: 70px;
     height: 70px;
     padding: 1px;
-    border: 3px solid rgba(255,255,255,.5);
+    border: 3px solid rgba(255, 255, 255, .5);
     border-radius: 100%;
-    box-shadow: inset 1px 1px 4px rgba(0,0,0,.3), 0 2px 3px rgba(0,0,0,.4);
+    box-shadow: inset 1px 1px 4px rgba(0, 0, 0, .3), 0 2px 3px rgba(0, 0, 0, .4);
     transition: transform 1s ease-out;
 }
 
@@ -3421,6 +3421,83 @@ div#green_channel img {
     white-space: nowrap
 }
 
+.footer-t1 {
+    min-height: 130px;
+    _height: 15px;
+    position: absolute;
+    margin: 250px 0 0 0;
+    left: 0;
+    right: 0;
+    background: #232323;
+    padding: 17px 0 27px;
+    text-align: center;
+    color: #888;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.footer-image {
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/footer.webp) no-repeat 50%;
+    height: 368px;
+    z-index: 1;
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+    pointer-events: none
+}
+
+footer footer-background {
+    bottom: 7.25rem;
+    left: 0;
+    height: 18rem;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    transform: translate3d(0, 0, 0)
+}
+
+footer footer-background figure {
+    bottom: 0;
+    left: 0;
+    height: 15rem;
+    margin: 0;
+    position: absolute;
+    width: 100%
+}
+
+footer footer-background .foreground {
+    background-repeat: repeat-x !important;
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/foreground.webp) repeat-x;
+    background-size: 225em 15em;
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    bottom: 0;
+    left: 0
+}
+
+footer footer-background .background {
+    background-repeat: repeat-x !important;
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/background.webp) repeat-x;
+    background-size: 225em 21.313em;
+    position: absolute;
+    top: -1em;
+    right: 0;
+    bottom: 0;
+    left: 0
+}
+
+footer footer-background .clouds {
+    background-repeat: repeat-x !important;
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/clouds.webp) repeat-x;
+    background-size: 225em 15em;
+    position: absolute;
+    top: -2em;
+    right: 0;
+    bottom: 0;
+    left: 0
+}
+
 @media only screen and (max-width: 1200px) {
     .main-header {
         -webkit-box-sizing: border-box;
@@ -3455,7 +3532,7 @@ div#green_channel img {
         letter-spacing: -1px
     }
 
-    p.article-info-text>.postMeta, p.article-info-text>.postMeta i {
+    p.article-info-text > .postMeta, p.article-info-text > .postMeta i {
         font-size: 15px;
     }
 
@@ -3577,11 +3654,11 @@ div#green_channel img {
         font-size: 12px;
     }
 
-    .postMeta>i {
+    .postMeta > i {
         font-size: 13px;
     }
 
-    p.article-info-text>.postMeta, p.article-info-text>.postMeta i {
+    p.article-info-text > .postMeta, p.article-info-text > .postMeta i {
         font-size: 14px;
     }
 
