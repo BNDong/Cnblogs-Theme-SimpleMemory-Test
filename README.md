@@ -26,7 +26,12 @@
 
 # Docs
 
-- [v1.\*.*](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1)　　[备用地址](https://www.dbnuo.com/Cnblogs-Theme-SimpleMemory/docs/v1.1/)
+<ul>
+<li><a href="https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1" rel="nofollow" style="width: 55px;display: inline-block;letter-spacing: 3px;">v1.*.*</a>　<a href="https://www.dbnuo.com/Cnblogs-Theme-SimpleMemory/docs/v1.1/" rel="nofollow">备用地址</a></li>
+<li><a href="https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.0" rel="nofollow" style="width: 55px;display: inline-block;letter-spacing: 3px;">v1.0.*</a>　<a href="https://www.dbnuo.com/Cnblogs-Theme-SimpleMemory/docs/v1.0/" rel="nofollow">备用地址</a></li>
+</ul>
+
+- [v1.\*.*](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1)[备用地址](https://www.dbnuo.com/Cnblogs-Theme-SimpleMemory/docs/v1.1/)
 - [v1.0.*](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.0)　　[备用地址](https://www.dbnuo.com/Cnblogs-Theme-SimpleMemory/docs/v1.0/)
 
 > 推荐大家使用最新版本，新版本的发布往往代表着功能的完善和bug的修复！
