@@ -33,7 +33,7 @@
 > <br>文档的源文件在 /docs 目录，大家有更完善的文档或建议可以 Pull Request 或 Issues 给我。
 > <br>文档我已经禁止浏览器缓存，但仍可能存在缓存，大家可以尝试强制刷新下(ctrl+f5 / command+shift+r)
 
-# 贡献者
+# 鸣谢
 
 <a href="https://github.com/QQ2017" target="_blank">
     <img width=50 src="https://avatars0.githubusercontent.com/u/23667705?s=50&v=4"/>
@@ -50,8 +50,6 @@
 <a href="https://github.com/sky5454" target="_blank">
     <img width=50 src="https://avatars2.githubusercontent.com/u/12370628?s=460&v=4"/>
 </a>
-
-> 提交代码或改进方案，被采纳的同学会出现在这里。
 
 # 关于
 
