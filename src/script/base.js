@@ -8,6 +8,7 @@ function Base() {
 
     const bndongJs    = this,
           tools       = new myTools,
+          postMetaRex = /.*posted\s*@\s*([0-9\-:\s]{16}).*阅读\s*\(([0-9]*)\).*评论\s*\(([0-9]*)\).*/,
           progressBar = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'); // 进度条
     var   temScroll   = 0,  // 上一次页面滚动位置
 
@@ -815,15 +816,31 @@ function Base() {
         var day = $('#main .day');
         $.each(day, function () {
             var obj          = $(this),
-                read         = obj.find('a.c_b_p_desc_readmore'),
+                read         = obj.find('.c_b_p_desc_readmore'),
                 title        = obj.find('.postTitle'),
                 titleText    = title.text(),
-                postDescText = obj.find('.postDesc').text(),
-                info = postDescText.match(/.*posted\s*@\s*([0-9\-:\s]*)\s.*\s阅读\s*\(([0-9]*)\)\s*评论\s*\(([0-9]*)\).*/);
+                postDescText = obj.find('.postDesc').text().replace(/[\r\n]/g, ''),
+                info = postDescText.match(postMetaRex);
             title.after('<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+info[1]+'<i class="iconfont icon-browse"></i>阅读次数：'+info[2]+'<i class="iconfont icon-interactive"></i>评论次数：'+info[3]+'</span>');
             read.text('阅读全文 »');
             if (/\[置顶\]/.test(titleText)) title.append('<span class="postSticky">置顶</span>');
             title.find('a').text(titleText.replace('[置顶]', ''));
+        });
+    };
+
+    /**
+     * 设置主页文章信息样式
+     */
+    this.setEntryPost = function () {
+        var day = $('#main .entrylistItem');
+        $.each(day, function () {
+            var obj          = $(this),
+                read         = obj.find('.c_b_p_desc_readmore'),
+                title        = obj.find('.entrylistPosttitle'),
+                postDescText = obj.find('.entrylistItemPostDesc').text().replace(/[\r\n]/g, ''),
+                info = postDescText.match(postMetaRex);
+            title.after('<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+info[1]+'<i class="iconfont icon-browse"></i>阅读次数：'+info[2]+'<i class="iconfont icon-interactive"></i>评论次数：'+info[3]+'</span>');
+            read.text('阅读全文 »');
         });
     };
 
@@ -989,8 +1006,8 @@ function Base() {
      * 设置文章信息
      */
     this.setArticleInfoAuthor = function () {
-        var postDescText = $('.postDesc').text(),
-            info = postDescText.match(/.*posted\s*@\s*([0-9\-:\s]*)\s.*\s阅读\s*\(([0-9]*)\)\s*评论\s*\(([0-9]*)\).*/),
+        var postDescText = $('.postDesc').text().text().replace(/[\r\n]/g, ''),
+            info = postDescText.match(postMetaRex),
             html = '<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+info[1]+'<i class="iconfont icon-browse"></i>阅读次数：'+info[2]+'<i class="iconfont icon-interactive"></i>评论次数：'+info[3]+'</span>';
         $('#articleInfo').append('<p class="article-info-text">'+html+'</p>');
     };
