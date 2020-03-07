@@ -1192,11 +1192,10 @@ p.article-info-text > .postMeta i {
     margin: 20vh 0 0;
     left: 0;
     right: 0;
-    padding: 17px 0 27px;
-    text-align: center;
+    padding: 15px 0;
     color: #888;
     font-size: 12px;
-    line-height: 1.5
+    line-height: 1.5;
 }
 
 .my-face {
@@ -3366,11 +3365,6 @@ div#green_channel img {
     width: 20px
 }
 
-#footerTextIcon {
-    display: inline-block;
-    margin: 0 3px
-}
-
 @keyframes beating {
     0%, 100%, 30%, 70% {
         transform: scale(1)
@@ -3433,9 +3427,31 @@ div#green_channel img {
     height: 368px;
     z-index: 1;
     position: absolute;
-    bottom: 100px;
     width: 100%;
-    pointer-events: none
+    top: -293px;
+    pointer-events: none;
+}
+
+#footer .footer-box {
+    width: 70%;
+    max-width: 900px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#footer .footer-text {
+    font-size: 16px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #333;
+    font-family: 'Long Cang', cursive;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+#footer .footer-text .footer-text-icon {
+    display: inline-block;
+    margin: 0 0 0 7px;
+    font-size: 14px;
 }
 
 footer footer-background {

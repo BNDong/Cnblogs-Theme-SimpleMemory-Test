@@ -634,67 +634,57 @@ function Base() {
      * 添加页脚
      */
     this.addFooter = function() {
-        return true;
         const footer = $('#footer'),
               lHref  = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.CnVersions,
               rHref  = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
+        var footerText = footer.text();
+        footer.html('<div class="footer-box"></div>');
+        var footerBox = $('.footer-box');
 
-        var pvHtml   = '', bgFooter = '';
-
+        // 设置标语
         if (window.cnblogsConfig.bottomText.left || window.cnblogsConfig.bottomText.right)
-            pvHtml += '<div>【'+window.cnblogsConfig.bottomText.left+'<span id="footerTextIcon">'+window.cnblogsConfig.bottomText.icon+'</span>'+window.cnblogsConfig.bottomText.right+'】</div>';
+            footerBox.append('<div class="footer-text">[ '+window.cnblogsConfig.bottomText.left+'<span class="footer-text-icon">'+window.cnblogsConfig.bottomText.icon+'</span>'+window.cnblogsConfig.bottomText.right+' ]</div>');
 
-        pvHtml += "<div><span id='blogRunTimeSpan'></span><span class='my-face'>ღゝ◡╹)ノ♡</span></div>" +
-            '<div id="blogrollInfo"></div>' +
-            '<div id="cnzzInfo"></div>' +
-            '<div id="themeInfo"></div>';
-
-        switch (parseInt(window.cnblogsConfig.footerStyle)) {
-            case 1:
-                init_t1();
-                break;
-
-            case 2:
-            default:
-                init_t2();
-                break;
-        }
-
-        setBlogroll();
-        setTheme();
+        // 设置运行时间
+        footerBox.append('<div><span id="blogRunTimeSpan"></span><span class="my-face">ღゝ◡╹)ノ♡</span></div>');
         window.setInterval( setRunTime, 500 );
+
+        // 设置友情链接
+        footerBox.append('<div id="blogrollInfo"></div>');
+        setBlogroll();
+
+        // 设置版本信息
+        footerBox.append('<div>'+footerText+'</div>');
+
+        // 设置网站统计
+        footerBox.append('<div id="cnzzInfo"></div>');
         timeIds.setCnzzTId = window.setInterval( setCnzz, 1000 );
+
+        // 设置主题信息
+        footerBox.append('<div id="themeInfo"></div>');
+        setTheme();
+
+        // 设置页脚样式
+        switch (parseInt(window.cnblogsConfig.footerStyle)) {
+            case 1: init_t1();break;
+            case 2: default: init_t2();break;
+        }
 
         // v1.0 页脚
         function init_t1() {
-            pvHtml = '<div class="footer-image"></div>' + pvHtml;
-            addFooterHtml();
-            $('#footer').addClass('footer-t1');
+            $('#footer').prepend('<div class="footer-image"></div>').addClass('footer-t1');
         }
 
         // v1.1+ 页脚
         function init_t2() {
-
-            bgFooter = '<footer>' +
+            var html = '<footer>' +
                 '<footer-background>' +
                 '<figure class="clouds"></figure>' +
                 '<figure class="background"></figure>' +
                 '<figure class="foreground"></figure>' +
                 '</footer-background>' +
                 '</footer>';
-
-            addFooterHtml();
-        }
-
-        // 添加页脚
-        function addFooterHtml() {
-            const poweredby = $('#poweredby');
-            bgFooter && footer.prepend(bgFooter);
-            if (poweredby.length > 0) {
-                poweredby.before(pvHtml);
-            } else {
-                footer.append(pvHtml);
-            }
+            $('#footer').prepend(html);
         }
 
         // 设置运行时间
@@ -737,7 +727,6 @@ function Base() {
 
         // 设置加载主题信息
         function setTheme() {
-
             $('#themeInfo').html('Theme version: <a href="'+lHref
                 +'" target="_blank" style="color: #888;text-decoration: underline;">'
                 +(window.cnblogsConfig.CnVersions).substring(0,7)+'</a>'
