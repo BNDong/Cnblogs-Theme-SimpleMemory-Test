@@ -369,21 +369,21 @@ function Base() {
             || window.cnblogsConfig.essayTopAnimationRendered
             || window.cnblogsConfig.bgAnimationRendered
         ) {
-            var html = '<div id="pageAnimationOffOn" data="off" style="z-index:  999;position:  absolute;top: 15px;right: 20px;font-size: 14px;color: #f9f9f9;cursor: pointer;">';
-            html += '<span id="pageAnimationOffOnIcon" class="iconfont icon-shandian" style="display: inline-block;"></span>';
-            html += '<span id="pageAnimationOffOnText">关闭页面特效</span>';
+            var html = '<div id="pageAnimationOffOn" data="off">';
+            html += '<span id="pageAnimationOffOnIcon" class="iconfont icon-shandian"></span>';
+            html += '<span id="pageAnimationOffOnText">隐藏页面特效</span>';
             html += '</div>';
             $('body').prepend(html);
             $('#pageAnimationOffOn').click(function () {
-                if ($(this).attr('data') == 'off') {
+                if ($(this).attr('data') === 'off') {
                     $('body').find('canvas').hide();
                     $('#pageAnimationOffOnIcon').rotate({animateTo:-360});
-                    $('#pageAnimationOffOnText').text("打开页面特效");
+                    $('#pageAnimationOffOnText').text("显示页面特效");
                     $(this).attr('data', 'on');
                 } else {
                     $('body').find('canvas').show();
                     $('#pageAnimationOffOnIcon').rotate({animateTo:360});
-                    $('#pageAnimationOffOnText').text("关闭页面特效");
+                    $('#pageAnimationOffOnText').text("隐藏页面特效");
                     $(this).attr('data', 'off');
                 }
             });
@@ -990,8 +990,9 @@ function Base() {
     this.setArticleInfoClass = function () {
         var obj = $('#BlogPostCategory').find('a');
         if (obj.length > 0) {
-            $.each(obj, function (i) {
-                var tag = $(obj[i]);
+            $.each(obj, function () {
+                var tag = $(this);
+                tag.prepend('<span class="iconfont icon-marketing_fill"></span>');
                 $('#articleInfo').append('<a href="'+tag.attr('href')+'" target="_blank"><span class="article-info-tag article-tag-class-color">'+(tag.text())+'</span></a>');
             });
             bndongJs.clearIntervalTimeId(timeIds.blogPostCategoryTId);
@@ -1004,8 +1005,9 @@ function Base() {
     this.setArticleInfoTag = function () {
         var obj = $('#EntryTag').find('a');
         if (obj.length > 0) {
-            $.each(obj, function (i) {
-                var tag = $(obj[i]);
+            $.each(obj, function () {
+                var tag = $(this);
+                tag.prepend('<span class="iconfont icon-label_fill"></span>');
                 $('#articleInfo').append('<a href="'+tag.attr('href')+'" target="_blank"><span class="article-info-tag article-tag-color">'+(tag.text())+'</span></a>');
             });
             bndongJs.clearIntervalTimeId(timeIds.entryTagTId);

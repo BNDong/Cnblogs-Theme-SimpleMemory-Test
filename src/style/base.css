@@ -15,9 +15,16 @@ body, html {
     overflow: hidden
 }
 
+#BlogPostCategory a {
+    background: #E8A258;
+}
+
 #EntryTag {
     margin-top: 20px;
-    font-size: 9pt
+}
+
+#EntryTag a {
+    background: #6fa3ef;
 }
 
 .topicListFooter {
@@ -435,7 +442,7 @@ p.article-info-text > .postMeta i {
 
 .postSticky {
     display: inline-block;
-    background: cornflowerblue;
+    background: #6fa3ef;
     font-size: 14px;
     color: #fff;
     padding: 1px 3px;
@@ -685,12 +692,11 @@ p.article-info-text > .postMeta i {
 #BlogPostCategory a, #EntryTag a {
     height: 20px;
     line-height: 20px;
-    color: #333;
-    padding: 3px 14px;
-    border-radius: 10px;
+    color: #fff !important;
+    padding: 3px 5px;
+    border-radius: 3px;
     margin: 2px 5px 0;
-    background: #e7e7e7;
-    text-decoration: none
+    text-decoration: none;
 }
 
 #BlogPostCategory a:hover, #EntryTag a:hover {
@@ -2841,6 +2847,20 @@ span.cnblogs_code {
     opacity: .5
 }
 
+#pageAnimationOffOn {
+    z-index: 999;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 14px;
+    color: #f9f9f9;
+    cursor: pointer;
+}
+
+#pageAnimationOffOnIcon {
+    display: inline-block;
+}
+
 .aplayer-icon-lrc {
     display: none !important
 }
@@ -3236,10 +3256,10 @@ span.cnblogs_code {
 
 @media (max-width: 600px) {
     .books-item .books-item-span ._2girK ._1P9dH {
-        font-size: 1.24rem;
-        line-height: 1.24rem;
+        font-size: 20px;
+        line-height: 29px;
         margin-bottom: 2px;
-        width: 250px
+        width: 250px;
     }
 }
 
@@ -3261,9 +3281,9 @@ span.cnblogs_code {
 
 @media (max-width: 600px) {
     .books-item .books-item-span ._2girK ._3Oa5I {
-        font-size: .8rem;
-        line-height: 1.16rem;
-        width: 250px
+        font-size: 14px;
+        line-height: 16px;
+        width: 250px;
     }
 }
 
@@ -3741,5 +3761,9 @@ footer footer-background .clouds {
     .postSticky {
         font-size: 12px;
         top: -4px;
+    }
+
+    #footer .footer-box {
+        width: 95%;
     }
 }
