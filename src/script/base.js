@@ -1007,7 +1007,7 @@ function Base() {
      * 设置文章信息
      */
     this.setArticleInfoAuthor = function () {
-        var postDescText = $('.postDesc').text().text().replace(/[\r\n]/g, ''),
+        var postDescText = $('.postDesc').text().replace(/[\r\n]/g, ''),
             info = postDescText.match(postMetaRex),
             html = '<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+info[1]+'<i class="iconfont icon-browse"></i>阅读次数：'+info[2]+'<i class="iconfont icon-interactive"></i>评论次数：'+info[3]+'</span>';
         $('#articleInfo').append('<p class="article-info-text">'+html+'</p>');
