@@ -792,12 +792,11 @@ function Base() {
             var title = $(this),
                 titleText = title.text(),
                 postDescText = title.nextAll('.postDesc:eq(0)').text().replace(/[\r\n]/g, ''),
-                info = postDescText.match(postMetaRex);
-            if (!info) {
-                info = postDescText.match(postMetaRex2);
-                info = info ? info.push('0').push('0') : ['undefined', 'undefined', '0', '0'];
-            }
-            title.after('<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+info[1]+'<i class="iconfont icon-browse"></i>阅读次数：'+info[2]+'<i class="iconfont icon-interactive"></i>评论次数：'+info[3]+'</span>');
+                info = postDescText.match(postMetaRex) || postDescText.match(postMetaRex2),
+                date = typeof info[1] === 'undefined' ? '1970-01-01 00:00' : info[1],
+                vnum = typeof info[2] === 'undefined' ? '0' : info[2],
+                cnum = typeof info[3] === 'undefined' ? '0' : info[3];
+            title.after('<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+date+'<i class="iconfont icon-browse"></i>阅读次数：'+vnum+'<i class="iconfont icon-interactive"></i>评论次数：'+cnum+'</span>');
             if (/\[置顶\]/.test(titleText)) title.append('<span class="postSticky">置顶</span>');
             title.find('a').text(titleText.replace('[置顶]', ''));
         });
@@ -811,12 +810,11 @@ function Base() {
         $.each(titleList, function () {
             var title = $(this),
                 postDescText = title.nextAll('.entrylistItemPostDesc:eq(0)').text().replace(/[\r\n]/g, ''),
-                info = postDescText.match(postMetaRex);
-            if (!info) {
-                info = postDescText.match(postMetaRex2);
-                info = info ? info.push('0').push('0') : ['undefined', 'undefined', '0', '0'];
-            }
-            title.after('<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+info[1]+'<i class="iconfont icon-browse"></i>阅读次数：'+info[2]+'<i class="iconfont icon-interactive"></i>评论次数：'+info[3]+'</span>');
+                info = postDescText.match(postMetaRex) || postDescText.match(postMetaRex2),
+                date = typeof info[1] === 'undefined' ? '1970-01-01 00:00' : info[1],
+                vnum = typeof info[2] === 'undefined' ? '0' : info[2],
+                cnum = typeof info[3] === 'undefined' ? '0' : info[3];
+            title.after('<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+date+'<i class="iconfont icon-browse"></i>阅读次数：'+vnum+'<i class="iconfont icon-interactive"></i>评论次数：'+cnum+'</span>');
         });
     };
 
