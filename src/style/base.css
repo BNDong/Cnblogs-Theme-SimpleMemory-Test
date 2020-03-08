@@ -7,7 +7,7 @@ body, html {
 }
 
 #blogTitle h1 a:hover, a:active {
-    color: #21759b
+    color: #5c8ec6
 }
 
 #mainContent, #sideBar, #topics {
@@ -319,7 +319,7 @@ b {
 
 .dayTitle {
     display: none;
-    border: 1px solid #21759b;
+    border: 1px solid #5c8ec6;
     background: azure;
     border-radius: 50%;
     height: 65px;
@@ -338,7 +338,7 @@ b {
 
 .dayTitle a {
     display: inline-block;
-    color: #21759b;
+    color: #5c8ec6;
     margin-top: 15px;
     width: 60px
 }
@@ -429,6 +429,7 @@ p.article-info-text > .postMeta {
     font-weight: 700;
     color: rgba(255, 255, 255, .8);
     font-family: Noto Sans SC, serif;
+    text-shadow: 0 3px 6px rgba(0,0,0,.5);
 }
 
 p.article-info-text > .postMeta i {
@@ -440,7 +441,7 @@ p.article-info-text > .postMeta i {
 }
 
 .postDesc a:hover {
-    color: #21759b;
+    color: #5c8ec6;
     text-decoration: none
 }
 
@@ -474,7 +475,7 @@ p.article-info-text > .postMeta i {
 }
 
 #sideBar a:hover {
-    color: #21759b;
+    color: #5c8ec6;
     text-decoration: underline
 }
 
@@ -519,7 +520,7 @@ p.article-info-text > .postMeta i {
 }
 
 .input_my_zzk:focus, .input_my_zzk:hover {
-    border: 1px solid #21759b
+    border: 1px solid #666
 }
 
 .input_my_zzk:hover {
@@ -734,12 +735,12 @@ p.article-info-text > .postMeta i {
 }
 
 .feedbackListSubtitle a:hover {
-    color: #21759b;
+    color: #5c8ec6;
     text-decoration: underline
 }
 
 .feedbackListSubtitle b {
-    color: #21759b
+    color: #5c8ec6
 }
 
 .feedbackManage {
@@ -806,7 +807,7 @@ p.article-info-text > .postMeta i {
     font-size: 14px;
     color: #fff;
     border: none;
-    background: #21759b;
+    background: #5c8ec6;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -840,7 +841,7 @@ p.article-info-text > .postMeta i {
 }
 
 .comment_vote a:hover {
-    color: #21759b
+    color: #5c8ec6
 }
 
 #commentform_title {
@@ -994,7 +995,7 @@ p.article-info-text > .postMeta i {
 }
 
 .entrylistItemPostDesc a:hover {
-    color: #21759b
+    color: #5c8ec6
 }
 
 .entrylist .postSeparator {
@@ -1104,7 +1105,7 @@ p.article-info-text > .postMeta i {
 }
 
 .pfl_feedbackname a {
-    color: #21759b;
+    color: #5c8ec6;
     font-weight: 700
 }
 
@@ -1156,7 +1157,7 @@ p.article-info-text > .postMeta i {
     font-size: 14px;
     color: #fff;
     border: none;
-    background: #21759b;
+    background: #5c8ec6;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -1206,7 +1207,6 @@ p.article-info-text > .postMeta i {
     color: #888;
     font-size: 12px;
     line-height: 1.5;
-    z-index: 1;
 }
 
 .my-face {
@@ -3533,6 +3533,10 @@ footer footer-background .clouds {
     left: 0
 }
 
+table#blogCalendar>tbody>tr>td>a {
+    color: #bbb;
+}
+
 @-moz-keyframes iconAnimate {
     0%,100% {
         transform: scale(1)
@@ -3693,7 +3697,8 @@ footer footer-background .clouds {
 
     #home {
         padding-left: 10px;
-        padding-right: 10px
+        padding-right: 10px;
+        box-shadow: unset;
     }
 
     .entrylistPosttitle a:link, .postTitle a:link {
@@ -3715,7 +3720,7 @@ footer footer-background .clouds {
     }
 
     .entrylistPosttitle, .page-title, .sb-title {
-        font-size: 3rem
+        font-size: 2.6rem
     }
 
     .page-description {
@@ -3750,7 +3755,7 @@ footer footer-background .clouds {
     }
 
     p.article-info-text > .postMeta, p.article-info-text > .postMeta i {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .article-info-tag {
