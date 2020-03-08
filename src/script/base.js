@@ -6,11 +6,12 @@
  **/
 function Base() {
 
-    const bndongJs    = this,
-          tools       = new myTools,
-          postMetaRex = /.*posted\s*@\s*([0-9\-:\s]{16}).*阅读\s*\(([0-9]*)\).*评论\s*\(([0-9]*)\).*/,
-          progressBar = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'); // 进度条
-    var   temScroll   = 0,  // 上一次页面滚动位置
+    const bndongJs     = this,
+          tools        = new myTools,
+          postMetaRex  = /.*posted\s*@\s*([0-9\-:\s]{16}).*阅读\s*\(([0-9]*)\).*评论\s*\(([0-9]*)\).*/,
+          postMetaRex2 = /.*posted\s*@\s*([0-9\-:\s]{16}).*/,
+          progressBar  = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'); // 进度条
+    var   temScroll    = 0,  // 上一次页面滚动位置
 
         /** 定时器 **/
         timeIds    = {
@@ -792,6 +793,10 @@ function Base() {
                 titleText = title.text(),
                 postDescText = title.nextAll('.postDesc:eq(0)').text().replace(/[\r\n]/g, ''),
                 info = postDescText.match(postMetaRex);
+            if (!info) {
+                info = postDescText.match(postMetaRex2);
+                info = info ? info.push('0').push('0') : ['undefined', 'undefined', '0', '0'];
+            }
             title.after('<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+info[1]+'<i class="iconfont icon-browse"></i>阅读次数：'+info[2]+'<i class="iconfont icon-interactive"></i>评论次数：'+info[3]+'</span>');
             if (/\[置顶\]/.test(titleText)) title.append('<span class="postSticky">置顶</span>');
             title.find('a').text(titleText.replace('[置顶]', ''));
@@ -807,6 +812,10 @@ function Base() {
             var title = $(this),
                 postDescText = title.nextAll('.entrylistItemPostDesc:eq(0)').text().replace(/[\r\n]/g, ''),
                 info = postDescText.match(postMetaRex);
+            if (!info) {
+                info = postDescText.match(postMetaRex2);
+                info = info ? info.push('0').push('0') : ['undefined', 'undefined', '0', '0'];
+            }
             title.after('<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+info[1]+'<i class="iconfont icon-browse"></i>阅读次数：'+info[2]+'<i class="iconfont icon-interactive"></i>评论次数：'+info[3]+'</span>');
         });
     };
