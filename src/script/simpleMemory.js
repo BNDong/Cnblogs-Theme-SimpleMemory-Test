@@ -179,7 +179,7 @@ if (initCheck()) {
         homeBannerText: "",
         homeBannerTextType: "jinrishici",
         essayTopImg: [
-            "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/nothome_top_bg.webp"
+            "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp"
         ],
         essayCodeHighlightingType: 'cnblogs',
         essayCodeHighlighting: '',
@@ -200,7 +200,7 @@ if (initCheck()) {
         consoleList: [],
         bookList: [],
         themeAuthor: false,
-        isVersionMapping: true,
+        isVersionMapping: false,
     };
 
     window.cnblogsConfig = $.extend( true, window.cnblogsConfigDefault, window.cnblogsConfig );
