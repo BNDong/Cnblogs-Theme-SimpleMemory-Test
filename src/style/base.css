@@ -2354,7 +2354,7 @@ blockquote p {
     bottom: 10px;
     right: 5px;
     min-width: 24px;
-    z-index: 1;
+    z-index: 10;
     width: 40px;
     text-align: center;
 }
@@ -2405,6 +2405,59 @@ blockquote p {
     width: 140px;
     text-align: right;
     display: none
+}
+
+.rightDanshanSpan {
+    bottom: -120px;
+}
+
+.ds-pay {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.ds-alipay, .ds-wecat {
+    cursor: pointer;
+    text-align: center;
+    width: 140px;
+    height: 140px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 2px 7px;
+    border-radius: 0 6px;
+    transition: all 1s ease-in-out 0s;
+    margin: 3px 0;
+    position: relative;
+    padding: 6px;
+    background: #fff;
+}
+
+.ds-alipay:before, .ds-wecat:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.ds-alipay:before, .ds-wecat:before {
+    background: url(https://pic.cnblogs.com/avatar/1065454/20200221094906.png) center center / cover no-repeat rgb(34, 34, 34);
+}
+
+.ds-alipay span, .ds-wecat span {
+    position: absolute;
+    font-family: 'Ubuntu Mono',monospace;
+    left: -30px;
+    top: 14px;
+    background: #fff;
+    color: #777;
+    padding: 3px 6px 6px 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 7px;
+    border-radius: 0 0 6px 6px;
+    font-size: .85em;
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
 }
 
 #cnblogs_post_body table td, #cnblogs_post_body table th {

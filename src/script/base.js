@@ -1405,7 +1405,10 @@ function Base() {
             bndongJs.rightMenuMous('#rightDiggit', '.rightDiggitSpan');
 
             // 添加打赏
-            var rightDashangHtml = '<div id="rightDashang" clickflg="false"><span class="rightMenuSpan rightDanshanSpan"></span><i class="iconfont icon-xuanshang"></i></div>';
+            var rightDashangHtml = '<div id="rightDashang" clickflg="false"><span class="rightMenuSpan rightDanshanSpan">' +
+                '<div class="ds-pay"><div class="ds-alipay"><span>Alipay</span></div>' +
+                '<div class="ds-wecat"><span>WeChat</span></div></div>'+
+                '</span><i class="iconfont icon-xuanshang"></i></div>';
             rightMenu.prepend(rightDashangHtml);
             bndongJs.rightMenuMous('#rightDashang', '.rightDanshanSpan');
 
