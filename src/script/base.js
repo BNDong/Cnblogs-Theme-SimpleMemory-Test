@@ -241,9 +241,7 @@ function Base() {
 
             if (bodyWidth <= 1350) {
                 sideCatalogBg.hide();
-                catalogBtn.show().click(function () {
-                    $('.sideCatalogBg').toggle();
-                });
+                catalogBtn.show();
             } else {
                 catalogBtn.hide();
                 sideCatalogBg.show();
@@ -1030,12 +1028,15 @@ function Base() {
     };
 
     /**
-     * 初始化文章目录插件位置
+     * 初始化文章目录插件
      */
     this.initCatalog = function() {
         const sideToolbar = $('#sideToolbar');
         if (sideToolbar.length > 0) {
             sideToolbar.prepend('<span class="catalog-btn"><i class="iconfont icon-menudots"></i></span>').fadeIn(300);
+            $('.catalog-btn').click(function () {
+                $('.sideCatalogBg').toggle();
+            });
             bndongJs.resizeMonitor();
             bndongJs.clearIntervalTimeId(timeIds.setCatalogTId);
         }
