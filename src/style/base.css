@@ -2423,23 +2423,18 @@ blockquote p {
     width: 140px;
     height: 140px;
     box-shadow: rgba(0, 0, 0, 0.3) 0 2px 7px;
-    border-radius: 0 6px;
+    border-radius: 0 6px 6px 6px;
     transition: all 1s ease-in-out 0s;
     margin: 3px 0;
     position: relative;
-    padding: 6px;
+    padding: 5px;
     background: #fff;
 }
 
-.ds-alipay:before, .ds-wecat:before {
-    content: "";
+.ds-alipay img, .ds-wecat img {
     width: 100%;
     height: 100%;
-    display: block;
-}
-
-.ds-alipay:before, .ds-wecat:before {
-    background: url(https://pic.cnblogs.com/avatar/1065454/20200221094906.png) center center / cover no-repeat rgb(34, 34, 34);
+    border-radius: 6px;
 }
 
 .ds-alipay span, .ds-wecat span {
