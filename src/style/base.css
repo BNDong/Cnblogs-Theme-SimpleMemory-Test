@@ -3701,7 +3701,7 @@ table#blogCalendar>tbody>tr>td>a {
         line-height: 1.3em
     }
 
-    #aplayer, #evanyou, #homeTopCanvas, #music-box, #notHomeTopCanvas, #sideToolbar, .scroll-down, body > meting-js {
+    #aplayer, #evanyou, #homeTopCanvas, #music-box, #notHomeTopCanvas, .scroll-down, body > meting-js {
         display: none !important
     }
 
@@ -3801,7 +3801,7 @@ table#blogCalendar>tbody>tr>td>a {
         width: 31px !important
     }
 
-    #aplayer, #bgCanvas, #canvas, #evanyou, #homeTopCanvas, #music-box, #notHomeTopCanvas, #pageAnimationOffOn, #sideToolbar, .essaySuffix-box-left, .scroll-down, body > meting-js {
+    #aplayer, #bgCanvas, #canvas, #evanyou, #homeTopCanvas, #music-box, #notHomeTopCanvas, #pageAnimationOffOn, .essaySuffix-box-left, .scroll-down, body > meting-js {
         display: none !important
     }
 

@@ -231,7 +231,7 @@ function Base() {
             var bothWidth        = (bodyWidth - mainContentWidth) / 2;
             var rightPx          = bothWidth - listWidth - 50;
 
-            $('#sideCatalog').css('right', (rightPx > 0 ? rightPx : 0) + 'px');
+            $('#sideToolbar').css('right', (rightPx > 0 ? rightPx : 0) + 'px');
             // if (bothWidth > listWidth + 50 && bodyWidth > 1230) {
             // if (bodyWidth > 1360) {
             //     $('#sideToolbar').css('visibility', 'visible');
@@ -1028,7 +1028,7 @@ function Base() {
             const sideToolbarTop = $('.main-header').outerHeight();
             sideToolbar.css('top', (sideToolbarTop + 5) + 'px');
             bndongJs.resizeMonitor();
-            sideToolbar.fadeIn(300);
+            sideToolbar.prepend('<span class="catalog-btn"><i class="iconfont icon-menudots"></i></span>').fadeIn(300);
             bndongJs.clearIntervalTimeId(timeIds.setCatalogTId);
         }
     };

@@ -19,7 +19,7 @@
 }
 
 #sideCatalog {
-    position: absolute;
+    position: relative;
     box-shadow: 0 0 20px 10px rgba(220, 220, 220, .3);
 }
 
@@ -188,4 +188,20 @@
 
 #sideCatalog-sidebar, #sideCatalogBtn {
     display: none
+}
+
+.catalog-btn {
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    right: 3px;
+    z-index: 1;
+    opacity: .5;
+    cursor: pointer;
+}
+
+.catalog-btn i {
+    font-size: 30px;
+    font-weight: 400;
+    color: #555;
 }
