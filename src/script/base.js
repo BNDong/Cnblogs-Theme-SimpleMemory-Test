@@ -220,24 +220,25 @@ function Base() {
      * 屏幕大小变化处理
      */
     this.resizeMonitor = function() {
-        var bodyWidth = parseFloat(document.body.clientWidth);
+        var bodyWidth = parseFloat(document.body.clientWidth), sideToolbar = $('#sideToolbar');
         bndongJs.setDomHomePosition();
 
         // 设置目录插件左右位置
-        if ($('#sideToolbar').length > 0) {
+        if (sideToolbar.length > 0) {
             var mainContentWidth = $('#mainContent').outerWidth(true);
             var listWidth        = $('#sideCatalog').outerWidth(true);
             listWidth = listWidth > 220 ? listWidth : 242;
             var bothWidth        = (bodyWidth - mainContentWidth) / 2;
             var rightPx          = bothWidth - listWidth - 50;
 
-            $('#sideToolbar').css('right', (rightPx > 0 ? rightPx : 0) + 'px');
-            // if (bothWidth > listWidth + 50 && bodyWidth > 1230) {
-            // if (bodyWidth > 1360) {
-            //     $('#sideToolbar').css('visibility', 'visible');
-            // } else {
-            //     $('#sideToolbar').css('visibility', 'hidden');
-            // }
+            sideToolbar.css('right', (rightPx > 0 ? rightPx : 0) + 'px');
+
+            if (bodyWidth <= 1350) {
+                $('#sideCatalogBg').hide();
+                $('.catalog-btn').show().click(function () {
+                    $('#sideCatalogBg').toggle();
+                });
+            }
         }
     };
 

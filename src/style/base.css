@@ -1982,7 +1982,7 @@ p.article-info-text > .postMeta i {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 998;
+    z-index: 1;
     box-shadow: 0 1px 2px rgba(150, 150, 150, .7)
 }
 

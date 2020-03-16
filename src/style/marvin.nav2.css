@@ -191,17 +191,22 @@
 }
 
 .catalog-btn {
-    display: inline-block;
+    display: none;
     position: absolute;
     top: 5px;
-    right: 3px;
+    right: 8px;
     z-index: 1;
     opacity: .5;
     cursor: pointer;
+}
+
+.catalog-btn:hover {
+    opacity: 1;
 }
 
 .catalog-btn i {
     font-size: 30px;
     font-weight: 400;
     color: #555;
+    text-shadow: 1px 1px 1px #fff;
 }
