@@ -1914,7 +1914,7 @@ p.article-info-text > .postMeta i {
 }
 
 .postBody p, .postCon p {
-    text-indent: 2em;
+    /*text-indent: 2em;*/
     margin: 0 auto 1em
 }
 
@@ -1967,7 +1967,8 @@ p.article-info-text > .postMeta i {
 }
 
 #cnblogs_post_body img {
-    max-width: 700px
+    max-width: 700px;
+    margin: 3px 0;
 }
 
 .main-header {
@@ -2471,7 +2472,11 @@ blockquote p {
 
 #cnblogs_post_body > p {
     margin: 10px auto;
-    padding: 0 20px
+    padding: 0 20px;
+    line-height: 1.8em;
+    font-family: "Microsoft YaHei",Lato,"PingFang SC",sans-serif;
+    font-size: 16px;
+    letter-spacing: .015em;
 }
 
 #cnblogs_post_body ul li {

@@ -981,8 +981,11 @@ function Base() {
      */
     this.setArticleInfoAuthor = function () {
         var postDescText = $('.postDesc').text().replace(/[\r\n]/g, ''),
-            info = postDescText.match(postMetaRex),
-            html = '<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+info[1]+'<i class="iconfont icon-browse"></i>阅读次数：'+info[2]+'<i class="iconfont icon-interactive"></i>评论次数：'+info[3]+'</span>';
+            info = postDescText.match(postMetaRex) || postDescText.match(postMetaRex2),
+            date = typeof info[1] === 'undefined' ? '1970-01-01 00:00' : info[1],
+            vnum = typeof info[2] === 'undefined' ? '0' : info[2],
+            cnum = typeof info[3] === 'undefined' ? '0' : info[3];
+            html = '<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+date+'<i class="iconfont icon-browse"></i>阅读次数：'+vnum+'<i class="iconfont icon-interactive"></i>评论次数：'+cnum+'</span>';
         $('#articleInfo').append('<p class="article-info-text">'+html+'</p>');
     };
 
