@@ -1392,7 +1392,7 @@ function Base() {
         var rightMenu = $('#rightMenu');
         if (rightMenu.length > 0 && $('#div_digg').length > 0) {
 
-            if ($('#toUpDown').length == 0 && $('#attention').length == 0) bndongJs.addHomeRightMenu();
+            if ($('#toUpDown').length === 0 && $('#attention').length === 0) bndongJs.addHomeRightMenu();
 
             // 添加踩
             var rightBuryitHtml = '<div id="rightBuryit" clickflg="false" onclick="' + ($(".buryit").attr("onclick")) + '"><span class="rightMenuSpan rightBuryitSpan">' + $('#bury_count').text() + '</span><i class="iconfont icon-buzan"></i></div>';
@@ -1403,6 +1403,12 @@ function Base() {
             var rightDiggitHtml = '<div id="rightDiggit" clickflg="false" onclick="' + ($(".diggit").attr("onclick")) + '"><span class="rightMenuSpan rightDiggitSpan">' + $('#digg_count').text() + '</span><i class="iconfont icon-zan1"></i></div>';
             rightMenu.prepend(rightDiggitHtml);
             bndongJs.rightMenuMous('#rightDiggit', '.rightDiggitSpan');
+
+            // 添加打赏
+            var rightDashangHtml = '<div id="rightDashang" clickflg="false"><span class="rightMenuSpan rightDanshanSpan"></span><i class="iconfont icon-dashang"></i></div>';
+            rightMenu.prepend(rightDashangHtml);
+            bndongJs.rightMenuMous('#rightDashang', '.rightMenuSpan');
+
             bndongJs.clearIntervalTimeId(timeIds.setNotHomeRightMenuTId);
         }
     }
