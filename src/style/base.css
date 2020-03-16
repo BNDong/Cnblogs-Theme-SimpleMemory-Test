@@ -2354,14 +2354,14 @@ blockquote p {
     bottom: 10px;
     right: 5px;
     min-width: 24px;
-    z-index: 10;
+    z-index: 2;
     width: 40px;
     text-align: center;
 }
 
 #rightMenu i {
     font-weight: 700;
-    text-shadow: 1px 1px 1px #eee;
+    text-shadow: 1px 1px 1px #fff;
     font-size: 24px
 }
 
@@ -2376,19 +2376,19 @@ blockquote p {
 }
 
 #attention {
-    bottom: 5px
+    bottom: 3px
 }
 
 #rightBuryit {
-    bottom: 8px
+    bottom: 5px
 }
 
 #rightDiggit, #rightDashang {
-    bottom: 15px
+    bottom: 11px
 }
 
 #rightDashang i {
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 500;
 }
 
@@ -2750,7 +2750,6 @@ span.cnblogs_code {
     position: relative;
     overflow: hidden;
     border: 0;
-    z-index: 10
 }
 
 .post pre {
