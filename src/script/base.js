@@ -231,9 +231,13 @@ function Base() {
             var bothWidth        = (bodyWidth - mainContentWidth) / 2,
                 rightPx          = bothWidth - listWidth - 50,
                 sideCatalogBg    = $('.sideCatalogBg'),
-                catalogBtn       = $('.catalog-btn');
+                catalogBtn       = $('.catalog-btn'),
+                sideToolbarTop   = $('.main-header').outerHeight();
 
-            sideToolbar.css('right', (rightPx > 0 ? rightPx : 0) + 'px');
+            sideToolbar.css({
+                'top': (sideToolbarTop + 5) + 'px',
+                'right': (rightPx > 0 ? rightPx : 0) + 'px'
+            });
 
             if (bodyWidth <= 1350) {
                 sideCatalogBg.hide();
@@ -1031,8 +1035,6 @@ function Base() {
     this.initCatalog = function() {
         const sideToolbar = $('#sideToolbar');
         if (sideToolbar.length > 0) {
-            const sideToolbarTop = $('.main-header').outerHeight();
-            sideToolbar.css('top', (sideToolbarTop + 5) + 'px');
             sideToolbar.prepend('<span class="catalog-btn"><i class="iconfont icon-menudots"></i></span>').fadeIn(300);
             bndongJs.resizeMonitor();
             bndongJs.clearIntervalTimeId(timeIds.setCatalogTId);
