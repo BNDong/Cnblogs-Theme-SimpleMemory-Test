@@ -225,19 +225,24 @@ function Base() {
 
         // 设置目录插件左右位置
         if (sideToolbar.length > 0) {
-            var mainContentWidth = $('#mainContent').outerWidth(true);
-            var listWidth        = $('#sideCatalog').outerWidth(true);
+            var mainContentWidth = $('#mainContent').outerWidth(true),
+                listWidth        = $('#sideCatalog').outerWidth(true);
             listWidth = listWidth > 220 ? listWidth : 242;
-            var bothWidth        = (bodyWidth - mainContentWidth) / 2;
-            var rightPx          = bothWidth - listWidth - 50;
+            var bothWidth        = (bodyWidth - mainContentWidth) / 2,
+                rightPx          = bothWidth - listWidth - 50,
+                sideCatalogBg    = $('.sideCatalogBg'),
+                catalogBtn       = $('.catalog-btn');
 
             sideToolbar.css('right', (rightPx > 0 ? rightPx : 0) + 'px');
 
             if (bodyWidth <= 1350) {
-                $('#sideCatalogBg').hide();
-                $('.catalog-btn').show().click(function () {
-                    $('#sideCatalogBg').toggle();
+                sideCatalogBg.hide();
+                catalogBtn.show().click(function () {
+                    $('.sideCatalogBg').toggle();
                 });
+            } else {
+                catalogBtn.hide();
+                sideCatalogBg.show();
             }
         }
     };
