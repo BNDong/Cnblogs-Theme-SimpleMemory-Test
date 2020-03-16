@@ -1033,8 +1033,8 @@ function Base() {
         if (sideToolbar.length > 0) {
             const sideToolbarTop = $('.main-header').outerHeight();
             sideToolbar.css('top', (sideToolbarTop + 5) + 'px');
-            bndongJs.resizeMonitor();
             sideToolbar.prepend('<span class="catalog-btn"><i class="iconfont icon-menudots"></i></span>').fadeIn(300);
+            bndongJs.resizeMonitor();
             bndongJs.clearIntervalTimeId(timeIds.setCatalogTId);
         }
     };
