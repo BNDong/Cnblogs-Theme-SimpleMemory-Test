@@ -2352,15 +2352,17 @@ blockquote p {
 #rightMenu {
     position: fixed;
     bottom: 10px;
-    right: 10px;
+    right: 5px;
     min-width: 24px;
-    z-index: 1
+    z-index: 1;
+    width: 40px;
+    text-align: center;
 }
 
 #rightMenu i {
     font-weight: 700;
     text-shadow: 1px 1px 1px #eee;
-    font-size: 24px !important
+    font-size: 24px
 }
 
 #attention, #rightBuryit, #rightDiggit, #rightDashang, #toUpDown {
@@ -2381,8 +2383,13 @@ blockquote p {
     bottom: 8px
 }
 
-#rightDiggit {
+#rightDiggit, #rightDashang {
     bottom: 15px
+}
+
+#rightDashang i {
+    font-size: 30px;
+    font-weight: 500;
 }
 
 #attention:hover, #rightBuryit:hover, #rightDiggit:hover, #rightDashang:hover, #toUpDown:hover {

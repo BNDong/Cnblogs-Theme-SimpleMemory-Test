@@ -1405,9 +1405,9 @@ function Base() {
             bndongJs.rightMenuMous('#rightDiggit', '.rightDiggitSpan');
 
             // 添加打赏
-            var rightDashangHtml = '<div id="rightDashang" clickflg="false"><span class="rightMenuSpan rightDanshanSpan"></span><i class="iconfont icon-dashang"></i></div>';
+            var rightDashangHtml = '<div id="rightDashang" clickflg="false"><span class="rightMenuSpan rightDanshanSpan"></span><i class="iconfont icon-xuanshang"></i></div>';
             rightMenu.prepend(rightDashangHtml);
-            bndongJs.rightMenuMous('#rightDashang', '.rightMenuSpan');
+            bndongJs.rightMenuMous('#rightDashang', '.rightDanshanSpan');
 
             bndongJs.clearIntervalTimeId(timeIds.setNotHomeRightMenuTId);
         }
