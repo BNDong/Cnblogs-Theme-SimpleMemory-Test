@@ -1180,7 +1180,7 @@ function Base() {
                     obj.wrap('<code-box id="' + id + '" style="position: relative;display: block;"></code-box>');
                     obj.attr('id', 'pre-' + id);
 
-                    var html = '<button code-id="' + id + '" type="button" class="clipboard code-copay-btn" data-clipboard-action="copy" data-clipboard-target="#pre-' + id + ']" aria-label="复制代码" ><i class="iconfont icon-fuzhi1"></i></button>';
+                    var html = '<button code-id="' + id + '" type="button" class="clipboard code-copay-btn" data-clipboard-action="copy" data-clipboard-target="#pre-' + id + '" aria-label="复制代码" ><i class="iconfont icon-fuzhi1"></i></button>';
 
                     $('#'+id).prepend(html);
                 });
