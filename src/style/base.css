@@ -2932,13 +2932,14 @@ code-box {
     position: absolute;
     top: 15px;
     right: 20px;
-    font-size: 14px;
-    color: #f9f9f9;
+    color: rgba(255,255,255,.6);
     cursor: pointer;
 }
 
 #pageAnimationOffOnIcon {
     display: inline-block;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .aplayer-icon-lrc {
