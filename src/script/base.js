@@ -1270,6 +1270,7 @@ function Base() {
         }
 
         function setCodeBefore(type) {
+            pre.css('font-family', "'Ubuntu Mono',monospace !important");
             $.each(pre, function (i) {
                 var obj = $(this), pid = 'pre-' + tools.randomString(6), codeLine, html = '';
 

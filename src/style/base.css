@@ -2763,7 +2763,8 @@ code-box {
     padding: 10px !important;
     white-space: pre;
     word-wrap: normal;
-    margin: 5px 15px
+    margin: 5px 15px;
+    border-radius: 5px !important;
 }
 
 .postBody pre {
