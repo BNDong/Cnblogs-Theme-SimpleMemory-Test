@@ -221,7 +221,7 @@ function Base() {
      */
     this.resizeMonitor = function() {
         var bodyWidth = parseFloat(document.body.clientWidth), sideToolbar = $('#sideToolbar');
-        // bndongJs.setDomHomePosition();
+        bndongJs.setDomHomePosition();
 
         // 设置目录插件左右位置
         if (sideToolbar.length > 0) {
