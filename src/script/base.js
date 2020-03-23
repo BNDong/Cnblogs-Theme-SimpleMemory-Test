@@ -728,7 +728,7 @@ function Base() {
                 var cnzzArr  = $(cnzzStat[1]).text().split('|');
                 $.each(cnzzArr, function (i) {
                     var str = $.trim(cnzzArr[i]);
-                    if (str != '') {
+                    if (str !== '') {
                         str = str.replace('今日','Today').replace('昨日','Yesterday').replace('[',':').replace(']','');
                         cnzzInfo.push(str)
                     }
@@ -1286,7 +1286,7 @@ function Base() {
                 console.log(codeLine);
                 obj.html('<code-pre class="code-pre" id="' + pid + '"></code-pre>');
                 $.each(codeLine, function (j) {
-                    html += '<code-line class="line-numbers-rows"></code-line>';
+                    if (codeLine[j] && codeLine[j] !== '</code>') html += '<code-line class="line-numbers-rows"></code-line>';
                     switch (type) {
                         case 1:
                             html += tools.HTMLEncode(codeLine[j]) + '\n'; break;

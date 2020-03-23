@@ -2868,7 +2868,12 @@ code-box {
     border: none !important
 }
 
-.cnblogs-markdown>p>code, .cnblogs-post-body>p>code {
+.cnblogs-markdown code, .cnblogs-post-body code {
+    background-color: unset !important;
+    border: 0 !important;
+}
+
+.cnblogs-markdown code:not(.language-env), .cnblogs-post-body code:not(.language-env) {
     padding: 2px 4px!important;
     color: #d83b64;
     background-color: #f9f2f4!important;
