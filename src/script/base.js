@@ -8,6 +8,7 @@ function Base() {
 
     const bndongJs     = this,
           tools        = new myTools,
+          isHome       = !$('#topics').length;
           postMetaRex  = /.*posted\s*@\s*([0-9\-:\s]{16}).*阅读\s*\(([0-9]*)\).*评论\s*\(([0-9]*)\).*/,
           postMetaRex2 = /.*posted\s*@\s*([0-9\-:\s]{16}).*/,
           progressBar  = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'); // 进度条
@@ -63,7 +64,7 @@ function Base() {
         if (window.cnblogsConfig.fontIconExtend !== '') tools.dynamicLoadingCss(window.cnblogsConfig.fontIconExtend);
 
         // 页面初始化
-        ($('#topics').length > 0) ? bndongJs.notHomeInit() : bndongJs.homeInit();
+        isHome ? bndongJs.notHomeInit() : bndongJs.homeInit();
     };
 
     /**
@@ -72,7 +73,7 @@ function Base() {
     this.loadingAfterInit = function () {
 
         // 页面初始化
-        ($('#topics').length > 0) ? bndongJs.notHomeInitAfter() : bndongJs.homeInitAfter();
+        isHome ? bndongJs.notHomeInitAfter() : bndongJs.homeInitAfter();
 
         // 添加页脚
         bndongJs.addFooter();
@@ -229,11 +230,11 @@ function Base() {
         // 设置目录插件左右位置
         if (sideToolbar.length > 0) {
             var mainContentWidth = $('#mainContent').outerWidth(true),
-                listWidth        = $('#sideCatalog').outerWidth(true);
+                sideCatalogBg    = $('#sideCatalog'),
+                listWidth        = sideCatalogBg.outerWidth(true);
             listWidth = listWidth > 220 ? listWidth : 242;
             var bothWidth        = (bodyWidth - mainContentWidth) / 2,
                 rightPx          = bothWidth - listWidth - 50,
-                sideCatalogBg    = $('#sideCatalog'),
                 catalogBtn       = $('.catalog-btn'),
                 sideToolbarTop   = $('.main-header').outerHeight();
 
