@@ -384,19 +384,19 @@ function Base() {
         ) {
             var html = '<div id="pageAnimationOffOn" data="off">';
             html += '<span id="pageAnimationOffOnIcon" class="iconfont icon-shandian"></span>';
-            html += '<span id="pageAnimationOffOnText">隐藏页面特效</span>';
+            // html += '<span id="pageAnimationOffOnText">隐藏页面特效</span>';
             html += '</div>';
             $('body').prepend(html);
             $('#pageAnimationOffOn').click(function () {
                 if ($(this).attr('data') === 'off') {
                     $('body').find('canvas').hide();
                     $('#pageAnimationOffOnIcon').rotate({animateTo:-360});
-                    $('#pageAnimationOffOnText').text("显示页面特效");
+                    // $('#pageAnimationOffOnText').text("显示页面特效");
                     $(this).attr('data', 'on');
                 } else {
                     $('body').find('canvas').show();
                     $('#pageAnimationOffOnIcon').rotate({animateTo:360});
-                    $('#pageAnimationOffOnText').text("隐藏页面特效");
+                    // $('#pageAnimationOffOnText').text("隐藏页面特效");
                     $(this).attr('data', 'off');
                 }
             });
