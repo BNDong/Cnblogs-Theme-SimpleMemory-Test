@@ -988,7 +988,7 @@ function Base() {
      * 设置文章信息
      */
     this.setArticleInfoAuthor = function () {
-        var postDescText = $('.postDesc').text().replace(/[\r\n]/g, ''),
+        var postDescText = $('.postDesc').show().text().replace(/[\r\n]/g, ''),
             info = postDescText.match(postMetaRex) || postDescText.match(postMetaRex2),
             date = typeof info[1] === 'undefined' ? '1970-01-01 00:00' : info[1],
             vnum = typeof info[2] === 'undefined' ? '0' : info[2],
