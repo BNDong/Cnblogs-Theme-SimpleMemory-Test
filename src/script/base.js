@@ -429,12 +429,14 @@ function Base() {
             '</div>';
         $('body').prepend(html);
 
-        var rotateDeg = 0;
         $('#dayNightSwitch .onOff').click(function () {
-            $(this).toggleClass('daySwitch');
-            $('.title').toggleClass('daySwitch');
-            rotateDeg = rotateDeg + 180;
-            $('.title').css({ transform: 'rotate(' + rotateDeg + 'deg)' });;
+            if ($(this).hasClass('daySwitch')) {
+                $(this).removeClass('daySwitch');
+                $('head').append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+getJsDelivrUrl('base.dark.css')+'">');
+            } else {
+                $(this).addClass('daySwitch');
+                $('head link#baseDarkCss').remove();
+            }
         });
     };
 
