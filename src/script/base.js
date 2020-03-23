@@ -230,7 +230,7 @@ function Base() {
             listWidth = listWidth > 220 ? listWidth : 242;
             var bothWidth        = (bodyWidth - mainContentWidth) / 2,
                 rightPx          = bothWidth - listWidth - 50,
-                sideCatalogBg    = $('.sideCatalogBg'),
+                sideCatalogBg    = $('#sideCatalog'),
                 catalogBtn       = $('.catalog-btn'),
                 sideToolbarTop   = $('.main-header').outerHeight();
 
@@ -241,10 +241,10 @@ function Base() {
 
             if (bodyWidth <= 1350) {
                 sideCatalogBg.hide();
-                catalogBtn.show();
+                sideCatalogBg.find('ul.nav').length > 0 ? catalogBtn.show() : catalogBtn.hide();
             } else {
                 catalogBtn.hide();
-                sideCatalogBg.show();
+                sideCatalogBg.find('ul.nav').length > 0 ? sideCatalogBg.show() : sideCatalogBg.hide();
             }
         }
     };

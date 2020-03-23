@@ -2755,6 +2755,10 @@ span.cnblogs_code {
     border: 0;
 }
 
+code-box {
+    margin: 10px 0;
+}
+
 .post pre {
     padding: 10px !important;
     white-space: pre;
@@ -2871,7 +2875,8 @@ span.cnblogs_code {
     border: 0 !important;
     text-indent: 0 !important;
     position: relative;
-    bottom: 1px
+    bottom: 1px;
+    font-weight: 600;
 }
 
 #cnblogs_post_body > pre .cnblogs_code_copy a {
