@@ -2868,16 +2868,18 @@ code-box {
     border: none !important
 }
 
-.cnblogs-markdown code, .cnblogs-post-body code {
-    padding: 2px 4px !important;
+.cnblogs-markdown>p>code, .cnblogs-post-body>p>code {
+    padding: 2px 4px!important;
     color: #d83b64;
-    background-color: #f9f2f4 !important;
-    border-radius: 3px !important;
-    border: 0 !important;
-    text-indent: 0 !important;
+    background-color: #f9f2f4!important;
+    border-radius: 3px!important;
+    border: 0!important;
+    text-indent: 0!important;
     position: relative;
     bottom: 1px;
+    font-size: 13px !important;
     font-weight: 600;
+    font-family: "Ubuntu Mono", monospace !important;
 }
 
 #cnblogs_post_body > pre .cnblogs_code_copy a {

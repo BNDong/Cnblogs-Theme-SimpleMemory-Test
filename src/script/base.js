@@ -1283,6 +1283,7 @@ function Base() {
                         codeLine = obj.html().split('\n');
                         break;
                 }
+                console.log(codeLine);
                 obj.html('<code-pre class="code-pre" id="' + pid + '"></code-pre>');
                 $.each(codeLine, function (j) {
                     html += '<code-line class="line-numbers-rows"></code-line>';
