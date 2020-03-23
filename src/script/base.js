@@ -130,7 +130,10 @@ function Base() {
         $('.m-list-title-select').click(function(){ $(this).parents('.m-list-title').next('.m-icon-list').slideToggle(500) });
 
         // 添加页面特效控制
-        bndongJs.setPageAnimationControl();
+        // bndongJs.setPageAnimationControl();
+
+        // 添加日/夜间模式控制
+        bndongJs.setDayNightControl();
 
         // 控制台输出
         tools.consoleText(window.cnblogsConfig.consoleList, 'banner');
@@ -401,6 +404,30 @@ function Base() {
                 }
             });
         }
+    };
+
+    /**
+     * 日/夜间模式控制
+     */
+    this.setDayNightControl = function () {
+        var html = '<div id="dayNightSwitch" class="generalWrapper">' +
+            '    <div class="onOff day">' +
+            '        <div class="star star1"></div>' +
+            '        <div class="star star2"></div>' +
+            '        <div class="star star3"></div>' +
+            '        <div class="star star4"></div>' +
+            '        <div class="star star5"></div>' +
+            '        <div class="star sky"></div>' +
+            '        <div class="sunMoon">' +
+            '            <div class="crater crater1"></div>' +
+            '            <div class="crater crater2"></div>' +
+            '            <div class="crater crater3"></div>' +
+            '            <div class="cloud part1"></div>' +
+            '            <div class="cloud part2"></div>' +
+            '        </div>' +
+            '    </div>' +
+            '</div>';
+        $('body').prepend(html);
     };
 
     /**
