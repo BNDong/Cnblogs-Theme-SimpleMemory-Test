@@ -3669,6 +3669,14 @@ table#blogCalendar>tbody>tr>td>a {
     }
 }
 
+#dayNightSwitch {
+    display: inline-block;
+    position: absolute;
+    z-index: 3;
+    right: 10px;
+    top: 0;
+}
+
 #dayNightSwitch .onOff {
     background: #324164;
     width: 130px;
@@ -3682,10 +3690,10 @@ table#blogCalendar>tbody>tr>td>a {
 #dayNightSwitch .onOff * {
     transition: all .4s ease;
 }
-#dayNightSwitch .onOff.day {
+#dayNightSwitch .onOff.daySwitch {
     border: 2px solid #52a6bf;
 }
-#dayNightSwitch .onOff.day .sky {
+#dayNightSwitch .onOff.daySwitch .sky {
     width: 130px;
     height: 50px;
     border-radius: 50px;
@@ -3695,15 +3703,15 @@ table#blogCalendar>tbody>tr>td>a {
     transform: translate(0px, 0px);
     animation: none !important;
 }
-#dayNightSwitch .onOff.day .sunMoon {
+#dayNightSwitch .onOff.daySwitch .sunMoon {
     background: #ffdf61;
     border: 2px solid #d9b31c;
     left: calc(100% - 47px);
 }
-#dayNightSwitch .onOff.day .sunMoon .crater {
+#dayNightSwitch .onOff.daySwitch .sunMoon .crater {
     transform: scale(0) !important;
 }
-#dayNightSwitch .onOff.day .sunMoon .cloud {
+#dayNightSwitch .onOff.daySwitch .sunMoon .cloud {
     opacity: 1;
     transform: translatex(0px);
     transition-delay: .2s;

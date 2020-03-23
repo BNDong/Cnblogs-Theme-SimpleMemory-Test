@@ -411,7 +411,7 @@ function Base() {
      */
     this.setDayNightControl = function () {
         var html = '<div id="dayNightSwitch" class="generalWrapper">' +
-            '    <div class="onOff day">' +
+            '    <div class="onOff daySwitch">' +
             '        <div class="star star1"></div>' +
             '        <div class="star star2"></div>' +
             '        <div class="star star3"></div>' +
@@ -428,6 +428,14 @@ function Base() {
             '    </div>' +
             '</div>';
         $('body').prepend(html);
+
+        var rotateDeg = 0;
+        $('#dayNightSwitch .onOff').click(function () {
+            $(this).toggleClass('daySwitch');
+            $('.title').toggleClass('daySwitch');
+            rotateDeg = rotateDeg + 180;
+            $('.title').css({ transform: 'rotate(' + rotateDeg + 'deg)' });;
+        });
     };
 
     /**
