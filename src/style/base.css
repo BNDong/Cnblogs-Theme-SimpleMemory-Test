@@ -2284,7 +2284,7 @@ p.article-info-text > .postMeta i {
     padding: 1.45em;
     color: #313131;
     background-color: #f7f7f7;
-    font-size: 13px;
+    font-size: 14px;
     border-left: 4px solid #ddd;
     font-weight: 400;
     border-top: 0;
@@ -2528,9 +2528,9 @@ blockquote p {
 #cnblogs_post_body > p {
     margin: 10px auto;
     padding: 0 20px;
-    line-height: 1.8em;
+    line-height: 1.9em;
     font-family: "Microsoft YaHei",Lato,"PingFang SC",sans-serif;
-    font-size: 16px;
+    font-size: 1.1em;
     letter-spacing: .015em;
 }
 
@@ -3757,7 +3757,9 @@ table#blogCalendar>tbody>tr>td>a {
 
 @media only screen and (max-width: 720px) {
     #cnblogs_post_body > p {
-        padding: 0 10px
+        padding: 0 10px;
+        font-size: 1em;
+        line-height: 1.8em;
     }
 
     .post pre {

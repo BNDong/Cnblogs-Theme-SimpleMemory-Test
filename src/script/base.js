@@ -71,6 +71,9 @@ function Base() {
      */
     this.loadingAfterInit = function () {
 
+        // 页面初始化
+        ($('#topics').length > 0) ? bndongJs.notHomeInitAfter() : bndongJs.homeInitAfter();
+
         // 添加页脚
         bndongJs.addFooter();
 
@@ -769,6 +772,12 @@ function Base() {
             'background-size': 'cover'
         });
 
+        bndongJs.setHitokoto();
+        bndongJs.scrollMonitor();
+        bndongJs.setDomHomePosition();
+    };
+
+    this.homeInitAfter = function () {
         bndongJs.setHomePost();
         bndongJs.setEntryPost();
 
@@ -779,10 +788,6 @@ function Base() {
 
         // 设置右下角菜单
         timeIds.setHomeRightMenuTId = window.setInterval( bndongJs.addHomeRightMenu, 1000 );
-
-        bndongJs.setHitokoto();
-        bndongJs.scrollMonitor();
-        bndongJs.setDomHomePosition();
 
         if (window.cnblogsConfig.homeTopAnimationRendered)
             require(['circleMagic'], function() {
@@ -960,11 +965,15 @@ function Base() {
         timeIds.blogPostCategoryTId = window.setInterval( bndongJs.setArticleInfoClass, 1000 );
         timeIds.entryTagTId         = window.setInterval( bndongJs.setArticleInfoTag, 1000 );
 
+        bndongJs.setDomHomePosition();
+    };
+
+    this.notHomeInitAfter = function () {
+        bndongJs.setNotHomeTopImg();
+
         // 验证是否是书单文章
         if ($('#bookListFlg').length > 0) bndongJs.setBookList();
 
-        bndongJs.setDomHomePosition();
-        bndongJs.setNotHomeTopImg();
         bndongJs.setCodeHighlighting();
         bndongJs.baguetteBox();
 
