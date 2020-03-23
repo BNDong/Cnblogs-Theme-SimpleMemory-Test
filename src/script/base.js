@@ -1285,13 +1285,18 @@ function Base() {
                 }
                 obj.html('<code-pre class="code-pre" id="' + pid + '"></code-pre>');
                 $.each(codeLine, function (j) {
-                    if (codeLine[j] && codeLine[j] !== '</code>') html += '<code-line class="line-numbers-rows"></code-line>';
+                    var isEnd = j === codeLine.length - 1, fg = isEnd ? '' : '\n';
+                    if (isEnd) {
+                        if (codeLine[j] && codeLine[j] !== '</code>') html += '<code-line class="line-numbers-rows"></code-line>';
+                    } else {
+                        html += '<code-line class="line-numbers-rows"></code-line>';
+                    }
                     switch (type) {
                         case 1:
-                            html += tools.HTMLEncode(codeLine[j]) + '\n'; break;
+                            html += tools.HTMLEncode(codeLine[j]) + fg; break;
 
                         case 2:
-                            html += codeLine[j] + '\n'; break;
+                            html += codeLine[j] + fg; break;
                     }
                 });
                 $('#' + pid).append(html);
