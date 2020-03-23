@@ -221,7 +221,7 @@ function Base() {
      */
     this.resizeMonitor = function() {
         var bodyWidth = parseFloat(document.body.clientWidth), sideToolbar = $('#sideToolbar');
-        bndongJs.setDomHomePosition();
+        // bndongJs.setDomHomePosition();
 
         // 设置目录插件左右位置
         if (sideToolbar.length > 0) {
@@ -241,10 +241,10 @@ function Base() {
 
             if (bodyWidth <= 1350) {
                 sideCatalogBg.hide();
-                sideCatalogBg.find('ul.nav').length > 0 ? catalogBtn.show() : catalogBtn.hide();
+                sideCatalogBg.find('ul.nav li').length > 0 ? catalogBtn.show() : catalogBtn.hide();
             } else {
                 catalogBtn.hide();
-                sideCatalogBg.find('ul.nav').length > 0 ? sideCatalogBg.show() : sideCatalogBg.hide();
+                sideCatalogBg.find('ul.nav li').length > 0 ? sideCatalogBg.show() : sideCatalogBg.hide();
             }
         }
     };
