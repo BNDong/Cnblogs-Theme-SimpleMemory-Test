@@ -8,7 +8,7 @@ function Base() {
 
     const bndongJs     = this,
           tools        = new myTools,
-          isHome       = !$('#topics').length;
+          isHome       = !!$('#topics').length;
           postMetaRex  = /.*posted\s*@\s*([0-9\-:\s]{16}).*阅读\s*\(([0-9]*)\).*评论\s*\(([0-9]*)\).*/,
           postMetaRex2 = /.*posted\s*@\s*([0-9\-:\s]{16}).*/,
           progressBar  = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'); // 进度条
