@@ -133,7 +133,7 @@ function Base() {
         // bndongJs.setPageAnimationControl();
 
         // 添加日/夜间模式控制
-        bndongJs.setDayNightControl();
+        window.cnblogsConfig.switchDayNight.enable && bndongJs.setDayNightControl();
 
         // 控制台输出
         tools.consoleText(window.cnblogsConfig.consoleList, 'banner');
@@ -411,9 +411,9 @@ function Base() {
      */
     this.setDayNightControl = function () {
         var h = parseInt(new Date().getHours()),head = $('head'),
-            daySwitch = window.cnblogsConfig.autoSwitchDayNight.enable ?
-            (h >= window.cnblogsConfig.autoSwitchDayNight.nightHour ? '' :
-                    (h >= window.cnblogsConfig.autoSwitchDayNight.dayHour ? 'daySwitch' : '')
+            daySwitch = window.cnblogsConfig.switchDayNight.auto.enable ?
+            (h >= window.cnblogsConfig.switchDayNight.auto.nightHour ? '' :
+                    (h >= window.cnblogsConfig.switchDayNight.auto.dayHour ? 'daySwitch' : '')
             ) : 'daySwitch',
            html = '<div id="dayNightSwitch" class="generalWrapper">' +
             '    <div class="onOff '+ daySwitch +'">' +
