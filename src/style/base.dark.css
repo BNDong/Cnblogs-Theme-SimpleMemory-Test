@@ -127,11 +127,11 @@ footer-background {
     opacity: .85
 }
 
-.postTitle a:active, .postTitle a:link, .postTitle a:visited {
+.postTitle a:active, .postTitle a:link, .postTitle a:visited, .entrylistPosttitle a:active, .entrylistPosttitle a:link, .entrylistPosttitle a:visited {
     color: #ddd
 }
 
-.postTitle a:hover {
+.postTitle a:hover, .entrylistPosttitle a:hover {
     color: #eee
 }
 
@@ -151,10 +151,14 @@ footer-background {
     border-bottom: #555 1px solid
 }
 
-.day:after {
+.day:after, .entrylistItem:not(:last-of-type):after {
     border: 1px solid #555;
     background: #333;
     box-shadow: rgba(51,51,51,.7) 0 0 0 5px;
+}
+
+.PostList {
+    border-bottom: 1px dashed #555;
 }
 
 span.cnblogs_code {
