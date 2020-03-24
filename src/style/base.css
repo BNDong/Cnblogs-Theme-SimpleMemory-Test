@@ -3503,7 +3503,8 @@ div#green_channel img {
     width: 80%;
     max-height: 80%;
     border: 1px solid #ccc;
-    padding: 5px
+    padding: 5px;
+    margin: 0!important;
 }
 
 .essaySuffix-box-right {
