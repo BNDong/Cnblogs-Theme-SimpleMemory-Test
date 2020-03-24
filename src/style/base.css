@@ -4160,4 +4160,38 @@ table#blogCalendar>tbody>tr>td>a {
     #footer .footer-box {
         width: 95%;
     }
+
+    #dayNightSwitch .onOff, #dayNightSwitch .onOff.daySwitch .sky {
+        width: 50px;
+        height: 18px;
+        border-radius: 18px;
+    }
+    #dayNightSwitch .onOff .sunMoon {
+        height: 12px;
+        width: 12px;
+        top: 1px
+    }
+    #dayNightSwitch .onOff.daySwitch .sunMoon {
+        left: calc(100% - 19px);
+    }
+    #dayNightSwitch {
+        right: 12px;
+        top: 15px;
+    }
+    #dayNightSwitch .onOff .star {
+        top: -50%;
+    }
+    #dayNightSwitch .onOff .sunMoon .crater {
+        width: 3px;
+        height: 3px;
+    }
+    #dayNightSwitch .onOff .sunMoon .cloud.part1 {
+        width: 17px;
+    }
+    #dayNightSwitch .onOff .sunMoon .cloud.part1:after {
+        width: 12px;
+    }
+    #dayNightSwitch .onOff .sunMoon .cloud.part2:before {
+        width: 15px;
+    }
 }

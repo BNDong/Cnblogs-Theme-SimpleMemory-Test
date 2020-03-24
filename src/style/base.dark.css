@@ -165,3 +165,18 @@ span.cnblogs_code {
 .list .inc .bottom, .list .inc .bottomleft, .list .inc .bottomright, .list .inc .left, .list .inc .right, .list .inc .top, .list .inc .topleft, .list .inc .topright, .list .out .bottom, .list .out .bottomleft, .list .out .bottomright, .list .out .conmts, .list .out .left, .list .out .right, .list .out .top, .list .out .topleft, .list .out .topright {
     background: unset
 }
+
+.cnblogs-markdown code:not(.language-env), .cnblogs-post-body code:not(.language-env) {
+    background-color: #282c34 !important;
+    color: #F92672;
+}
+
+@media only screen and (max-width: 720px) {
+    .menu-button {
+        border: none!important;
+        margin: 0!important;
+    }
+    #home {
+        box-shadow: unset;
+    }
+}
