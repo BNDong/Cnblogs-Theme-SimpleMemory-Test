@@ -192,7 +192,11 @@ span.cnblogs_code {
 }
 
 #sideCatalog li.active:after {
-    border-left: 3px solid #3A649B !important;
+    border-left: 3px solid #567fb5 !important;
+}
+
+#sideCatalog-catalog .active a {
+    color: #567fb5 !important;
 }
 
 @media only screen and (max-width: 720px) {
