@@ -2778,7 +2778,11 @@ code-box {
     /*max-height: 70vh;*/
     word-break: break-all;
     word-wrap: break-word;
-    counter-reset: itemcounter
+    counter-reset: itemcounter;
+}
+
+.postBody pre:not(.hljs) {
+    color: #000;
 }
 
 .postBody pre .line-numbers-rows {
