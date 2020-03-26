@@ -67,7 +67,7 @@ $(document).ready(function () {
 
     $('#' + f + '>ul>li>a').click(function () {
         var obj = $(this), title = $(':header[tid="'+obj.attr('goto')+'"]').parent('span.header__span');
-        title.length && tools.actScroll(title.offset().top, 1500);
+        title.length && tools.actScroll(title.offset().top - 40, 800);
     });
 
     // $('#' + g).on('click', function () {
