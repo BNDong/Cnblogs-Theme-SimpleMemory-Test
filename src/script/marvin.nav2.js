@@ -16,7 +16,7 @@ $(document).ready(function () {
         q = true,
         r = false,
         s = $('#' + c),
-       tools = new myTool;
+       tools = new myTools;
 
     if (s.length === 0) { return };
     b.append(i);
