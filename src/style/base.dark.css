@@ -199,6 +199,24 @@ span.cnblogs_code {
     color: #567fb5 !important;
 }
 
+.books-item .books-item-span {
+    background: #2a2a2a;
+    box-shadow: 3px 3px 3px 1px rgba(30,30,30,.3);
+}
+
+.books-item .books-item-span ._2girK ._3Oa5I {
+    color: #999;
+}
+
+.books-item .books-item-span ._2girK ._1P9dH {
+    color: #ddd;
+}
+
+.list .inc .conmts {
+    color: #ddd;
+    background: unset;
+}
+
 @media only screen and (max-width: 720px) {
     .menu-button {
         border: none!important;
