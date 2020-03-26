@@ -444,12 +444,12 @@ function Base() {
         if (!daySwitch) head.append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+getJsDelivrUrl('base.dark.css')+'">');
 
         $('#dayNightSwitch .onOff').click(function () {
-            if ($(this).hasClass('daySwitch')) { // 日间
-                tools.setCookie(cookieKey, 'day', exp);
+            if ($(this).hasClass('daySwitch')) { // 夜间
+                tools.setCookie(cookieKey, 'night', exp);
                 $(this).removeClass('daySwitch');
                 head.append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+getJsDelivrUrl('base.dark.css')+'">');
-            } else { // 夜间
-                tools.setCookie(cookieKey, 'night', exp);
+            } else { // 日间
+                tools.setCookie(cookieKey, 'day', exp);
                 $(this).addClass('daySwitch');
                 $('head link#baseDarkCss').remove();
             }
