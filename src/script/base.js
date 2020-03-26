@@ -1035,7 +1035,7 @@ function Base() {
         // 设置右下角菜单
         timeIds.setNotHomeRightMenuTId = window.setInterval( bndongJs.addNotHomeRightMenu, 1000 );
 
-        bndongJs.setCommentStyle();
+        // bndongJs.setCommentStyle();
     };
 
     /**
