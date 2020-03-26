@@ -410,12 +410,19 @@ function Base() {
      * 日/夜间模式控制
      */
     this.setDayNightControl = function () {
-        var h = parseInt(new Date().getHours()),head = $('head'),
-            daySwitch = window.cnblogsConfig.switchDayNight.auto.enable ?
-            (h >= window.cnblogsConfig.switchDayNight.auto.nightHour ? '' :
-                    (h >= window.cnblogsConfig.switchDayNight.auto.dayHour ? 'daySwitch' : '')
-            ) : 'daySwitch',
-           html = '<div id="dayNightSwitch" class="generalWrapper">' +
+        var h = parseInt(new Date().getHours()),head = $('head'), cookieKey = 'cnblogs_config_isNight', exp  =  4 * 3600, daySwitch;
+
+        switch (tools.getCookie(cookieKey)) {
+            case 'day': daySwitch = ''; break;
+            case 'night': daySwitch = 'daySwitch'; break;
+            default:
+                daySwitch = window.cnblogsConfig.switchDayNight.auto.enable ?
+                    (h >= window.cnblogsConfig.switchDayNight.auto.nightHour ? '' :
+                            (h >= window.cnblogsConfig.switchDayNight.auto.dayHour ? 'daySwitch' : '')
+                    ) : 'daySwitch'; break;
+        }
+
+        var html = '<div id="dayNightSwitch" class="generalWrapper">' +
             '    <div class="onOff '+ daySwitch +'">' +
             '        <div class="star star1"></div>' +
             '        <div class="star star2"></div>' +
@@ -437,10 +444,12 @@ function Base() {
         if (!daySwitch) head.append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+getJsDelivrUrl('base.dark.css')+'">');
 
         $('#dayNightSwitch .onOff').click(function () {
-            if ($(this).hasClass('daySwitch')) {
+            if ($(this).hasClass('daySwitch')) { // 日间
+                tools.setCookie(cookieKey, 'day', exp);
                 $(this).removeClass('daySwitch');
                 head.append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+getJsDelivrUrl('base.dark.css')+'">');
-            } else {
+            } else { // 夜间
+                tools.setCookie(cookieKey, 'night', exp);
                 $(this).addClass('daySwitch');
                 $('head link#baseDarkCss').remove();
             }
