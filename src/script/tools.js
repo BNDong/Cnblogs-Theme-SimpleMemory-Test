@@ -194,7 +194,7 @@ function myTools() {
     this.setCookie = function(key, value, expires) {
         var exp = new Date();
         exp.setTime(exp.getTime() + expires * 1000);
-        document.cookie = key + "="+ escape (value) + ";expires=" + exp.toGMTString();
+        document.cookie = key + "=" + escape (value) + "; expires=" + exp.toGMTString() + "; path=/";
     };
 
     /**
