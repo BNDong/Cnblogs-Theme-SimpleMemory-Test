@@ -412,6 +412,7 @@ function Base() {
     this.setDayNightControl = function () {
         var h = parseInt(new Date().getHours()),head = $('head'), cookieKey = 'cnblogs_config_isNight', exp  =  4 * 3600, daySwitch;
 
+        console.log(tools.getCookie(cookieKey));
         switch (tools.getCookie(cookieKey)) {
             case 'day': daySwitch = ''; break;
             case 'night': daySwitch = 'daySwitch'; break;
