@@ -65,6 +65,9 @@ require.config({
         classie: {
             deps: ['snapSvg'],
         },
+        title: {
+            deps: ['tools'],
+        },
         main4: {
             deps: ['snapSvg','classie', 'css!'+getJsDelivrUrl('menu_bubble.css')]
         },
