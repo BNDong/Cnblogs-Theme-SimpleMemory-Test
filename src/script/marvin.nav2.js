@@ -43,7 +43,7 @@ $(document).ready(function () {
             if(titleContent.length>26) titleContent=titleContent.substr(0,26) + "...";
             titleContent = tools.HTMLEncode(titleContent);
 
-            j += '<li h="1" g="'+ lserialNum +'"><a href="javascript:void(0);" goto="#' + titleId + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
+            j += '<li h="1" g="'+ lserialNum +'"><a href="javascript:void(0);" goto="' + titleId + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
         } else if (r && v.localName === 'h2') {
             m++; n = 0;
             if(q){
@@ -51,7 +51,7 @@ $(document).ready(function () {
                 if(titleContent.length>30) titleContent = titleContent.substr(0,30) + "...";
                 titleContent = tools.HTMLEncode(titleContent);
 
-                j += '<li h="2" g="'+ lserialNum +'" class="h2Offset ceg'+lserialNum+'"><a href="javascript:void(0);" goto="#' + titleId + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
+                j += '<li h="2" g="'+ lserialNum +'" class="h2Offset ceg'+lserialNum+'"><a href="javascript:void(0);" goto="' + titleId + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
             }
         }
     });
@@ -64,6 +64,11 @@ $(document).ready(function () {
         target: '.sideCatalogBg'
     });
     $sideCatelog = $('#' + e);
+
+    $('#' + f + '>ul>li>a').click(function () {
+        var obj = $(this), title = $(':header[tid="'+obj.attr('goto')+'"]').parent('span.header__span');
+        title.length && tools.actScroll(title.offset().top, 1500);
+    });
 
     // $('#' + g).on('click', function () {
     //     if ($(this).hasClass('sideCatalogBtnDisable') && $sideCatelog.css('visibility') === 'visible') {
