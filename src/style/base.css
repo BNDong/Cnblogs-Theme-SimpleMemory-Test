@@ -2555,26 +2555,25 @@ blockquote p {
     position: relative;
     display: inline-block;
     left: -20px;
-    margin: 34px 0 0;
+    margin: 5px 0;
     width: 110%;
     transition: border-color .3s;
-    padding-bottom: 14px
+    padding: 0;
 }
 
 .header__dev {
     font-family: Lato, Arial, sans-serif;
     font-weight: 300 !important;
-    position: absolute;
+    position: relative;
     transition-delay: .5s;
-    z-index: 1;
     margin: 0 !important;
     color: #222 !important
 }
 
 .header__span h1 {
-    font-size: 28px !important;
-    height: 28px;
-    line-height: 28px !important
+    font-size: 28px!important;
+    height: 34px;
+    line-height: 28px!important;
 }
 
 .header__span h2 {
@@ -2598,17 +2597,17 @@ blockquote p {
 }
 
 .header__span h1 .dev__slash {
-    color: #5D69A5;
-    top: -24px;
+    color: #5d69a5;
+    top: -1px;
     left: 57px;
-    font-size: 35px
+    font-size: 35px;
 }
 
 .header__span h2 .dev__slash {
-    color: #85C7B0;
-    top: -20px;
+    color: #85c7b0;
+    top: 3px;
     left: 58px;
-    font-size: 26px
+    font-size: 26px;
 }
 
 .cnblogs_code, .post pre {
@@ -2624,14 +2623,14 @@ blockquote p {
 .dev__fe {
     text-align: right;
     direction: rtl;
-    top: -68px;
-    left: -40px
+    top: -45px;
+    left: -40px;
 }
 
 .dev__ux {
-    left: 66px;
-    top: -57px;
-    text-align: left
+    left: 65px;
+    top: -34px;
+    text-align: left;
 }
 
 .dev__fe i, .dev__ux i {
@@ -2684,15 +2683,15 @@ blockquote p {
 }
 
 .header__span h1 .dev__developer {
-    top: -20px;
+    top: 2px;
     left: 90px;
-    min-height: 34px
+    min-height: 34px;
 }
 
 .header__span h2 .dev__developer {
-    top: -17px;
+    top: 6px;
     left: 94px;
-    min-height: 24px
+    min-height: 24px;
 }
 
 .dev__developer, .dev__fe, .dev__fe i, .dev__slash, .dev__ux, .dev__ux i {

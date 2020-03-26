@@ -73,8 +73,7 @@ $(document).ready(function () {
 
     $('#' + f + '>ul>li').click(function () {
         var obj = $(this), title = $(':header[tid="'+obj.find('a').attr('goto')+'"]').parent('span.header__span');
-        $('#' + f + ' ul li').removeClass('active'); obj.addClass('active');
-        title.length && tools.actScroll(title.offset().top - 40, 800);
+        title.length && tools.actScroll(title.offset().top - 10, 800);
     });
 
     // $('#' + g).on('click', function () {
