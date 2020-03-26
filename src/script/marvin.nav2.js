@@ -73,7 +73,7 @@ $(document).ready(function () {
 
     $('#' + f + '>ul>li').click(function () {
         var obj = $(this), title = $(':header[tid="'+obj.find('a').attr('goto')+'"]').parent('span.header__span');
-        title.length && tools.actScroll(title.offset().top - 10, 800);
+        title.length && tools.actScroll(title.offset().top + 3, 800);
     });
 
     // $('#' + g).on('click', function () {
