@@ -1035,7 +1035,7 @@ function Base() {
         // 设置右下角菜单
         timeIds.setNotHomeRightMenuTId = window.setInterval( bndongJs.addNotHomeRightMenu, 1000 );
 
-        // bndongJs.setCommentStyle();
+        bndongJs.setCommentStyle();
     };
 
     /**
@@ -1391,11 +1391,6 @@ function Base() {
 
         var commentList        = $('.blog_comment_body[id!=tbCommentBodyPreviewBody]'),
             commentPlaceholder = $('#blog-comments-placeholder');
-
-        $('#comment_form_container .comment_textarea').css({
-            width:'100%',
-            height: '100%'
-        });
 
         commentAvatar(commentList);
         commentList.addClass('hvr-bob');

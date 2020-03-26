@@ -873,8 +873,6 @@ p.article-info-text > .postMeta i {
 }
 
 #comment_form_container .comment_textarea {
-    width: 362px;
-    height: 200px;
     font-size: 13px;
     padding: 8px;
     margin-bottom: 10px;
@@ -884,6 +882,8 @@ p.article-info-text > .postMeta i {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     min-height: 250px;
+    width: 100%;
+    height: 100%;
 }
 
 #comment_form_container .comment_textarea:hover {
