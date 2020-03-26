@@ -412,22 +412,18 @@ function Base() {
     this.setDayNightControl = function () {
         var h = parseInt(new Date().getHours()),head = $('head'), cookieKey = 'cnblogs_config_isNight', exp  =  4 * 3600, daySwitch;
 
-        console.log(tools.getCookie(cookieKey));
         switch (tools.getCookie(cookieKey)) {
             case 'day':
-                console.log(11);
-                daySwitch = ''; break;
-            case 'night':
-                console.log(22);
                 daySwitch = 'daySwitch'; break;
+            case 'night':
+                daySwitch = ''; break;
             default:
-                console.log(33);
                 daySwitch = window.cnblogsConfig.switchDayNight.auto.enable ?
                     (h >= window.cnblogsConfig.switchDayNight.auto.nightHour ? '' :
                             (h >= window.cnblogsConfig.switchDayNight.auto.dayHour ? 'daySwitch' : '')
                     ) : 'daySwitch'; break;
         }
-        console.log(daySwitch);
+
         var html = '<div id="dayNightSwitch" class="generalWrapper">' +
             '    <div class="onOff '+ daySwitch +'">' +
             '        <div class="star star1"></div>' +
