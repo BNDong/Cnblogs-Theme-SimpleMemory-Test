@@ -2555,7 +2555,7 @@ blockquote p {
     position: relative;
     display: inline-block;
     left: -20px;
-    margin: 5px 0;
+    margin: 0 0 5px 0;
     width: 110%;
     transition: border-color .3s;
     padding: 0;
@@ -2598,14 +2598,14 @@ blockquote p {
 
 .header__span h1 .dev__slash {
     color: #5d69a5;
-    top: -1px;
+    top: 9px;
     left: 57px;
     font-size: 35px;
 }
 
 .header__span h2 .dev__slash {
     color: #85c7b0;
-    top: 3px;
+    top: 13px;
     left: 58px;
     font-size: 26px;
 }
@@ -2623,13 +2623,13 @@ blockquote p {
 .dev__fe {
     text-align: right;
     direction: rtl;
-    top: -45px;
+    top: -35px;
     left: -40px;
 }
 
 .dev__ux {
     left: 65px;
-    top: -34px;
+    top: -24px;
     text-align: left;
 }
 
@@ -2683,13 +2683,13 @@ blockquote p {
 }
 
 .header__span h1 .dev__developer {
-    top: 2px;
+    top: 12px;
     left: 90px;
     min-height: 34px;
 }
 
 .header__span h2 .dev__developer {
-    top: 6px;
+    top: 16px;
     left: 94px;
     min-height: 24px;
 }

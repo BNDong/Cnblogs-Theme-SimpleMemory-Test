@@ -40,8 +40,8 @@ $(document).ready(function () {
         }
 
         if (!hId) {
-            hId = tools.randomString(6);
-            u.attr('id', 'hid-' + hId);
+            hId = 'hid-' + tools.randomString(6);
+            u.attr('id', hId);
         }
 
         if (v.localName === 'h1') {
