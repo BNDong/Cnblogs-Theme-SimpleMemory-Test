@@ -235,12 +235,12 @@ span.cnblogs_code {
 }
 
 .feedbackListSubtitle-louzhu {
-    background-color: #222!important;
-    border-bottom-color: #555!important;
+    background-color: #25282d!important;
+    border-bottom-color: #444!important;
 }
 
 .feedbackListSubtitle-louzhu:after {
-    border-right-color: #222 !important;
+    border-right-color: #25282d !important;
 }
 
 .feedbackAvatar img {
