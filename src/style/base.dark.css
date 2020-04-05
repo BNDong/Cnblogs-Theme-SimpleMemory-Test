@@ -1,4 +1,4 @@
-#cnblogs_post_body table, .feedbackCon table, #cnblogs_post_body table td, body {
+#cnblogs_post_body table, .feedbackCon table, #cnblogs_post_body table td, .feedbackCon table td, body {
     background-color: #333
 }
 
