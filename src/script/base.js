@@ -1430,6 +1430,7 @@ function Base() {
                 $(feedbackItem[0]).css('padding-top', '0');
                 $(feedbackItem[feedbackItem.length - 1]).css('padding-bottom', '0');
                 var cssText = "font-family:"+ window.cnblogsConfig.essayCode.fontFamily +" !important; font-size: "+ window.cnblogsConfig.essayCode.fontSize +" !important; border-radius: 5px;padding: 10px;";
+                if (window.cnblogsConfig.essayCodeHighlightingType === 'cnblogs') cssText +=  'color: #000;';
                 $('head').append('<style>.feedbackCon pre {'+cssText + 'background-color: ' + $('.postBody pre').css('background-color') + ' !important;'+'}</style>');
             }
         }
