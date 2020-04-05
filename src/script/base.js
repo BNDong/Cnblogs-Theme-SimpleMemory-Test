@@ -1430,7 +1430,8 @@ function Base() {
                 $(feedbackItem[0]).css('padding-top', '0');
                 $(feedbackItem[feedbackItem.length - 1]).css('padding-bottom', '0');
                 // 添加评论框代码底色
-                $('.feedbackCon pre code').css('cssText', 'background-color: ' + $('.postBody pre').css('background-color') + ' !important;');
+                var cssText = "font-family:"+ window.cnblogsConfig.essayCode.fontFamily +" !important; font-size: "+ window.cnblogsConfig.essayCode.fontSize +" !important;";
+                $('.feedbackCon pre code').css('cssText', cssText + 'background-color: ' + $('.postBody pre').css('background-color') + ' !important;');
             }
         }
     };
