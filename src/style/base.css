@@ -2567,7 +2567,7 @@ blockquote p {
     -o-transform: rotate(90deg);
 }
 
-#cnblogs_post_body table td, #cnblogs_post_body table th {
+#cnblogs_post_body table td, #cnblogs_post_body table th, .feedbackCon table th, .feedbackCon table td {
     height: 40px;
     box-sizing: border-box;
     background-clip: padding-box;
@@ -2594,7 +2594,7 @@ blockquote p {
     top: 3px
 }
 
-#cnblogs_post_body table {
+#cnblogs_post_body table, .feedbackCon table {
     position: relative;
     overflow: hidden !important;
     box-sizing: border-box;
@@ -2612,15 +2612,19 @@ blockquote p {
     border-collapse: initial !important
 }
 
+.feedbackCon table {
+    margin: 10px 0;
+}
+
 .cnblogs-markdown .cnblogs_code_copy a {
     top: 0
 }
 
-#cnblogs_post_body table tr {
+#cnblogs_post_body table tr, .feedbackCon table tr {
     border: 0
 }
 
-#cnblogs_post_body table th {
+#cnblogs_post_body table th, .feedbackCon table th {
     border-bottom: 1px solid #dfe3ec;
     border-right: 1px solid #dfe3ec;
     background-color: #eef0f6;
@@ -2630,7 +2634,7 @@ blockquote p {
     min-width: 100px
 }
 
-#cnblogs_post_body table td {
+#cnblogs_post_body table td, .feedbackCon table td {
     border-bottom: 1px solid #dfe6ec;
     border-right: 1px solid #dfe3ec;
     min-width: 0;

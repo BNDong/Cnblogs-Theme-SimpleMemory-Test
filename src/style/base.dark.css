@@ -1,8 +1,8 @@
-#cnblogs_post_body table, #cnblogs_post_body table td, body {
+#cnblogs_post_body table, .feedbackCon table, #cnblogs_post_body table td, body {
     background-color: #333
 }
 
-#cnblogs_post_body table td, #cnblogs_post_body table th {
+#cnblogs_post_body table td, #cnblogs_post_body table th, .feedbackCon table td, .feedbackCon table th {
     border-bottom: 1px solid #2a2a2a;
     border-right: 1px solid #2a2a2a
 }
@@ -34,12 +34,12 @@ body {
     color: #ddd
 }
 
-#cnblogs_post_body table {
+#cnblogs_post_body table, .feedbackCon table {
     border: 1px solid #2a2a2a;
     color: #ddd
 }
 
-#cnblogs_post_body table th {
+#cnblogs_post_body table th, .feedbackCon table th {
     background-color: #3e3e3e
 }
 

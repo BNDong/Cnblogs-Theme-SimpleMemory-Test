@@ -1432,10 +1432,6 @@ function Base() {
                 var cssText = "font-family:"+ window.cnblogsConfig.essayCode.fontFamily +" !important; font-size: "+ window.cnblogsConfig.essayCode.fontSize +" !important; border-radius: 5px;";
                 $('head').append('<style>.feedbackCon pre {'+cssText + 'background-color: ' + $('.postBody pre').css('background-color') + ' !important;'+'}</style>');
             }
-            // $('#comment_form_container').on('click', '#btn_preview_comment',  function() {
-            //     var cssText = "font-family:"+ window.cnblogsConfig.essayCode.fontFamily +" !important; font-size: "+ window.cnblogsConfig.essayCode.fontSize +" !important; border-radius: 5px;";
-            //     $('.feedbackCon pre').css('cssText', cssText + 'background-color: ' + $('.postBody pre').css('background-color') + ' !important;');
-            // });
         }
     };
 
