@@ -57,8 +57,18 @@ body, html {
 html {
     height: 100%;
     font-size: 62.5%;
-    -webkit-tap-highlight-color: transparent
+    -webkit-tap-highlight-color: transparent;
 }
+
+/*html {*/
+/*    filter:grayscale(100%);*/
+/*    -webkit-filter:grayscale(100%);*/
+/*    -moz-filter:grayscale(100%);*/
+/*    -ms-filter:grayscale(100%);*/
+/*    -o-filter:grayscale(100%);*/
+/*    filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);*/
+/*    -webkit-filter:grayscale(1)*/
+/*}*/
 
 body {
     background-color: #fff;
@@ -2503,6 +2513,7 @@ blockquote p {
     padding: 0;
     border-right: 0;
     border-bottom: 0;
+    display: table !important;
     border-collapse: initial !important
 }
 

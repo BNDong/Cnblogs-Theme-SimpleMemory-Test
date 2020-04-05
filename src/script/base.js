@@ -1226,8 +1226,6 @@ function Base() {
             hltype    = window.cnblogsConfig.essayCodeHighlightingType.toLowerCase(),
             hltheme   = window.cnblogsConfig.essayCodeHighlighting.toLowerCase();
 
-        if (window.cnblogsConfig.codeMaxHeight) pre.css('max-height', '70vh');
-
         switch (hltype) {
             case 'highlightjs':
                 setCodeBefore(1);
@@ -1335,7 +1333,10 @@ function Base() {
         }
 
         function setCodeBefore(type) {
-            pre.css('cssText', "font-family:'Ubuntu Mono',monospace !important; font-size: 14px !important;");
+            var cssText = "font-family:'Ubuntu Mono',monospace !important; font-size: 14px !important;";
+            if (window.cnblogsConfig.codeMaxHeight) cssText += 'max-height: 70vh;';
+            pre.css('cssText', cssText);
+
             $.each(pre, function (i) {
                 var obj = $(this), pid = 'pre-' + tools.randomString(6), codeLine, html = '';
 
