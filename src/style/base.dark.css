@@ -170,7 +170,7 @@ span.cnblogs_code {
     background: unset
 }
 
-.cnblogs-markdown code:not(.language-env), .cnblogs-post-body code:not(.language-env) {
+.postBody .cnblogs-markdown code:not(.language-env), .postBody .cnblogs-post-body code:not(.language-env) {
     background-color: #282c34 !important;
     color: #F92672;
 }
