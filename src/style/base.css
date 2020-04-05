@@ -256,7 +256,7 @@ b {
     text-align: right
 }
 
-#main, .feedbackItem {
+#main {
     margin-top: 30px
 }
 
@@ -753,6 +753,40 @@ p.article-info-text > .postMeta i {
     color: #5c8ec6
 }
 
+.feedbackListSubtitle:before {
+    position: absolute;
+    top: 11px;
+    right: 100%;
+    left: -16px;
+    display: block;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    content: " ";
+    border-color: transparent;
+    border-style: solid solid outset;
+    border-width: 8px;
+    border-right-color: #d1d5da;
+}
+
+.feedbackListSubtitle:after {
+    position: absolute;
+    top: 11px;
+    right: 100%;
+    left: -16px;
+    display: block;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    content: " ";
+    border-color: transparent;
+    border-style: solid solid outset;
+    margin-top: 1px;
+    margin-left: 2px;
+    border-width: 7px;
+    border-right-color: #f6f8fa;
+}
+
 .feedbackManage {
     width: 200px;
     text-align: right;
@@ -760,10 +794,48 @@ p.article-info-text > .postMeta i {
 }
 
 .feedbackCon {
-    padding: 10px 20px 10px 5px;
+    padding: 10px 20px;
     min-height: 35px;
-    margin-bottom: 1em;
-    line-height: 1.5
+    line-height: 1.5;
+    border: 1px solid #d1d5da;
+    border-top: 0;
+    background: #fff;
+    position: relative;
+}
+
+.feedbackItem {
+    position: relative;
+    padding: 15px 0 15px 60px;
+    margin: 0;
+}
+
+.feedbackItem:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 90px;
+    display: block;
+    z-index: 0;
+    width: 2px;
+    content: "";
+    background-color: #e1e4e8;
+}
+
+.feedbackAvatar {
+    position: absolute;
+    left: 1px;
+}
+
+.feedbackAvatar img {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #d1d5da;
+    padding: 2px;
+    border-radius: 3px;
+}
+
+div#tbCommentBodyPreview {
+    border: 0;
 }
 
 #divRefreshComments {
@@ -1189,8 +1261,16 @@ p.article-info-text > .postMeta i {
 
 .feedbackListSubtitle {
     clear: both;
-    color: #A8A8A8;
-    padding: 8px 5px
+    align-items: center;
+    color: #586069;
+    flex-direction: row-reverse;
+    background-color: #f6f8fa;
+    border: 1px solid #d1d5da;
+    border-bottom: 1px solid #d1d5da;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: 10px 20px;
+    position: relative;
 }
 
 .divPhoto {
@@ -2961,220 +3041,6 @@ code-box {
     display: inline-block;
     font-weight: bold;
     font-size: 20px;
-}
-
-.aplayer-icon-lrc {
-    display: none !important
-}
-
-#aplayer, body > meting-js {
-    -webkit-transform: translateZ(0)
-}
-
-#tbCommentBody {
-    border-radius: 10px;
-    outline: 0;
-    padding: 10px;
-    height: 200px;
-    position: relative;
-    /*background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/comment_bg.webp) right -65px no-repeat #fff;*/
-    background-size: 250px
-}
-
-.commentbox_title {
-    width: 100%;
-    border-bottom: 1px dashed #dedede;
-}
-
-#tbCommentAuthor {
-    border: 0;
-    background-color: #fff
-}
-
-.comment-avatar {
-    width: 48px;
-    height: 48px;
-    border: 1px solid #dcd6b3;
-    padding: 3px;
-    border-radius: 50%;
-    -webkit-transition: all .6s ease-out;
-    -moz-transition: all .5s ease-out;
-    -ms-transition: all .5s ease-out;
-    -o-transition: all .5s ease-out;
-    transition: all .5s ease-out
-}
-
-.comment-avatar:hover {
-    -webkit-transform: rotateZ(360deg);
-    -moz-transform: rotateZ(360deg);
-    -ms-transform: rotateZ(360deg);
-    -o-transform: rotateZ(360deg);
-    transform: rotateZ(360deg)
-}
-
-.blog_comment_body {
-    display: inline-block;
-    width: 70%;
-    margin-left: 15px;
-    vertical-align: initial !important;
-    font-family: Lato, Helvetica, Arial, sans-serif
-}
-
-.tbCommentBody_bg {
-    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/commentHintBg.webp) center center no-repeat
-}
-
-.commentbox_main {
-    padding-right: 30px
-}
-
-.conmts p {
-    margin: 0
-}
-
-.commentlist .alt a.layer {
-    color: #eee;
-    font-size: 55px;
-    position: absolute;
-    right: 30px;
-    top: 30px;
-    background-image: none;
-    font-style: italic;
-    font-weight: initial
-}
-
-.list {
-    width: 100%
-}
-
-.list .inc, .list .out {
-    margin: 6px 0;
-    width: 90%
-}
-
-.list .inc .icon, .list .out .icon {
-    width: 48px;
-    height: 48px
-}
-
-.list .icontd {
-    width: 48px
-}
-
-.list .inc .bottomleft, .list .inc .bottomright, .list .inc .topleft, .list .inc .topright, .list .out .bottomleft, .list .out .bottomright, .list .out .topleft, .list .out .topright {
-    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/t_o_bubbles.webp) no-repeat
-}
-
-.list .inc .bottom, .list .inc .top, .list .out .bottom, .list .out .top {
-    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/t_o_horizontal.webp) repeat-x
-}
-
-.list .inc .left, .list .inc .right, .list .out .left, .list .out .right {
-    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/t_o_vertical.webp) repeat-y
-}
-
-.list .out .topleft {
-    background-position: left top;
-    height: 9px;
-    width: 18px
-}
-
-.list .out .topright {
-    background-position: -18px top;
-    height: 9px;
-    width: 11px
-}
-
-.list .out .bottomleft {
-    background-position: left -9px;
-    width: 18px;
-    height: 12px
-}
-
-.list .out .bottomright {
-    background-position: right -9px;
-    width: 11px;
-    height: 12px
-}
-
-.list .out .top {
-    background-position: top;
-    font-size: 1px;
-    height: 9px
-}
-
-.list .out .bottom {
-    background-position: 0 -9px;
-    height: 12px
-}
-
-.list .out .left {
-    background-position: left;
-    width: 18px
-}
-
-.list .out .right {
-    background-position: -18px 0;
-    width: 11px
-}
-
-.list .inc .topleft {
-    background-position: 0 -21px;
-    height: 9px;
-    width: 18px
-}
-
-.list .inc .topright {
-    background-position: -18px -21px;
-    height: 9px;
-    width: 11px
-}
-
-.list .inc .bottomleft {
-    background-position: 0 bottom;
-    width: 18px;
-    height: 12px
-}
-
-.list .inc .bottomright {
-    background-position: right bottom;
-    width: 11px;
-    height: 12px
-}
-
-.list .inc .top {
-    background-position: 0 -21px;
-    font-size: 1px;
-    height: 9px
-}
-
-.list .inc .bottom {
-    background-position: bottom;
-    height: 12px
-}
-
-.list .inc .left {
-    background-position: -29px 0;
-    width: 18px
-}
-
-.list .inc .right {
-    background-position: right;
-    width: 11px
-}
-
-.list .out .conmts {
-    background: #dcdcdc
-}
-
-.list .inc .conmts {
-    font-size: 12px;
-    color: #000;
-    background: #c0e668
-}
-
-.list .out .conmts img {
-    max-height: 100px
 }
 
 .toc {

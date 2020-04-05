@@ -311,9 +311,9 @@ function Base() {
                     if (ac === 'down') {
                         var docHeight    = $(document).height();
                         var windowHeight = $(window).height();
-                        tools.actScroll(docHeight - windowHeight, 800)
+                        tools.actScroll(docHeight - windowHeight, 900)
                     } else {
-                        tools.actScroll(0, 800)
+                        tools.actScroll(0, 900)
                     }
                 }
             }
@@ -1046,7 +1046,7 @@ function Base() {
         // 设置右下角菜单
         timeIds.setNotHomeRightMenuTId = window.setInterval( bndongJs.addNotHomeRightMenu, 1000 );
 
-        // bndongJs.setCommentStyle();
+        bndongJs.setCommentStyle();
     };
 
     /**
@@ -1396,68 +1396,33 @@ function Base() {
         }
     };
 
-    /**
-     * 设置评论框样式
-     */
     this.setCommentStyle = function() {
-
-        var commentList        = $('.blog_comment_body[id!=tbCommentBodyPreviewBody]'),
-            commentPlaceholder = $('#blog-comments-placeholder');
-
-        commentAvatar(commentList);
-        commentList.addClass('hvr-bob');
-
-        //气泡效果
         timeIds.commentTId = window.setInterval(function(){
-                if (commentPlaceholder.html() != '' || $("#comments_pager_bottom").length > 0) {
-                    CommentBubble();
-                    bndongJs.clearIntervalTimeId(timeIds.commentTId);
-                }
-            },1000);
-
-        function commentAvatar(commentList) {
-            commentList.each(function (i) {
-                var p    = $(commentList[i]).attr('id').split('_'),
-                    html = '';
-                if (p.length > 0) {
-                    var idIndex = p.length - 1;
-                    var id = p[idIndex];
-                    var idTmp = id.toString().match(/[0-9]/g);
-                    if ($.isArray(idTmp)) id = idTmp.join('');
-                    var op = $('#comment_'+id+'_avatar');
-                    if (op.length > 0 && op.text() != '') {
-                        var patch = op.text();
-                        html += '<img class="comment-avatar" src="'+patch+'"/>';
-                    } else {
-                        html += '<img class="comment-avatar" src="https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/default_avatar.webp"/>';
+            if ($('.feedbackItem').length > 0) {
+                setComment();
+                bndongJs.clearIntervalTimeId(timeIds.commentTId);
+            }
+        },1000);
+        
+        function setComment() {
+            var feedbackItem = $('.feedbackItem');
+            if (feedbackItem.length > 0) {
+                $.each(feedbackItem, function (i) {
+                    var obj = $(this), feedbackCon =  obj.find('.feedbackCon'), commentBody = feedbackCon.length ? feedbackCon.find('.blog_comment_body') : [], avatarHtml = '';
+                    var idInfo = commentBody.length ? commentBody.attr('id').split('_') : undefined;
+                    if (idInfo && idInfo.length > 0) {
+                        var id = idInfo[idInfo.length - 1], idTmp = id.toString().match(/[0-9]/g);
+                        if ($.isArray(idTmp)) id = idTmp.join('');
+                        var op = $('#comment_' + id + '_avatar'), patch  = op.length > 0 ? $.trim(op.text())
+                            : 'https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/default_avatar.webp';
+                        var ac = $('#a_comment_author_' + id), ah = ac.length ? ac.attr('href') : 'javascropt:void(0);';
+                        avatarHtml = '<div class="feedbackAvatar"><a href="' + ah + '" target="_blank"><img src="'+patch+'"/></a></div>';
+                        obj.prepend(avatarHtml);
                     }
-                    $(commentList[i]).before(html);
-                }
-            });
-        }
-
-        function CommentBubble() {
-            var w1 = '<div class="list">' +
-                '<table class="out" border="0" cellspacing="0" cellpadding="0"> ' +
-                '<tr>' +
-                '<td align="left" valign="bottom" class="q">' +
-                '<table border="0" cellpadding="0" cellspacing="0" style=""> ' +
-                '<tr><td class="topleft"></td><td class="top"></td><td class="topright"></td></tr> ' +
-                '<tr><td class="left"></td> <td align="left" class="conmts"><p>';
-
-
-            var w2 = '</p> </td> <td class="right"></td></tr> ' +
-                '<tr><td class="bottomleft"></td><td class="bottom"></td><td class="bottomright"></td></tr> ' +
-                '</table>' +
-                '</td> ' +
-                '</tr> ' +
-                '</table> ' +
-                '</div>';
-
-            $.each($(".blog_comment_body"), function(i, t) {
-                $(t).html(w1 + $(t).html() + w2);
-            });
-            $(".louzhu").closest(".feedbackItem").find(".out").removeClass("out").addClass("inc");
+                });
+                $(feedbackItem[0]).css('padding-top', '0');
+                $(feedbackItem[feedbackItem.length - 1]).css('padding-bottom', '0');
+            }
         }
     };
 
