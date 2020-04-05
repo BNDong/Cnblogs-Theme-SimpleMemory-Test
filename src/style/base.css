@@ -2989,7 +2989,7 @@ code-box {
     border: 0 !important;
 }
 
-.cnblogs-markdown code:not(.language-env), .cnblogs-post-body code:not(.language-env) {
+.cnblogs-markdown code:not(.language-env),.cnblogs-post-body code:not(.language-env) {
     padding: 2px 4px!important;
     color: #d83b64;
     background-color: #f9f2f4!important;
