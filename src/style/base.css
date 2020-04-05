@@ -803,6 +803,11 @@ p.article-info-text > .postMeta i {
     position: relative;
 }
 
+.feedbackListSubtitle-louzhu {
+    background-color: #f1f8ff;
+    border-bottom-color: #c0d3eb;
+}
+
 .feedbackItem {
     position: relative;
     padding: 15px 0 15px 60px;

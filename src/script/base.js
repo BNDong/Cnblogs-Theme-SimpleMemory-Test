@@ -1396,6 +1396,9 @@ function Base() {
         }
     };
 
+    /**
+     * 设置评论样式
+     */
     this.setCommentStyle = function() {
         timeIds.commentTId = window.setInterval(function(){
             if ($('.feedbackItem').length > 0) {
@@ -1408,8 +1411,9 @@ function Base() {
             var feedbackItem = $('.feedbackItem');
             if (feedbackItem.length > 0) {
                 $.each(feedbackItem, function (i) {
-                    var obj = $(this), feedbackCon =  obj.find('.feedbackCon'), commentBody = feedbackCon.length ? feedbackCon.find('.blog_comment_body') : [], avatarHtml = '';
-                    var idInfo = commentBody.length ? commentBody.attr('id').split('_') : undefined;
+                    var obj = $(this), feedbackCon =  obj.find('.feedbackCon'), feedbackListSubtitle = obj.find('.feedbackListSubtitle'),
+                        commentBody = feedbackCon.length ? feedbackCon.find('.blog_comment_body') : [], avatarHtml = '',
+                        idInfo = commentBody.length ? commentBody.attr('id').split('_') : undefined;
                     if (idInfo && idInfo.length > 0) {
                         var id = idInfo[idInfo.length - 1], idTmp = id.toString().match(/[0-9]/g);
                         if ($.isArray(idTmp)) id = idTmp.join('');
@@ -1418,6 +1422,9 @@ function Base() {
                         var ac = $('#a_comment_author_' + id), ah = ac.length ? ac.attr('href') : 'javascropt:void(0);';
                         avatarHtml = '<div class="feedbackAvatar"><a href="' + ah + '" target="_blank"><img src="'+patch+'"/></a></div>';
                         obj.prepend(avatarHtml);
+                    }
+                    if (feedbackListSubtitle.length && feedbackListSubtitle.find('.louzhu').length) {
+                        feedbackListSubtitle.addClass('feedbackListSubtitle-louzhu');
                     }
                 });
                 $(feedbackItem[0]).css('padding-top', '0');
