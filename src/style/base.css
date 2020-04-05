@@ -735,8 +735,8 @@ p.article-info-text > .postMeta i {
 }
 
 .louzhu {
-    background: url(/images/icoLouZhu.gif) right top no-repeat;
-    padding-right: 16px
+    /*background: url(/images/icoLouZhu.gif) right top no-repeat;*/
+    margin: 0 2px;
 }
 
 .feedbackListSubtitle a:active, .feedbackListSubtitle a:link, .feedbackListSubtitle a:visited {
@@ -769,7 +769,7 @@ p.article-info-text > .postMeta i {
     border-right-color: #d1d5da;
 }
 
-.feedbackListSubtitle:after {
+.feedbackListSubtitle:after, .feedbackListSubtitle-louzhu:after {
     position: absolute;
     top: 11px;
     right: 100%;
@@ -784,7 +784,14 @@ p.article-info-text > .postMeta i {
     margin-top: 1px;
     margin-left: 2px;
     border-width: 7px;
+}
+
+.feedbackListSubtitle:after {
     border-right-color: #f6f8fa;
+}
+
+.feedbackListSubtitle-louzhu:after {
+    border-right-color: #f1f8ff !important;
 }
 
 .feedbackManage {
@@ -804,14 +811,15 @@ p.article-info-text > .postMeta i {
 }
 
 .feedbackListSubtitle-louzhu {
-    background-color: #f1f8ff;
-    border-bottom-color: #c0d3eb;
+    background-color: #f1f8ff !important;
+    border-bottom-color: #c0d3eb !important;
 }
 
 .feedbackItem {
     position: relative;
     padding: 15px 0 15px 60px;
     margin: 0;
+    font-size: 13px;
 }
 
 .feedbackItem:before {
@@ -933,7 +941,7 @@ div#tbCommentBodyPreview {
 
 #commentform_title {
     font: normal normal 16px/35px "Microsoft YaHei";
-    margin: 10px 0 30px;
+    margin: 30px 0;
     background-image: none;
     padding: 0
 }
@@ -1276,6 +1284,8 @@ div#tbCommentBodyPreview {
     border-top-right-radius: 3px;
     padding: 10px 20px;
     position: relative;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .divPhoto {
@@ -2439,11 +2449,11 @@ blockquote p {
     border-bottom: 1px dashed #e9e9e9
 }
 
-.entrylistTitle:after, .feedback_area_title:after {
+.entrylistTitle:after {
     left: 200px;
 }
 
-#commentform_title:after {
+#commentform_title:after, .feedback_area_title:after {
     left: 80px;
 }
 
@@ -4015,7 +4025,7 @@ table#blogCalendar>tbody>tr>td>a {
         width: 31px !important
     }
 
-    #aplayer, #bgCanvas, #canvas, #evanyou, #homeTopCanvas, #music-box, #notHomeTopCanvas, #pageAnimationOffOn, .essaySuffix-box-left, .scroll-down, body > meting-js {
+    .comment_date, #aplayer, #bgCanvas, #canvas, #evanyou, #homeTopCanvas, #music-box, #notHomeTopCanvas, #pageAnimationOffOn, .essaySuffix-box-left, .scroll-down, body > meting-js {
         display: none !important
     }
 

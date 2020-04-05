@@ -221,6 +221,48 @@ span.cnblogs_code {
     background: unset;
 }
 
+
+.feedbackListSubtitle {
+    color: #999;
+    background-color: #2a2a2a;
+    border: 1px solid #555;
+    border-bottom: 1px solid #555;
+}
+
+.feedbackCon {
+    border: 1px solid #555;
+    background: #333;
+}
+
+.feedbackListSubtitle-louzhu {
+    background-color: #222!important;
+    border-bottom-color: #555!important;
+}
+
+.feedbackListSubtitle-louzhu:after {
+    border-right-color: #222 !important;
+}
+
+.feedbackAvatar img {
+    border: 1px solid #555;
+}
+
+.feedbackItem:before {
+    background-color: #555;
+}
+
+.feedbackListSubtitle:before {
+    border-right-color: #555;
+}
+
+.feedbackListSubtitle:after {
+    border-right-color: #2a2a2a;
+}
+
+#tbCommentBody, #tbCommentBodyPreview {
+    color: #ddd;
+}
+
 @media only screen and (max-width: 720px) {
     .menu-button {
         border: none!important;
