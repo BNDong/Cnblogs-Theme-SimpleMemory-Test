@@ -247,6 +247,10 @@ span.cnblogs_code {
     border: 1px solid #555;
 }
 
+.feedbackItem pre {
+    opacity: .8;
+}
+
 .feedbackItem:before {
     background-color: #555;
 }
