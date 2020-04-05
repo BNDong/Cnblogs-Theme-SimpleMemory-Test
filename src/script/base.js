@@ -311,9 +311,9 @@ function Base() {
                     if (ac === 'down') {
                         var docHeight    = $(document).height();
                         var windowHeight = $(window).height();
-                        tools.actScroll(docHeight - windowHeight, 2000)
+                        tools.actScroll(docHeight - windowHeight, 800)
                     } else {
-                        tools.actScroll(0, 2000)
+                        tools.actScroll(0, 800)
                     }
                 }
             }
@@ -1333,7 +1333,7 @@ function Base() {
         }
 
         function setCodeBefore(type) {
-            var cssText = "font-family:'Ubuntu Mono',monospace !important; font-size: 14px !important;";
+            var cssText = "font-family:"+ window.cnblogsConfig.essayCode.fontFamily +" !important; font-size: "+ window.cnblogsConfig.essayCode.fontSize +" !important;";
             if (window.cnblogsConfig.codeMaxHeight) cssText += 'max-height: 70vh;';
             pre.css('cssText', cssText);
 
