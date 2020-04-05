@@ -212,6 +212,10 @@ span.cnblogs_code {
     color: #ddd;
 }
 
+.postBody pre {
+    opacity: .8;
+}
+
 .list .inc .conmts {
     color: #ddd;
     background: unset;

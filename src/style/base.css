@@ -2737,7 +2737,7 @@ blockquote p {
     overflow: hidden
 }
 
-#header, #leftcontentcontainer, #profile_block, .catListTitle {
+#header, #leftcontentcontainer, #profile_block, .catListTitle, #comment_nav {
     display: none !important
 }
 
