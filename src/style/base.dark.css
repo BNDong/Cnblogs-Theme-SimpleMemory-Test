@@ -212,7 +212,7 @@ span.cnblogs_code {
     color: #ddd;
 }
 
-.postBody pre, .feedbackItem pre {
+.postBody pre, .feedbackItem pre, #cnblogs_post_body img {
     filter: brightness(0.8);
 }
 

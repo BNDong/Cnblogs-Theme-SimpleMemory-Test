@@ -3175,6 +3175,9 @@ code-box {
     background-image: unset;
     margin: 0;
     padding: 0;
+    position: relative;
+    top: 10px;
+    text-align: center;
 }
 
 @media (max-width: 600px) {
@@ -4002,7 +4005,7 @@ table#blogCalendar>tbody>tr>td>a {
         font-size: 12px
     }
 
-    .menu-button {
+    .menu-button, .commentform {
         border: none !important;
         margin: 0 !important
     }
