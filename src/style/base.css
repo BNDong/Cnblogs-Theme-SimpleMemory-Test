@@ -941,7 +941,7 @@ div#tbCommentBodyPreview {
 
 #commentform_title {
     font: normal normal 16px/35px "Microsoft YaHei";
-    margin: 30px 0;
+    margin: 0;
     background-image: none;
     padding: 0
 }
@@ -3169,6 +3169,12 @@ code-box {
     z-index: 1;
     overflow: hidden;
     margin-right: 15px
+}
+
+.login_tips {
+    background-image: unset;
+    margin: 0;
+    padding: 0;
 }
 
 @media (max-width: 600px) {

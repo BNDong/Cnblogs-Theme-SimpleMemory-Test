@@ -212,15 +212,14 @@ span.cnblogs_code {
     color: #ddd;
 }
 
-.postBody pre {
-    opacity: .8;
+.postBody pre, .feedbackItem pre {
+    filter: brightness(0.8);
 }
 
 .list .inc .conmts {
     color: #ddd;
     background: unset;
 }
-
 
 .feedbackListSubtitle {
     color: #999;
@@ -245,10 +244,6 @@ span.cnblogs_code {
 
 .feedbackAvatar img {
     border: 1px solid #555;
-}
-
-.feedbackItem pre {
-    opacity: .8;
 }
 
 .feedbackItem:before {
