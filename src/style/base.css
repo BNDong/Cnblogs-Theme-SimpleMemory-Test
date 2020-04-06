@@ -4010,6 +4010,10 @@ table#blogCalendar>tbody>tr>td>a {
         margin: 0 !important
     }
 
+    .login_tips {
+        font-size: 12px;
+    }
+
     .inner {
         width: auto;
         margin: 2rem auto

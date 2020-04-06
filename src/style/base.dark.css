@@ -111,10 +111,6 @@ footer-background {
     background: linear-gradient(#f9f9f9 20%, transparent 20%, transparent 40%, #f9f9f9 40%, #f9f9f9 60%, transparent 60%, transparent 80%, #f9f9f9 80%) !important
 }
 
-.main-header {
-    opacity: .85
-}
-
 .sb-title {
     color: #f9f9f9
 }
@@ -212,7 +208,7 @@ span.cnblogs_code {
     color: #ddd;
 }
 
-.postBody pre, .feedbackItem pre, #cnblogs_post_body img {
+.postBody pre, .feedbackItem pre, #cnblogs_post_body img, #EntryTag, #div_digg, #green_channel, .main-header {
     filter: brightness(0.8);
 }
 
