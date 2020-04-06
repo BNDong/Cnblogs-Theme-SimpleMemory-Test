@@ -208,7 +208,7 @@ span.cnblogs_code {
     color: #ddd;
 }
 
-.postBody pre, .feedbackItem pre, #cnblogs_post_body img, #EntryTag, #div_digg, #green_channel, .main-header {
+.postBody pre, .feedbackItem pre, #cnblogs_post_body img, #EntryTag, #div_digg, #green_channel, .main-header, #btn_comment_submit {
     filter: brightness(0.8);
 }
 
