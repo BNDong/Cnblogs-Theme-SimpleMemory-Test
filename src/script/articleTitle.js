@@ -23,11 +23,11 @@ $(document).ready(function () {
 
     let topHT = 'h' + topLev, topTwHT = 'h' + (topLev + 1), topHTN = 0, topTwHTN = 0;
     h.each(function () {
-        let u = $(this), v = u[0], ht = v.tagName.toLowerCase(), ln = 1, rn = 0;
+        let u = $(this), v = u[0], ht = v.tagName.toLowerCase(), ln = 1, rn = 0, style = '';
         if (ht === 'h6') return true;
         u.attr('tid', 'tid-' + tools.randomString(6));
-        let thText = tools.HTMLEncode(u.text());
-        u.wrap('<span title-type="' + ht + '" class="header__span"></span>').text('').addClass('header__dev');
+        let thText = tools.HTMLEncode(u.text()), headerStyle = 'transform:scale('+ hScale[ht] +');';
+        u.wrap('<span title-type="' + ht + '" class="header__span" style="' + headerStyle + '"></span>').text('').addClass('header__dev');
 
         // 判断标题级别
         switch (ht) {
@@ -40,18 +40,16 @@ $(document).ready(function () {
                 break;
 
             default: // 其它级别标题
-
+                style = 'visibility: hidden;';
                 break;
         }
 
-
-        var thHtml = '<b class="dev__fe"><i>' + ln + '</i></b>';
+        var thHtml = '<span style="' + style + '"><b class="dev__fe"><i>' + ln + '</i></b>';
         thHtml += '<span class="dev__slash">|</span>';
-        thHtml += '<b class="dev__ux"><i>' + rn + '</i></b>';
+        thHtml += '<b class="dev__ux"><i>' + rn + '</i></b></span>';
         thHtml += '<b class="dev__developer"><span class="dev__title">' + thText + '</span></b>';
 
         u.append(thHtml);
-        u.parents('.header__span').after('<br>');
 
         u.parent(".header__span").hover(
             function(){
