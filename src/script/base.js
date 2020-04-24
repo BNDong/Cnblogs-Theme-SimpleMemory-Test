@@ -330,8 +330,6 @@ function Base() {
         pageLoading.spinner.setComplete();
         $('#loading').hide();
         $('a[name="top"]').fadeOut(300);
-        // $('#loading').fadeOut(300);
-        // $('a[name="top"]').fadeOut(300);
     };
 
     /**

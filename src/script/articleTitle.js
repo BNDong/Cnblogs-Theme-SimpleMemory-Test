@@ -35,13 +35,14 @@ $(document).ready(function () {
                 break;
 
             case topTwHT: // 二级标题
+                style = 'position: relative;left: -5px;';
                 topTwHTN++; ln = topHTN; rn = topTwHTN;
                 headerStyle += 'left: -' +  (((1 - hScale[ht]) * bw / 2) - ((1 - hScale[ht]) * 10 * 8)).toFixed(2) + 'px;';
                 break;
 
             default: // 其它级别标题
                 style = 'visibility: hidden;';
-                icon  = '<span class="iconfont icon-weibiaoti22 titleIcon"></span>';
+                icon  = '<span class="iconfont icon-weibiaoti22 titleIcon" style="left: '+ (40 - ((1 - hScale[ht] - 0.1) * 80)).toFixed(2) + 'px;"></span>';
                 headerStyle += 'left: -' +  (((1 - hScale[ht]) * bw / 2) - ((1 - hScale[ht]) * 10 * 8)).toFixed(2) + 'px;';
                 break;
         }
