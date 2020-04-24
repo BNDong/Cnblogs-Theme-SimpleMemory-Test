@@ -18,7 +18,7 @@ $(document).ready(function () {
     // 处理标题缩放级别
     let hScale = {};
     for (let i = topLev, j = 1; i < 6; i++, j = j - 0.1) {
-        hScale['h'+i] = j;
+        hScale['h'+i] = j.toFixed(1);
     }
 
     let topHT = 'h' + topLev, topTwHT = 'h' + (topLev + 1), topHTN = 0, topTwHTN = 0, bw = s.outerWidth(false);
@@ -36,12 +36,12 @@ $(document).ready(function () {
 
             case topTwHT: // 二级标题
                 topTwHTN++; ln = topHTN; rn = topTwHTN;
-                headerStyle += 'left: ' +  ((hScale[ht] * bw / 2) + (hScale[ht] * 10 * 8)) + 'px;';
+                headerStyle += 'left: -' +  (((1 - hScale[ht]) * bw / 2) - ((1 - hScale[ht]) * 10 * 8)).toFixed(2) + 'px;';
                 break;
 
             default: // 其它级别标题
                 style = 'visibility: hidden;';
-                headerStyle += 'left: ' +  ((hScale[ht] * bw / 2) + (hScale[ht] * 10 * 8)) + 'px;';
+                headerStyle += 'left: -' +  (((1 - hScale[ht]) * bw / 2) - ((1 - hScale[ht]) * 10 * 8)).toFixed(2) + 'px;';
                 break;
         }
 
