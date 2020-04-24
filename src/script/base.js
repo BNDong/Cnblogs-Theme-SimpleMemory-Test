@@ -341,7 +341,7 @@ function Base() {
         $('body').css('overflow', 'auto');
         pageLoading.spinner.setComplete();
         $('#loading').hide();
-        $('a[name="top"]').fadeOut(300);
+        $('a[name="top"]').hide();
     };
 
     /**
