@@ -2386,6 +2386,14 @@ blockquote p {
 /*    background-position: 0 6px*/
 /*}*/
 
+.titleIcon {
+    position: absolute;
+    font-size: 34px;
+    color: #5d69a5;
+    line-height: 50px;
+    left: 38px;
+}
+
 #cnblogs_post_body ul {
     margin-left: 20px;
     margin-top: 5px;

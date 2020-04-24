@@ -23,7 +23,7 @@ $(document).ready(function () {
 
     let topHT = 'h' + topLev, topTwHT = 'h' + (topLev + 1), topHTN = 0, topTwHTN = 0, bw = s.outerWidth(false);
     h.each(function () {
-        let u = $(this), v = u[0], ht = v.tagName.toLowerCase(), ln = 1, rn = 0, style = '';
+        let u = $(this), v = u[0], ht = v.tagName.toLowerCase(), ln = 1, rn = 0, style = '', icon = '';
         if (ht === 'h6') return true;
         u.attr('tid', 'tid-' + tools.randomString(6));
         let thText = tools.HTMLEncode(u.text()), headerStyle = 'transform:scale('+ hScale[ht] +');';
@@ -41,6 +41,7 @@ $(document).ready(function () {
 
             default: // 其它级别标题
                 style = 'visibility: hidden;';
+                icon  = '<span class="iconfont icon-weibiaoti22 titleIcon"></span>';
                 headerStyle += 'left: -' +  (((1 - hScale[ht]) * bw / 2) - ((1 - hScale[ht]) * 10 * 8)).toFixed(2) + 'px;';
                 break;
         }
@@ -50,7 +51,7 @@ $(document).ready(function () {
         var thHtml = '<span style="' + style + '"><b class="dev__fe"><i>' + ln + '</i></b>';
         thHtml += '<span class="dev__slash">|</span>';
         thHtml += '<b class="dev__ux"><i>' + rn + '</i></b></span>';
-        thHtml += '<b class="dev__developer"><span class="dev__title">' + thText + '</span></b>';
+        thHtml += icon + '<b class="dev__developer"><span class="dev__title">' + thText + '</span></b>';
 
         u.append(thHtml);
 
