@@ -26,7 +26,7 @@ $(document).ready(function () {
         let u = $(this), v = u[0], ht = v.tagName.toLowerCase(), ln = 1, rn = 0, style = '';
         if (ht === 'h6') return true;
         u.attr('tid', 'tid-' + tools.randomString(6));
-        let thText = tools.HTMLEncode(u.text()), headerStyle = 'transform:scale('+ hScale[ht] +');';
+        let thText = tools.HTMLEncode(u.html()), headerStyle = 'transform:scale('+ hScale[ht] +');';
 
         // 判断标题级别
         switch (ht) {
