@@ -31,11 +31,11 @@ $(document).ready(function () {
     let topHT = 'h' + topLev, topTwHT = 'h' + (topLev + 1);
 
     o.each(function () {
-        var u = $(this),
+        let u = $(this),
             v = u[0];
         if ($.inArray((v.tagName.toLowerCase()), [topHT, topTwHT]) === -1) return true;
 
-        var lserialNum   = u.find('.dev__fe').text(),
+        let lserialNum   = u.find('.dev__fe').text(),
             rserialNum   = u.find('.dev__ux').text(),
             titleContent = u.find('.dev__developer').text(),
             titleId      = u.attr('tid'),
@@ -79,11 +79,11 @@ $(document).ready(function () {
     $sideCatelog = $('#' + e);
 
     $('#' + f + '>ul>li').click(function () {
-        var obj = $(this), title = $(':header[tid="'+obj.find('a').attr('goto')+'"]').parent('span.header__span');
+        let obj = $(this), title = $(':header[tid="'+obj.find('a').attr('goto')+'"]').parent('span.header__span');
         title.length && tools.actScroll(title.offset().top + 3, 800);
     });
 
-    var nav_li = $('#sideCatalog-catalog').find('ul li');
+    let nav_li = $('#sideCatalog-catalog').find('ul li');
 
     if (nav_li.length === 0) {
         $sideCatelog.css('visibility', 'hidden');
@@ -91,7 +91,7 @@ $(document).ready(function () {
     }
 
     nav_li.on('activate.bs.scrollspy', function () {
-        var gu = $(this).attr("g"),
+        let gu = $(this).attr("g"),
             catalog = $('#sideCatalog-catalog');
             catalog.find('.h2Offset').hide();
             catalog.find('.ceg' + gu).show();
