@@ -21,13 +21,12 @@ $(document).ready(function () {
         hScale['h'+i] = j;
     }
 
-    let topHT = 'h' + topLev, topTwHT = 'h' + (topLev + 1), topHTN = 0, topTwHTN = 0;
+    let topHT = 'h' + topLev, topTwHT = 'h' + (topLev + 1), topHTN = 0, topTwHTN = 0, bw = s.outerWidth(false);
     h.each(function () {
         let u = $(this), v = u[0], ht = v.tagName.toLowerCase(), ln = 1, rn = 0, style = '';
         if (ht === 'h6') return true;
         u.attr('tid', 'tid-' + tools.randomString(6));
         let thText = tools.HTMLEncode(u.text()), headerStyle = 'transform:scale('+ hScale[ht] +');';
-        u.wrap('<span title-type="' + ht + '" class="header__span" style="' + headerStyle + '"></span>').text('').addClass('header__dev');
 
         // 判断标题级别
         switch (ht) {
@@ -37,12 +36,16 @@ $(document).ready(function () {
 
             case topTwHT: // 二级标题
                 topTwHTN++; ln = topHTN; rn = topTwHTN;
+                headerStyle += 'left: ' +  ((hScale[ht] * bw / 2) + (hScale[ht] * 10 * 8)) + 'px;';
                 break;
 
             default: // 其它级别标题
                 style = 'visibility: hidden;';
+                headerStyle += 'left: ' +  ((hScale[ht] * bw / 2) + (hScale[ht] * 10 * 8)) + 'px;';
                 break;
         }
+
+        u.wrap('<span title-type="' + ht + '" class="header__span" style="' + headerStyle + '"></span>').text('').addClass('header__dev');
 
         var thHtml = '<span style="' + style + '"><b class="dev__fe"><i>' + ln + '</i></b>';
         thHtml += '<span class="dev__slash">|</span>';
