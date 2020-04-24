@@ -13,19 +13,41 @@ $(document).ready(function () {
         || (s.find('h4').length ? 4 : false)
         || (s.find('h5').length ? 5 : false)
         || (s.find('h6').length ? 6 : false);
-    if (topLev > 5) return;
+    if (topLev > 4) return;
 
+    // 处理标题缩放级别
+    let hScale = {};
+    for (let i = topLev, j = 1; i < 6; i++, j = j - 0.1) {
+        hScale['h'+i] = j;
+    }
+
+    let topHT = 'h' + topLev, topTwHT = 'h' + (topLev + 1), topHTN = 0, topTwHTN = 0;
     h.each(function () {
-        let u = $(this), v = u[0];
-        if (v.tagName.toLowerCase() === 'h6') return true;
+        let u = $(this), v = u[0], ht = v.tagName.toLowerCase(), ln = 1, rn = 0;
+        if (ht === 'h6') return true;
         u.attr('tid', 'tid-' + tools.randomString(6));
         let thText = tools.HTMLEncode(u.text());
+        u.wrap('<span title-type="' + ht + '" class="header__span"></span>').text('').addClass('header__dev');
 
-        u.wrap('<span title-type="'+v.tagName.toLowerCase()+'" class="header__span"></span>').text('').addClass('header__dev');
+        // 判断标题级别
+        switch (ht) {
+            case topHT: // 一级标题
+                topHTN++; ln = topHTN; topTwHTN = 0;
+                break;
 
-        var thHtml = '<b class="dev__fe"><i>' + 1 + '</i></b>';
+            case topTwHT: // 二级标题
+                topTwHTN++; ln = topHTN; rn = topTwHTN;
+                break;
+
+            default: // 其它级别标题
+
+                break;
+        }
+
+
+        var thHtml = '<b class="dev__fe"><i>' + ln + '</i></b>';
         thHtml += '<span class="dev__slash">|</span>';
-        thHtml += '<b class="dev__ux"><i>0</i></b>';
+        thHtml += '<b class="dev__ux"><i>' + rn + '</i></b>';
         thHtml += '<b class="dev__developer"><span class="dev__title">' + thText + '</span></b>';
 
         u.append(thHtml);

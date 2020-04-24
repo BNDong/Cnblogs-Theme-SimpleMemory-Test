@@ -2374,17 +2374,17 @@ blockquote p {
     text-indent: 0 !important
 }
 
-#cnblogs_post_body h3:before, #cnblogs_post_body h4:before, #cnblogs_post_body h5:before {
-    content: ' ';
-    font-weight: lighter;
-    width: 21px;
-    height: 16px;
-    display: inline-block;
-    transition: all .3s;
-    background-image: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/title_icon.webp);
-    background-repeat: no-repeat;
-    background-position: 0 6px
-}
+/*#cnblogs_post_body h3:before, #cnblogs_post_body h4:before, #cnblogs_post_body h5:before {*/
+/*    content: ' ';*/
+/*    font-weight: lighter;*/
+/*    width: 21px;*/
+/*    height: 16px;*/
+/*    display: inline-block;*/
+/*    transition: all .3s;*/
+/*    background-image: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/title_icon.webp);*/
+/*    background-repeat: no-repeat;*/
+/*    background-position: 0 6px*/
+/*}*/
 
 #cnblogs_post_body ul {
     margin-left: 20px;
