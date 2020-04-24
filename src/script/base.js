@@ -135,6 +135,18 @@ function Base() {
         // 添加日/夜间模式控制
         window.cnblogsConfig.switchDayNight.enable && bndongJs.setDayNightControl();
 
+        // 广告
+        if (window.cnblogsConfig.advertising) {
+            $('#ad_c1').show();
+            $('#ad_c2').show();
+            $('#ad_t1').show();
+            $('#ad_t2').show();
+            $('#cnblogs_c1').show();
+            $('#cnblogs_c2').show();
+            $('#under_post_kb').show();
+            $('#under_post_news').show();
+        }
+
         // 控制台输出
         tools.consoleText(window.cnblogsConfig.consoleList, 'banner');
     };

@@ -218,6 +218,7 @@ if (initCheck()) {
             wechatpay: '',
             alipay: ''
         },
+        advertising: true,
     };
 
     window.cnblogsConfig = $.extend( true, window.cnblogsConfigDefault, window.cnblogsConfig );
