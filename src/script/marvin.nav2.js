@@ -26,7 +26,7 @@ $(document).ready(function () {
         || (s.find('h4').length ? 4 : false)
         || (s.find('h5').length ? 5 : false)
         || (s.find('h6').length ? 6 : false);
-    if (topLev > 4) return;
+    if (!topLev || topLev > 4) return;
 
     let topHT = 'h' + topLev, topTwHT = 'h' + (topLev + 1);
 

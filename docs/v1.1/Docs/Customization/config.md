@@ -844,7 +844,12 @@ window.cnblogsConfig = {
 
 ```json
 {
-    icon: "❤️",
+    icon: "❤️",   // v1.3.0 已废弃该配置
+    iconFont: {  // v1.3.0 新增配置
+        icon:  "icon-xl", // iconfont 图标名称
+        color: "red",     // 图标颜色
+        fontSize: "16px"  // 图标大小
+    },
     left : "",
     right: ""
 }
