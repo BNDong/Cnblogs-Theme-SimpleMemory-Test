@@ -882,6 +882,23 @@ window.cnblogsConfig = {
 }
 ```
 
+## 广告
+
+### advertising
+
+?> 版本 >= v1.3.0
+
+* 类型：```Boolean```
+* 默认值：```true```
+
+是否显示博客园广告。
+
+```javascript
+window.cnblogsConfig = {
+    advertising: true,
+}
+```
+
 ## 版本映射
 
 ### isVersionMapping

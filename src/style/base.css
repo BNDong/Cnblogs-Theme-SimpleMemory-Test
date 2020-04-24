@@ -3382,7 +3382,7 @@ div#green_channel img {
 
 #footer .footer-text .footer-text-icon {
     display: inline-block;
-    margin: 0 0 0 7px;
+    margin: 0 7px;
     font-size: 14px;
     -webkit-font-smoothing: antialiased;
     animation: iconAnimate 1.33s ease-in-out infinite;

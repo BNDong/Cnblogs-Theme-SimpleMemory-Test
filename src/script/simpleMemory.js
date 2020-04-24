@@ -196,9 +196,13 @@ if (initCheck()) {
         },
         bottomBlogroll: [],
         bottomText: {
-            icon: "❤️",
+            iconFont: {
+                icon:  "icon-xl",
+                color: "red",
+                fontSize: "16px"
+            },
             left: "",
-            right: ""
+            right: "",
         },
         footerStyle: 2,
         consoleList: [],
