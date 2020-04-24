@@ -328,8 +328,10 @@ function Base() {
     this.endLoading = function() {
         $('body').css('overflow', 'auto');
         pageLoading.spinner.setComplete();
-        $('#loading').fadeOut(300);
+        $('#loading').hide();
         $('a[name="top"]').fadeOut(300);
+        // $('#loading').fadeOut(300);
+        // $('a[name="top"]').fadeOut(300);
     };
 
     /**
