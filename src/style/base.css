@@ -679,16 +679,16 @@ p.article-info-text > .postMeta i {
     width: 100%;
     min-height: 200px;
     padding: 0 0 10px;
-    float: left;
     -o-text-overflow: ellipsis;
-    margin: 4rem auto
+    margin: 4rem auto;
+    font-family: -apple-system, SF UI Text, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
+    margin-top: 15px
 }
 
 #topics .postTitle {
     border: 0;
     font-size: 130%;
     font-weight: 700;
-    float: left;
     line-height: 1.5;
     width: 100%;
     padding-left: 5px
@@ -2348,11 +2348,6 @@ div#tbCommentBodyPreview {
     display: none
 }
 
-#topics {
-    font-family: -apple-system, SF UI Text, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
-    margin-top: 15px
-}
-
 #cnblogs_post_body h6, blockquote {
     line-height: 20px;
     margin: 0 0 24px;
@@ -3098,16 +3093,6 @@ code-box {
     z-index: 1;
     overflow: hidden;
     margin-right: 15px
-}
-
-.login_tips {
-    background-image: unset;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    top: -9px;
-    height: 0;
-    text-align: center;
 }
 
 @media (max-width: 600px) {
