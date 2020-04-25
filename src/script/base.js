@@ -1347,6 +1347,8 @@ function Base() {
 
         function setCodeBefore(type) {
             var cssText = "font-family:"+ window.cnblogsConfig.essayCode.fontFamily +" !important; font-size: "+ window.cnblogsConfig.essayCode.fontSize +" !important;";
+
+            // 代码高度限制
             if (window.cnblogsConfig.codeMaxHeight) cssText += 'max-height: 70vh;';
             pre.css('cssText', cssText);
 
@@ -1379,6 +1381,12 @@ function Base() {
                     }
                 });
                 $('#' + pid).append(html);
+
+                // 显示代码行号
+                if (window.cnblogsConfig.codeLineNumber) {
+                    $('.line-numbers-rows').show();
+                    ('#' + pid).addClass('code-pre-line');
+                }
             });
         }
 

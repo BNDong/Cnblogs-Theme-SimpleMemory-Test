@@ -2,9 +2,9 @@
     padding: 0
 }
 
-body, html {
-    max-height: 100%
-}
+/*body, html {*/
+/*    max-height: 100%*/
+/*}*/
 
 #blogTitle h1 a:hover, a:active {
     color: #5c8ec6
@@ -80,17 +80,17 @@ body {
     overflow: hidden
 }
 
-body:before {
-    content: '';
-    display: block;
-    z-index: -1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: 20px 20px
-}
+/*body:before {*/
+/*    content: '';*/
+/*    display: block;*/
+/*    z-index: -1;*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    background-size: 20px 20px*/
+/*}*/
 
 ::-moz-selection {
     background: #D6EDFF
@@ -2634,8 +2634,8 @@ blockquote p {
 }
 
 .dev__fe, .dev__fe i, .dev__ux, .dev__ux i {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     position: absolute
 }
 
@@ -2649,7 +2649,7 @@ blockquote p {
 
 .header__span .dev__slash {
     color: #5d69a5;
-    top: 9px;
+    top: 8px;
     left: 57px;
     font-size: 35px;
 }
@@ -2667,19 +2667,19 @@ blockquote p {
 .dev__fe {
     text-align: right;
     direction: rtl;
-    top: -35px;
-    left: -40px;
+    top: -11px;
+    left: 11px;
 }
 
 .dev__ux {
-    left: 65px;
-    top: -24px;
+    left: 64px;
+    top: 0px;
     text-align: left;
 }
 
 .dev__fe i, .dev__ux i {
     font-style: normal;
-    line-height: 100px;
+    line-height: 50px;
     font-weight: 400;
     -webkit-transform: rotateZ(-22deg);
     transform: rotateZ(-22deg);
@@ -2724,8 +2724,12 @@ blockquote p {
     transition: all .6s cubic-bezier(.555, -.375, 0, 1.615)
 }
 
-.header__dev--open .dev__fe i, .header__dev--open .dev__ux i {
+.header__dev--open .dev__fe i {
     text-indent: 5px !important
+}
+
+.header__dev--open .dev__ux i {
+    text-indent: 11px !important
 }
 
 .header__dev--open .dev__developer {
@@ -2791,10 +2795,6 @@ code-box {
     margin: 10px 0;
 }
 
-.hljs-number, code .lit, pre .lit, pre span[style='color: #008080;']{
-    display: none;
-}
-
 .post pre {
     padding: 10px !important;
     white-space: pre;
@@ -2820,7 +2820,8 @@ code-box {
     left: -34px;
     width: 30px;
     text-align: center;
-    color: #999
+    color: #999;
+    display: none;
 }
 
 .postBody pre .line-numbers-rows:before {
@@ -2831,6 +2832,9 @@ code-box {
     position: relative;
     padding-left: 10px;
     display: block;
+}
+
+.postBody pre .code-pre-line {
     left: 30px;
     border-left: 1px solid #999
 }
