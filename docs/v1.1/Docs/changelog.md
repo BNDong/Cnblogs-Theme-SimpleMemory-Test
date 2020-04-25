@@ -5,8 +5,9 @@
 * 优化了 h1~h5 文章标题样式
 * 取消了 loading 关闭时的过渡动画，防止卡顿，加快进入页面速度
 * 增加广告配置：```advertising```
-* 废弃配置：```bottomText.icon```
-* 增加配置：```bottomText.iconFont```
+* 增加代码行号配置(默认关闭)：```codeLineNumber```
+* 废弃页脚标语配置：```bottomText.icon```
+* 增加页脚标语配置：```bottomText.iconFont```
 * 更新基础 css 文件
 * 修复了当用户未登录时，文章内容被遮盖导致无法复制代码等操作的问题
 * 修复了文章标题遮挡紧邻下方内容的问题

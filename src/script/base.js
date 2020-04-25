@@ -1381,13 +1381,13 @@ function Base() {
                     }
                 });
                 $('#' + pid).append(html);
-
-                // 显示代码行号
-                if (window.cnblogsConfig.codeLineNumber) {
-                    $('.line-numbers-rows').show();
-                    $('#' + pid).addClass('code-pre-line');
-                }
             });
+
+            // 显示代码行号
+            if (window.cnblogsConfig.codeLineNumber) {
+                $('.line-numbers-rows').show();
+                $('#' + pid).addClass('code-pre-line');
+            }
         }
 
         // 设置代码滚动条样式
