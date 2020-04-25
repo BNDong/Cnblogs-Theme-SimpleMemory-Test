@@ -3,8 +3,8 @@
 * 现在文章标题和目录可以自动适配标题了
 * 隐藏了博客园原用代码行号渲染
 * 优化了 h1~h5 文章标题样式
-* 取消了 loading 关闭时的过渡动画，防止卡顿，加快进入页面速度
-* 增加广告配置：```advertising```
+* 取消了 loading 关闭时的过渡动画
+* 增加广告配置(默认开启)：```advertising```
 * 增加代码行号配置(默认关闭)：```codeLineNumber```
 * 废弃页脚标语配置：```bottomText.icon```
 * 增加页脚标语配置：```bottomText.iconFont```
