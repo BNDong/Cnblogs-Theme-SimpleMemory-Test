@@ -516,7 +516,7 @@ function Base() {
                 let calendarHtml = '<div id="blog-calendar">' + calendar.html() + '</div>';
                 calendar.remove();
                 menuCalendar.html(calendarHtml);
-                $('#blog-calendar').css('visibility', 'visible');
+                calendar.css('visibility', 'visible');
                 bndongJs.clearIntervalTimeId(timeIds.setMenuCalendarTId);
             }
         }
@@ -714,7 +714,7 @@ function Base() {
      * 添加页脚
      */
     this.addFooter = function() {
-        const footer = $('#footer'),
+        const footer = $("#footer"),
               lHref  = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.CnVersions,
               rHref  = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
         let footerText = footer.text();
@@ -753,7 +753,7 @@ function Base() {
 
         // v1.0 页脚
         function init_t1() {
-            $('#footer').prepend('<div class="footer-image"></div>').addClass('footer-t1');
+            footer.prepend('<div class="footer-image"></div>').addClass('footer-t1');
         }
 
         // v1.1+ 页脚
@@ -765,7 +765,7 @@ function Base() {
                 '<figure class="foreground"></figure>' +
                 '</footer-background>' +
                 '</footer>';
-            $('#footer').prepend(html);
+            footer.prepend(html);
             $('#footer .footer-text').css({
                 'padding-bottom': '0',
                 'border-bottom': 'none',
