@@ -1385,7 +1385,7 @@ function Base() {
                 // 显示代码行号
                 if (window.cnblogsConfig.codeLineNumber) {
                     $('.line-numbers-rows').show();
-                    ('#' + pid).addClass('code-pre-line');
+                    $('#' + pid).addClass('code-pre-line');
                 }
             });
         }
