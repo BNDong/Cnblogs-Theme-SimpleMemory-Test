@@ -516,7 +516,7 @@ function Base() {
                 let calendarHtml = '<div id="blog-calendar">' + calendar.html() + '</div>';
                 calendar.remove();
                 menuCalendar.html(calendarHtml);
-                calendar.css('visibility', 'visible');
+                $('#blog-calendar').css('visibility', 'visible');
                 bndongJs.clearIntervalTimeId(timeIds.setMenuCalendarTId);
             }
         }
@@ -714,7 +714,7 @@ function Base() {
      * 添加页脚
      */
     this.addFooter = function() {
-        const footer = $("#footer"),
+        const footer = $('#footer'),
               lHref  = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.CnVersions,
               rHref  = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
         let footerText = footer.text();
