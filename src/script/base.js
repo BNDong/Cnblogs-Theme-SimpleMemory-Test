@@ -1092,9 +1092,9 @@ function Base() {
             date = typeof info[1] === 'undefined' ? '1970-01-01 00:00' : info[1],
             vnum = typeof info[2] === 'undefined' ? '0' : info[2],
             cnum = typeof info[3] === 'undefined' ? '0' : info[3],
-            tnum = typeof info[3] === 'undefined' ?
-                diggCount.length ? diggCount.text() : '0'
-                : info[3];
+            tnum = typeof info[4] === 'undefined' ?
+                (diggCount.length ? diggCount.text() : '0')
+                : info[4];
 
         return {
             date: date,
