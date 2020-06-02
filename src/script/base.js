@@ -1070,8 +1070,14 @@ function Base() {
      * 设置文章信息
      */
     this.setArticleInfoAuthor = function () {
-        let postDescText = $('.postDesc').show().text();
-        $('#articleInfo').append('<p class="article-info-text">'+ bndongJs.getPostMetaHtml(postDescText) +'</p>');
+
+        let postDescTid = window.setInterval( function () {
+            if ($('#post_view_count').text() !== '...' && $('#post_comment_count').text() !== '...') {
+                let postDescText = $('.postDesc').show().text();
+                $('#articleInfo').append('<p class="article-info-text">'+ bndongJs.getPostMetaHtml(postDescText) +'</p>');
+                bndongJs.clearIntervalTimeId(postDescTid);
+            }
+        }, 1000 );
     };
 
     /**
@@ -1111,7 +1117,6 @@ function Base() {
      */
     this.getPostMetaHtml = function (postDescText) {
         let info = bndongJs.getPostMetaInfo(postDescText);
-        console.log(info);
         let html = '<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+info.date+'' +
             '<i class="iconfont icon-browse"></i>阅读：'+info.vnum+'' +
             '<i class="iconfont icon-interactive"></i>评论：'+info.cnum+'' +
