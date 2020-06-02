@@ -1070,11 +1070,11 @@ function Base() {
      * 设置文章信息
      */
     this.setArticleInfoAuthor = function () {
-
+        $('#articleInfo').append('<p class="article-info-text"></p>');
         let postDescTid = window.setInterval( function () {
             if ($('#post_view_count').text() !== '...' && $('#post_comment_count').text() !== '...') {
                 let postDescText = $('.postDesc').show().text();
-                $('#articleInfo').append('<p class="article-info-text">'+ bndongJs.getPostMetaHtml(postDescText) +'</p>');
+                $('#articleInfo p.article-info-text').html(bndongJs.getPostMetaHtml(postDescText));
                 bndongJs.clearIntervalTimeId(postDescTid);
             }
         }, 1000 );
