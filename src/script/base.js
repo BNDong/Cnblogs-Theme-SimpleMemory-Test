@@ -9,10 +9,9 @@ function Base() {
     const bndongJs     = this,
           tools        = new myTools,
           isHome       = !!$('#topics').length;
-          postMetaRex  = /.*posted\s*@\s*([0-9\-:\s]{16}).*阅读\s*\(([0-9]*)\).*评论\s*\(([0-9]*)\).*/,
-          postMetaRex2 = /.*posted\s*@\s*([0-9\-:\s]{16}).*/,
-          progressBar  = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'); // 进度条
-    let   temScroll    = 0,  // 上一次页面滚动位置
+
+    let progressBar  = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'), // 进度条
+        temScroll    = 0,  // 上一次页面滚动位置
 
         /** 定时器 **/
         timeIds    = {
@@ -527,7 +526,7 @@ function Base() {
         function setSidebar() {
             let sidebar     = $('#sidebar_recentposts ul li'),
                 menuSidebar = $('#sb-sidebarRecentposts');
-console.log(21432);
+
             if (sidebar.length > 0 && menuSidebar.html() === ''){
                 menuSidebar.html(getMenuData(sidebar, 'icon-time_fill')).prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setMenuSidebarTId);
@@ -886,12 +885,8 @@ console.log(21432);
         $.each(titleList, function () {
             let title = $(this),
                 titleText = title.text(),
-                postDescText = title.nextAll('.postDesc:eq(0)').text().replace(/[\r\n]/g, ''),
-                info = postDescText.match(postMetaRex) || postDescText.match(postMetaRex2),
-                date = typeof info[1] === 'undefined' ? '1970-01-01 00:00' : info[1],
-                vnum = typeof info[2] === 'undefined' ? '0' : info[2],
-                cnum = typeof info[3] === 'undefined' ? '0' : info[3];
-            title.after('<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+date+'<i class="iconfont icon-browse"></i>阅读次数：'+vnum+'<i class="iconfont icon-interactive"></i>评论次数：'+cnum+'</span>');
+                postDescText = title.nextAll('.postDesc:eq(0)').text();
+            title.after(bndongJs.getPostMetaHtml(postDescText));
             if (/\[置顶\]/.test(titleText)) title.append('<span class="postSticky">置顶</span>');
             title.find('a').text(titleText.replace('[置顶]', ''));
         });
@@ -904,12 +899,8 @@ console.log(21432);
         let titleList = $('#main .entrylistPosttitle');
         $.each(titleList, function () {
             let title = $(this),
-                postDescText = title.nextAll('.entrylistItemPostDesc:eq(0)').text().replace(/[\r\n]/g, ''),
-                info = postDescText.match(postMetaRex) || postDescText.match(postMetaRex2),
-                date = typeof info[1] === 'undefined' ? '1970-01-01 00:00' : info[1],
-                vnum = typeof info[2] === 'undefined' ? '0' : info[2],
-                cnum = typeof info[3] === 'undefined' ? '0' : info[3];
-            title.after('<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+date+'<i class="iconfont icon-browse"></i>阅读次数：'+vnum+'<i class="iconfont icon-interactive"></i>评论次数：'+cnum+'</span>');
+                postDescText = title.nextAll('.entrylistItemPostDesc:eq(0)').text();
+            title.after(bndongJs.getPostMetaHtml(postDescText));
         });
     };
 
@@ -1079,13 +1070,53 @@ console.log(21432);
      * 设置文章信息
      */
     this.setArticleInfoAuthor = function () {
-        let postDescText = $('.postDesc').show().text().replace(/[\r\n]/g, ''),
-            info = postDescText.match(postMetaRex) || postDescText.match(postMetaRex2),
+        let postDescText = $('.postDesc').show().text();
+        $('#articleInfo').append('<p class="article-info-text">'+ bndongJs.getPostMetaHtml(postDescText) +'</p>');
+    };
+
+    /**
+     * 获取文章 post meta 信息
+     * @param postDescText
+     * @returns {{date: *, tnum: *, vnum: *, cnum: *}}
+     */
+    this.getPostMetaInfo = function (postDescText) {
+        postDescText = postDescText.replace(/[\r\n]/g, '');
+
+        let postMetaRex  = /.*posted\s*@\s*([0-9\-:\s]{16}).*阅读\s*\(([0-9]*)\).*评论\s*\(([0-9]*)\).*推荐\s*\(([0-9]*)\).*/,
+            postMetaRex2  = /.*posted\s*@\s*([0-9\-:\s]{16}).*阅读\s*\(([0-9]*)\).*评论\s*\(([0-9]*)\).*/,
+            postMetaRex3 = /.*posted\s*@\s*([0-9\-:\s]{16}).*/,
+            diggCount = $('#digg_count'),
+            info = postDescText.match(postMetaRex)
+                || postDescText.match(postMetaRex2)
+                || postDescText.match(postMetaRex3),
             date = typeof info[1] === 'undefined' ? '1970-01-01 00:00' : info[1],
             vnum = typeof info[2] === 'undefined' ? '0' : info[2],
-            cnum = typeof info[3] === 'undefined' ? '0' : info[3];
-            html = '<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+date+'<i class="iconfont icon-browse"></i>阅读次数：'+vnum+'<i class="iconfont icon-interactive"></i>评论次数：'+cnum+'</span>';
-        $('#articleInfo').append('<p class="article-info-text">'+html+'</p>');
+            cnum = typeof info[3] === 'undefined' ? '0' : info[3],
+            tnum = typeof info[3] === 'undefined' ?
+                diggCount.length ? diggCount.text() : '0'
+                : info[3];
+
+        return {
+            date: date,
+            vnum: vnum,
+            cnum: cnum,
+            tnum: tnum,
+        };
+    };
+
+    /**
+     * 获取文章 post meta html
+     * @param postDescText
+     * @returns {string}
+     */
+    this.getPostMetaHtml = function (postDescText) {
+        let info = bndongJs.getPostMetaInfo(postDescText);
+        let html = '<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+info.date+'' +
+            '<i class="iconfont icon-browse"></i>阅读：'+info.vnum+'' +
+            '<i class="iconfont icon-interactive"></i>评论：'+info.cnum+'' +
+            '<i class="iconfont icon-interactive"></i>推荐：'+info.tnum+'' +
+            '</span>';
+        return html;
     };
 
     /**
