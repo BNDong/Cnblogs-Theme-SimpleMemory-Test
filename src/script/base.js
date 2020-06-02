@@ -527,7 +527,7 @@ function Base() {
         function setSidebar() {
             let sidebar     = $('#sidebar_recentposts ul li'),
                 menuSidebar = $('#sb-sidebarRecentposts');
-
+console.log(21432);
             if (sidebar.length > 0 && menuSidebar.html() === ''){
                 menuSidebar.html(getMenuData(sidebar, 'icon-time_fill')).prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setMenuSidebarTId);
