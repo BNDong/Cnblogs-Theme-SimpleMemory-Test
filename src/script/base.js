@@ -474,36 +474,12 @@ function Base() {
      * 设置菜单数据
      */
     this.setMenuData = function() {
-        let introduceHtml       = $('#profile_block').html(),          // 个人信息
-            calendar            = $('#blog-calendar'),                 // 日历
-            calendarTable       = $('#blogCalendar'),                  // 日历
-            sidebarSearch       = $('#sidebar_search_box'),            // 找找看
-            scorerank           = $('#sidebar_scorerank ul li'),       // 积分与排名
-            sidebar             = $('#sidebar_recentposts ul li'),     // 最新随笔
-            toptags             = $('#sidebar_toptags ul li'),         // 我的标签
-            sbClassify          = $('#sidebar_postcategory ul li'),    // 随笔分类
-            sbArticleCategory   = $('#sidebar_articlecategory ul li'), // 文章分类
-            sbRecord            = $('#sidebar_postarchive ul li'),     // 随笔档案
-            sbArticle           = $('#sidebar_articlearchive ul li'),  // 文章档案
-            sbTopview           = $('#TopViewPostsBlock ul li'),       // 阅读排行
-            topDiggPosts        = $('#TopDiggPostsBlock ul li'),       // 推荐排行
-            recentComments      = $('#sidebar_recentcomments ul'),     // 最新评论
-            menuIntroduce       = $('#introduce'),
-            menuCalendar        = $('#calendar-box'),
-            menuScorerank       = $('#sb-sidebarScorerank'),
-            menuSearchBox       = $('#sb-sidebarSearchBox'),
-            menuArticle         = $('#sb-articlearchive'),
-            menuSidebar         = $('#sb-sidebarRecentposts'),
-            menuToptags         = $('#sb-toptags'),
-            menuClassify        = $('#sb-classify'),
-            menuArticleCategory = $('#sb-ArticleCategory'),
-            menuRecord          = $('#sb-record'),
-            menuTopview         = $('#sb-topview'),
-            menuTopDiggPosts    = $('#sb-topDiggPosts'),
-            menuRecentComments  = $('#sb-recentComments');
 
         // 添加个人信息
         function setIntroduce() {
+            let introduceHtml = $('#profile_block').html(),
+                menuIntroduce = $('#introduce');
+
             if ((typeof introduceHtml == 'string') && menuIntroduce.html() === '') {
                 menuIntroduce.html(tools.htmlFiltrationScript(introduceHtml));
                 bndongJs.clearIntervalTimeId(timeIds.setMenuIntroduceTId);
@@ -512,6 +488,10 @@ function Base() {
 
         // 添加日历
         function setCalendar() {
+            let calendarTable = $('#blogCalendar'),
+                calendar      = $('#blog-calendar'),
+                menuCalendar  = $('#calendar-box');
+
             if (calendarTable.length > 0 && menuCalendar.html() === ''){
                 let calendarHtml = '<div id="blog-calendar">' + calendar.html() + '</div>';
                 calendar.remove();
@@ -523,6 +503,9 @@ function Base() {
 
         // 添加找找看
         function setSidebarSearch() {
+            let sidebarSearch = $('#sidebar_search_box'),
+                menuSearchBox = $('#sb-sidebarSearchBox');
+
             if (sidebarSearch.length > 0 && menuSearchBox.html() === ''){
                 menuSearchBox.html('<div id="sb_widget_my_zzk" class="div_my_zzk"><input id="q" type="text" onkeydown="return zzk_go_enter(event);" class="input_my_zzk"></div>').prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setSidebarSearchTId);
@@ -531,6 +514,9 @@ function Base() {
 
         // 添加积分与排名
         function setSidebarScorerank() {
+            let scorerank     = $('#sidebar_scorerank ul li'),
+                menuScorerank = $('#sb-sidebarScorerank');
+
             if (scorerank.length > 0 && menuScorerank.html() === ''){
                 menuScorerank.html(getMenuData(scorerank, 'icon-collection_fill')).prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setSidebarScorerankTId);
@@ -539,7 +525,9 @@ function Base() {
 
         // 添加最新随笔
         function setSidebar() {
-            console.log(111);
+            let sidebar     = $('#sidebar_recentposts ul li'),
+                menuSidebar = $('#sb-sidebarRecentposts');
+
             if (sidebar.length > 0 && menuSidebar.html() === ''){
                 menuSidebar.html(getMenuData(sidebar, 'icon-time_fill')).prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setMenuSidebarTId);
@@ -548,6 +536,9 @@ function Base() {
 
         // 添加我的标签
         function setToptags() {
+            let toptags     = $('#sidebar_toptags ul li'),
+                menuToptags = $('#sb-toptags');
+
             if (toptags.length > 0 && menuToptags.html() === '') {
                 menuToptags.html(getMenuData(toptags, 'icon-label_fill')).prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setMenuToptagsTId);
@@ -556,6 +547,9 @@ function Base() {
 
         // 添加随笔分类
         function setClassify() {
+            let sbClassify   = $('#sidebar_postcategory ul li'),
+                menuClassify = $('#sb-classify');
+
             if (sbClassify.length > 0 && menuClassify.html() === '') {
                 menuClassify.html(getMenuData(sbClassify, 'icon-marketing_fill')).prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setMenuClassifyTId);
@@ -564,6 +558,9 @@ function Base() {
 
         // 添加文章分类
         function setArticleCategory() {
+            let sbArticleCategory   = $('#sidebar_articlecategory ul li'),
+                menuArticleCategory = $('#sb-ArticleCategory');
+
             if (sbArticleCategory.length > 0 && menuArticleCategory.html() === '') {
                 menuArticleCategory.html(getMenuData(sbArticleCategory, 'icon-marketing_fill')).prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setMenuArticleCategoryTId);
@@ -572,6 +569,9 @@ function Base() {
 
         // 添加随笔档案
         function setRecord() {
+            let sbRecord   = $('#sidebar_postarchive ul li'),
+                menuRecord = $('#sb-record');
+
             if (sbRecord.length > 0 && menuRecord.html() === '') {
                 menuRecord.html(getMenuData(sbRecord, 'icon-task_fill')).prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setMenuRecordTId);
@@ -580,6 +580,9 @@ function Base() {
         
         // 添加文章档案
         function setArticle() {
+            let sbArticle   = $('#sidebar_articlearchive ul li'),
+                menuArticle = $('#sb-articlearchive');
+
             if (sbArticle.length > 0 && menuArticle.html() === '') {
                 menuArticle.html(getMenuData(sbArticle, 'icon-document_fill')).prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setMenuArticleTId);
@@ -588,6 +591,9 @@ function Base() {
 
         // 添加阅读排行
         function setTopview() {
+            let sbTopview   = $('#TopViewPostsBlock ul li'),
+                menuTopview = $('#sb-topview');
+
             if (sbTopview.length > 0 && menuTopview.html() === '') {
                 menuTopview.html(getMenuData(sbTopview, 'icon-browse_fill')).prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setMenuTopviewTId);
@@ -596,6 +602,9 @@ function Base() {
 
         // 添加推荐排行
         function setTopDiggPosts() {
+            let topDiggPosts     = $('#TopDiggPostsBlock ul li'),
+                menuTopDiggPosts = $('#sb-topDiggPosts');
+
             if (topDiggPosts.length > 0 && menuTopDiggPosts.html() === '') {
                 menuTopDiggPosts.html(getMenuData(topDiggPosts, 'icon-like_fill')).prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setMenuTopDiggPostsTId);
@@ -604,6 +613,9 @@ function Base() {
 
         // 添加最新评论
         function setRecentComments() {
+            let recentComments     = $('#sidebar_recentcomments ul'),
+                menuRecentComments = $('#sb-recentComments');
+
             if (recentComments.length > 0 && menuRecentComments.html() === '') {
                 menuRecentComments.html(getMenuCommentsData(recentComments, 'icon-pinglunzu')).prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setMenuRecentCommentsTId);
