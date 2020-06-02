@@ -3028,7 +3028,7 @@ code-box {
     background-color: #6fa3ef
 }
 
-#loading, a[name=top] {
+div#loading, a[name=top] {
     background-color: #f0f0f0;
     z-index: 1099;
     position: fixed;

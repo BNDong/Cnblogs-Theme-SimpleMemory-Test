@@ -340,7 +340,7 @@ function Base() {
     this.endLoading = function() {
         $('body').css('overflow', 'auto');
         pageLoading.spinner.setComplete();
-        $('#loading').hide();
+        $('div#loading').hide();
         $('a[name="top"]').hide();
     };
 
@@ -539,6 +539,7 @@ function Base() {
 
         // 添加最新随笔
         function setSidebar() {
+            console.log(111);
             if (sidebar.length > 0 && menuSidebar.html() === ''){
                 menuSidebar.html(getMenuData(sidebar, 'icon-time_fill')).prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setMenuSidebarTId);
@@ -837,7 +838,7 @@ function Base() {
             (homeTopImg.length > 1 ? bgImg = homeTopImg[tools.randomNum(0, homeTopImg.length - 1)] : bgImg = homeTopImg[0])
             : bgImg = "";
         $('.main-header').css({
-            'background': '#222 url('+bgImg+')  center center no-repeat',
+            'background': '#222 url('+encodeURI(bgImg)+')  center center no-repeat',
             'background-size': 'cover'
         });
 
@@ -1135,7 +1136,7 @@ function Base() {
 
         $('.main-header').css({
             'height': '40vh',
-            'background': '#222 url('+bgImg+')  center center no-repeat',
+            'background': '#222 url('+encodeURI(bgImg)+')  center center no-repeat',
             'background-size': 'cover'
         });
 
