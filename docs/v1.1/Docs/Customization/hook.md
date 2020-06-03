@@ -59,10 +59,10 @@
 
 |**方法**|**参数**|**描述**|
 |:-----:|:-----:|:-----:|
-|**beforeLoading**|(pageLoading loading>) <br> loading 对象|loading 开始前调用此方法|
-|**afterLoading**|(Base e, pageLoading loading) <br> basejs执行对象, loading 对象|loading 结束后调用此方法|
-|**pageLabelChanges <Base e, String text>**|basejs执行对象, 标签文字|页面标签变化后调用此方法|
-|**beforeCodeHighlighting <Base e>**|basejs执行对象|渲染代码开始前调用此方法|
-|**afterCodeHighlighting <Base e>**|basejs执行对象|渲染代码结束后调用此方法|
-|**dayNightControl <Base e, String type>**|basejs执行对象, 切换后日夜间类型|点击日夜间模式切换按钮调用此方法|
-|**pageInitEnd <Base e>**|basejs执行对象|页面初始化结束后调用此方法|
+|**beforeLoading**|(pageLoading loading)|loading 开始前调用此方法|
+|**afterLoading**|(Base e, pageLoading loading)|loading 结束后调用此方法|
+|**pageLabelChanges**|(Base e, String text)|页面标签变化后调用此方法, 参数 text 为标签变化文字|
+|**beforeCodeHighlighting**|(Base e)|渲染代码开始前调用此方法|
+|**afterCodeHighlighting**|(Base e)|渲染代码结束后调用此方法|
+|**dayNightControl**|(Base e, String type)|点击日夜间模式切换按钮调用此方法，参数 type 为日夜间类型|
+|**pageInitEnd**|(Base e)|页面初始化结束后调用此方法|
