@@ -15,14 +15,16 @@ CNZZ 网址：[U-Web](https://web.umeng.com/)
 
 注册/登录你的账户，立即使用并开始配置站点。
 
-### 获取统计 ID
-
-![statistical_02](../../Images/statistical_03.png)
-
 ### 添加站点
 
 ![statistical_01](../../Images/statistical_01.png)
 
+### 获取统计 ID
+
+![statistical_02](../../Images/statistical_03.png)
+
 ### 站点设置
+
+开启详细数据。
 
 ![statistical_02](../../Images/statistical_02.png)
