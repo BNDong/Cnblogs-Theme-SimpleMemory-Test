@@ -239,7 +239,7 @@ if (initCheck()) {
         },
 
         // 页面标签变化
-        pageLabelChanges: function (e) {
+        pageLabelChanges: function (e, text) {
             // console.log('pageLabelChanges');
         },
 
