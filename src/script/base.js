@@ -81,10 +81,15 @@ function Base() {
         if (window.cnblogsConfig.bgAnimationRendered) require(['RibbonsEffect']);
 
         // 更换网站图标
-        let linkObject  = document.createElement('link');
-        linkObject.rel  = "shortcut icon";
-        linkObject.href = window.cnblogsConfig.webpageIcon;
-        document.getElementsByTagName("head")[0].appendChild(linkObject);
+        let shortcutIcon = $('link[rel="shortcut icon"]');
+        if (shortcutIcon.length) {
+            shortcutIcon.attr('href', window.cnblogsConfig.webpageIcon);
+        } else {
+            let linkObject  = document.createElement('link');
+            linkObject.rel  = "shortcut icon";
+            linkObject.href = window.cnblogsConfig.webpageIcon;
+            document.getElementsByTagName("head")[0].appendChild(linkObject);
+        }
 
         // 滚动监听
         $(window).scroll( function() { bndongJs.scrollMonitor(); });
