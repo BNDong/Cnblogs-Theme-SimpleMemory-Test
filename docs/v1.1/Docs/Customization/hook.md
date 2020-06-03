@@ -59,8 +59,8 @@
 
 |**方法**|**参数**|**描述**|
 |:-----:|:-----:|:-----:|
-|**beforeLoading**|<pageLoading loading> <br> loading 对象|loading 开始前调用此方法|
-|**afterLoading <Base e, pageLoading loading>**|basejs执行对象, loading 对象|loading 结束后调用此方法|
+|**beforeLoading**|(pageLoading loading>) <br> loading 对象|loading 开始前调用此方法|
+|**afterLoading**|(Base e, pageLoading loading) <br> basejs执行对象, loading 对象|loading 结束后调用此方法|
 |**pageLabelChanges <Base e, String text>**|basejs执行对象, 标签文字|页面标签变化后调用此方法|
 |**beforeCodeHighlighting <Base e>**|basejs执行对象|渲染代码开始前调用此方法|
 |**afterCodeHighlighting <Base e>**|basejs执行对象|渲染代码结束后调用此方法|
