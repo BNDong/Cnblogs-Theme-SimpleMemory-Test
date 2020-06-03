@@ -47,6 +47,7 @@ function Base() {
         bndongJs.loadingBeforeInit(); // Loading 前初始化
         bndongJs.endLoading();        // Loading 结束
         bndongJs.loadingAfterInit();  // Loading 后初始化
+        window.cnblogsConfig.hook.pageInitEnd(bndongJs);
     };
 
 //----------------------------- Loading 前后逻辑处理 ----------------------------------//
@@ -346,6 +347,7 @@ function Base() {
         pageLoading.spinner.setComplete();
         $('div#loading').hide();
         $('a[name="top"]').hide();
+        window.cnblogsConfig.hook.afterLoading(bndongJs, pageLoading);
     };
 
     /**
@@ -374,11 +376,13 @@ function Base() {
                 timer = setTimeout(function () {
                     document.title = window.cnblogsConfig.webpageTitleOnblur + ' - ' + RelTitle.split(' - ')[0];
                 }, window.cnblogsConfig.webpageTitleOnblurTimeOut);
+                window.cnblogsConfig.hook.pageLabelChanges(bndongJs, window.cnblogsConfig.webpageTitleOnblur);
             } else {
                 document.title = window.cnblogsConfig.webpageTitleFocus;
                 timer = setTimeout(function () {
                     document.title = RelTitle;
                 }, window.cnblogsConfig.webpageTitleFocusTimeOut);
+                window.cnblogsConfig.hook.pageLabelChanges(bndongJs, window.cnblogsConfig.webpageTitleFocus);
             }
         }
         if (typeof document.addEventListener !== "undefined" || typeof document[hidden] !== "undefined") {
@@ -463,10 +467,12 @@ function Base() {
 
         $('#dayNightSwitch .onOff').click(function () {
             if ($(this).hasClass('daySwitch')) { // 夜间
+                window.cnblogsConfig.hook.dayNightControl(bndongJs, 'night');
                 tools.setCookie(cookieKey, 'night', exp);
                 $(this).removeClass('daySwitch');
                 head.append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+getJsDelivrUrl('base.dark.css')+'">');
             } else { // 日间
+                window.cnblogsConfig.hook.dayNightControl(bndongJs, 'day');
                 tools.setCookie(cookieKey, 'day', exp);
                 $(this).addClass('daySwitch');
                 $('head link#baseDarkCss').remove();
@@ -1308,6 +1314,7 @@ function Base() {
         }
         setScrollbarStyle();
         setCopyBtn();
+        window.cnblogsConfig.hook.afterCodeHighlighting(bndongJs);
 
         // 设置代码复制
         function setCopyBtn() {
@@ -1401,6 +1408,7 @@ function Base() {
         }
 
         function setCodeBefore(type) {
+            window.cnblogsConfig.hook.beforeCodeHighlighting(bndongJs);
             let cssText = "font-family:"+ window.cnblogsConfig.essayCode.fontFamily +" !important; font-size: "+ window.cnblogsConfig.essayCode.fontSize +" !important;";
 
             // 代码高度限制
