@@ -168,7 +168,8 @@ function Base() {
         $.each(timeIds, function (e) {
             console.log('清除定时器：');
             console.log(e);
-            null != e && window.clearInterval(e);
+            console.log(timeIds[e]);
+            null != timeIds[e] && window.clearInterval(timeIds[e]);
         });
     };
 
