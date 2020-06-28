@@ -634,7 +634,8 @@ p.article-info-text > .postMeta i {
 .CalDayHeader {
     font-weight: 700;
     background: #111;
-    padding-bottom: 5px
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 
 .CalTitle {
