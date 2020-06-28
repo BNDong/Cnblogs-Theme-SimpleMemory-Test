@@ -379,7 +379,7 @@ function init() {
     var user = tmp[3];
     var navListHtml = '<li><a href="https://www.cnblogs.com/'+user+'/" target="_self">首页</a></li>' +
         '<li><a href="https://msg.cnblogs.com/send/'+user+'" target="_blank">联系</a></li>' +
-        '<li><a href="https://www.cnblogs.com/'+user+'/rss" target="_blank">订阅</a></li>' +
+        '<li><a href="javascript:void(0)" onclick="$(\'#blog_nav_rss\').trigger(\'click\');" data-rss="https://www.cnblogs.com/'+user+'/rss/">订阅</a></li>' +
         '<li><a href="https://i.cnblogs.com/" target="_blank">管理</a></li>';
 
     var menuNavList = window.cnblogsConfig.menuNavList;

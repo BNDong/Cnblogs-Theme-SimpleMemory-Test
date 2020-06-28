@@ -3469,6 +3469,44 @@ table#blogCalendar>tbody>tr>td>a {
     color: #bbb;
 }
 
+.art-dialog {
+    background-color: rgba(0,0,0,.7) !important;
+    border: unset !important;
+    color: #f9f9f9 !important;
+}
+
+.art-dialog-header {
+    border-bottom: 1px solid #333 !important;
+}
+
+.art-dialog-footer {
+    padding: 0 20px 10px 20px !important;
+}
+
+.art-dialog-button button {
+    padding: 2px 6px !important;
+    color: #f9f9f9 !important;
+    border: unset !important;
+    font-size: 12px !important;
+}
+
+.art-dialog-button button[i-id=cancel] {
+    background-color: #d98d6f !important;
+}
+
+.art-dialog-statusbar {
+    padding: 0 0 0 16px !important;
+    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/rss.webp) no-repeat 0;
+}
+
+.art-dialog-button button[i-id=cancel]:hover {
+    background-color: #ca8966 !important;
+}
+
+.art-dialog-statusbar a {
+    color: #ff9128;
+}
+
 @-moz-keyframes iconAnimate {
     0%,100% {
         transform: scale(1)
