@@ -299,10 +299,10 @@ function Base() {
         parentObject.on({
             mouseover : function(){
                 updBuryitDiggitNum();
-                $(subObject).show();
+                subObject.show();
             },
             mouseout : function(){
-                $(subObject).hide();
+                subObject.hide();
             },
             click: function () {
 
@@ -313,8 +313,8 @@ function Base() {
                         // 点击顶踩，数值变化
                         if ($(this).attr('clickflg') === 'false') {
                             $(this).attr('clickflg', 'true');
-                            $(subObject).text('提交中..');
-                            setTimeout("$('"+subObject+"').text('更新中...')", 1500);
+                            subObject.text('提交中..');
+                            setTimeout("$('"+subObjectStr+"').text('更新中...')", 1500);
                             setTimeout(updBuryitDiggitNum, 2000);
                         }
                         break;
@@ -326,9 +326,9 @@ function Base() {
                             setTimeout(hanFollow, 1500);
                             function hanFollow() {
                                 if ('关注成功' === $.trim($('#p_b_follow').text())) {
-                                    $(parentObject).attr('clickflg', 'true');
-                                    $(subObject).text('已关注');
-                                    $(parentObject).find('i').removeClass('icon-dianzan').addClass('icon-dianzan1');
+                                    parentObject.attr('clickflg', 'true');
+                                    subObject.text('已关注');
+                                    parentObject.find('i').removeClass('icon-dianzan').addClass('icon-dianzan1');
                                 }
                             }
                         }
