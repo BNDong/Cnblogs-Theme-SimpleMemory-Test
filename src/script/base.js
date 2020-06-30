@@ -279,7 +279,7 @@ function Base() {
     this.rightMenuMous = function(parentObjectStr, subObjectStr) {
         let parentObject = $(parentObjectStr);
         let subObject    = $(subObjectStr);
-        let updBuryitDiggitNum = () => {
+        let updBuryitDiggitNum = (parentObject, subObject) => {
             let str = subObject.text();
 
             switch (subObject) {
@@ -298,7 +298,7 @@ function Base() {
 
         parentObject.on({
             mouseover : function(){
-                updBuryitDiggitNum();
+                updBuryitDiggitNum(parentObject, subObject);
                 subObject.stop().fadeIn(300);
             },
             mouseout : function(){
@@ -313,9 +313,13 @@ function Base() {
                         // 点击顶踩，数值变化
                         if ($(this).attr('clickflg') === 'false') {
                             $(this).attr('clickflg', 'true');
-                            subObject.text('提交中..');
+                            subObject.text('提交中.');
+                            setTimeout("$('"+subObjectStr+"').text('提交中..')", 300);
+                            setTimeout("$('"+subObjectStr+"').text('提交中...')", 600);
+                            setTimeout("$('"+subObjectStr+"').text('更新中.')", 900);
+                            setTimeout("$('"+subObjectStr+"').text('更新中..')", 1200);
                             setTimeout("$('"+subObjectStr+"').text('更新中...')", 1500);
-                            setTimeout(updBuryitDiggitNum, 2000);
+                            setTimeout(updBuryitDiggitNum($(parentObjectStr), $(subObjectStr)), 1800);
                         }
                         break;
 
