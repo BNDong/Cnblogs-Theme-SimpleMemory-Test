@@ -304,7 +304,7 @@ function Base() {
                     if ($(this).attr('clickflg') === 'false') {
                         $(this).attr('clickflg', 'true');
                         $(subObject).text('提交中..');
-                        setTimeout("$('"+subObject+"').text($('#digg_tips').text())", 3000);
+                        setTimeout("console.log($('"+subObject+"'));console.log($('#digg_tips').text());$('"+subObject+"').text($('#digg_tips').text())", 3000);
                     }
                 }
 
