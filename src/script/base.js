@@ -282,7 +282,7 @@ function Base() {
         let updBuryitDiggitNum = () => {
             let str = subObject.text();
 
-            switch (subObject) {
+            switch (subObjectStr) {
                 case '.rightBuryitSpan':
                     str = $('#bury_count').text();
                     break;
@@ -357,41 +357,6 @@ function Base() {
                         }
                         break;
                 }
-                // if (subObject === '.rightBuryitSpan' || subObject === '.rightDiggitSpan') {
-                //     // 点击顶踩，数值变化
-                //     if ($(this).attr('clickflg') === 'false') {
-                //         $(this).attr('clickflg', 'true');
-                //         $(subObject).text('提交中..');
-                //         setTimeout("$('"+subObject+"').text('更新中...')", 1500);
-                //         setTimeout("$('"+subObject+"').text('更新中...')", 2000);
-                //     }
-                // }
-
-                // if (subObject === '.attentionSpan') {
-                //     // 点击关注
-                //     if ($(this).attr('clickflg') === 'false') {
-                //         setTimeout(hanFollow, 1500);
-                //         function hanFollow() {
-                //             if ('关注成功' === $.trim($('#p_b_follow').text())) {
-                //                 $(parentObject).attr('clickflg', 'true');
-                //                 $(subObject).text('已关注');
-                //                 $(parentObject).find('i').removeClass('icon-dianzan').addClass('icon-dianzan1');
-                //             }
-                //         }
-                //     }
-                // }
-
-                // if (subObject === '.toUpDownSpan') {
-                //     // 点击滚动
-                //     let ac = $(this).attr('data');
-                //     if (ac === 'down') {
-                //         let docHeight    = $(document).height();
-                //         let windowHeight = $(window).height();
-                //         tools.actScroll(docHeight - windowHeight, 900)
-                //     } else {
-                //         tools.actScroll(0, 900)
-                //     }
-                // }
             }
         }) ;
     };
