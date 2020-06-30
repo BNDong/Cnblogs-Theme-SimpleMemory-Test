@@ -280,7 +280,7 @@ function Base() {
         let parentObject = $(parentObjectStr);
         let subObject    = $(subObjectStr);
         let updBuryitDiggitNum = () => {
-            let str = subObject.text();
+            let str = '';
 
             switch (subObjectStr) {
                 case '.rightBuryitSpan':
@@ -292,8 +292,8 @@ function Base() {
                     break;
             }
 
-            parentObject.attr('clickflg', 'false');
-            subObject.text(str);
+            str !== '' && parentObject.attr('clickflg', 'false');
+            str !== '' && subObject.text(str);
         }
 
         parentObject.on({
@@ -1547,19 +1547,21 @@ function Base() {
      */
     this.addNotHomeRightMenu = function() {
         let rightMenu = $('#rightMenu');
-        if (rightMenu.length > 0 && $('#div_digg').length > 0) {
+        if (rightMenu.length > 0) {
 
             if ($('#toUpDown').length === 0 && $('#attention').length === 0) bndongJs.addHomeRightMenu();
 
             // 添加踩
-            let rightBuryitHtml = '<div id="rightBuryit" clickflg="false" onclick="' + ($(".buryit").attr("onclick")) + '"><span class="rightMenuSpan rightBuryitSpan">' + $('#bury_count').text() + '</span><i class="iconfont icon-buzan"></i></div>';
-            rightMenu.prepend(rightBuryitHtml);
-            bndongJs.rightMenuMous('#rightBuryit', '.rightBuryitSpan');
+            if ($('#div_digg').length > 0) {
+                let rightBuryitHtml = '<div id="rightBuryit" clickflg="false" onclick="' + ($(".buryit").attr("onclick")) + '"><span class="rightMenuSpan rightBuryitSpan">' + $('#bury_count').text() + '</span><i class="iconfont icon-buzan"></i></div>';
+                rightMenu.prepend(rightBuryitHtml);
+                bndongJs.rightMenuMous('#rightBuryit', '.rightBuryitSpan');
 
-            // 添加顶
-            let rightDiggitHtml = '<div id="rightDiggit" clickflg="false" onclick="' + ($(".diggit").attr("onclick")) + '"><span class="rightMenuSpan rightDiggitSpan">' + $('#digg_count').text() + '</span><i class="iconfont icon-zan1"></i></div>';
-            rightMenu.prepend(rightDiggitHtml);
-            bndongJs.rightMenuMous('#rightDiggit', '.rightDiggitSpan');
+                // 添加顶
+                let rightDiggitHtml = '<div id="rightDiggit" clickflg="false" onclick="' + ($(".diggit").attr("onclick")) + '"><span class="rightMenuSpan rightDiggitSpan">' + $('#digg_count').text() + '</span><i class="iconfont icon-zan1"></i></div>';
+                rightMenu.prepend(rightDiggitHtml);
+                bndongJs.rightMenuMous('#rightDiggit', '.rightDiggitSpan');
+            }
 
             // 添加打赏
             if (window.cnblogsConfig.reward.enable && (window.cnblogsConfig.reward.alipay || window.cnblogsConfig.reward.wechatpay)) {
