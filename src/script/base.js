@@ -276,23 +276,30 @@ function Base() {
     /**
      * 右下角菜单事件处理
      */
-    this.rightMenuMous = function(parentObject, subObject) {
-        $(parentObject).on({
-            mouseover : function(){
-                let str = '';
+    this.rightMenuMous = function(parentObjectStr, subObjectStr) {
+        let parentObject = $(parentObjectStr);
+        let subObject    = $(subObjectStr);
+        let updBuryitDiggitNum = () => {
+            let str = subObject.text();
 
-                if (subObject === '.rightBuryitSpan') {
-                    // 鼠标移入，更新踩值
+            switch (subObject) {
+                case '.rightBuryitSpan':
                     str = $('#bury_count').text();
-                    if ($(subObject).text() !== str) {$(parentObject).attr('clickflg', 'false'); $(subObject).text(str);}
-                }
+                    break;
 
-                if (subObject === '.rightDiggitSpan') {
-                    // 鼠标移入，更新顶值
+                case '.rightDiggitSpan':
                     str = $('#digg_count').text();
-                    if ($(subObject).text() !== str) {$(parentObject).attr('clickflg', 'false'); $(subObject).text(str);}
-                }
+                    break;
+            }
 
+            parentObject.attr('clickflg', 'false');
+            subObject.text(str);
+        }
+
+
+        parentObject.on({
+            mouseover : function(){
+                updBuryitDiggitNum();
                 $(subObject).show();
             },
             mouseout : function(){
@@ -304,7 +311,8 @@ function Base() {
                     if ($(this).attr('clickflg') === 'false') {
                         $(this).attr('clickflg', 'true');
                         $(subObject).text('提交中..');
-                        setTimeout("console.log($('"+subObject+"'));console.log($('#digg_tips').text());$('"+subObject+"').text($('#digg_tips').text())", 3000);
+                        setTimeout("$('"+subObject+"').text('更新中...')", 1500);
+                        setTimeout("$('"+subObject+"').text('更新中...')", 2000);
                     }
                 }
 
