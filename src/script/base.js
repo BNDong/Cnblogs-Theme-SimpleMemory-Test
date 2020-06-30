@@ -279,7 +279,7 @@ function Base() {
     this.rightMenuMous = function(parentObjectStr, subObjectStr) {
         let parentObject = $(parentObjectStr);
         let subObject    = $(subObjectStr);
-        let updBuryitDiggitNum = (parentObject, subObject) => {
+        let updBuryitDiggitNum = () => {
             let str = subObject.text();
 
             switch (subObject) {
@@ -298,7 +298,7 @@ function Base() {
 
         parentObject.on({
             mouseover : function(){
-                updBuryitDiggitNum(parentObject, subObject);
+                updBuryitDiggitNum();
                 subObject.stop().fadeIn(300);
             },
             mouseout : function(){
@@ -319,7 +319,12 @@ function Base() {
                             setTimeout("$('"+subObjectStr+"').text('更新中.')", 900);
                             setTimeout("$('"+subObjectStr+"').text('更新中..')", 1200);
                             setTimeout("$('"+subObjectStr+"').text('更新中...')", 1500);
-                            setTimeout(updBuryitDiggitNum($(parentObjectStr), $(subObjectStr)), 1800);
+
+                            if (subObjectStr === '.rightBuryitSpan') {
+                                setTimeout("$('"+subObjectStr+"').text($('#bury_count').text())", 1800);
+                            } else {
+                                setTimeout("$('"+subObjectStr+"').text($('#digg_count').text())", 1800);
+                            }
                         }
                         break;
 
