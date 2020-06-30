@@ -1542,10 +1542,15 @@ function Base() {
                 let rightDashangHtml = '<div id="rightDashang" clickflg="false"><span class="rightMenuSpan rightDanshanSpan"><div class="ds-pay">' +
                     (window.cnblogsConfig.reward.alipay ? '<div class="ds-alipay"><img src="'+window.cnblogsConfig.reward.alipay+'"><span>Alipay</span></div>' : '') +
                     (window.cnblogsConfig.reward.wechatpay ? '<div class="ds-wecat"><img src="'+window.cnblogsConfig.reward.wechatpay+'"><span>WeChat</span></div>' : '') +
-                    '</div></span><i class="iconfont icon-shang"></i></div>';
+                    '</div></span><i class="iconfont icon-dashang2"></i></div>';
                 rightMenu.prepend(rightDashangHtml);
                 bndongJs.rightMenuMous('#rightDashang', '.rightDanshanSpan');
             }
+
+            // 添加公众号
+            let rightGzhHtml = '<div id="rightGzh" clickflg="false"><span class="rightMenuSpan">' +
+                '</span><i class="iconfont icon-gongzhonghaoerweima"></i></div>';
+            rightMenu.prepend(rightGzhHtml);
 
             bndongJs.clearIntervalTimeId(timeIds.setNotHomeRightMenuTId);
         }

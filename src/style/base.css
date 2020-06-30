@@ -2444,43 +2444,61 @@ blockquote p {
     text-align: center;
 }
 
+div#rightMenu > div {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    background: #FFF;
+    text-align: center;
+    line-height: 32px;
+    margin-bottom: 3px;
+    border-radius: 50%;
+    position: relative;
+    display: block;
+    -webkit-box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.1), inset 0px -1px 0px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.1), inset 0px -1px 0px 0px rgba(0,0,0,0.1);
+}
+
 #rightMenu i {
     font-weight: 700;
-    text-shadow: 1px 1px 1px #fff;
-    font-size: 24px
+    /*text-shadow: 1px 1px 1px #fff;*/
+    font-size: 16px;
+    color: #777;
 }
 
 #attention, #rightBuryit, #rightDiggit, #rightDashang, #toUpDown {
     cursor: pointer;
     color: #555;
-    opacity: .5;
+    /*opacity: .5;*/
     filter: Alpha(opacity=50);
     -webkit-transition: all .5s ease-out;
     transition: all .5s ease-out;
     position: relative
 }
 
-#attention {
-    bottom: 3px
-}
+/*#attention {*/
+/*    bottom: 3px*/
+/*}*/
 
-#rightBuryit {
-    bottom: 5px
-}
+/*#rightBuryit {*/
+/*    bottom: 5px*/
+/*}*/
 
-#rightDiggit, #rightDashang {
-    bottom: 11px
-}
+/*#rightDiggit, #rightDashang {*/
+/*    bottom: 11px*/
+/*}*/
 
-#rightDashang i {
-    font-size: 32px;
-    font-weight: 500;
-}
+/*#rightDashang i {*/
+/*    font-size: 32px;*/
+/*    font-weight: 500;*/
+/*}*/
 
-#attention:hover, #rightBuryit:hover, #rightDiggit:hover, #rightDashang:hover, #toUpDown:hover {
-    opacity: 1;
-    filter: Alpha(opacity=100)
-}
+/*#attention:hover, #rightBuryit:hover, #rightDiggit:hover, #rightDashang:hover, #toUpDown:hover {*/
+/*    opacity: 1;*/
+/*    filter: Alpha(opacity=100)*/
+/*}*/
 
 .rightMenuSpan {
     position: absolute;
@@ -3476,7 +3494,7 @@ table#blogCalendar>tbody>tr>td>a {
 }
 
 .art-dialog-header {
-    border-bottom: 1px solid #333 !important;
+    border-bottom: 1px solid #444 !important;
 }
 
 .art-dialog-footer {
@@ -3505,6 +3523,19 @@ table#blogCalendar>tbody>tr>td>a {
 
 .art-dialog-statusbar a {
     color: #ff9128;
+}
+
+.art-dialog-content a {
+    color: #85d6d9;
+}
+
+.art-dialog-close {
+    color: #fff !important;
+    text-shadow: unset !important;
+}
+
+.art-dialog-button button[i-id="注册"] {
+    background-color: #5fcc7d !important;
 }
 
 @-moz-keyframes iconAnimate {
