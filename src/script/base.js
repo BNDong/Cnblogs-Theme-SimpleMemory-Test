@@ -299,10 +299,10 @@ function Base() {
         parentObject.on({
             mouseover : function(){
                 updBuryitDiggitNum();
-                subObject.show();
+                subObject.fadeIn(500);
             },
             mouseout : function(){
-                subObject.hide();
+                subObject.fadeOut(500);
             },
             click: function () {
 
