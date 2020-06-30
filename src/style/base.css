@@ -2078,7 +2078,7 @@ div#tbCommentBodyPreview {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 3;
     box-shadow: 0 1px 2px rgba(150, 150, 150, .7)
 }
 
@@ -2462,20 +2462,31 @@ div#rightMenu > div {
 }
 
 #rightMenu i {
-    font-weight: 700;
-    /*text-shadow: 1px 1px 1px #fff;*/
+    font-weight: 500;
     font-size: 16px;
-    color: #777;
+}
+
+#rightGzh i {
+    font-size: 18px;
+}
+
+#rightDashang i {
+    font-size: 32px;
+    position: relative;
+    left: -1px;
 }
 
 #attention, #rightBuryit, #rightDiggit, #rightDashang, #toUpDown {
     cursor: pointer;
-    color: #555;
-    /*opacity: .5;*/
+    color: #777;
     filter: Alpha(opacity=50);
     -webkit-transition: all .5s ease-out;
     transition: all .5s ease-out;
     position: relative
+}
+
+#toUpDownI i, #rightDiggit i, #rightBuryit i {
+    font-weight: 600;
 }
 
 /*#attention {*/
@@ -2500,14 +2511,57 @@ div#rightMenu > div {
 /*    filter: Alpha(opacity=100)*/
 /*}*/
 
-.rightMenuSpan {
+#rightDashang .rightMenuSpan {
     position: absolute;
     left: -150px;
     font-size: 14px;
     font-weight: 700;
     width: 140px;
+    color: #777;
     text-align: right;
     display: none
+}
+
+#rightDiggit .rightMenuSpan, #rightDiggit .rightMenuSpan, #rightBuryit .rightMenuSpan, #attention .rightMenuSpan, #toUpDown .rightMenuSpan {
+    position: absolute;
+    left: -95px;
+    font-size: 14px;
+    width: 83px;
+    background: #1b1c1d !important;
+    color: #fff;
+    opacity: 0.9;
+    white-space: nowrap;
+    max-width: unset;
+    border: 0;
+    -webkit-box-shadow: 0 0 6px -1px rgba(140,146,163,0.5);
+    box-shadow: 0 0 6px -1px rgba(140,146,163,0.5);
+    font-weight: normal;
+    font-style: normal;
+    border-radius: 3px;
+    text-align: center;
+    display: none;
+}
+
+#rightDiggit .rightMenuSpan::before, #rightDiggit .rightMenuSpan::before, #rightBuryit .rightMenuSpan::before, #attention .rightMenuSpan::before, #toUpDown .rightMenuSpan::before {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(27, 28, 29);
+    box-shadow: rgba(179, 179, 179, 0.2) 1px -1px 0px 0px;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    content: "";
+    display: block;
+    height: 8.98438px;
+    margin-top: -3.89999px;
+    opacity: 0.9;
+    position: absolute;
+    transform: matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0);
+    white-space: nowrap;
+    width: 8.98438px;
+    top: 50%;
+    right: -0.325em;
+    bottom: auto;
+    left: auto;
 }
 
 .rightDanshanSpan {
