@@ -223,6 +223,7 @@ if (initCheck()) {
             wechatpay: '',
             alipay: ''
         },
+        weChatOfficialAccounts: '',
         advertising: true,
     };
 
