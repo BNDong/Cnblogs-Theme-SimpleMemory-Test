@@ -2547,7 +2547,7 @@ div#rightMenu > div {
     bottom: -134px;
 }
 
-.ds-pay {
+.ds-pay, .ds-gzh {
     width: 100%;
     height: 100%;
     text-align: center;
@@ -2567,13 +2567,13 @@ div#rightMenu > div {
     background: #fff;
 }
 
-.ds-alipay img, .ds-wecat img {
+.ds-alipay img, .ds-wecat img, .ds-gzh img {
     width: 100%;
     height: 100%;
     border-radius: 6px;
 }
 
-.ds-alipay span, .ds-wecat span {
+.ds-alipay span, .ds-wecat span, .ds-gzh span {
     position: absolute;
     font-family: 'Ubuntu Mono',monospace;
     left: -32px;
