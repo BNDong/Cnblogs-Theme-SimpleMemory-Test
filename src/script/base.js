@@ -298,7 +298,7 @@ function Base() {
 
         parentObject.find('i').on({
             mouseover : function(){
-                $(this).rotate({animateTo:-60, duration: 250, callback: function () {
+                !$(this).hasClass('icon-zhiding') && $(this).rotate({animateTo:-60, duration: 250, callback: function () {
                         $(this).rotate({animateTo:60, duration: 250, callback: function () {
                                 $(this).rotate({animateTo:-30, duration: 150, callback: function () {
                                         $(this).rotate({animateTo:30, duration: 150, callback: function () {
