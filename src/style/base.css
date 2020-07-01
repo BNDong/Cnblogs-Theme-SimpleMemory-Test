@@ -2490,7 +2490,7 @@ div#rightMenu > div {
     font-weight: 600;
 }
 
-#rightDashang .rightMenuSpan {
+#rightDashang .rightMenuSpan,  #rightGzh .rightMenuSpan{
     position: absolute;
     left: -156px;
     font-size: 14px;
