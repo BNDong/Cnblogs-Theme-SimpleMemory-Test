@@ -1584,9 +1584,10 @@ function Base() {
             }
 
             // 添加公众号
-            let rightGzhHtml = '<div id="rightGzh" clickflg="false"><span class="rightMenuSpan">' +
+            let rightGzhHtml = '<div id="rightGzh" clickflg="false"><span class="rightMenuSpan rightGzhSpan">' +
                 '</span><i class="iconfont icon-gongzhonghaoerweima"></i></div>';
             rightMenu.prepend(rightGzhHtml);
+            bndongJs.rightMenuMous('#rightGzh', '.rightGzhSpan');
 
             bndongJs.clearIntervalTimeId(timeIds.setNotHomeRightMenuTId);
         }
