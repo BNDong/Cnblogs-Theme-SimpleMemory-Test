@@ -1590,7 +1590,7 @@ function Base() {
             // 添加公众号
             if (window.cnblogsConfig.weChatOfficialAccounts) {
                 let rightGzhHtml = '<div id="rightGzh" clickflg="false"><span class="rightMenuSpan rightGzhSpan">' +
-                    '<div class="ds-pay"><div class="ds-gzh"><img src="'+window.cnblogsConfig.weChatOfficialAccounts+'"><span>公众号</span></div>/div>' +
+                    '<div class="ds-pay"><div class="ds-gzh"><img src="'+window.cnblogsConfig.weChatOfficialAccounts+'"><span>公众号</span></div></div>' +
                     '</span><i class="iconfont icon-gongzhonghaoerweima"></i></div>';
                 rightMenu.prepend(rightGzhHtml);
                 bndongJs.rightMenuMous('#rightGzh', '.rightGzhSpan');
