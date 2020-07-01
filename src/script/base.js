@@ -1211,9 +1211,16 @@ function Base() {
     this.initCatalog = function() {
         const sideToolbar = $('#sideToolbar');
         if (sideToolbar.length > 0) {
-            sideToolbar.prepend('<span class="catalog-btn"><i class="iconfont icon-menudots"></i></span>').fadeIn(300);
+            sideToolbar.prepend('<span class="catalog-btn catalog-btn-shadow"><i class="iconfont icon-mulu"></i></span>').fadeIn(300);
             $('.catalog-btn').click(function () {
-                $('.sideCatalogBg').toggle();
+                let sideCatalogBg = $('.sideCatalogBg');
+                if (sideCatalogBg.is(':hidden')) {
+                    sideCatalogBg.fadeIn(300);
+                    $(this).removeClass('catalog-btn-shadow');
+                } else {
+                    sideCatalogBg.fadeOut(300);
+                    $(this).addClass('catalog-btn-shadow');
+                }
             });
             bndongJs.resizeMonitor();
             bndongJs.clearIntervalTimeId(timeIds.setCatalogTId);

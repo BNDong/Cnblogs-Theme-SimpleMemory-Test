@@ -44,7 +44,7 @@
 #sideCatalog-catalog {
     position: relative;
     font-size: 14px;
-    background: rgba(255, 255, 255, .9);
+    background: rgba(255, 255, 255, 1);
     overflow: visible;
     max-height: 90vh;
     padding: 5px;
@@ -193,7 +193,7 @@
 .catalog-btn {
     display: none;
     position: absolute;
-    top: 5px;
+    top: 3px;
     right: 16px;
     z-index: 2;
     cursor: pointer;
@@ -205,16 +205,15 @@
     background: #FFF;
     text-align: center;
     border-radius: 3px;
+}
+
+.catalog-btn-shadow {
     -webkit-box-shadow: 0 1px 20px 0 rgba(0,0,0,0.1), inset 0 -1px 0 0 rgba(0,0,0,0.1);
     box-shadow: 0 1px 20px 0 rgba(0,0,0,0.1), inset 0 -1px 0 0 rgba(0,0,0,0.1);
 }
 
-.catalog-btn:hover {
-    /*opacity: 1;*/
-}
-
 .catalog-btn i {
-    font-size: 30px;
+    font-size: 18px;
     font-weight: 400;
     color: #555;
     text-shadow: 1px 1px 1px #fff;
