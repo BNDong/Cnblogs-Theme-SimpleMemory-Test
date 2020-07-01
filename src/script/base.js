@@ -299,6 +299,15 @@ function Base() {
         parentObject.on({
             mouseover : function(){
                 updBuryitDiggitNum();
+                $(this).rotate({animateTo:-60, duration: 300, callback: function () {
+                        $(this).rotate({animateTo:60, duration: 300, callback: function () {
+                                $(this).rotate({animateTo:-30, duration: 200, callback: function () {
+                                        $(this).rotate({animateTo:30, duration: 200, callback: function () {
+                                                $(this).rotate({animateTo:0, duration: 100});
+                                        }});
+                                }});
+                        }});
+                }});
                 subObject.stop().fadeIn(300);
             },
             mouseout : function(){

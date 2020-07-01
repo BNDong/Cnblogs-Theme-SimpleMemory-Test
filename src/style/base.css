@@ -2437,7 +2437,7 @@ blockquote p {
 #rightMenu {
     position: fixed;
     bottom: 10px;
-    right: 5px;
+    right: 10px;
     min-width: 24px;
     z-index: 2;
     width: 40px;
@@ -2485,35 +2485,13 @@ div#rightMenu > div {
     position: relative
 }
 
-#toUpDownI i, #rightDiggit i, #rightBuryit i {
+#toUpDownI i, #rightDiggit i, #rightBuryit i, #attention i {
     font-weight: 600;
 }
 
-/*#attention {*/
-/*    bottom: 3px*/
-/*}*/
-
-/*#rightBuryit {*/
-/*    bottom: 5px*/
-/*}*/
-
-/*#rightDiggit, #rightDashang {*/
-/*    bottom: 11px*/
-/*}*/
-
-/*#rightDashang i {*/
-/*    font-size: 32px;*/
-/*    font-weight: 500;*/
-/*}*/
-
-/*#attention:hover, #rightBuryit:hover, #rightDiggit:hover, #rightDashang:hover, #toUpDown:hover {*/
-/*    opacity: 1;*/
-/*    filter: Alpha(opacity=100)*/
-/*}*/
-
 #rightDashang .rightMenuSpan {
     position: absolute;
-    left: -150px;
+    left: -156px;
     font-size: 14px;
     font-weight: 700;
     width: 140px;
@@ -2565,7 +2543,7 @@ div#rightMenu > div {
 }
 
 .rightDanshanSpan {
-    bottom: -120px;
+    bottom: -134px;
 }
 
 .ds-pay {
@@ -2597,12 +2575,13 @@ div#rightMenu > div {
 .ds-alipay span, .ds-wecat span {
     position: absolute;
     font-family: 'Ubuntu Mono',monospace;
-    left: -30px;
-    top: 14px;
+    left: -19px;
+    top: 10px;
+    height: 28px;
     background: #fff;
     color: #777;
-    padding: 3px 6px 6px 6px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 7px;
+    padding: 0px 6px 0px 6px;
+    box-shadow: rgba(0,0,0,0.1) 0 4px 7px;
     border-radius: 0 0 6px 6px;
     font-size: .85em;
     transform: rotate(90deg);
