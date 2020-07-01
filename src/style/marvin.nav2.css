@@ -205,6 +205,8 @@
     background: #FFF;
     text-align: center;
     border-radius: 3px;
+    -webkit-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 
 .catalog-btn-shadow {

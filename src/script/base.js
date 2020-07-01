@@ -468,7 +468,6 @@ function Base() {
      * 日/夜间模式控制
      */
     this.setDayNightControl = function () {
-        console.log(2222);
         let h = parseInt(new Date().getHours()),head = $('head'), cookieKey = 'cnblogs_config_isNight', exp  =  4 * 3600, daySwitch;
 
         switch (tools.getCookie(cookieKey)) {
