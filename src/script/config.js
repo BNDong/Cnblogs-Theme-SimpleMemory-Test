@@ -24,7 +24,7 @@ require.config({
         fancybox: setFileNameMin('jquery.fancybox.min', 'js'),
         //-- 文章标题
         title: setFileNameMin('articleTitle', 'js'),
-        //-- 文章目录s
+        //-- 文章目录
         marvin: setFileNameMin('marvin.nav2', 'js'),
         //-- 文章后缀
         articleStatement: setFileNameMin('articleStatement', 'js'),
