@@ -2547,13 +2547,13 @@ div#rightMenu > div {
     bottom: -134px;
 }
 
-.ds-pay, .ds-gzh {
+.ds-pay {
     width: 100%;
     height: 100%;
     text-align: center;
 }
 
-.ds-alipay, .ds-wecat {
+.ds-alipay, .ds-wecat, .ds-gzh {
     cursor: pointer;
     text-align: center;
     width: 140px;
