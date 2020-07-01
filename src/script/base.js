@@ -296,19 +296,23 @@ function Base() {
             str !== '' && subObject.text(str);
         }
 
+        parentObject.find('i').on({
+            mouseover : function(){
+                $(this).rotate({animateTo:-60, duration: 250, callback: function () {
+                        $(this).rotate({animateTo:60, duration: 250, callback: function () {
+                                $(this).rotate({animateTo:-30, duration: 150, callback: function () {
+                                        $(this).rotate({animateTo:30, duration: 150, callback: function () {
+                                                $(this).rotate({animateTo:0, duration: 100});
+                                            }});
+                                    }});
+                            }});
+                    }});
+            }
+        });
+
         parentObject.on({
             mouseover : function(){
                 updBuryitDiggitNum();
-                let icon = $(this).find('i');
-                icon.rotate({animateTo:-60, duration: 250, callback: function () {
-                        icon.rotate({animateTo:60, duration: 250, callback: function () {
-                                icon.rotate({animateTo:-30, duration: 150, callback: function () {
-                                        icon.rotate({animateTo:30, duration: 150, callback: function () {
-                                                icon.rotate({animateTo:0, duration: 100});
-                                        }});
-                                }});
-                        }});
-                }});
                 subObject.stop().fadeIn(300);
             },
             mouseout : function(){
