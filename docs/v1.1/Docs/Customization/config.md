@@ -547,14 +547,28 @@ window.cnblogsConfig = {
 
 ### homeBannerText - 主页banner上的标语
 
-* 类型：```String```
+* 类型：```String``` or ```Array```
 * 默认值：```""```
 
-主页banner上的标语，设置此选项会固定显示文字，默认为空，自动获取一句。
+主页banner上的标语，设置此选项会显示自定义文字，默认为空，自动获取一句。
+
+1) 设置文字，会固定显示该文字。
+2) 设置数组，随机从数组中获取一条文字显示。 （版本 >= v1.3.2）
 
 ```javascript
 window.cnblogsConfig = {
     homeBannerText: "好好学习，天天向上！",
+}
+
+// or
+
+window.cnblogsConfig = {
+    homeBannerText: [
+        "我是标语一",
+        "我是标语二",
+        "我是标语三",
+        "我是标语四",
+    ],
 }
 ```
 

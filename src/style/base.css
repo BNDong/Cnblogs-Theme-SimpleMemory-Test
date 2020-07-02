@@ -2833,6 +2833,13 @@ div#rightMenu > div {
     overflow: hidden
 }
 
+#m-nav-list li a i {
+    margin-right: 3px;
+    font-size: 16px;
+    position: relative;
+    top: 1px;
+}
+
 #header, #leftcontentcontainer, #profile_block, .catListTitle, #comment_nav {
     display: none !important
 }
