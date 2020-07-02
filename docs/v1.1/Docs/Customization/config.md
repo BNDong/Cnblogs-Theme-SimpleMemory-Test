@@ -652,6 +652,21 @@ window.cnblogsConfig = {
 }
 ```
 
+### weChatOfficialAccounts - 公众号
+?> 版本 >= v1.3.2
+
+* 类型：```Url```
+* 默认值：`""`
+
+公众号二维码图片，显示在页面右下角。
+只在文章页显示公众号，首页不显示。
+
+```javascript
+window.cnblogsConfig = {
+    weChatOfficialAccounts: '//xxxx.png',
+}
+```
+
 ## 代码相关配置
 
 ### codeMaxHeight - 限制代码框高度

@@ -958,8 +958,19 @@ function Base() {
      */
     this.setHitokoto = function() {
 
-        if (window.cnblogsConfig.homeBannerText !== "") {
-            $('#hitokoto').text(window.cnblogsConfig.homeBannerText).css('display', '-webkit-box');
+
+        // 判断用户是否自定义了设置
+        let homeBannerText = window.cnblogsConfig.homeBannerText,
+            hitokoto = $('#hitokoto');
+        if ($.isArray(homeBannerText) && homeBannerText.length > 0) {
+
+            let listIndex = tools.randomNum(0, homeBannerText.length - 1);
+            hitokoto.text(homeBannerText[listIndex]).css('display', '-webkit-box');
+            return true;
+
+        } else if (typeof homeBannerText === "string" && homeBannerText !== "") {
+
+            hitokoto.text(homeBannerText).css('display', '-webkit-box');
             bndongJs.setDomHomePosition();
             return true;
         }
@@ -983,9 +994,8 @@ function Base() {
             '岁月不饶人，我亦未曾饶过岁月。',
             '当你凝视深渊时，深渊也在凝视着你。',
             '有的人25岁就死了，只是到75岁才埋葬'
-        ];
+        ], settings = {};
 
-        let settings = {};
         switch (window.cnblogsConfig.homeBannerTextType) {
             case "one": //  ONE . 每日一句
                 settings = {
@@ -1006,11 +1016,11 @@ function Base() {
 
                 $.ajax(settings).done(function (response) {
                     if (response.errno === 0) {
-                        $('#hitokoto').text(response.note).css('display', '-webkit-box');
+                        hitokoto.text(response.note).css('display', '-webkit-box');
                         $('#hitokotoAuthor').text(response.content).show();
                     } else {
                         let listIndex = tools.randomNum(0, topTitleList.length - 1);
-                        $('#hitokoto').text(topTitleList[listIndex]).css('display', '-webkit-box');
+                        hitokoto.text(topTitleList[listIndex]).css('display', '-webkit-box');
                     }
                     bndongJs.setDomHomePosition();
                     return false;
@@ -1028,11 +1038,11 @@ function Base() {
 
                 $.ajax(settings).done(function (response) {
                     if (response && response.status === "success") {
-                        $('#hitokoto').text(response.data.content).css('display', '-webkit-box');
+                        hitokoto.text(response.data.content).css('display', '-webkit-box');
                         $('#hitokotoAuthor').text('《'+response.data.origin.title+'》 - '+response.data.origin.dynasty+' - '+response.data.origin.author).show();
                     } else {
                         let listIndex = tools.randomNum(0, topTitleList.length - 1);
-                        $('#hitokoto').text(topTitleList[listIndex]).css('display', '-webkit-box');
+                        hitokoto.text(topTitleList[listIndex]).css('display', '-webkit-box');
                     }
                     bndongJs.setDomHomePosition();
                     return false;
