@@ -289,12 +289,13 @@ window.cnblogsConfig = {
 * 默认值：```[]```
 
 自定义菜单导航，显示在默认导航下方。
+icon 支持与定义，要求版本 >= v1.3.2
 
 ```javascript
 window.cnblogsConfig = {
-    menuNavList: [ // 列表数据 ['导航名称', '链接']
-        ['我的博客1', 'https://www.cnblogs.com/bndong/'],
-        ['我的博客2', 'https://www.cnblogs.com/bndong/'],
+    menuNavList: [ // 列表数据 ['导航名称', '链接', 'icon']
+        ['我的博客1', 'https://www.cnblogs.com/bndong/', 'icon-github'],
+        ['我的博客2', 'https://www.cnblogs.com/bndong/', 'icon-github'],
     ],
 }
 ```

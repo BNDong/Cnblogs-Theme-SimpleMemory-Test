@@ -1603,7 +1603,6 @@ function Base() {
                 rightMenu.prepend(rightDashangHtml);
                 bndongJs.rightMenuMous('#rightDashang', '.rightDanshanSpan');
             }
-
             // 添加公众号
             if (window.cnblogsConfig.weChatOfficialAccounts) {
                 let rightGzhHtml = '<div id="rightGzh" clickflg="false"><span class="rightMenuSpan rightGzhSpan">' +

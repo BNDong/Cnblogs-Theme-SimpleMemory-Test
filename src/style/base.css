@@ -6,6 +6,23 @@
 /*    max-height: 100%*/
 /*}*/
 
+::-moz-selection{
+    background:#807dd4;
+    color: #FFF
+}
+::selection{
+    background:#807dd4;
+    color: #FFF
+}
+::-webkit-selection{
+    background:#807dd4;
+    color: #FFF
+}
+
+::-moz-selection {
+    background:#807dd4;
+}
+
 ::-webkit-scrollbar {
     width:3px;
     height: 3px;
@@ -111,14 +128,6 @@ body {
 /*    bottom: 0;*/
 /*    background-size: 20px 20px*/
 /*}*/
-
-::-moz-selection {
-    background: #D6EDFF
-}
-
-::selection {
-    background: #D6EDFF
-}
 
 table {
     border-collapse: collapse;

@@ -96,16 +96,16 @@
 #sideCatalog li.active:after {
     left: 0;
     bottom: 0;
-    border-left: 3px solid #5c8ec6
+    border-left: 3px solid #807dd4
 }
 
 #sideCatalog-catalog .active a {
     font-weight: 600;
-    color: #5c8ec6
+    color: #807dd4
 }
 
 #sideCatalog-catalog a:hover {
-    color: #5c8ec6
+    color: #807dd4
 }
 
 #sideCatalog span:first-child {
