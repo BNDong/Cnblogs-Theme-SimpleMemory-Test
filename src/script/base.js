@@ -898,7 +898,7 @@ function Base() {
             (homeTopImg.length > 1 ? bgImg = homeTopImg[tools.randomNum(0, homeTopImg.length - 1)] : bgImg = homeTopImg[0])
             : bgImg = "";
         $('.main-header').css({
-            'background': '#222 url('+encodeURI(bgImg)+')  center center no-repeat',
+            'background': '#222 url("'+encodeURI(bgImg)+'")  center center no-repeat',
             'background-size': 'cover'
         });
 
@@ -1251,7 +1251,7 @@ function Base() {
 
         $('.main-header').css({
             'height': '40vh',
-            'background': '#222 url('+encodeURI(bgImg)+')  center center no-repeat',
+            'background': '#222 url("'+encodeURI(bgImg)+'")  center center no-repeat',
             'background-size': 'cover'
         });
 
@@ -1321,8 +1321,15 @@ function Base() {
                         '        <div class="_28asT">' +
                         '            <svg>' +
                         '                <image xlink:href="'+ book.cover +'" x="0" y="0" width="100%" height="100%"></image>' +
-                        '            </svg>' +
-                        '        </div>' +
+                        '            </svg>';
+
+                    if (book.score > 0) {
+                        html  += '<svg class="icon" aria-hidden="true">' +
+                            '             <use xlink:href="#iconpingji-'+book.score+'"></use>' +
+                            '         </svg><zc></zc>';
+                    }
+
+                    html += '        </div>' +
                         '        <div class="_34CGc">' +
                         '            <div class="_2girK">' +
                         '                <div>' +
@@ -1343,6 +1350,7 @@ function Base() {
             });
 
             postBody.append(html);
+            $.getScript('//at.alicdn.com/t/font_1975696_268p7s28tsh.js');
         }
     };
 
