@@ -37,7 +37,7 @@ $(document).ready(function () {
 
         let lserialNum   = u.find('.dev__fe').length  > 0 ? u.find('.dev__fe').text() : 0,
             rserialNum   = u.find('.dev__ux').length > 0  ? u.find('.dev__ux').text() : 0,
-            titleContent = u.find('.dev__developer')      ? u.find('.dev__developer').text() : u.text(),
+            titleContent = u.find('.dev__developer').length > 0 ? u.find('.dev__developer').text() : u.text(),
             titleId      = u.attr('tid'),
             hId          = u.attr('id');
 
