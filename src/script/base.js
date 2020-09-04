@@ -1449,9 +1449,12 @@ function Base() {
         function highlightjsCode() {
             tools.dynamicLoadingCss('https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/src/style/highlightjs/'+hltheme+'.min.css');
             require(['highlightjs'], function() {
-                hljs.configure({
-                    languages: ["php", "Java"]
-                });
+                let essayCodeLanguages = window.cnblogsConfig.essayCodeLanguages;
+                if (essayCodeLanguages && essayCodeLanguages.length > 0) {
+                    hljs.configure({
+                        languages: essayCodeLanguages
+                    });
+                }
                 $('.post pre').each(function(i, block) {
                     if ($.inArray(hltheme, [
                             'github-gist', 'googlecode', 'grayscale',

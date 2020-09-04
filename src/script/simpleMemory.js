@@ -183,6 +183,7 @@ if (initCheck()) {
         ],
         essayCodeHighlightingType: 'cnblogs',
         essayCodeHighlighting: '',
+        essayCodeLanguages: [],
         essayCode: {
             fontFamily: "'Ubuntu Mono',monospace",
             fontSize: "14px",
