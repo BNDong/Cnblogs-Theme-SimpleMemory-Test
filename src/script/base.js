@@ -422,8 +422,8 @@ function Base() {
                 }
                 window.cnblogsConfig.hook.pageLabelChanges(bndongJs, webpageTitleOnblur);
             } else {
-                document.title = webpageTitleFocus;
                 if (webpageTitleFocusTimeOut >= 0) {
+                    document.title = webpageTitleFocus;
                     timer = setTimeout(function () {
                         document.title = RelTitle;
                     }, webpageTitleFocusTimeOut);

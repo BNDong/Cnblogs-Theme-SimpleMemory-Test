@@ -152,6 +152,8 @@ window.cnblogsConfig = {
 
 当页面失去焦点，页面title变化的延时时间，单位毫秒。
 
+?> 版本 >= v1.3.3 后该配置值为 -1 时，当页面失去焦点，页面title显示的文字不会变化。
+
 ```javascript
 window.cnblogsConfig = {
     webpageTitleOnblurTimeOut: 500,
@@ -177,6 +179,8 @@ window.cnblogsConfig = {
 * 默认值：```1000```
 
 当页面获取焦点，页面title变化的延时时间，单位毫秒。
+
+?> 版本 >= v1.3.3 后该配置值为 -1 时，当页面获取焦点，页面title显示的文字不会变化。
 
 ```javascript
 window.cnblogsConfig = {
