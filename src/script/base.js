@@ -395,7 +395,11 @@ function Base() {
         let RelTitle = document.title,
             hidden,
             visibilityChange,
-            timer;
+            timer,
+            webpageTitleOnblur = window.cnblogsConfig.webpageTitleOnblur,
+            webpageTitleOnblurTimeOut = window.cnblogsConfig.webpageTitleOnblurTimeOut,
+            webpageTitleFocus = window.cnblogsConfig.webpageTitleFocus,
+            webpageTitleFocusTimeOut = window.cnblogsConfig.webpageTitleFocusTimeOut;
 
         if (typeof document.hidden !== "undefined") {
             hidden = "hidden";
@@ -411,16 +415,20 @@ function Base() {
         function handleVisibilityChange() {
             if (timer) clearTimeout(timer);
             if (document[hidden]) {
-                timer = setTimeout(function () {
-                    document.title = window.cnblogsConfig.webpageTitleOnblur + ' - ' + RelTitle.split(' - ')[0];
-                }, window.cnblogsConfig.webpageTitleOnblurTimeOut);
-                window.cnblogsConfig.hook.pageLabelChanges(bndongJs, window.cnblogsConfig.webpageTitleOnblur);
+                if (webpageTitleOnblurTimeOut >= 0) {
+                    timer = setTimeout(function () {
+                        document.title = webpageTitleOnblur + ' - ' + RelTitle.split(' - ')[0];
+                    }, webpageTitleOnblurTimeOut);
+                }
+                window.cnblogsConfig.hook.pageLabelChanges(bndongJs, webpageTitleOnblur);
             } else {
-                document.title = window.cnblogsConfig.webpageTitleFocus;
-                timer = setTimeout(function () {
-                    document.title = RelTitle;
-                }, window.cnblogsConfig.webpageTitleFocusTimeOut);
-                window.cnblogsConfig.hook.pageLabelChanges(bndongJs, window.cnblogsConfig.webpageTitleFocus);
+                document.title = webpageTitleFocus;
+                if (webpageTitleFocusTimeOut >= 0) {
+                    timer = setTimeout(function () {
+                        document.title = RelTitle;
+                    }, webpageTitleFocusTimeOut);
+                }
+                window.cnblogsConfig.hook.pageLabelChanges(bndongJs, webpageTitleFocus);
             }
         }
         if (typeof document.addEventListener !== "undefined" || typeof document[hidden] !== "undefined") {
@@ -1337,6 +1345,7 @@ function Base() {
                         (book.name        ? book.name : '') +
                         '                    </div>' +
                         (book.formerNname ? '<div class="_3Oa5I"><span class="_6Y7v3">原名：</span>' + book.formerNname + '</div>' : '') +
+                        (book.author      ? '<div class="_3Oa5I"><span class="_6Y7v3">作者：</span>' + book.author + '</div>' : '') +
                         (book.author      ? '<div class="_3Oa5I"><span class="_6Y7v3">作者：</span>' + book.author + '</div>' : '') +
                         (book.translator  ? '<div class="_3Oa5I"><span class="_6Y7v3">译者：</span>' + book.translator + '</div>' : '') +
                         (book.press       ? '<div class="_3Oa5I"><span class="_6Y7v3">出版社：</span>' + book.press + '</div>' : '') +
