@@ -1449,6 +1449,9 @@ function Base() {
         function highlightjsCode() {
             tools.dynamicLoadingCss('https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/src/style/highlightjs/'+hltheme+'.min.css');
             require(['highlightjs'], function() {
+                hljs.configure({
+                    languages: ["php"]
+                });
                 $('.post pre').each(function(i, block) {
                     if ($.inArray(hltheme, [
                             'github-gist', 'googlecode', 'grayscale',

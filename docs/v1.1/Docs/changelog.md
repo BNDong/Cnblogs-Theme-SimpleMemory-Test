@@ -4,6 +4,10 @@
 * `webpageTitleOnblurTimeOut` 该配置值为 -1 时，当页面失去焦点，页面title显示的文字不会变化。
 * `webpageTitleFocusTimeOut` 该配置值为 -1 时，当页面获取焦点，页面title显示的文字不会变化。
 
+* 修复菜单导航序号显示不全的问题
+
+
+
 ## 2020.07.10 - v1.3.2
 * 兼容博客园现有的订阅功能并优化了弹窗样式
 * 升级 Highlight.js 版本: v9.13.1 -> v10.1.1
