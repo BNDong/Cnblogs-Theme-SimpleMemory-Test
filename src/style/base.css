@@ -3142,6 +3142,7 @@ div#loading, a[name=top] {
 
 .books-item {
     margin-top: 10px;
+    font-family: 'Noto Serif SC', serif;
 }
 
 .books-item .books-item-span {
@@ -3231,6 +3232,26 @@ div#loading, a[name=top] {
     border-radius: 6px
 }
 
+.books-item .books-item-span ._28asT svg.icon {
+    font-size: 3.5em;
+    position: absolute;
+    bottom: -20px;
+    z-index: 1;
+    left: 0;
+    height: 60px;
+}
+
+.books-item .books-item-span ._28asT zc {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 22px;
+    bottom: 0;
+    background: rgba(0,0,0,0.1);
+    z-index: 0;
+}
+
 .books-item .books-item-span ._34CGc {
     -webkit-box-flex: 1;
     flex: 1;
@@ -3253,7 +3274,8 @@ div#loading, a[name=top] {
     margin-bottom: 3px;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis
+    text-overflow: ellipsis;
+    font-family: 'ZCOOL XiaoWei', serif;
 }
 
 .books-item .books-item-span ._2girK ._6Y7v3 {
