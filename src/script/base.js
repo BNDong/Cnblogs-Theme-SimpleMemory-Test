@@ -427,6 +427,8 @@ function Base() {
                     timer = setTimeout(function () {
                         document.title = RelTitle;
                     }, webpageTitleFocusTimeOut);
+                } else {
+                    document.title = RelTitle;
                 }
                 window.cnblogsConfig.hook.pageLabelChanges(bndongJs, webpageTitleFocus);
             }
