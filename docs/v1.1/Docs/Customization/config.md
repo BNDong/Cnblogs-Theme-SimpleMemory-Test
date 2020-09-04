@@ -811,6 +811,28 @@ default、a11y-dark、a11y-light、agate、an-old-hope、androidstudio、arduino
 */
 ```
 
+#### essayCodeLanguages
+
+* 类型：```Array```
+* 默认值：```[]```
+
+?> 版本 >= v1.3.3
+
+使用 ```highlightjs``` 插件渲染代码高亮时，限制自动识别语言时的语言范围。
+
+支持配置的语言：[Languages](https://github.com/highlightjs/highlight.js/blob/master/SUPPORTED_LANGUAGES.md)
+
+```javascript
+window.cnblogsConfig = {
+    essayCodeLanguages: [
+        "G-Code",
+        "PHP",
+        "python",
+        "SQL",
+    ],
+}
+```
+
 ### 使用 prettify 渲染代码
 
 #### essayCodeHighlightingType

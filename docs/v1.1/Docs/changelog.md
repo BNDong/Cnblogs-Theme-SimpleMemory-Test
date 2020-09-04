@@ -3,10 +3,9 @@
 * 书单增加评级（1～5）
 * `webpageTitleOnblurTimeOut` 该配置值为 -1 时，当页面失去焦点，页面title显示的文字不会变化。
 * `webpageTitleFocusTimeOut` 该配置值为 -1 时，当页面获取焦点，页面title显示的文字不会变化。
+* 增加配置 `essayCodeLanguages`：使用 hljs 渲染代码时，可限制自动识别语言时的语言范围。
 
 * 修复菜单导航序号显示不全的问题
-
-
 
 ## 2020.07.10 - v1.3.2
 * 兼容博客园现有的订阅功能并优化了弹窗样式

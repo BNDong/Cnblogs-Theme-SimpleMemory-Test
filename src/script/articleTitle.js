@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+    return;
+
     const s       = $('#cnblogs_post_body'),
           tools   = new myTools;
 
