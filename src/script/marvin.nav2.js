@@ -35,9 +35,9 @@ $(document).ready(function () {
             v = u[0];
         if ($.inArray((v.tagName.toLowerCase()), [topHT, topTwHT]) === -1) return true;
 
-        let lserialNum   = u.find('.dev__fe').text(),
-            rserialNum   = u.find('.dev__ux').text(),
-            titleContent = u.find('.dev__developer').text(),
+        let lserialNum   = u.find('.dev__fe').length  > 0 ? u.find('.dev__fe').text() : 0,
+            rserialNum   = u.find('.dev__ux').length > 0  ? u.find('.dev__ux').text() : 0,
+            titleContent = u.find('.dev__developer')      ? u.find('.dev__developer').text() : u.text(),
             titleId      = u.attr('tid'),
             hId          = u.attr('id');
 
@@ -53,18 +53,21 @@ $(document).ready(function () {
 
         if (v.localName === topHT) {
             l++; m = 0; r = true;
-            if(titleContent.length>26) titleContent=titleContent.substr(0,26) + "...";
+            if(titleContent.length > 26) titleContent = titleContent.substr(0,26) + "...";
             titleContent = tools.HTMLEncode(titleContent);
 
-            j += '<li h="'+topLev+'" g="'+ lserialNum +'"><a href="#'+hId+'" goto="' + titleId + '" onclick="return false;">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
+            let itemText = lserialNum ===  0 && rserialNum === 0 ? titleContent : lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent;
+
+            j += '<li h="'+topLev+'" g="'+ lserialNum +'"><a href="#'+hId+'" goto="' + titleId + '" onclick="return false;">' + itemText + '</a><span class="sideCatalog-dot"></span></li>';
         } else if (r && v.localName === topTwHT) {
             m++; n = 0;
             if(q){
 
                 if(titleContent.length>30) titleContent = titleContent.substr(0,30) + "...";
                 titleContent = tools.HTMLEncode(titleContent);
+                let itemText = lserialNum ===  0 && rserialNum === 0 ? titleContent : lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent;
 
-                j += '<li h="'+(topLev+1)+'" g="'+ lserialNum +'" class="h2Offset ceg'+lserialNum+'"><a href="#'+hId+'" goto="' + titleId + '" onclick="return false;">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
+                j += '<li h="'+(topLev+1)+'" g="'+ lserialNum +'" class="h2Offset ceg'+lserialNum+'"><a href="#'+hId+'" goto="' + titleId + '" onclick="return false;">' + itemText + '</a></li>';
             }
         }
     });
