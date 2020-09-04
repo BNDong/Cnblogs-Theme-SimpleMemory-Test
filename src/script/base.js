@@ -1450,7 +1450,7 @@ function Base() {
             tools.dynamicLoadingCss('https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/src/style/highlightjs/'+hltheme+'.min.css');
             require(['highlightjs'], function() {
                 hljs.configure({
-                    languages: ["php"]
+                    languages: ["php", "Java"]
                 });
                 $('.post pre').each(function(i, block) {
                     if ($.inArray(hltheme, [
