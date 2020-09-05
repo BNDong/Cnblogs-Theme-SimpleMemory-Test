@@ -79,10 +79,14 @@ $(document).ready(function () {
     b.scrollspy({
         target: '.sideCatalogBg'
     });
-    $sideCatelog = $('#' + e);
+    let $sideCatelog = $('#' + e);
 
     $('#' + f + '>ul>li').click(function () {
-        let obj = $(this), title = $(':header[tid="'+obj.find('a').attr('goto')+'"]').parent('span.header__span');
+        let obj = $(this), title, titleH = $(':header[tid="'+obj.find('a').attr('goto')+'"]'),
+        titleParent = titleH.parent('span.header__span');
+
+        title = titleParent.length > 0 ? titleParent : titleH;
+
         title.length && tools.actScroll(title.offset().top + 3, 500);
     });
 

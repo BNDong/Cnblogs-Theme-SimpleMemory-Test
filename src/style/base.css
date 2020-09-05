@@ -2885,14 +2885,15 @@ span.cnblogs_code {
     position: relative;
     overflow: hidden;
     border: 0;
+    padding: 0;
 }
 
 .post pre {
     padding: 10px !important;
     white-space: pre;
     word-wrap: normal;
-    margin: 0;
-    border-radius: 5px !important;
+    margin: 5px 0;
+    border-radius: 4px !important;
 }
 
 .postBody pre {
