@@ -35,8 +35,8 @@ $(document).ready(function () {
             v = u[0];
         if ($.inArray((v.tagName.toLowerCase()), [topHT, topTwHT]) === -1) return true;
 
-        let lserialNum   = u.find('.dev__fe').length  > 0 ? u.find('.dev__fe').text() : 0,
-            rserialNum   = u.find('.dev__ux').length > 0  ? u.find('.dev__ux').text() : 0,
+        let lserialNum   = u.find('.dev__fe').length  > 0 ? u.find('.dev__fe').text() : null,
+            rserialNum   = u.find('.dev__ux').length > 0  ? u.find('.dev__ux').text() : null,
             titleContent = u.find('.dev__developer').length > 0 ? u.find('.dev__developer').text() : u.text(),
             titleId      = u.attr('tid'),
             hId          = u.attr('id');
@@ -59,7 +59,7 @@ $(document).ready(function () {
 
             let itemText = lserialNum ===  0 && rserialNum === 0 ? titleContent : lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent;
 
-            j += '<li h="'+topLev+'" g="'+ lserialNum +'"><a href="#'+hId+'" goto="' + titleId + '" onclick="return false;">' + itemText + '</a><span class="sideCatalog-dot"></span></li>';
+            j += '<li h="'+topLev+'" g="'+ (lserialNum === null ? l : lserialNum) +'"><a href="#'+hId+'" goto="' + titleId + '" onclick="return false;">' + itemText + '</a><span class="sideCatalog-dot"></span></li>';
         } else if (r && v.localName === topTwHT) {
             m++; n = 0;
             if(q){
@@ -68,7 +68,8 @@ $(document).ready(function () {
                 titleContent = tools.HTMLEncode(titleContent);
                 let itemText = lserialNum ===  0 && rserialNum === 0 ? titleContent : lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent;
 
-                j += '<li h="'+(topLev+1)+'" g="'+ lserialNum +'" class="h2Offset ceg'+lserialNum+'"><a href="#'+hId+'" goto="' + titleId + '" onclick="return false;">' + itemText + '</a></li>';
+                j += '<li h="'+(topLev+1)+'" g="'+ (lserialNum === null ? l : lserialNum) +'" ' +
+                    'class="h2Offset ceg'+ (lserialNum === null ? l : lserialNum) +'"><a href="#'+hId+'" goto="' + titleId + '" onclick="return false;">' + itemText + '</a></li>';
             }
         }
     });
