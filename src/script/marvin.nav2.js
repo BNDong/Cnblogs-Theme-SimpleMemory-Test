@@ -57,7 +57,7 @@ $(document).ready(function () {
             if(titleContent.length > 26) titleContent = titleContent.substr(0,26) + "...";
             titleContent = tools.HTMLEncode(titleContent);
 
-            let itemText = lserialNum ===  0 && rserialNum === 0 ? titleContent : lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent;
+            let itemText = lserialNum === null && rserialNum === null ? titleContent : lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent;
 
             j += '<li h="'+topLev+'" g="'+ (lserialNum === null ? l : lserialNum) +'"><a href="#'+hId+'" goto="' + titleId + '" onclick="return false;">' + itemText + '</a><span class="sideCatalog-dot"></span></li>';
         } else if (r && v.localName === topTwHT) {
@@ -66,7 +66,7 @@ $(document).ready(function () {
 
                 if(titleContent.length>30) titleContent = titleContent.substr(0,30) + "...";
                 titleContent = tools.HTMLEncode(titleContent);
-                let itemText = lserialNum ===  0 && rserialNum === 0 ? titleContent : lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent;
+                let itemText = lserialNum === null && rserialNum === null ? titleContent : lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent;
 
                 j += '<li h="'+(topLev+1)+'" g="'+ (lserialNum === null ? l : lserialNum) +'" ' +
                     'class="h2Offset ceg'+ (lserialNum === null ? l : lserialNum) +'"><a href="#'+hId+'" goto="' + titleId + '" onclick="return false;">' + itemText + '</a></li>';
