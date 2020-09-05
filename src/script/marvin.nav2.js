@@ -30,7 +30,7 @@ $(document).ready(function () {
 
     let topHT = 'h' + topLev, topTwHT = 'h' + (topLev + 1);
 
-    o.each(function () {
+    o.each(function (ii) {
         let u = $(this),
             v = u[0];
         if ($.inArray((v.tagName.toLowerCase()), [topHT, topTwHT]) === -1) return true;

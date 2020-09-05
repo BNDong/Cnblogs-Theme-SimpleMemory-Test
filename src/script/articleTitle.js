@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    return;
+    // return;
 
     const s       = $('#cnblogs_post_body'),
           tools   = new myTools;
