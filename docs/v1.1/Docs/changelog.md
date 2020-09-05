@@ -1,9 +1,11 @@
 ## 2020.07.10 - v1.3.3
 * 书单样式调整
 * 书单增加评级（1～5）
-* `webpageTitleOnblurTimeOut` 该配置值为 -1 时，当页面失去焦点，页面title显示的文字不会变化。
-* `webpageTitleFocusTimeOut` 该配置值为 -1 时，当页面获取焦点，页面title显示的文字不会变化。
-* 增加配置 `essayCodeLanguages`：使用 hljs 渲染代码时，可限制自动识别语言时的语言范围。
+* 调整配置 `webpageTitleOnblurTimeOut`：该配置值为 -1 时，当页面失去焦点，页面title显示的文字不会变化。
+* 调整配置 `webpageTitleFocusTimeOut`：该配置值为 -1 时，当页面获取焦点，页面title显示的文字不会变化。
+* 增加配置 `essayCodeLanguages`：使用 hljs 渲染代码时，可限制自动识别语言的语言范围。
+* 增加配置 `essayTitleStyle`：是否设置文章内容标题样式，默认不设置。
+* 微调文章内容样式。
 
 * 修复菜单导航序号显示不全的问题
 

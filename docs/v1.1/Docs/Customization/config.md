@@ -621,6 +621,21 @@ window.cnblogsConfig = {
 }
 ```
 
+### essayTitleStyle - 文章内容标题样式设置
+
+?> 版本 >= v1.3.3
+
+* 类型：```Boolean```
+* 默认值：```"false"```
+
+是否设置文章内容标题样式，默认不设置。
+
+```javascript
+window.cnblogsConfig = {
+    essayTitleStyle: true,
+}
+```
+
 ### essaySuffix - 文章后缀配置
 
 * 类型：```Object```
