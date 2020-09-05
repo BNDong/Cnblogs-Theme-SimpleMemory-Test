@@ -44,6 +44,7 @@ $(document).ready(function () {
         if (!titleId) {
             titleId = tools.randomString(6);
             u.attr('tid', 'tid-' + titleId);
+            titleId = 'tid-' + titleId;
         }
 
         if (!hId) {
@@ -82,10 +83,10 @@ $(document).ready(function () {
     let $sideCatelog = $('#' + e);
 
     $('#' + f + '>ul>li').click(function () {
-        let obj = $(this), title, titleH = $(':header[tid="tid-'+obj.find('a').attr('goto')+'"]'),
+        let obj = $(this), title, titleH = $(':header[tid="'+obj.find('a').attr('goto')+'"]'),
         titleParent = titleH.parent('span.header__span');
         title = titleParent.length > 0 ? titleParent : titleH;
-console.log(title);
+
         title.length && tools.actScroll(title.offset().top + 3, 500);
     });
 
