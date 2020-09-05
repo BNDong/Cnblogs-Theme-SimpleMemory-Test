@@ -190,6 +190,7 @@ if (initCheck()) {
         },
         codeMaxHeight: false,
         codeLineNumber: false,
+        essayTitleStyle: false,
         essaySuffix: {
             codeImgUrl: '',
             aboutHtml: '',
