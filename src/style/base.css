@@ -376,6 +376,31 @@ b {
     width: 60px
 }
 
+.desc_img {
+    display: none;
+}
+
+.c_b_p_desc_img {
+    width: calc(39% - 20px);
+    height: 100%;
+    opacity: .9;
+    position: absolute;
+    top: -18px;
+    border-left: 1px dashed #e9e9e9;
+    right: 0;
+    padding-left: 13px;
+    border-radius: 0 4px 4px 0;
+    overflow: hidden;
+}
+
+.c_b_p_desc_img img {
+    width: auto;
+    height: 100%;
+    border-radius: 4px 0 0 4px;
+    margin: 0;
+    opacity: .95;
+}
+
 .postCon, .postDesc, .postSeparator, .postTitle {
     width: 100%;
     clear: both

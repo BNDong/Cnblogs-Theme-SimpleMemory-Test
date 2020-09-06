@@ -920,6 +920,7 @@ function Base() {
     this.homeInitAfter = function () {
         bndongJs.setHomePost();
         bndongJs.setEntryPost();
+        bndongJs.setPostConImg();
 
         // 头图点击滚动到内容位置
         $('.scroll-down').click(function () {
@@ -960,6 +961,23 @@ function Base() {
             let title = $(this),
                 postDescText = title.nextAll('.entrylistItemPostDesc:eq(0)').text();
             title.after(bndongJs.getPostMetaHtml(postDescText));
+        });
+    };
+
+    /**
+     * 设置摘要文章
+     */
+    this.setPostConImg = function () {
+        let desc = $('.c_b_p_desc');
+        $.each(desc, function (i) {
+            let obj = $(this), img = obj.find('img.desc_img');
+            if (img.length > 0) {
+                let src = img.attr('src');
+                img.hide();
+                obj.css('width', '60%');
+                let html = '<div class="c_b_p_desc_img"><img src="'+ src +'" /></div>';
+                obj.after(html);
+            }
         });
     };
 
