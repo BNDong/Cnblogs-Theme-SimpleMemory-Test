@@ -5,6 +5,7 @@
 * 调整配置 `webpageTitleFocusTimeOut`：该配置值为 -1 时，当页面获取焦点，页面title显示的文字不会变化。
 * 增加配置 `essayCodeLanguages`：使用 hljs 渲染代码时，可限制自动识别语言的语言范围。
 * 增加配置 `essayTitleStyle`：是否设置文章内容标题样式，默认不设置。
+* 优化了文章摘要右侧图片的样式
 * 微调文章内容样式。
 * 修复菜单导航序号显示不全的问题
 
