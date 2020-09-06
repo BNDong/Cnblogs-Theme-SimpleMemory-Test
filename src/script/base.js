@@ -975,7 +975,7 @@ function Base() {
                 let src = img.attr('src');
                 img.hide();
                 obj.css('width', '60%');
-                let html = '<div class="c_b_p_desc_img"><img src="'+ src +'" /></div>';
+                let html = '<div class="c_b_p_desc_img"><div style="background: url(\''+ src +'\') center center / cover no-repeat rgb(34, 34, 34);"></div></div>';
                 obj.after(html);
             }
         });
