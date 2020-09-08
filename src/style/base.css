@@ -4075,8 +4075,16 @@ table#blogCalendar>tbody>tr>td>a {
         display: none
     }
 
-    #bgCanvas, #homeTopCanvas, #notHomeTopCanvas, .essaySuffix-box-left {
+    #bgCanvas, #homeTopCanvas, #notHomeTopCanvas, .essaySuffix-box-left, .c_b_p_desc_img {
         display: none !important
+    }
+
+    .c_b_p_desc, .entrylistPostSummary {
+        width: 100% !important;
+    }
+
+    .postCon {
+        min-height: unset !important;
     }
 
     .essaySuffix-box-right {
