@@ -1,13 +1,13 @@
 <div align="center">
 
-<img src="./img/logo.png" height="150" />
+<img src="./img/simple1.png" height="150" />
 
 [![GitHub release](https://img.shields.io/github/release/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/releases)
 [![GitHub issues](https://img.shields.io/github/issues/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/issues)
 [![GitHub stars](https://img.shields.io/github/stars/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/network)
-
 [![GitHub contributors](https://img.shields.io/github/contributors/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/graphs/contributors)
+
 [![GitHub last commit](https://img.shields.io/github/last-commit/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master)
 [![GitHub license](https://img.shields.io/github/license/esofar/cnblogs-theme-silence.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/blob/master/LICENSE)
 [![](https://data.jsdelivr.com/v1/package/gh/BNDong/Cnblogs-Theme-SimpleMemory/badge?style=rounded)](https://www.jsdelivr.com/package/gh/BNDong/Cnblogs-Theme-SimpleMemory)
@@ -17,8 +17,6 @@
 </div>
 
 # Silence
-
-> !! 由于 Gitee 屏蔽了本项目库 😓，所有引用至 Gitee 的静态资源全部失效，现已移除。如果出现页面空白、样式错乱、无法加载的现象，可以尝试更新版本至最新版本！
 
 📖 本主题以阅读为核心，美化博客园的显示效果，提高用户体验。 
 
