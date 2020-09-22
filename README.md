@@ -2,7 +2,7 @@
 
 <img src="./img/simple1.png" />
 
-<br><br>
+<br>
 
 </div>
 
