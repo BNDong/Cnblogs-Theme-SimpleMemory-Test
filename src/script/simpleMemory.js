@@ -456,7 +456,7 @@ function simpleMemory() {
      * @returns {string}
      */
     this.getJsDelivrUrl = (file, directory) => {
-        file = setFileNameMin(file, directory);
+        file = __sm.setFileNameMin(file, directory);
         return 'https://cdn.jsdelivr.net/gh/'
             + (window.cnblogsConfig.GhUserName)
             + '/' + (window.cnblogsConfig.GhRepositories)
