@@ -164,7 +164,7 @@ function Base() {
      * 清除全部定时器
      */
     this.clearIntervalAll = () => {
-        $.each(timeIds, function (e) {
+        $.each(timeIds, (e) => {
             null != timeIds[e] && window.clearInterval(timeIds[e]);
         });
     };
@@ -684,10 +684,10 @@ function Base() {
         function setCustomData() {
             let customData = window.cnblogsConfig.menuCustomList;
             if (Object.keys(customData).length > 0) {
-                $.each(customData, function (title, list) {
+                $.each(customData, (title, list) => {
                     let html = '<div class="m-list-title" style="display: block;"><span>' + title + '</span></div>';
                     html += '<div class="m-icon-list"><div><ul>';
-                    $.each(list.data, function (key, val) {
+                    $.each(list.data, (key, val) => {
                         html += '<li><a href="' + val[1] + '">';
                         html += '<span class="iconfont '+ list.icon +'" style="color: #888;font-size: 14px;margin-right: 5px;"></span>';
                         html += val[0] + '</a></li>';
@@ -869,7 +869,7 @@ function Base() {
             if (cnzzStat.length > 0) {
                 let cnzzInfo = [];
                 let cnzzArr  = $(cnzzStat[1]).text().split('|');
-                $.each(cnzzArr, function (i) {
+                $.each(cnzzArr, (i) => {
                     let str = $.trim(cnzzArr[i]);
                     if (str !== '') {
                         str = str.replace('今日','Today').replace('昨日','Yesterday').replace('[',':').replace(']','');
@@ -942,17 +942,13 @@ function Base() {
     this.setHomePost = () => {
         let read = $('#main .c_b_p_desc_readmore'), titleList = $('#main .postTitle');
         read.text('阅读全文 »');
-        console.log(titleList);
-        $.each(titleList, () => {
-            let title = $(this),
+        $.each(titleList, (i) => {
+            let title = $(titleList[i]),
                 titleText = title.text(),
                 postDescText = title.nextAll('.postDesc:eq(0)').text();
-            console.log(titleText);
-            console.log(postDescText);
-            console.log(1);
-            // title.after(__base.getPostMetaHtml(postDescText));
-            // if (/\[置顶\]/.test(titleText)) title.append('<span class="postSticky">置顶</span>');
-            // title.find('a').text(titleText.replace('[置顶]', ''));
+            title.after(__base.getPostMetaHtml(postDescText));
+            if (/\[置顶\]/.test(titleText)) title.append('<span class="postSticky">置顶</span>');
+            title.find('a').text(titleText.replace('[置顶]', ''));
         });
     };
 
@@ -961,8 +957,8 @@ function Base() {
      */
     this.setEntryPost = () => {
         let titleList = $('#main .entrylistPosttitle');
-        $.each(titleList, () => {
-            let title = $(this),
+        $.each(titleList, (i) => {
+            let title = $(titleList[i]),
                 postDescText = title.nextAll('.entrylistItemPostDesc:eq(0)').text();
             title.after(__base.getPostMetaHtml(postDescText));
         });
@@ -973,8 +969,8 @@ function Base() {
      */
     this.setPostConImg = () => {
         let desc = $('.c_b_p_desc');
-        $.each(desc, function (i) {
-            let obj = $(this), img = obj.find('img.desc_img');
+        $.each(desc, (i) => {
+            let obj = $(desc[i]), img = obj.find('img.desc_img');
             if (img.length > 0) {
                 let src = img.attr('src');
                 img.hide();
@@ -1223,8 +1219,8 @@ function Base() {
     this.setArticleInfoClass = () => {
         let obj = $('#BlogPostCategory').find('a');
         if (obj.length > 0) {
-            $.each(obj, () => {
-                let tag = $(this);
+            $.each(obj, (i) => {
+                let tag = $(obj[i]);
                 tag.prepend('<span class="iconfont icon-marketing_fill"></span>');
                 $('#articleInfo').append('<a href="'+tag.attr('href')+'" target="_blank"><span class="article-info-tag article-tag-class-color">'+(tag.text())+'</span></a>');
             });
@@ -1238,8 +1234,8 @@ function Base() {
     this.setArticleInfoTag = () => {
         let obj = $('#EntryTag').find('a');
         if (obj.length > 0) {
-            $.each(obj, () => {
-                let tag = $(this);
+            $.each(obj, (i) => {
+                let tag = $(obj[i]);
                 tag.prepend('<span class="iconfont icon-label_fill"></span>');
                 $('#articleInfo').append('<a href="'+tag.attr('href')+'" target="_blank"><span class="article-info-tag article-tag-color">'+(tag.text())+'</span></a>');
             });
@@ -1322,7 +1318,7 @@ function Base() {
             ,imgList = $('#cnblogs_post_body img');
 
         if (cpb.length > 0 && imgList.length > 0) {
-            $.each(imgList, function (i) {
+            $.each(imgList, (i) => {
                 let tem = $(imgList[i]);
                     if (!tem.hasClass('code_img_closed') && !tem.hasClass('code_img_opened'))
                         tem.wrap('<a data-fancybox="gallery" href="'+tem.attr('src')+'"></a>');
@@ -1340,11 +1336,11 @@ function Base() {
             let postBody = $('#cnblogs_post_body'),
                 html = '';
 
-            $.each(window.cnblogsConfig.bookList, function (i) {
+            $.each(window.cnblogsConfig.bookList, (i) => {
                 let list = window.cnblogsConfig.bookList[i];
                 html += '<h1>' + list.title + '</h1>';
 
-                $.each(list.books, function (j) {
+                $.each(list.books, (j) => {
                     let book = list.books[j];
                     html += '<div class="books-item">' +
                         '    <span class="books-item-span">' +
@@ -1517,8 +1513,8 @@ function Base() {
             if (window.cnblogsConfig.codeMaxHeight) cssText += 'max-height: 70vh;';
             pre.css('cssText', cssText);
 
-            $.each(pre, function (i) {
-                let obj = $(this), pid = 'pre-' + tools.randomString(6), codeLine, html = '';
+            $.each(pre, (i) => {
+                let obj = $(pre[i]), pid = 'pre-' + tools.randomString(6), codeLine, html = '';
 
                 switch (type) {
                     case 1:
@@ -1530,7 +1526,7 @@ function Base() {
                         break;
                 }
                 obj.html('<code-pre class="code-pre" id="' + pid + '"></code-pre>');
-                $.each(codeLine, function (j) {
+                $.each(codeLine, (j) => {
                     let isEnd = j === codeLine.length - 1, fg = isEnd ? '' : '\n';
                     if (isEnd) {
                         if (codeLine[j] && codeLine[j] !== '</code>') html += '<code-line class="line-numbers-rows"></code-line>';
@@ -1544,7 +1540,7 @@ function Base() {
                         case 2:
                             html += codeLine[j] + fg; break;
                     }
-                });
+                })
                 let codePre = $('#' + pid);
                 codePre.append(html);
                 window.cnblogsConfig.codeLineNumber && codePre.addClass('code-pre-line');
@@ -1594,8 +1590,8 @@ function Base() {
         function setComment() {
             let feedbackItem = $('.feedbackItem');
             if (feedbackItem.length > 0) {
-                $.each(feedbackItem, function (i) {
-                    let obj = $(this), feedbackCon =  obj.find('.feedbackCon'), feedbackListSubtitle = obj.find('.feedbackListSubtitle'),
+                $.each(feedbackItem, (i) => {
+                    let obj = $(feedbackItem[i]), feedbackCon =  obj.find('.feedbackCon'), feedbackListSubtitle = obj.find('.feedbackListSubtitle'),
                         commentBody = feedbackCon.length ? feedbackCon.find('.blog_comment_body') : [], avatarHtml = '',
                         idInfo = commentBody.length ? commentBody.attr('id').split('_') : undefined;
                     if (idInfo && idInfo.length > 0) {
