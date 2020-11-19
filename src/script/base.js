@@ -984,12 +984,12 @@ function Base() {
         if ($.isArray(homeBannerText) && homeBannerText.length > 0) {
 
             let listIndex = tools.randomNum(0, homeBannerText.length - 1);
-            hitokoto.text(homeBannerText[listIndex]).css('display', '-webkit-box');
+            hitokoto.html(homeBannerText[listIndex]).css('display', '-webkit-box');
             return true;
 
         } else if (typeof homeBannerText === "string" && homeBannerText !== "") {
 
-            hitokoto.text(homeBannerText).css('display', '-webkit-box');
+            hitokoto.html(homeBannerText).css('display', '-webkit-box');
             __base.setDomHomePosition();
             return true;
         }
@@ -1023,11 +1023,11 @@ function Base() {
 
                 $.ajax(settings).done((response) => {
                     if (response.errno === 0) {
-                        hitokoto.text(response.note).css('display', '-webkit-box');
+                        hitokoto.html(response.note).css('display', '-webkit-box');
                         $('#hitokotoAuthor').text(response.content).show();
                     } else {
                         let listIndex = tools.randomNum(0, topTitleList.length - 1);
-                        hitokoto.text(topTitleList[listIndex]).css('display', '-webkit-box');
+                        hitokoto.html(topTitleList[listIndex]).css('display', '-webkit-box');
                     }
                     __base.setDomHomePosition();
                     return false;
@@ -1045,11 +1045,11 @@ function Base() {
 
                 $.ajax(settings).done((response) => {
                     if (response && response.status === "success") {
-                        hitokoto.text(response.data.content).css('display', '-webkit-box');
+                        hitokoto.html(response.data.content).css('display', '-webkit-box');
                         $('#hitokotoAuthor').text('《'+response.data.origin.title+'》 - '+response.data.origin.dynasty+' - '+response.data.origin.author).show();
                     } else {
                         let listIndex = tools.randomNum(0, topTitleList.length - 1);
-                        hitokoto.text(topTitleList[listIndex]).css('display', '-webkit-box');
+                        hitokoto.html(topTitleList[listIndex]).css('display', '-webkit-box');
                     }
                     __base.setDomHomePosition();
                     return false;
