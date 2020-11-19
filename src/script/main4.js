@@ -58,6 +58,21 @@
 			classie.add( bodyEl, 'show-menu' );
 			// animate path
 			path.animate( { 'path' : pathOpen }, 400, mina.easeinout, function() { isAnimating = false; } );
+
+
+			$('#content-wrap').fadeIn(300);
+			$('body').css('overflow', 'hidden');
+
+			// 防止移动端滚动
+			$("#mainContent").on("touchmove",function(event){
+				event.preventDefault;
+			}, false)
+			$("#content-wrap").on("touchmove",function(event){
+				event.preventDefault;
+			}, false)
+
+			// 初始化滚动条到顶部
+			$('#menuWrap').optiscroll('scrollTo', false, 'top', 'auto');
 		}
 		isOpen = !isOpen;
 	}
