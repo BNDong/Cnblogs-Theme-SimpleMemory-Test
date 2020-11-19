@@ -17,10 +17,11 @@
 		isOpen = false,
 
 		morphEl = document.getElementById( 'morph-shape' ),
-		s = Snap( morphEl.querySelector( 'svg' ) );
-	path = s.select( 'path' );
-	initialPath = this.path.attr('d'),
-		pathOpen = morphEl.getAttribute( 'data-morph-open' ),
+		s = Snap( morphEl.querySelector( 'svg' ) ),
+		path = s.select( 'path' ),
+		initialPath = path.attr('d'),
+		steps = morphEl.getAttribute( 'data-morph-open' ).split(';'),
+		stepsTotal = steps.length,
 		isAnimating = false;
 
 	function init() {
@@ -79,18 +80,15 @@
 			classie.add( bodyEl, 'show-menu' );
 
 			// animate path
-			// let pos = 0,
-			// 	nextStep = function( pos ) {
-			// 		if( pos > stepsTotal - 1 ) {
-			// 			isAnimating = false;
-			// 			return;
-			// 		}
-			// 		path.animate( { 'path' : steps[pos] }, pos === 0 ? 400 : 500, pos === 0 ? mina.easein : mina.elastic, function() { nextStep(pos); } );
-			// 		pos++;
-			// 	};
-
-			path.animate( { 'path' : pathOpen }, 400, mina.easeinout, function() { isAnimating = false; } );
-
+			let pos = 0,
+				nextStep = function( pos ) {
+					if( pos > stepsTotal - 1 ) {
+						isAnimating = false;
+						return;
+					}
+					path.animate( { 'path' : steps[pos] }, pos === 0 ? 400 : 500, pos === 0 ? mina.easein : mina.elastic, function() { nextStep(pos); } );
+					pos++;
+				};
 
 			// 头部图片偏移
 			//setTimeout("$('.main-header').animate({left:'250px'}, 250);", 300);
@@ -113,7 +111,7 @@
 			// 初始化滚动条到顶部
 			$('#menuWrap').optiscroll('scrollTo', false, 'top', 'auto');
 
-			// nextStep(pos);
+			nextStep(pos);
 		}
 		isOpen = !isOpen;
 	}
