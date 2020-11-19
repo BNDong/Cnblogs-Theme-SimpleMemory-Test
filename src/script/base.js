@@ -132,7 +132,7 @@ function Base() {
         setMenuData.setCustomData();
 
         // 设置菜单展开收缩
-        $('.m-list-title-select').click(() =>{ $(this).parents('.m-list-title').next('.m-icon-list').slideToggle(500) });
+        $('.m-list-title-select').click(function (){ $(this).parents('.m-list-title').next('.m-icon-list').slideToggle(500) });
 
         // 添加页面特效控制
         // __base.setPageAnimationControl();
@@ -279,7 +279,7 @@ function Base() {
     this.rightMenuMous = function(parentObjectStr, subObjectStr) {
         let parentObject = $(parentObjectStr);
         let subObject    = $(subObjectStr);
-        let updBuryitDiggitNum = () => {
+        let updBuryitDiggitNum = function () {
             let str = '';
 
             switch (subObjectStr) {
@@ -297,11 +297,11 @@ function Base() {
         }
 
         parentObject.find('i').on({
-            mouseover : () =>{
-                !$(this).hasClass('icon-zhiding') && $(this).rotate({animateTo:-60, duration: 250, callback: () => {
-                        $(this).rotate({animateTo:60, duration: 250, callback: () => {
-                                $(this).rotate({animateTo:-30, duration: 150, callback: () => {
-                                        $(this).rotate({animateTo:30, duration: 150, callback: () => {
+            mouseover : function () {
+                !$(this).hasClass('icon-zhiding') && $(this).rotate({animateTo:-60, duration: 250, callback: function () {
+                        $(this).rotate({animateTo:60, duration: 250, callback: function () {
+                                $(this).rotate({animateTo:-30, duration: 150, callback: function () {
+                                        $(this).rotate({animateTo:30, duration: 150, callback: function () {
                                                 $(this).rotate({animateTo:0, duration: 100});
                                             }});
                                     }});
@@ -311,14 +311,14 @@ function Base() {
         });
 
         parentObject.on({
-            mouseover : () =>{
+            mouseover : function () {
                 updBuryitDiggitNum();
                 subObject.stop().fadeIn(300);
             },
-            mouseout : () =>{
+            mouseout : function () {
                 subObject.stop().fadeOut(300);
             },
-            click: () => {
+            click: function () {
 
                 switch (subObjectStr) {
                     case '.rightBuryitSpan':
@@ -458,7 +458,7 @@ function Base() {
             html += '<span id="pageAnimationOffOnText">隐藏页面特效</span>';
             html += '</div>';
             $('body').prepend(html);
-            $('#pageAnimationOffOn').click(() => {
+            $('#pageAnimationOffOn').click(function () {
                 if ($(this).attr('data') === 'off') {
                     $('body').find('canvas').hide();
                     $('#pageAnimationOffOnIcon').rotate({animateTo:-360});
@@ -513,7 +513,7 @@ function Base() {
 
         if (!daySwitch) head.append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+window.__simpleMemory.getJsDelivrUrl('base.dark.css')+'">');
 
-        $('#dayNightSwitch .onOff').click(() => {
+        $('#dayNightSwitch .onOff').click(function () {
             if ($(this).hasClass('daySwitch')) { // 夜间
                 window.cnblogsConfig.hook.dayNightControl(__base, 'night');
                 tools.setCookie(cookieKey, 'night', exp);
@@ -923,7 +923,7 @@ function Base() {
         __base.setPostConImg();
 
         // 头图点击滚动到内容位置
-        $('.scroll-down').click(() => {
+        $('.scroll-down').click(function () {
             let endScroll;
             endScroll = $('#home').offset().top + 10; tools.actScroll(endScroll, 1000);});
 
@@ -1250,7 +1250,7 @@ function Base() {
         const sideToolbar = $('#sideToolbar');
         if (sideToolbar.length > 0) {
             sideToolbar.prepend('<span class="catalog-btn catalog-btn-shadow"><i class="iconfont icon-mulu"></i></span>').fadeIn(300);
-            $('.catalog-btn').click(() => {
+            $('.catalog-btn').click(function () {
                 let sideCatalogBg = $('.sideCatalogBg');
                 if (sideCatalogBg.is(':hidden')) {
                     sideCatalogBg.fadeIn(300);
@@ -1424,19 +1424,19 @@ function Base() {
                     $('#'+id).prepend(html);
                 });
 
-                $('code-box button').click(() => {
+                $('code-box button').click(function () {
                     $(this).find('i').removeClass('icon-fuzhi1').addClass('icon-right');
                     setTimeout("$('code-box button[code-id="+$(this).attr('code-id')+"] i').removeClass('icon-right').addClass('icon-fuzhi1')", 1500);
                 });
 
                 $('code-box').on({
-                    mouseover : () =>{
+                    mouseover : function () {
                         $(this).find('button').css({
                             opacity: 1,
                             visibility: 'visible'
                         });
                     },
-                    mouseout : () =>{
+                    mouseout : function () {
                         $(this).find('button').css({
                             opacity: 0,
                             visibility: 'hidden'
