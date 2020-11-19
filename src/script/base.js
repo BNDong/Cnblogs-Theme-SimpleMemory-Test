@@ -797,7 +797,7 @@ function Base() {
         if (window.cnblogsConfig.bottomText.left || window.cnblogsConfig.bottomText.right)
             footerBox.append('<div class="footer-text">[ '+window.cnblogsConfig.bottomText.left+'<span class="footer-text-icon"><span class="iconfont '+window.cnblogsConfig.bottomText.iconFont.icon+'" ' +
                 'style="color: '+window.cnblogsConfig.bottomText.iconFont.color+';font-size: '+window.cnblogsConfig.bottomText.iconFont.fontSize+';"></span></span>'+window.cnblogsConfig.bottomText.right+' ]</div>');
-
+console.log(123123);
         // 设置运行时间
         footerBox.append('<div><span id="blogRunTimeSpan"></span><span class="my-face">ღゝ◡╹)ノ♡</span></div>');
         window.setInterval( () => {
