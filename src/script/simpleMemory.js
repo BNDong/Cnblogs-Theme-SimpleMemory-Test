@@ -3,7 +3,7 @@
  * https://www.cnblogs.com/bndong/
  * @author: BNDong, dbnuo@foxmail.com
  **/
-let simpleMemory = () => {
+function simpleMemory() {
 
     const mobileStyle = $('#mobile-style');
     const __sm        = this;
@@ -498,6 +498,6 @@ let simpleMemory = () => {
 
 // 加载主题
 $(document).ready(function(){
-    window.__proto__.__simpleMemory = new simpleMemory();
+    window.__proto__.__simpleMemory = new simpleMemory;
     window.__simpleMemory.init();
 })
