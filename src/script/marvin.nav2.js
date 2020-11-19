@@ -13,7 +13,7 @@ $(document).ready(function () {
         q = true,
         r = false,
         s = $('#' + c),
-       tools = new myTools;
+       tools = window.__simpleMemory.tools;
 
     if (s.length === 0) return;
     b.append(i); o = s.find(':header');

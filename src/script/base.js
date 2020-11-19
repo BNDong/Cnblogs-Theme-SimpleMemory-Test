@@ -7,7 +7,7 @@
 function Base() {
 
     const __base = this,
-          tools  = new simpleMemoryTools,
+          tools  = window.__simpleMemory.tools,
           isHome = !!$('#topics').length;
 
     let progressBar = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'), // 进度条

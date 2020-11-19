@@ -439,6 +439,9 @@ function simpleMemory() {
                             'optiscroll_ToProgress_rotate',
                             'snapSvg', 'classie', 'main4', 'tools'];
                         require(staticResource, function() {
+
+                            window.__proto__.__simpleMemory.tools = new simpleMemoryTools;
+
                             require(['base'], function() {
                                 (new Base).init();
                             });

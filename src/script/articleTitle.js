@@ -3,7 +3,7 @@ $(document).ready(function () {
     if (!window.cnblogsConfig.essayTitleStyle) return null;
 
     const s       = $('#cnblogs_post_body'),
-          tools   = new myTools;
+          tools   = window.__simpleMemory.tools;
 
     if (s.length === 0) return;
     const h = s.find(':header');

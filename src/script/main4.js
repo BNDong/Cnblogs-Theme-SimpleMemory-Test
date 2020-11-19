@@ -10,18 +10,18 @@
  */
 (function() {
 
-	var bodyEl = document.body,
+	let bodyEl = document.body,
 		content = document.querySelector( '.content-wrap' ),
 		openbtn = document.getElementById( 'open-button' ),
 		closebtn = document.getElementById( 'close-button' ),
 		isOpen = false,
 
 		morphEl = document.getElementById( 'morph-shape' ),
-		s = Snap( morphEl.querySelector( 'svg' ) );
-		path = s.select( 'path' );
+		s = Snap( morphEl.querySelector( 'svg' ) ),
+		path = s.select( 'path' ),
 		initialPath = this.path.attr('d'),
-		steps = morphEl.getAttribute( 'data-morph-open' ).split(';');
-		stepsTotal = steps.length;
+		steps = morphEl.getAttribute( 'data-morph-open' ).split(';'),
+		stepsTotal = steps.length,
 		isAnimating = false;
 
 	function init() {
@@ -36,7 +36,7 @@
 
 		// close the menu element if the target it麓s not the menu element or one of its descendants..
 		content.addEventListener( 'click', function(ev) {
-			var target = ev.target;
+			let target = ev.target;
 			if( isOpen && target !== openbtn ) {
 				toggleMenu();
 			}
@@ -48,7 +48,7 @@
 		isAnimating = true;
 		$('.menu-wrap').show();
 		
-		var homeMarginLeft = $('#home').css('margin-left');
+		let homeMarginLeft = $('#home').css('margin-left');
 		homeMarginLeft = parseFloat(homeMarginLeft.replace(/px/g,''));
 		
 		if( isOpen ) {
@@ -59,7 +59,7 @@
 			//$('.main-header').animate({left:'0px'}, 300);
 	
 			// 主体内容偏移
-			//for (var i = 0; i <= 250; i++) {
+			//for (let i = 0; i <= 250; i++) {
 			//	setTimeout( '$("#home").css("margin-left", (' + homeMarginLeft + ' - ' + i + ') + "px");', 40 );
 			//}
 			
@@ -80,7 +80,7 @@
 			classie.add( bodyEl, 'show-menu' );
 			
 			// animate path
-			var pos = 0,
+			let pos = 0,
 				nextStep = function( pos ) {
 					if( pos > stepsTotal - 1 ) {
 						isAnimating = false; 
@@ -93,7 +93,7 @@
 			// 头部图片偏移
 			//setTimeout("$('.main-header').animate({left:'250px'}, 250);", 300);
 			// 主体内容偏移
-			//for (var i = 0; i <= 250; i++) {
+			//for (let i = 0; i <= 250; i++) {
 			//	setTimeout( '$("#home").css("margin-left", (' + homeMarginLeft + ' + ' + i + ') + "px");', 40 );
 			//}
 			
