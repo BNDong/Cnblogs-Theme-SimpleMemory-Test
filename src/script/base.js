@@ -790,14 +790,15 @@ function Base() {
               lHref  = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.CnVersions,
               rHref  = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
         let footerText = footer.text();
-        let footerBox  = $('.footer-box');
         footer.html('<div class="footer-box"></div>');
+        let footerBox  = $('.footer-box');
 
         // 设置标语
-        if (window.cnblogsConfig.bottomText.left || window.cnblogsConfig.bottomText.right)
+        if (window.cnblogsConfig.bottomText.left || window.cnblogsConfig.bottomText.right) {
             footerBox.append('<div class="footer-text">[ '+window.cnblogsConfig.bottomText.left+'<span class="footer-text-icon"><span class="iconfont '+window.cnblogsConfig.bottomText.iconFont.icon+'" ' +
                 'style="color: '+window.cnblogsConfig.bottomText.iconFont.color+';font-size: '+window.cnblogsConfig.bottomText.iconFont.fontSize+';"></span></span>'+window.cnblogsConfig.bottomText.right+' ]</div>');
-console.log(123123);
+        }
+
         // 设置运行时间
         footerBox.append('<div><span id="blogRunTimeSpan"></span><span class="my-face">ღゝ◡╹)ノ♡</span></div>');
         window.setInterval( () => {
