@@ -942,13 +942,17 @@ function Base() {
     this.setHomePost = () => {
         let read = $('#main .c_b_p_desc_readmore'), titleList = $('#main .postTitle');
         read.text('阅读全文 »');
+        console.log(titleList);
         $.each(titleList, () => {
             let title = $(this),
                 titleText = title.text(),
                 postDescText = title.nextAll('.postDesc:eq(0)').text();
-            title.after(__base.getPostMetaHtml(postDescText));
-            if (/\[置顶\]/.test(titleText)) title.append('<span class="postSticky">置顶</span>');
-            title.find('a').text(titleText.replace('[置顶]', ''));
+            console.log(titleText);
+            console.log(postDescText);
+            console.log(1);
+            // title.after(__base.getPostMetaHtml(postDescText));
+            // if (/\[置顶\]/.test(titleText)) title.append('<span class="postSticky">置顶</span>');
+            // title.find('a').text(titleText.replace('[置顶]', ''));
         });
     };
 
