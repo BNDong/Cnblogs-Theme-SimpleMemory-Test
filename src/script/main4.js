@@ -17,11 +17,10 @@
 		isOpen = false,
 
 		morphEl = document.getElementById( 'morph-shape' ),
-		s = Snap( morphEl.querySelector( 'svg' ) ),
-		path = s.select( 'path' ),
-		initialPath = path.attr('d'),
-		steps = morphEl.getAttribute( 'data-morph-open' ).split(';'),
-		stepsTotal = steps.length,
+		s = Snap( morphEl.querySelector( 'svg' ) );
+	path = s.select( 'path' );
+	initialPath = this.path.attr('d'),
+		pathOpen = morphEl.getAttribute( 'data-morph-open' ),
 		isAnimating = false;
 
 	function init() {
