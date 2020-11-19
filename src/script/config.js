@@ -1,5 +1,5 @@
 require.config({
-    baseUrl: getJsDelivrUrl(),
+    baseUrl: window.__simpleMemory.getJsDelivrUrl(),
     waitSeconds: 100,
     map: {
         '*': {
@@ -60,7 +60,7 @@ require.config({
     },
     shim:{
         optiscroll: {
-            deps: ['css!'+getJsDelivrUrl('optiscroll.css')]
+            deps: ['css!'+window.__simpleMemory.getJsDelivrUrl('optiscroll.css')]
         },
         classie: {
             deps: ['snapSvg'],
@@ -69,28 +69,28 @@ require.config({
             deps: ['tools'],
         },
         main4: {
-            deps: ['snapSvg','classie', 'css!'+getJsDelivrUrl('menu_bubble.css')]
+            deps: ['snapSvg','classie', 'css!'+window.__simpleMemory.getJsDelivrUrl('menu_bubble.css')]
         },
         codePrettify: {
-            deps: ['css!'+getJsDelivrUrl('codePrettify.css')]
+            deps: ['css!'+window.__simpleMemory.getJsDelivrUrl('codePrettify.css')]
         },
         fancybox: {
-            deps: ['css!'+getJsDelivrUrl('jquery.fancybox.min.css')]
+            deps: ['css!'+window.__simpleMemory.getJsDelivrUrl('jquery.fancybox.min.css')]
         },
         codeDesert: {
-            deps: ['css!'+getJsDelivrUrl('codeDesert.css')]
+            deps: ['css!'+window.__simpleMemory.getJsDelivrUrl('codeDesert.css')]
         },
         codeSunburst: {
-            deps: ['css!'+getJsDelivrUrl('codeSunburst.css')]
+            deps: ['css!'+window.__simpleMemory.getJsDelivrUrl('codeSunburst.css')]
         },
         codeObsidian: {
-            deps: ['css!'+getJsDelivrUrl('codeObsidian.css')]
+            deps: ['css!'+window.__simpleMemory.getJsDelivrUrl('codeObsidian.css')]
         },
         codeDoxy: {
-            deps: ['css!'+getJsDelivrUrl('codeDoxy.css')]
+            deps: ['css!'+window.__simpleMemory.getJsDelivrUrl('codeDoxy.css')]
         },
         marvin: {
-            deps: ['title', 'bootstrap', 'css!'+getJsDelivrUrl('marvin.nav2.css')]
+            deps: ['title', 'bootstrap', 'css!'+window.__simpleMemory.getJsDelivrUrl('marvin.nav2.css')]
         },
         MyTween: {
             deps: ['TweenMax']
@@ -99,13 +99,13 @@ require.config({
             deps: [
                 'tools',
                 'css!//at.alicdn.com/t/font_543384_kv876ayucyc.css', // 阿里云字体图标
-                'css!'+getJsDelivrUrl('google-fonts.css'), // 谷歌字体
+                'css!'+window.__simpleMemory.getJsDelivrUrl('google-fonts.css'), // 谷歌字体
             ]
         },
 
         // == 合并压缩文件 == //
         optiscroll_ToProgress_rotate: {
-            deps: ['css!'+getJsDelivrUrl('optiscroll.css')]
+            deps: ['css!'+window.__simpleMemory.getJsDelivrUrl('optiscroll.css')]
         },
     }
 });

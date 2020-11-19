@@ -511,14 +511,14 @@ function Base() {
             '</div>';
         $('body').prepend(html);
 
-        if (!daySwitch) head.append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+getJsDelivrUrl('base.dark.css')+'">');
+        if (!daySwitch) head.append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+window.__simpleMemory.getJsDelivrUrl('base.dark.css')+'">');
 
         $('#dayNightSwitch .onOff').click(function () {
             if ($(this).hasClass('daySwitch')) { // 夜间
                 window.cnblogsConfig.hook.dayNightControl(bndongJs, 'night');
                 tools.setCookie(cookieKey, 'night', exp);
                 $(this).removeClass('daySwitch');
-                head.append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+getJsDelivrUrl('base.dark.css')+'">');
+                head.append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+window.__simpleMemory.getJsDelivrUrl('base.dark.css')+'">');
             } else { // 日间
                 window.cnblogsConfig.hook.dayNightControl(bndongJs, 'day');
                 tools.setCookie(cookieKey, 'day', exp);
@@ -1551,7 +1551,7 @@ function Base() {
 
         // 设置代码滚动条样式
         function setScrollbarStyle() {
-            tools.dynamicLoadingCss(getJsDelivrUrl('jquery.mCustomScrollbar.css'));
+            tools.dynamicLoadingCss(window.__simpleMemory.getJsDelivrUrl('jquery.mCustomScrollbar.css'));
             let scrollbarTimeId = window.setInterval( function () {
                 if ($('.post pre span').length > 0) {
                     $('.post pre').mCustomScrollbar({
