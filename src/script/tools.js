@@ -1,4 +1,4 @@
-function myTools() {
+function simpleMemoryTools() {
     const tools  = this,
           colors = {
               "gray": "color: #1B2B34;font-size: 12px; line-height: 18px;",
@@ -17,7 +17,7 @@ function myTools() {
      */
     this.dynamicLoadingCss = function (path) {
         if (!path || path.length === 0) { throw new Error('argument "path" is required !'); }
-        var head = document.getElementsByTagName('head')[0], link = document.createElement('link');
+        let head = document.getElementsByTagName('head')[0], link = document.createElement('link');
         link.href = path; link.rel = 'stylesheet'; link.type = 'text/css'; head.appendChild(link);
     };
 
@@ -32,7 +32,7 @@ function myTools() {
      * 控制台输出内容
      */
     this.consoleText = function(list, mode) {
-        var rHref = 'https://github.com/'
+        let rHref = 'https://github.com/'
             + window.cnblogsConfig.GhUserName + '/'
             + window.cnblogsConfig.GhRepositories + '/tree/'
             + window.cnblogsConfig.GhVersions,
@@ -41,16 +41,16 @@ function myTools() {
         window.console.log.apply(console, e);
         switch (mode) {
             case 'random':
-                var colorList = [colors.red, colors.orange, colors.yellow, colors.green, colors.teal, colors.blue, colors.purple, colors.brown];
+                let colorList = [colors.red, colors.orange, colors.yellow, colors.green, colors.teal, colors.blue, colors.purple, colors.brown];
                 $.each(list, function (i) {
-                    var str = (list[i]).toString();
-                    var ind = tools.randomNum(0, colorList.length - 1);
+                    let str = (list[i]).toString();
+                    let ind = tools.randomNum(0, colorList.length - 1);
                     console.log('%c'+str, colorList[ind]);
                 });
                 break;
             case 'banner':
                 $.each(list, function (i) {
-                    var fl = list[i];
+                    let fl = list[i];
                     console.log('\n' + ' %c '+(fl[0])+' %c '+(fl[1])+' ' + '\n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;');
                 });
                 break;
@@ -87,8 +87,8 @@ function myTools() {
      */
     this.randomString = function(len) {
         len = len || 32;
-        var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678', maxPos = $chars.length, pwd = '';
-        for (var i = 0; i < len; i++) {
+        let $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678', maxPos = $chars.length, pwd = '';
+        for (let i = 0; i < len; i++) {
             pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
         }
         return pwd;
@@ -98,7 +98,7 @@ function myTools() {
      * 获取页面滚动百分比
      */
     this.getScrollPercent = function() {
-        var scrollTo      = $(window).scrollTop(),
+        let scrollTo      = $(window).scrollTop(),
             docHeight     = $(document).height(),
             windowHeight  = $(window).height(),
             scrollPercent = (scrollTo / (docHeight-windowHeight)) * 100;
@@ -109,7 +109,7 @@ function myTools() {
      * 过滤HTML中JavaScript代码
      */
     this.htmlFiltrationScript = function(str) {
-        var subStr = new RegExp('\<script.*\<\/script\>', 'ig');
+        let subStr = new RegExp('\<script.*\<\/script\>', 'ig');
         return str.replace(subStr,"");
     };
 
@@ -119,22 +119,22 @@ function myTools() {
      */
     this.getRunDate = function (dateString) {
         dateString = (dateString).toString().split('-');
-        var date = new Date();
+        let date = new Date();
         date.setUTCFullYear(dateString[0], dateString[1] - 1, dateString[2]);
         date.setUTCHours(0, 0, 0, 0);
-        var birthDay = date;
-        var today = new Date();
-        var timeold = today.getTime() - birthDay.getTime();
-        var sectimeold = timeold / 1000;
-        var secondsold = Math.floor(sectimeold);
-        var msPerDay = 24 * 60 * 60 * 1000;
-        var e_daysold = timeold / msPerDay;
-        var daysold = Math.floor(e_daysold);
-        var e_hrsold = (daysold - e_daysold) * -24;
-        var hrsold = Math.floor(e_hrsold);
-        var e_minsold = (hrsold - e_hrsold) * -60;
-        var minsold = Math.floor((hrsold - e_hrsold) * -60);
-        var seconds = Math.floor((minsold - e_minsold) * -60).toString();
+        let birthDay = date;
+        let today = new Date();
+        let timeold = today.getTime() - birthDay.getTime();
+        let sectimeold = timeold / 1000;
+        let secondsold = Math.floor(sectimeold);
+        let msPerDay = 24 * 60 * 60 * 1000;
+        let e_daysold = timeold / msPerDay;
+        let daysold = Math.floor(e_daysold);
+        let e_hrsold = (daysold - e_daysold) * -24;
+        let hrsold = Math.floor(e_hrsold);
+        let e_minsold = (hrsold - e_hrsold) * -60;
+        let minsold = Math.floor((hrsold - e_hrsold) * -60);
+        let seconds = Math.floor((minsold - e_minsold) * -60).toString();
         return {
             daysold: daysold,
             hrsold: hrsold,
@@ -148,11 +148,11 @@ function myTools() {
      * @returns {string}
      */
     this.getNowFormatDate = function() {
-        var date = new Date();
-        var seperator1 = "-";
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1;
-        var strDate = date.getDate();
+        let date = new Date();
+        let seperator1 = "-";
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let strDate = date.getDate();
         if (month >= 1 && month <= 9) {
             month = "0" + month;
         }
@@ -167,9 +167,9 @@ function myTools() {
      * @return {string}
      */
     this.HTMLEncode = function(html) {
-        var temp = document.createElement("div");
+        let temp = document.createElement("div");
         (temp.textContent != null) ? (temp.textContent = html) : (temp.innerText = html);
-        var output = temp.innerHTML;
+        let output = temp.innerHTML;
         temp = null;
         return output;
     };
@@ -192,7 +192,7 @@ function myTools() {
      * @param expires 过期时间，单位秒
      */
     this.setCookie = function(key, value, expires) {
-        var exp = new Date();
+        let exp = new Date();
         exp.setTime(exp.getTime() + expires * 1000);
         document.cookie = key + "=" + escape (value) + "; expires=" + exp.toGMTString() + "; path=/";
     };
@@ -203,7 +203,7 @@ function myTools() {
      * @returns {string|null}
      */
     this.getCookie = function(key) {
-        var arr, reg = new RegExp("(^| )"+key+"=([^;]*)(;|$)");
+        let arr, reg = new RegExp("(^| )"+key+"=([^;]*)(;|$)");
         arr = document.cookie.match(reg);
         if (arr) return unescape(arr[2]);
         else return null;

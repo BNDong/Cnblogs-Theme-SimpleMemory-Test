@@ -6,12 +6,12 @@
  **/
 function Base() {
 
-    const bndongJs     = this,
-          tools        = new myTools,
-          isHome       = !!$('#topics').length;
+    const __base = this,
+          tools  = new simpleMemoryTools,
+          isHome = !!$('#topics').length;
 
-    let progressBar  = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'), // 进度条
-        temScroll    = 0,  // 上一次页面滚动位置
+    let progressBar = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'), // 进度条
+        temScroll   = 0,  // 上一次页面滚动位置
 
         /** 定时器 **/
         timeIds    = {
@@ -43,11 +43,11 @@ function Base() {
     /**
      * 初始化
      */
-    this.init = function () {
-        bndongJs.loadingBeforeInit(); // Loading 前初始化
-        bndongJs.endLoading();        // Loading 结束
-        bndongJs.loadingAfterInit();  // Loading 后初始化
-        window.cnblogsConfig.hook.pageInitEnd(bndongJs);
+    this.init = () => {
+        __base.loadingBeforeInit(); // Loading 前初始化
+        __base.endLoading();        // Loading 结束
+        __base.loadingAfterInit();  // Loading 后初始化
+        window.cnblogsConfig.hook.pageInitEnd(__base);
     };
 
 //----------------------------- Loading 前后逻辑处理 ----------------------------------//
@@ -55,28 +55,28 @@ function Base() {
     /**
      * Loading 前初始化
      */
-    this.loadingBeforeInit = function () {
+    this.loadingBeforeInit = () => {
 
         // 延时清除全部定时器
-        setTimeout(bndongJs.clearIntervalAll, 30000);
+        setTimeout(__base.clearIntervalAll, 30000);
 
         // 添加扩展字体图标库
         if (window.cnblogsConfig.fontIconExtend !== '') tools.dynamicLoadingCss(window.cnblogsConfig.fontIconExtend);
 
         // 页面初始化
-        isHome ? bndongJs.notHomeInit() : bndongJs.homeInit();
+        isHome ? __base.notHomeInit() : __base.homeInit();
     };
 
     /**
      * Loading后初始化
      */
-    this.loadingAfterInit = function () {
+    this.loadingAfterInit = () => {
 
         // 页面初始化
-        isHome ? bndongJs.notHomeInitAfter() : bndongJs.homeInitAfter();
+        isHome ? __base.notHomeInitAfter() : __base.homeInitAfter();
 
         // 添加页脚
-        bndongJs.addFooter();
+        __base.addFooter();
 
         // 背景动画
         if (window.cnblogsConfig.bgAnimationRendered) require(['RibbonsEffect']);
@@ -93,10 +93,10 @@ function Base() {
         }
 
         // 滚动监听
-        $(window).scroll( function() { bndongJs.scrollMonitor(); });
+        $(window).scroll( () => { __base.scrollMonitor(); });
 
         // 窗口变化监听
-        $(window).resize( function() { bndongJs.resizeMonitor(); });
+        $(window).resize( () => { __base.resizeMonitor(); });
 
         // 设置名称
         $('#homeTopTitle').text(window.cnblogsConfig.blogUser);
@@ -109,13 +109,13 @@ function Base() {
         $('#menuBlogAvatar').append("<img src='"+blogAvatar+"'>");
 
         // html5-title
-        bndongJs.htmlTitle();
+        __base.htmlTitle();
 
         // 设置菜单个人信息背景图片
-        bndongJs.setMenuUserInfoImg();
+        __base.setMenuUserInfoImg();
 
         // 设置菜单侧边栏内容
-        let setMenuData = bndongJs.setMenuData();
+        let setMenuData = __base.setMenuData();
         timeIds.setMenuIntroduceTId       = window.setInterval( setMenuData.setIntroduce, 1000 );
         timeIds.setMenuCalendarTId        = window.setInterval( setMenuData.setCalendar, 1000 );
         timeIds.setSidebarSearchTId       = window.setInterval( setMenuData.setSidebarSearch, 1000 );
@@ -132,13 +132,13 @@ function Base() {
         setMenuData.setCustomData();
 
         // 设置菜单展开收缩
-        $('.m-list-title-select').click(function(){ $(this).parents('.m-list-title').next('.m-icon-list').slideToggle(500) });
+        $('.m-list-title-select').click(() =>{ $(this).parents('.m-list-title').next('.m-icon-list').slideToggle(500) });
 
         // 添加页面特效控制
-        // bndongJs.setPageAnimationControl();
+        // __base.setPageAnimationControl();
 
         // 添加日/夜间模式控制
-        window.cnblogsConfig.switchDayNight.enable && bndongJs.setDayNightControl();
+        window.cnblogsConfig.switchDayNight.enable && __base.setDayNightControl();
 
         // 广告
         if (window.cnblogsConfig.advertising) {
@@ -163,7 +163,7 @@ function Base() {
     /**
      * 清除全部定时器
      */
-    this.clearIntervalAll = function () {
+    this.clearIntervalAll = () => {
         $.each(timeIds, function (e) {
             null != timeIds[e] && window.clearInterval(timeIds[e]);
         });
@@ -179,7 +179,7 @@ function Base() {
     /**
      * 滚动处理
      */
-    this.scrollMonitor = function() {
+    this.scrollMonitor = () => {
 
         let homeScroll     = $('#home').offset().top - 40,
             docScroll      = $(document).scrollTop(),
@@ -243,9 +243,9 @@ function Base() {
     /**
      * 屏幕大小变化处理
      */
-    this.resizeMonitor = function() {
+    this.resizeMonitor = () => {
         const bodyWidth = parseFloat(document.body.clientWidth), sideToolbar = $('#sideToolbar');
-        bndongJs.setDomHomePosition();
+        __base.setDomHomePosition();
 
         // 设置目录插件左右位置
         if (sideToolbar.length > 0) {
@@ -297,11 +297,11 @@ function Base() {
         }
 
         parentObject.find('i').on({
-            mouseover : function(){
-                !$(this).hasClass('icon-zhiding') && $(this).rotate({animateTo:-60, duration: 250, callback: function () {
-                        $(this).rotate({animateTo:60, duration: 250, callback: function () {
-                                $(this).rotate({animateTo:-30, duration: 150, callback: function () {
-                                        $(this).rotate({animateTo:30, duration: 150, callback: function () {
+            mouseover : () =>{
+                !$(this).hasClass('icon-zhiding') && $(this).rotate({animateTo:-60, duration: 250, callback: () => {
+                        $(this).rotate({animateTo:60, duration: 250, callback: () => {
+                                $(this).rotate({animateTo:-30, duration: 150, callback: () => {
+                                        $(this).rotate({animateTo:30, duration: 150, callback: () => {
                                                 $(this).rotate({animateTo:0, duration: 100});
                                             }});
                                     }});
@@ -311,14 +311,14 @@ function Base() {
         });
 
         parentObject.on({
-            mouseover : function(){
+            mouseover : () =>{
                 updBuryitDiggitNum();
                 subObject.stop().fadeIn(300);
             },
-            mouseout : function(){
+            mouseout : () =>{
                 subObject.stop().fadeOut(300);
             },
-            click: function () {
+            click: () => {
 
                 switch (subObjectStr) {
                     case '.rightBuryitSpan':
@@ -380,18 +380,18 @@ function Base() {
     /**
      * 结束Loading页面
      */
-    this.endLoading = function() {
+    this.endLoading = () => {
         $('body').css('overflow', 'auto');
         pageLoading.spinner.setComplete();
         $('div#loading').hide();
         $('a[name="top"]').hide();
-        window.cnblogsConfig.hook.afterLoading(bndongJs, pageLoading);
+        window.cnblogsConfig.hook.afterLoading(__base, pageLoading);
     };
 
     /**
      * HTML-TITLE
      */
-    this.htmlTitle = function() {
+    this.htmlTitle = () => {
         let RelTitle = document.title,
             hidden,
             visibilityChange,
@@ -416,21 +416,21 @@ function Base() {
             if (timer) clearTimeout(timer);
             if (document[hidden]) {
                 if (webpageTitleOnblurTimeOut >= 0) {
-                    timer = setTimeout(function () {
+                    timer = setTimeout(() => {
                         document.title = webpageTitleOnblur + ' - ' + RelTitle.split(' - ')[0];
                     }, webpageTitleOnblurTimeOut);
                 }
-                window.cnblogsConfig.hook.pageLabelChanges(bndongJs, webpageTitleOnblur);
+                window.cnblogsConfig.hook.pageLabelChanges(__base, webpageTitleOnblur);
             } else {
                 if (webpageTitleFocusTimeOut >= 0) {
                     document.title = webpageTitleFocus;
-                    timer = setTimeout(function () {
+                    timer = setTimeout(() => {
                         document.title = RelTitle;
                     }, webpageTitleFocusTimeOut);
                 } else {
                     document.title = RelTitle;
                 }
-                window.cnblogsConfig.hook.pageLabelChanges(bndongJs, webpageTitleFocus);
+                window.cnblogsConfig.hook.pageLabelChanges(__base, webpageTitleFocus);
             }
         }
         if (typeof document.addEventListener !== "undefined" || typeof document[hidden] !== "undefined") {
@@ -441,14 +441,14 @@ function Base() {
     /**
      * 初始化主体内容位置
      */
-    this.setDomHomePosition = function () {
+    this.setDomHomePosition = () => {
         $('#home').css('margin-top', $('.main-header').outerHeight() + 'px');
     };
 
     /**
      * 页面特效控制
      */
-    this.setPageAnimationControl = function () {
+    this.setPageAnimationControl = () => {
         if (window.cnblogsConfig.homeTopAnimationRendered
             || window.cnblogsConfig.essayTopAnimationRendered
             || window.cnblogsConfig.bgAnimationRendered
@@ -458,7 +458,7 @@ function Base() {
             html += '<span id="pageAnimationOffOnText">隐藏页面特效</span>';
             html += '</div>';
             $('body').prepend(html);
-            $('#pageAnimationOffOn').click(function () {
+            $('#pageAnimationOffOn').click(() => {
                 if ($(this).attr('data') === 'off') {
                     $('body').find('canvas').hide();
                     $('#pageAnimationOffOnIcon').rotate({animateTo:-360});
@@ -477,7 +477,7 @@ function Base() {
     /**
      * 日/夜间模式控制
      */
-    this.setDayNightControl = function () {
+    this.setDayNightControl = () => {
         let h = parseInt(new Date().getHours()),head = $('head'), cookieKey = 'cnblogs_config_isNight', exp  =  4 * 3600, daySwitch;
 
         switch (tools.getCookie(cookieKey)) {
@@ -513,14 +513,14 @@ function Base() {
 
         if (!daySwitch) head.append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+window.__simpleMemory.getJsDelivrUrl('base.dark.css')+'">');
 
-        $('#dayNightSwitch .onOff').click(function () {
+        $('#dayNightSwitch .onOff').click(() => {
             if ($(this).hasClass('daySwitch')) { // 夜间
-                window.cnblogsConfig.hook.dayNightControl(bndongJs, 'night');
+                window.cnblogsConfig.hook.dayNightControl(__base, 'night');
                 tools.setCookie(cookieKey, 'night', exp);
                 $(this).removeClass('daySwitch');
                 head.append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+window.__simpleMemory.getJsDelivrUrl('base.dark.css')+'">');
             } else { // 日间
-                window.cnblogsConfig.hook.dayNightControl(bndongJs, 'day');
+                window.cnblogsConfig.hook.dayNightControl(__base, 'day');
                 tools.setCookie(cookieKey, 'day', exp);
                 $(this).addClass('daySwitch');
                 $('head link#baseDarkCss').remove();
@@ -531,7 +531,7 @@ function Base() {
     /**
      * 设置菜单数据
      */
-    this.setMenuData = function() {
+    this.setMenuData = () => {
 
         // 添加个人信息
         function setIntroduce() {
@@ -540,7 +540,7 @@ function Base() {
 
             if ((typeof introduceHtml == 'string') && menuIntroduce.html() === '') {
                 menuIntroduce.html(tools.htmlFiltrationScript(introduceHtml));
-                bndongJs.clearIntervalTimeId(timeIds.setMenuIntroduceTId);
+                __base.clearIntervalTimeId(timeIds.setMenuIntroduceTId);
             }
         }
 
@@ -555,7 +555,7 @@ function Base() {
                 calendar.remove();
                 menuCalendar.html(calendarHtml);
                 $('#blog-calendar').css('visibility', 'visible');
-                bndongJs.clearIntervalTimeId(timeIds.setMenuCalendarTId);
+                __base.clearIntervalTimeId(timeIds.setMenuCalendarTId);
             }
         }
 
@@ -566,7 +566,7 @@ function Base() {
 
             if (sidebarSearch.length > 0 && menuSearchBox.html() === ''){
                 menuSearchBox.html('<div id="sb_widget_my_zzk" class="div_my_zzk"><input id="q" type="text" onkeydown="return zzk_go_enter(event);" class="input_my_zzk"></div>').prev('.m-list-title').show();
-                bndongJs.clearIntervalTimeId(timeIds.setSidebarSearchTId);
+                __base.clearIntervalTimeId(timeIds.setSidebarSearchTId);
             }
         }
 
@@ -577,7 +577,7 @@ function Base() {
 
             if (scorerank.length > 0 && menuScorerank.html() === ''){
                 menuScorerank.html(getMenuData(scorerank, 'icon-collection_fill')).prev('.m-list-title').show();
-                bndongJs.clearIntervalTimeId(timeIds.setSidebarScorerankTId);
+                __base.clearIntervalTimeId(timeIds.setSidebarScorerankTId);
             }
         }
 
@@ -588,7 +588,7 @@ function Base() {
 
             if (sidebar.length > 0 && menuSidebar.html() === ''){
                 menuSidebar.html(getMenuData(sidebar, 'icon-time_fill')).prev('.m-list-title').show();
-                bndongJs.clearIntervalTimeId(timeIds.setMenuSidebarTId);
+                __base.clearIntervalTimeId(timeIds.setMenuSidebarTId);
             }
         }
 
@@ -599,7 +599,7 @@ function Base() {
 
             if (toptags.length > 0 && menuToptags.html() === '') {
                 menuToptags.html(getMenuData(toptags, 'icon-label_fill')).prev('.m-list-title').show();
-                bndongJs.clearIntervalTimeId(timeIds.setMenuToptagsTId);
+                __base.clearIntervalTimeId(timeIds.setMenuToptagsTId);
             }
         }
 
@@ -610,7 +610,7 @@ function Base() {
 
             if (sbClassify.length > 0 && menuClassify.html() === '') {
                 menuClassify.html(getMenuData(sbClassify, 'icon-marketing_fill')).prev('.m-list-title').show();
-                bndongJs.clearIntervalTimeId(timeIds.setMenuClassifyTId);
+                __base.clearIntervalTimeId(timeIds.setMenuClassifyTId);
             }
         }
 
@@ -621,7 +621,7 @@ function Base() {
 
             if (sbArticleCategory.length > 0 && menuArticleCategory.html() === '') {
                 menuArticleCategory.html(getMenuData(sbArticleCategory, 'icon-marketing_fill')).prev('.m-list-title').show();
-                bndongJs.clearIntervalTimeId(timeIds.setMenuArticleCategoryTId);
+                __base.clearIntervalTimeId(timeIds.setMenuArticleCategoryTId);
             }
         }
 
@@ -632,7 +632,7 @@ function Base() {
 
             if (sbRecord.length > 0 && menuRecord.html() === '') {
                 menuRecord.html(getMenuData(sbRecord, 'icon-task_fill')).prev('.m-list-title').show();
-                bndongJs.clearIntervalTimeId(timeIds.setMenuRecordTId);
+                __base.clearIntervalTimeId(timeIds.setMenuRecordTId);
             }
         }
         
@@ -643,7 +643,7 @@ function Base() {
 
             if (sbArticle.length > 0 && menuArticle.html() === '') {
                 menuArticle.html(getMenuData(sbArticle, 'icon-document_fill')).prev('.m-list-title').show();
-                bndongJs.clearIntervalTimeId(timeIds.setMenuArticleTId);
+                __base.clearIntervalTimeId(timeIds.setMenuArticleTId);
             }
         }
 
@@ -654,7 +654,7 @@ function Base() {
 
             if (sbTopview.length > 0 && menuTopview.html() === '') {
                 menuTopview.html(getMenuData(sbTopview, 'icon-browse_fill')).prev('.m-list-title').show();
-                bndongJs.clearIntervalTimeId(timeIds.setMenuTopviewTId);
+                __base.clearIntervalTimeId(timeIds.setMenuTopviewTId);
             }
         }
 
@@ -665,7 +665,7 @@ function Base() {
 
             if (topDiggPosts.length > 0 && menuTopDiggPosts.html() === '') {
                 menuTopDiggPosts.html(getMenuData(topDiggPosts, 'icon-like_fill')).prev('.m-list-title').show();
-                bndongJs.clearIntervalTimeId(timeIds.setMenuTopDiggPostsTId);
+                __base.clearIntervalTimeId(timeIds.setMenuTopDiggPostsTId);
             }
         }
 
@@ -676,7 +676,7 @@ function Base() {
 
             if (recentComments.length > 0 && menuRecentComments.html() === '') {
                 menuRecentComments.html(getMenuCommentsData(recentComments, 'icon-pinglunzu')).prev('.m-list-title').show();
-                bndongJs.clearIntervalTimeId(timeIds.setMenuRecentCommentsTId);
+                __base.clearIntervalTimeId(timeIds.setMenuRecentCommentsTId);
             }
         }
 
@@ -772,7 +772,7 @@ function Base() {
     /**
      * 设置菜单个人信息背景图片
      */
-    this.setMenuUserInfoImg = function () {
+    this.setMenuUserInfoImg = () => {
         if (window.cnblogsConfig.menuUserInfoBgImg) {
             $('.introduce-box').css({
                 'background': '#000 url('+window.cnblogsConfig.menuUserInfoBgImg+') center no-repeat',
@@ -784,7 +784,7 @@ function Base() {
     /**
      * 添加页脚
      */
-    this.addFooter = function() {
+    this.addFooter = () => {
         const footer = $('#footer'),
               lHref  = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.CnVersions,
               rHref  = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
@@ -878,7 +878,7 @@ function Base() {
                 });
                 cnzzInfo.push($(cnzzStat[2]).text().replace('当前在线','Online').replace('[',':').replace(']',''));
                 $('#cnzzInfo').text(cnzzInfo.join(' | '));
-                bndongJs.clearIntervalTimeId(timeIds.setCnzzTId);
+                __base.clearIntervalTimeId(timeIds.setCnzzTId);
             }
         }
 
@@ -899,7 +899,7 @@ function Base() {
     /**
      * 主页初始化
      */
-    this.homeInit = function() {
+    this.homeInit = () => {
 
         // 设置主页图片
         let homeTopImg = window.cnblogsConfig.homeTopImg, bgImg;
@@ -912,26 +912,26 @@ function Base() {
             'background-size': 'cover'
         });
 
-        bndongJs.setHitokoto();
-        bndongJs.scrollMonitor();
-        bndongJs.setDomHomePosition();
+        __base.setHitokoto();
+        __base.scrollMonitor();
+        __base.setDomHomePosition();
     };
 
-    this.homeInitAfter = function () {
-        bndongJs.setHomePost();
-        bndongJs.setEntryPost();
-        bndongJs.setPostConImg();
+    this.homeInitAfter = () => {
+        __base.setHomePost();
+        __base.setEntryPost();
+        __base.setPostConImg();
 
         // 头图点击滚动到内容位置
-        $('.scroll-down').click(function () {
+        $('.scroll-down').click(() => {
             let endScroll;
             endScroll = $('#home').offset().top + 10; tools.actScroll(endScroll, 1000);});
 
         // 设置右下角菜单
-        timeIds.setHomeRightMenuTId = window.setInterval( bndongJs.addHomeRightMenu, 1000 );
+        timeIds.setHomeRightMenuTId = window.setInterval( __base.addHomeRightMenu, 1000 );
 
         if (window.cnblogsConfig.homeTopAnimationRendered)
-            require(['circleMagic'], function() {
+            require(['circleMagic'], () => {
                 $('.main-header').circleMagic(window.cnblogsConfig.homeTopAnimation);
             });
     };
@@ -939,14 +939,14 @@ function Base() {
     /**
      * 设置主页文章信息样式
      */
-    this.setHomePost = function () {
+    this.setHomePost = () => {
         let read = $('#main .c_b_p_desc_readmore'), titleList = $('#main .postTitle');
         read.text('阅读全文 »');
-        $.each(titleList, function () {
+        $.each(titleList, () => {
             let title = $(this),
                 titleText = title.text(),
                 postDescText = title.nextAll('.postDesc:eq(0)').text();
-            title.after(bndongJs.getPostMetaHtml(postDescText));
+            title.after(__base.getPostMetaHtml(postDescText));
             if (/\[置顶\]/.test(titleText)) title.append('<span class="postSticky">置顶</span>');
             title.find('a').text(titleText.replace('[置顶]', ''));
         });
@@ -955,19 +955,19 @@ function Base() {
     /**
      * 设置主页文章信息样式
      */
-    this.setEntryPost = function () {
+    this.setEntryPost = () => {
         let titleList = $('#main .entrylistPosttitle');
-        $.each(titleList, function () {
+        $.each(titleList, () => {
             let title = $(this),
                 postDescText = title.nextAll('.entrylistItemPostDesc:eq(0)').text();
-            title.after(bndongJs.getPostMetaHtml(postDescText));
+            title.after(__base.getPostMetaHtml(postDescText));
         });
     };
 
     /**
      * 设置摘要文章
      */
-    this.setPostConImg = function () {
+    this.setPostConImg = () => {
         let desc = $('.c_b_p_desc');
         $.each(desc, function (i) {
             let obj = $(this), img = obj.find('img.desc_img');
@@ -985,7 +985,7 @@ function Base() {
     /**
      * 设置主页标语
      */
-    this.setHitokoto = function() {
+    this.setHitokoto = () => {
 
 
         // 判断用户是否自定义了设置
@@ -1000,7 +1000,7 @@ function Base() {
         } else if (typeof homeBannerText === "string" && homeBannerText !== "") {
 
             hitokoto.text(homeBannerText).css('display', '-webkit-box');
-            bndongJs.setDomHomePosition();
+            __base.setDomHomePosition();
             return true;
         }
 
@@ -1051,7 +1051,7 @@ function Base() {
                         let listIndex = tools.randomNum(0, topTitleList.length - 1);
                         hitokoto.text(topTitleList[listIndex]).css('display', '-webkit-box');
                     }
-                    bndongJs.setDomHomePosition();
+                    __base.setDomHomePosition();
                     return false;
                 });
                 break;
@@ -1073,7 +1073,7 @@ function Base() {
                         let listIndex = tools.randomNum(0, topTitleList.length - 1);
                         hitokoto.text(topTitleList[listIndex]).css('display', '-webkit-box');
                     }
-                    bndongJs.setDomHomePosition();
+                    __base.setDomHomePosition();
                     return false;
                 });
                 break;
@@ -1083,14 +1083,14 @@ function Base() {
     /**
      * 添加主页右下角菜单
      */
-    this.addHomeRightMenu = function() {
+    this.addHomeRightMenu = () => {
         const rightMenu = $('#rightMenu');
         if (rightMenu.length > 0) {
 
             // 添加上下滚动
             let upDownHtml = '<div id="toUpDown" data="up"><span class="rightMenuSpan toUpDownSpan">返回顶部</span><div id="toUpDownI"><i class="iconfont icon-zhiding"></i></div></div>';
             rightMenu.prepend(upDownHtml);
-            bndongJs.rightMenuMous('#toUpDown', '.toUpDownSpan');
+            __base.rightMenuMous('#toUpDown', '.toUpDownSpan');
 
             // 添加关注
             let clickStr = $('#p_b_follow').text() !== '' ? $('#p_b_follow a').attr('onclick') : '';
@@ -1103,9 +1103,9 @@ function Base() {
             }
 
             rightMenu.prepend(attHtml);
-            bndongJs.rightMenuMous('#attention', '.attentionSpan');
-            bndongJs.scrollMonitor(); // 触发一次滚动处理，防止未有对象，初始化失败
-            bndongJs.clearIntervalTimeId(timeIds.setHomeRightMenuTId);
+            __base.rightMenuMous('#attention', '.attentionSpan');
+            __base.scrollMonitor(); // 触发一次滚动处理，防止未有对象，初始化失败
+            __base.clearIntervalTimeId(timeIds.setHomeRightMenuTId);
         }
     };
 
@@ -1114,7 +1114,7 @@ function Base() {
     /**
      * 非主页初始化
      */
-    this.notHomeInit = function() {
+    this.notHomeInit = () => {
 
         // 设置随笔标题
         const sbTitle = $('#cb_post_title_url').text();
@@ -1122,26 +1122,26 @@ function Base() {
         $('.inner').css('max-width', '100vw');
 
         // 设置文章信息
-        bndongJs.setArticleInfoAuthor();
-        timeIds.blogPostCategoryTId = window.setInterval( bndongJs.setArticleInfoClass, 1000 );
-        timeIds.entryTagTId         = window.setInterval( bndongJs.setArticleInfoTag, 1000 );
+        __base.setArticleInfoAuthor();
+        timeIds.blogPostCategoryTId = window.setInterval( __base.setArticleInfoClass, 1000 );
+        timeIds.entryTagTId         = window.setInterval( __base.setArticleInfoTag, 1000 );
 
-        bndongJs.setDomHomePosition();
+        __base.setDomHomePosition();
     };
 
-    this.notHomeInitAfter = function () {
-        bndongJs.setNotHomeTopImg();
+    this.notHomeInitAfter = () => {
+        __base.setNotHomeTopImg();
 
         // 验证是否是书单文章
-        if ($('#bookListFlg').length > 0) bndongJs.setBookList();
+        if ($('#bookListFlg').length > 0) __base.setBookList();
 
-        bndongJs.setCodeHighlighting();
-        bndongJs.baguetteBox();
+        __base.setCodeHighlighting();
+        __base.baguetteBox();
 
         // 初始化文章目录
-        require(['title', 'marvin', 'articleStatement'], function() {
-            timeIds.setCatalogTId = window.setInterval( bndongJs.initCatalog, 1000 );
-            bndongJs.scrollMonitor();
+        require(['title', 'marvin', 'articleStatement'], () => {
+            timeIds.setCatalogTId = window.setInterval( __base.initCatalog, 1000 );
+            __base.scrollMonitor();
             $('#sideCatalog-catalog').mCustomScrollbar({
                 theme:"minimal-dark",
                 axis:"yx"
@@ -1149,21 +1149,21 @@ function Base() {
         });
 
         // 设置右下角菜单
-        timeIds.setNotHomeRightMenuTId = window.setInterval( bndongJs.addNotHomeRightMenu, 1000 );
+        timeIds.setNotHomeRightMenuTId = window.setInterval( __base.addNotHomeRightMenu, 1000 );
 
-        bndongJs.setCommentStyle();
+        __base.setCommentStyle();
     };
 
     /**
      * 设置文章信息
      */
-    this.setArticleInfoAuthor = function () {
+    this.setArticleInfoAuthor = () => {
         $('#articleInfo').append('<p class="article-info-text"></p>');
-        let postDescTid = window.setInterval( function () {
+        let postDescTid = window.setInterval( () => {
             if ($('#post_view_count').text() !== '...' && $('#post_comment_count').text() !== '...') {
                 let postDescText = $('.postDesc').show().text();
-                $('#articleInfo p.article-info-text').html(bndongJs.getPostMetaHtml(postDescText));
-                bndongJs.clearIntervalTimeId(postDescTid);
+                $('#articleInfo p.article-info-text').html(__base.getPostMetaHtml(postDescText));
+                __base.clearIntervalTimeId(postDescTid);
             }
         }, 1000 );
     };
@@ -1204,7 +1204,7 @@ function Base() {
      * @returns {string}
      */
     this.getPostMetaHtml = function (postDescText) {
-        let info = bndongJs.getPostMetaInfo(postDescText);
+        let info = __base.getPostMetaInfo(postDescText);
         let html = '<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+info.date+'' +
             '<i class="iconfont icon-browse"></i>阅读：'+info.vnum+'' +
             '<i class="iconfont icon-interactive"></i>评论：'+info.cnum+'' +
@@ -1216,41 +1216,41 @@ function Base() {
     /**
      * 设置文章信息-分类
      */
-    this.setArticleInfoClass = function () {
+    this.setArticleInfoClass = () => {
         let obj = $('#BlogPostCategory').find('a');
         if (obj.length > 0) {
-            $.each(obj, function () {
+            $.each(obj, () => {
                 let tag = $(this);
                 tag.prepend('<span class="iconfont icon-marketing_fill"></span>');
                 $('#articleInfo').append('<a href="'+tag.attr('href')+'" target="_blank"><span class="article-info-tag article-tag-class-color">'+(tag.text())+'</span></a>');
             });
-            bndongJs.clearIntervalTimeId(timeIds.blogPostCategoryTId);
+            __base.clearIntervalTimeId(timeIds.blogPostCategoryTId);
         }
     };
 
     /**
      * 设置文章信息-标签
      */
-    this.setArticleInfoTag = function () {
+    this.setArticleInfoTag = () => {
         let obj = $('#EntryTag').find('a');
         if (obj.length > 0) {
-            $.each(obj, function () {
+            $.each(obj, () => {
                 let tag = $(this);
                 tag.prepend('<span class="iconfont icon-label_fill"></span>');
                 $('#articleInfo').append('<a href="'+tag.attr('href')+'" target="_blank"><span class="article-info-tag article-tag-color">'+(tag.text())+'</span></a>');
             });
-            bndongJs.clearIntervalTimeId(timeIds.entryTagTId);
+            __base.clearIntervalTimeId(timeIds.entryTagTId);
         }
     };
 
     /**
      * 初始化文章目录插件
      */
-    this.initCatalog = function() {
+    this.initCatalog = () => {
         const sideToolbar = $('#sideToolbar');
         if (sideToolbar.length > 0) {
             sideToolbar.prepend('<span class="catalog-btn catalog-btn-shadow"><i class="iconfont icon-mulu"></i></span>').fadeIn(300);
-            $('.catalog-btn').click(function () {
+            $('.catalog-btn').click(() => {
                 let sideCatalogBg = $('.sideCatalogBg');
                 if (sideCatalogBg.is(':hidden')) {
                     sideCatalogBg.fadeIn(300);
@@ -1260,15 +1260,15 @@ function Base() {
                     $(this).addClass('catalog-btn-shadow');
                 }
             });
-            bndongJs.resizeMonitor();
-            bndongJs.clearIntervalTimeId(timeIds.setCatalogTId);
+            __base.resizeMonitor();
+            __base.clearIntervalTimeId(timeIds.setCatalogTId);
         }
     };
 
     /**
      * 设置非主页头图
      */
-    this.setNotHomeTopImg = function() {
+    this.setNotHomeTopImg = () => {
 
         let essayTopImg = window.cnblogsConfig.essayTopImg,
             bgImg;
@@ -1303,7 +1303,7 @@ function Base() {
                 colors.push(tools.getRandomColor());
                 window.cnblogsConfig.essayTopAnimation.colors = colors;
             }
-            require(['TweenMax_MyTween'], function() {
+            require(['TweenMax_MyTween'], () => {
                 initCanvas('notHomeTopCanvas');
                 start();
             });
@@ -1313,7 +1313,7 @@ function Base() {
     /**
      * 设置图片灯箱效果
      */
-    this.baguetteBox = function () {
+    this.baguetteBox = () => {
         const cpb    = $('#cnblogs_post_body')
             ,imgList = $('#cnblogs_post_body img');
 
@@ -1331,7 +1331,7 @@ function Base() {
     /**
      * 设置书单页面
      */
-    this.setBookList = function () {
+    this.setBookList = () => {
         if (window.cnblogsConfig.bookList.length > 0) {
             let postBody = $('#cnblogs_post_body'),
                 html = '';
@@ -1386,7 +1386,7 @@ function Base() {
     /**
      * 设置代码
      */
-    this.setCodeHighlighting = function () {
+    this.setCodeHighlighting = () => {
         let pre       = $('.post pre'),
             codeSpan  = $('.cnblogs_code span'),
             hltype    = window.cnblogsConfig.essayCodeHighlightingType.toLowerCase(),
@@ -1406,14 +1406,14 @@ function Base() {
         }
         setScrollbarStyle();
         setCopyBtn();
-        window.cnblogsConfig.hook.afterCodeHighlighting(bndongJs);
+        window.cnblogsConfig.hook.afterCodeHighlighting(__base);
 
         // 设置代码复制
         function setCopyBtn() {
 
             $('.cnblogs_code_toolbar').remove();
 
-            require(['clipboard'], function () {
+            require(['clipboard'], () => {
                 pre.each(function (i) {
                     let obj = $(this), id = tools.randomString(6);
                     obj.wrap('<code-box id="' + id + '" style="position: relative;display: block;"></code-box>');
@@ -1424,19 +1424,19 @@ function Base() {
                     $('#'+id).prepend(html);
                 });
 
-                $('code-box button').click(function () {
+                $('code-box button').click(() => {
                     $(this).find('i').removeClass('icon-fuzhi1').addClass('icon-right');
                     setTimeout("$('code-box button[code-id="+$(this).attr('code-id')+"] i').removeClass('icon-right').addClass('icon-fuzhi1')", 1500);
                 });
 
                 $('code-box').on({
-                    mouseover : function(){
+                    mouseover : () =>{
                         $(this).find('button').css({
                             opacity: 1,
                             visibility: 'visible'
                         });
                     },
-                    mouseout : function(){
+                    mouseout : () =>{
                         $(this).find('button').css({
                             opacity: 0,
                             visibility: 'hidden'
@@ -1456,7 +1456,7 @@ function Base() {
                 'overflow-x': 'auto'
             });
             let codeHljs = $('code.hljs');
-            codeHljs.each(function () {
+            codeHljs.each(() => {
                 let hj = $(this);
                 hj.after(hj.html());
                 hj.remove();
@@ -1466,7 +1466,7 @@ function Base() {
         // 使用 highlightjs 代码样式
         function highlightjsCode() {
             tools.dynamicLoadingCss('https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/src/style/highlightjs/'+hltheme+'.min.css');
-            require(['highlightjs'], function() {
+            require(['highlightjs'], () => {
                 let essayCodeLanguages = window.cnblogsConfig.essayCodeLanguages;
                 if (essayCodeLanguages && essayCodeLanguages.length > 0) {
                     hljs.configure({
@@ -1490,7 +1490,7 @@ function Base() {
             pre.addClass('prettyprint');
             switch (hltheme) {
                 case 'prettify':
-                    require(['codePrettify'], function() {
+                    require(['codePrettify'], () => {
                         $('pre').css('background-color', '#f6f8fa').css('border', '0');
                     }); break;
                 case 'desert':
@@ -1506,7 +1506,7 @@ function Base() {
         }
 
         function setCodeBefore(type) {
-            window.cnblogsConfig.hook.beforeCodeHighlighting(bndongJs);
+            window.cnblogsConfig.hook.beforeCodeHighlighting(__base);
             let cssText = "font-family:"+ window.cnblogsConfig.essayCode.fontFamily +" !important; font-size: "+ window.cnblogsConfig.essayCode.fontSize +" !important;";
 
             // 代码高度限制
@@ -1552,7 +1552,7 @@ function Base() {
         // 设置代码滚动条样式
         function setScrollbarStyle() {
             tools.dynamicLoadingCss(window.__simpleMemory.getJsDelivrUrl('jquery.mCustomScrollbar.css'));
-            let scrollbarTimeId = window.setInterval( function () {
+            let scrollbarTimeId = window.setInterval( () => {
                 if ($('.post pre span').length > 0) {
                     $('.post pre').mCustomScrollbar({
                         theme:"minimal-dark",
@@ -1570,7 +1570,7 @@ function Base() {
                             color = "rgb(153, 153, 153)"; break;
                     }
                     $('code-box button').css('color', color);
-                    bndongJs.clearIntervalTimeId(scrollbarTimeId);
+                    __base.clearIntervalTimeId(scrollbarTimeId);
                 }
             }, 500 );
         }
@@ -1579,11 +1579,11 @@ function Base() {
     /**
      * 设置评论样式
      */
-    this.setCommentStyle = function() {
-        timeIds.commentTId = window.setInterval(function(){
+    this.setCommentStyle = () => {
+        timeIds.commentTId = window.setInterval(() =>{
             if ($('.feedbackItem').length > 0) {
                 setComment();
-                bndongJs.clearIntervalTimeId(timeIds.commentTId);
+                __base.clearIntervalTimeId(timeIds.commentTId);
             }
         },1000);
         
@@ -1619,22 +1619,22 @@ function Base() {
     /**
      * 添加非主页右下角菜单
      */
-    this.addNotHomeRightMenu = function() {
+    this.addNotHomeRightMenu = () => {
         let rightMenu = $('#rightMenu');
         if (rightMenu.length > 0) {
 
-            if ($('#toUpDown').length === 0 && $('#attention').length === 0) bndongJs.addHomeRightMenu();
+            if ($('#toUpDown').length === 0 && $('#attention').length === 0) __base.addHomeRightMenu();
 
             // 添加踩
             if ($('#div_digg').length > 0) {
                 let rightBuryitHtml = '<div id="rightBuryit" clickflg="false" onclick="' + ($(".buryit").attr("onclick")) + '"><span class="rightMenuSpan rightBuryitSpan">' + $('#bury_count').text() + '</span><i class="iconfont icon-buzan"></i></div>';
                 rightMenu.prepend(rightBuryitHtml);
-                bndongJs.rightMenuMous('#rightBuryit', '.rightBuryitSpan');
+                __base.rightMenuMous('#rightBuryit', '.rightBuryitSpan');
 
                 // 添加顶
                 let rightDiggitHtml = '<div id="rightDiggit" clickflg="false" onclick="' + ($(".diggit").attr("onclick")) + '"><span class="rightMenuSpan rightDiggitSpan">' + $('#digg_count').text() + '</span><i class="iconfont icon-zan1"></i></div>';
                 rightMenu.prepend(rightDiggitHtml);
-                bndongJs.rightMenuMous('#rightDiggit', '.rightDiggitSpan');
+                __base.rightMenuMous('#rightDiggit', '.rightDiggitSpan');
             }
 
             // 添加打赏
@@ -1644,7 +1644,7 @@ function Base() {
                     (window.cnblogsConfig.reward.wechatpay ? '<div class="ds-wecat"><img src="'+window.cnblogsConfig.reward.wechatpay+'"><span>WeChat</span></div>' : '') +
                     '</div></span><i class="iconfont icon-dashang2"></i></div>';
                 rightMenu.prepend(rightDashangHtml);
-                bndongJs.rightMenuMous('#rightDashang', '.rightDanshanSpan');
+                __base.rightMenuMous('#rightDashang', '.rightDanshanSpan');
             }
             // 添加公众号
             if (window.cnblogsConfig.weChatOfficialAccounts) {
@@ -1652,10 +1652,10 @@ function Base() {
                     '<div class="ds-pay"><div class="ds-gzh"><img src="'+window.cnblogsConfig.weChatOfficialAccounts+'"><span>公众号</span></div></div>' +
                     '</span><i class="iconfont icon-gongzhonghaoerweima"></i></div>';
                 rightMenu.prepend(rightGzhHtml);
-                bndongJs.rightMenuMous('#rightGzh', '.rightGzhSpan');
+                __base.rightMenuMous('#rightGzh', '.rightGzhSpan');
             }
 
-            bndongJs.clearIntervalTimeId(timeIds.setNotHomeRightMenuTId);
+            __base.clearIntervalTimeId(timeIds.setNotHomeRightMenuTId);
         }
     }
 }

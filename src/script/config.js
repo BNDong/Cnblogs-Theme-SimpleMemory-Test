@@ -12,7 +12,7 @@ require.config({
 
         //-- 进度条
         ToProgress: window.__simpleMemory.setFileNameMin('lib/ToProgress.min', 'js'),
-        
+
         //-- 旋转
         rotate: window.__simpleMemory.setFileNameMin('lib/jquery.rotate.min', 'js'),
 
