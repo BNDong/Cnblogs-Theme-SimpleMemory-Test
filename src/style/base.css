@@ -2881,7 +2881,7 @@ div#rightMenu > div {
     display: none !important
 }
 
-#ad_c1, #ad_c2, #ad_t1, #ad_t2, #cnblogs_c1, #cnblogs_c2, #under_post_kb, #under_post_news {
+#ad_c1, #ad_c2, #ad_t1, #ad_t2, #cnblogs_c1, #cnblogs_c2, #under_post_kb, #under_post_news, #commentform_title a {
     display: none
 }
 

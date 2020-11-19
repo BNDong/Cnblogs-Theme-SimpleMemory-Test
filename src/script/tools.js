@@ -15,7 +15,7 @@ function simpleMemoryTools() {
     /**
      * 加载CSS文件
      */
-    this.dynamicLoadingCss = function (path) {
+    this.dynamicLoadingCss = (path) => {
         if (!path || path.length === 0) { throw new Error('argument "path" is required !'); }
         let head = document.getElementsByTagName('head')[0], link = document.createElement('link');
         link.href = path; link.rel = 'stylesheet'; link.type = 'text/css'; head.appendChild(link);
@@ -24,14 +24,14 @@ function simpleMemoryTools() {
     /**
      * 控制台输出图片
      */
-    this.consoleImg = function(url) {
+    this.consoleImg = (url) => {
         console.log('%c', 'padding:50px 300px; line-height:120px; background:url('+url+') no-repeat;');
     };
 
     /**
      * 控制台输出内容
      */
-    this.consoleText = function(list, mode) {
+    this.consoleText = (list, mode) => {
         let rHref = 'https://github.com/'
             + window.cnblogsConfig.GhUserName + '/'
             + window.cnblogsConfig.GhRepositories + '/tree/'
@@ -64,14 +64,14 @@ function simpleMemoryTools() {
     /**
      * 滚动主体滚动条到指定位置
      */
-    this.actScroll = function(endScroll, time) {
+    this.actScroll = (endScroll, time) => {
         $('html,body').stop().animate({scrollTop: endScroll}, time);
     };
 
     /**
      * 随机数
      */
-    this.randomNum = function(minNum,maxNum) {
+    this.randomNum = (minNum,maxNum) => {
         switch(arguments.length){
             case 1:
                 return parseInt(Math.random()*minNum+1); break;
@@ -85,7 +85,7 @@ function simpleMemoryTools() {
     /**
      * 随机字符串
      */
-    this.randomString = function(len) {
+    this.randomString = (len) => {
         len = len || 32;
         let $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678', maxPos = $chars.length, pwd = '';
         for (let i = 0; i < len; i++) {
@@ -97,7 +97,7 @@ function simpleMemoryTools() {
     /**
      * 获取页面滚动百分比
      */
-    this.getScrollPercent = function() {
+    this.getScrollPercent = () => {
         let scrollTo      = $(window).scrollTop(),
             docHeight     = $(document).height(),
             windowHeight  = $(window).height(),
@@ -108,7 +108,7 @@ function simpleMemoryTools() {
     /**
      * 过滤HTML中JavaScript代码
      */
-    this.htmlFiltrationScript = function(str) {
+    this.htmlFiltrationScript = (str) => {
         let subStr = new RegExp('\<script.*\<\/script\>', 'ig');
         return str.replace(subStr,"");
     };
@@ -117,7 +117,7 @@ function simpleMemoryTools() {
      * 运行时间
      * @param dateString 年-月-日
      */
-    this.getRunDate = function (dateString) {
+    this.getRunDate = (dateString) => {
         dateString = (dateString).toString().split('-');
         let date = new Date();
         date.setUTCFullYear(dateString[0], dateString[1] - 1, dateString[2]);
@@ -147,7 +147,7 @@ function simpleMemoryTools() {
      * 获取日期
      * @returns {string}
      */
-    this.getNowFormatDate = function() {
+    this.getNowFormatDate = () => {
         let date = new Date();
         let seperator1 = "-";
         let year = date.getFullYear();
@@ -166,7 +166,7 @@ function simpleMemoryTools() {
      * html 转义
      * @return {string}
      */
-    this.HTMLEncode = function(html) {
+    this.HTMLEncode = (html) => {
         let temp = document.createElement("div");
         (temp.textContent != null) ? (temp.textContent = html) : (temp.innerText = html);
         let output = temp.innerHTML;
@@ -178,7 +178,7 @@ function simpleMemoryTools() {
      * 产生随机颜色
      * @returns {string}
      */
-    this.getRandomColor = function(){
+    this.getRandomColor = () => {
         return  '#' + (function(color){
             return (color +=  '0123456789abcdef'[Math.floor(Math.random()*16)])
             && (color.length === 6) ?  color : arguments.callee(color);
@@ -191,7 +191,7 @@ function simpleMemoryTools() {
      * @param value
      * @param expires 过期时间，单位秒
      */
-    this.setCookie = function(key, value, expires) {
+    this.setCookie = (key, value, expires) => {
         let exp = new Date();
         exp.setTime(exp.getTime() + expires * 1000);
         document.cookie = key + "=" + escape (value) + "; expires=" + exp.toGMTString() + "; path=/";
@@ -202,7 +202,7 @@ function simpleMemoryTools() {
      * @param key
      * @returns {string|null}
      */
-    this.getCookie = function(key) {
+    this.getCookie = (key) => {
         let arr, reg = new RegExp("(^| )"+key+"=([^;]*)(;|$)");
         arr = document.cookie.match(reg);
         if (arr) return unescape(arr[2]);
