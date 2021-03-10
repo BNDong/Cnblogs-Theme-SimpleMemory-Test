@@ -17,11 +17,11 @@ $(document).ready(function(){
 
     console.log(_.__config);
 
-    let aaa = import(/* webpackChunkName: "test" */ './components/test/test').then(module => {
-        const test = module.default;
+    if (Math.random() > 0.5) {
+        import(/* webpackChunkName: "test" */ './components/test/test').then(module => {
+            const test = module.default;
 
-        test();
-    });
-
-    aaa();
+            test();
+        });
+    }
 })
