@@ -1,1 +1,1 @@
-(self.webpackChunkCnblogs_Theme_SimpleMemory_Test=self.webpackChunkCnblogs_Theme_SimpleMemory_Test||[]).push([[43],{15:(e,s,l)=>{"use strict";function o(){console.log(234234234)}l.r(s),l.d(s,{default:()=>o})}}]);
+(self.webpackChunkCnblogs_Theme_SimpleMemory=self.webpackChunkCnblogs_Theme_SimpleMemory||[]).push([[43],{15:(e,l,o)=>{"use strict";function s(){console.log(234234234)}o.r(l),o.d(l,{default:()=>s})}}]);

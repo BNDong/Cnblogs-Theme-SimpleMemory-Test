@@ -10,12 +10,13 @@ import _ from 'lodash';
 // import './style/main.css';
 import config from './components/config/config';
 
-// import test from './components/test/test';
+import test1 from './components/test/test1';
 
 $(document).ready(function(){
     _.__config = config();
 
     console.log(_.__config);
+    test1();
 
     if (Math.random() > 0.5) {
         import(/* webpackChunkName: "test" */ './components/test/test').then(module => {

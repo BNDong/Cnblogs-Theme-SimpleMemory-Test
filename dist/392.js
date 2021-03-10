@@ -1,4 +1,4 @@
-(self.webpackChunkCnblogs_Theme_SimpleMemory_Test=self.webpackChunkCnblogs_Theme_SimpleMemory_Test||[]).push([[392],{392:function(n,t,r){var e;
+(self.webpackChunkCnblogs_Theme_SimpleMemory=self.webpackChunkCnblogs_Theme_SimpleMemory||[]).push([[392],{392:function(n,t,r){var e;
 /**
  * @license
  * Lodash <https://lodash.com/>

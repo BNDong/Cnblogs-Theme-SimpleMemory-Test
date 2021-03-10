@@ -25,6 +25,7 @@ module.exports = {
         ],
         splitChunks: {
             chunks: 'all',
+            name: false,
         },
     },
     module: {
