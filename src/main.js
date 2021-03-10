@@ -10,8 +10,16 @@ import _ from 'lodash';
 // import './style/main.css';
 import config from './components/config/config';
 
+// import test from './components/test/test';
+
 $(document).ready(function(){
     _.__config = config();
 
     console.log(_.__config);
+
+    let aaa = import(/* webpackChunkName: "test" */ './components/test/test').then(module => {
+        const test = module.default;
+
+        test();
+    });
 })

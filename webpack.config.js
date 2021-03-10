@@ -4,25 +4,11 @@ const json5 = require('json5');
 module.exports = {
     mode: 'development',
     entry: {
-        simpleMemory: {
-            import: './src/main.js',
-            dependOn: 'shared',
-        },
-        shared: 'lodash',
-        // mainCss: './src/style/main.css',
+        simpleMemory: './src/main.js',
     },
     output: {
         filename: (pathData) => {
             // let name = pathData.chunk.name;
-            // let outName;
-            //
-            // switch (name) {
-            //     case 'mainJs':
-            //     case 'mainCss':
-            //         outName = 'simpleMemory';
-            //     default:
-            //         outName = '[name]';
-            // }
             return  '[name].js';
         },
         path: path.resolve(__dirname, 'dist'),
