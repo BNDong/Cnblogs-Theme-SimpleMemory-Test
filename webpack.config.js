@@ -1,5 +1,6 @@
 const path = require('path');
 const json5 = require('json5');
+const terserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
     mode: 'development',
@@ -15,6 +16,17 @@ module.exports = {
         clean: true,
     },
     // devtool: 'inline-source-map',
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new terserPlugin({
+                extractComments: false,
+            }),
+        ],
+        splitChunks: {
+            chunks: 'all',
+        },
+    },
     module: {
         rules: [
             {

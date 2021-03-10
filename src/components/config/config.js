@@ -7,6 +7,8 @@
  */
 
 import defaultConfig from './config.json5';
+import _ from 'lodash';
+
 
 export default function main() {
 
