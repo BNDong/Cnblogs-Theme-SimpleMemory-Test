@@ -22,4 +22,6 @@ $(document).ready(function(){
 
         test();
     });
+
+    aaa();
 })
