@@ -7,7 +7,7 @@
  */
 
 import _ from 'lodash';
-// import './style/main.css';
+import './style/main.css';
 import config from './components/config/config';
 
 import test1 from './components/test/test1';

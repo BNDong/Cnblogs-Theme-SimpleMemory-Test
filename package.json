@@ -24,6 +24,7 @@
   "homepage": "https://github.com/BNDong/Cnblogs-Theme-SimpleMemory#readme",
   "devDependencies": {
     "css-loader": "^5.1.1",
+    "filemanager-webpack-plugin": "^4.0.0",
     "json5": "^2.2.0",
     "style-loader": "^2.0.0",
     "toml": "^3.0.0",
