@@ -3,3 +3,4 @@
 *.iml
 *.ipr
 .DS_Store
+node_modules
