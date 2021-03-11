@@ -8,16 +8,16 @@
 
 import _ from 'lodash';
 import config from './components/config/config';
+import status from './components/status/status';
 
 $(document).ready(function(){
     _.__config = config();
+    _.__status = status(_);
 
+    // 开启渲染
+    import(/* webpackChunkName: "page" */ './page/' + _.__status.pageType).then(module => {
+        const page = module.default;
+        page(_);
+    });
 
-    // if (Math.random() > 0.5) {
-    //     import(/* webpackChunkName: "test" */ './components/test/test').then(module => {
-    //         const test = module.default;
-    //
-    //         test();
-    //     });
-    // }
 })

@@ -1,0 +1,1 @@
+(self.webpackChunkCnblogs_Theme_SimpleMemory=self.webpackChunkCnblogs_Theme_SimpleMemory||[]).push([[188],{565:function(e,n,o){"use strict";function l(e){console.log(e)}o.r(n),o.d(n,{default:function(){return l}})}}]);
