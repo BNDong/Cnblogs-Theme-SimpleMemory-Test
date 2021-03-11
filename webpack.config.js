@@ -2,13 +2,15 @@ const path = require('path');
 const json5 = require('json5');
 const terserPlugin = require("terser-webpack-plugin");
 const fileManagerPlugin = require('filemanager-webpack-plugin');
+const miniCssExtractPlugin = require('mini-css-extract-plugin');
+const cssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
     mode: 'development',
     entry: './src/main.js',
     output: {
         filename: 'simpleMemory.js',
-        chunkFilename:'handles/[name].[hash:8].js',
+        chunkFilename:'script/[name].[hash:8].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
     },
@@ -21,7 +23,10 @@ module.exports = {
                     ],
                 }
             }
-        })
+        }),
+        new miniCssExtractPlugin({
+            filename: 'style/[name].[hash:8].css',
+        }),
     ],
     // devtool: 'inline-source-map',
     optimization: {
@@ -30,13 +35,19 @@ module.exports = {
             new terserPlugin({
                 extractComments: false,
             }),
+            new cssMinimizerPlugin(),
         ],
     },
     module: {
         rules: [
             {
                 test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                use: [
+                    {
+                        loader: miniCssExtractPlugin.loader,
+                    },
+                    'css-loader'
+                ],
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,

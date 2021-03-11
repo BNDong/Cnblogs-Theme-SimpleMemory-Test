@@ -7,11 +7,8 @@
  */
 
 {
-  // github 仓库信息
-  gitHub: {
-    user: 'BNDong',
+  // 链接信息
+  links: {
+    gitHub: ''
   },
-
-  // 资源加载配置
-//  cnd:
 }

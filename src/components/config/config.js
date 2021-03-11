@@ -7,14 +7,8 @@
  */
 
 import defaultConfig from './config.json5';
-import _ from 'lodash';
-import test1 from '../test/test1';
-
-
 
 export default function main() {
-
-
 
     // 获取用户默认配置
     const userConfig = typeof window.cnblogsConfig === 'undefined' ? {} : window.cnblogsConfig;
