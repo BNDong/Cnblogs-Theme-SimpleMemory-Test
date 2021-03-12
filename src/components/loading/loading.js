@@ -9,7 +9,7 @@
 import {
     rebound,
     Spinner,
-} from 'exports-loader?exports=rebound,Spinner!./lib/loading.js';
+} from 'exports-loader?exports=rebound,Spinner!../../vendor/loading/loading.js';
 
 export default function main(_) {
 

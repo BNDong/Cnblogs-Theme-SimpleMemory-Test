@@ -5,15 +5,7 @@
  * ----------------------------------------------
  * @describe: 后置公共处理
  */
-import loading from "../loading/loading";
 
 export default function main(_) {
 
-    /**
-     * 关闭 loading
-     */
-    (() => {
-        let loadingObj = loading(_);
-        loadingObj.stop();
-    })();
 }

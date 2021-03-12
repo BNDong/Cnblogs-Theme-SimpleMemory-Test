@@ -6,16 +6,16 @@
  * @describe: 前置公共处理
  */
 import baseTemp from '../../template/base.html';
-import navTemp from '../../template/sidebarNav.html';
 import loading from "../loading/loading";
+import sidebar from "../sidebar/sidebar";
 
 export default function main(_) {
+    let loadingObj = loading(_);
 
     /**
      * 开启 loading
      */
     (() => {
-        let loadingObj = loading(_);
         loadingObj.start();
     })();
 
@@ -27,21 +27,10 @@ export default function main(_) {
     })();
 
     /**
-     * 设置侧边栏导航
+     * 侧边栏
      */
     (() => {
-        let navHtml = _.__tools.tempReplacement(navTemp, 'user', _.__status.user);
-
-        // 设置自定义导航
-        let navList = _.__config.sidebar.navList;
-        if (navList.length > 0) {
-            $.each(navList, function (i) {
-                let iconClass = navList[i].length > 2 ? navList[i][2] : "icon-qianzishenhe";
-                navHtml += '<li><a href="'+(navList[i][1])+'" target="_blank"><i class="iconfont '+iconClass+'"></i>'+(navList[i][0])+'</a></li>';
-            });
-        }
-
-        $('#m-nav-list').append(navHtml);
+        sidebar(_);
     })();
 
     /**
@@ -56,5 +45,12 @@ export default function main(_) {
      */
     (() => {
 
+    })();
+
+    /**
+     * 关闭 loading
+     */
+    (() => {
+        loadingObj.stop();
     })();
 }
