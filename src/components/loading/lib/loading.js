@@ -1377,6 +1377,7 @@ var Spinner = function () {
 
         this._canvas = document.createElement('canvas');
         this._canvas.style.backgroundColor = colors.background;
+        this._canvas.style.zIndex = 1100;
 
         this._canvasW = null;
         this._canvasH = null;
