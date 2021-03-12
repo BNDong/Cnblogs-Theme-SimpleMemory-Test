@@ -9,5 +9,5 @@
 import common from '../components/common/common';
 
 export default function main(_) {
-    common();
+    common(_);
 }
