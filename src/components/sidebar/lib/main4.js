@@ -5,7 +5,7 @@
  * ----------------------------------------------
  * @describe: 侧边栏处理
  */
-import classie from './classie';
+import cla from './classie';
 
 export default function main(_) {
 
@@ -14,7 +14,7 @@ export default function main(_) {
 		openbtn = document.getElementById( 'open-button' ),
 		closebtn = document.getElementById( 'close-button' ),
 		isOpen = false,
-		classie = classie(),
+		classie = cla(),
 
 		morphEl = document.getElementById( 'morph-shape' ),
 		s = Snap( morphEl.querySelector( 'svg' ) ),
