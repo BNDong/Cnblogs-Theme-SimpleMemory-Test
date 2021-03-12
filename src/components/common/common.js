@@ -10,13 +10,12 @@ import baseTemp from '../../template/base.html';
 export default function main(_) {
 
     // 设置基础模版
-    this.setBaseTemp = () => {
+    (() => {
         let baseHtml = baseTemp;
 
         $('#blog-news').prepend(baseHtml);
 
         console.log(_);
-    }
+    })();
 
-    this.setBaseTemp();
 }
