@@ -40,7 +40,7 @@ export default function main(_) {
      * 开启 loading
      */
     (() => {
-        let loadingObj = loading();
+        let loadingObj = loading(_);
         loadingObj.initRebound();
         loadingObj.initSpinner();
         loadingObj.spinner.init(loadingObj.spring, true);
