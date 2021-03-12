@@ -9,7 +9,13 @@
 export default function main() {
     return {
 
-        // 模版替换
+        /**
+         * 模版替换
+         * @param temp
+         * @param par
+         * @param str
+         * @returns {*}
+         */
         tempReplacement: (temp, par, str) => {
             let re = new RegExp('{{' + par + '}}',"g");
             return temp.replace(re, str);

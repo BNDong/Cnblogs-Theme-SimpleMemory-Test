@@ -1,0 +1,15 @@
+{
+    info: {
+        name: 'BNDong',
+        startDate: '2016-11-17'
+    },
+
+    sidebar: {
+        navList: [
+            ['Blog', 'https://blog.dbnuo.com', 'icon-blog-solid'],
+            ['Gitee', 'https://gitee.com/dbnuo', 'icon-gitee1'],
+            ['GitHub', 'https://github.com/BNDong', 'icon-github'],
+            ['Cnblogs', 'https://www.cnblogs.com/', 'icon-cnblogs']
+        ]
+    },
+}

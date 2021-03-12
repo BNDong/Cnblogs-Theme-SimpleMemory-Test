@@ -13,8 +13,8 @@
     startDate: '2021-01-01' // 入园时间
   },
 
-  // 链接信息
-  links: {
-    gitHub: ''
+  // -- 侧边栏 --
+  sidebar: {
+    navList: []
   },
 }
