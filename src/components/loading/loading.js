@@ -61,7 +61,10 @@ export default function main(_) {
          * 结束 loading
          */
         this.stop = () => {
+            $('body').css('overflow', 'auto');
             that.spinner.setComplete();
+            $('div#loading').hide();
+            $('a[name="top"]').hide();
         }
     }
 
