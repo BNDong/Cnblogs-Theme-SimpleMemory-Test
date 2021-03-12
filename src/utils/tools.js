@@ -20,5 +20,14 @@ export default function main() {
             let re = new RegExp('{{' + par + '}}',"g");
             return temp.replace(re, str);
         },
+
+        /**
+         * 加载CSS文件
+         */
+        dynamicLoadingCss: (path) => {
+            if (!path || path.length === 0) { throw new Error('argument "path" is required !'); }
+            let head = document.getElementsByTagName('head')[0], link = document.createElement('link');
+            link.href = path; link.rel = 'stylesheet'; link.type = 'text/css'; head.appendChild(link);
+        },
     };
 }

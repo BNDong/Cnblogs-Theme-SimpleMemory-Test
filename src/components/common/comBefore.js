@@ -3,13 +3,21 @@
  * https://www.cnblogs.com/bndong/
  * @author: BNDong, dbnuo@foxmail.com
  * ----------------------------------------------
- * @describe: 公共处理
+ * @describe: 前置公共处理
  */
 import baseTemp from '../../template/base.html';
 import navTemp from '../../template/sidebarNav.html';
-import loading from '../loading/loading';
+import loading from "../loading/loading";
 
 export default function main(_) {
+
+    /**
+     * 开启 loading
+     */
+    (() => {
+        let loadingObj = loading(_);
+        loadingObj.start();
+    })();
 
     /**
      * 设置基础模版
@@ -37,15 +45,16 @@ export default function main(_) {
     })();
 
     /**
-     * 开启 loading
+     * 添加扩展字体图标库
      */
     (() => {
-        let loadingObj = loading(_);
-        loadingObj.start();
-
-        setTimeout(function () {
-            loadingObj.stop();
-        }, 3000);
+        if (_.__config.fontIconExtend !== '') _.__tools.dynamicLoadingCss(_.__config.fontIconExtend);
     })();
 
+    /**
+     * 事件
+     */
+    (() => {
+
+    })();
 }

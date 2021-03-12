@@ -6,8 +6,27 @@
  * @describe: 主页处理
  */
 
-import common from '../components/common/common';
+import comBefore from '../components/common/comBefore';
+import comAfter from '../components/common/comAfter';
 
 export default function main(_) {
-    common(_);
+
+    /**
+     * 前置公共处理
+     */
+    (() => {
+        comBefore(_);
+    })();
+
+
+
+
+
+
+    /**
+     * 后置公共处理
+     */
+    (() => {
+        comAfter(_);
+    })();
 }
