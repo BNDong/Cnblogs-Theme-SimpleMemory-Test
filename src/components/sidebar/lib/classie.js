@@ -5,7 +5,7 @@
  * ----------------------------------------------
  * @describe: 侧边栏处理
  */
-export default function main(_) {
+export default function main() {
   function classReg( className ) {
     return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
   }

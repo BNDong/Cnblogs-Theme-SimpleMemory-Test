@@ -8,7 +8,7 @@
 import cla from './classie';
 import Snap from 'snapsvg';
 
-export default function main(_) {
+export default function main() {
 
 	let bodyEl = document.body,
 		content = document.querySelector( '.content-wrap' ),
@@ -25,6 +25,7 @@ export default function main(_) {
 		stepsTotal = steps.length,
 		isAnimating = false;
 
+	console.log(1111);
 	console.log(s);
 
 	function init() {
