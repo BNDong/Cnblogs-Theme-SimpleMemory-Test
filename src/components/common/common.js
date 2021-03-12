@@ -40,10 +40,10 @@ export default function main(_) {
      * 开启 loading
      */
     (() => {
-        console.log(loading);
-        loading.initRebound();
-        loading.initSpinner();
-        loading.spinner.init(loading.spring, true);
+        let loadingObj = loading();
+        loadingObj.initRebound();
+        loadingObj.initSpinner();
+        loadingObj.spinner.init(loadingObj.spring, true);
     })();
 
 }
