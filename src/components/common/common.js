@@ -8,7 +8,6 @@
 import baseTemp from '../../template/base.html';
 
 export default function main(_) {
-    let that = this;
 
     // 设置基础模版
     this.setBaseTemp = () => {
@@ -19,5 +18,5 @@ export default function main(_) {
         console.log(_);
     }
 
-    that.setBaseTemp();
+    this.setBaseTemp();
 }
