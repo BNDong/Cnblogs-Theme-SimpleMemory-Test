@@ -5,8 +5,19 @@
  * ----------------------------------------------
  * @describe: 公共处理
  */
-import sidebarTemp from '../../template/sidebar.html';
+import baseTemp from '../../template/base.html';
 
 export default function main(_) {
-    console.log(sidebarTemp);
+    let that = this;
+
+    that.setBaseTemp();
+
+    // 设置基础模版
+    this.setBaseTemp = () => {
+        let baseHtml = baseTemp;
+
+        $('#blog-news').prepend(baseHtml);
+
+        console.log(_);
+    }
 }
