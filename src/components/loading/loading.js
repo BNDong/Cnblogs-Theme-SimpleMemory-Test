@@ -47,6 +47,22 @@ export default function main(_) {
             // Instantiate Spinner.
             that.spinner = new Spinner(settings);
         }
+
+        /**
+         * 开启 loading
+         */
+        this.start = () => {
+            that.initRebound();
+            that.initSpinner();
+            that.spinner.init(that.spring, true);
+        }
+
+        /**
+         * 结束 loading
+         */
+        this.stop = () => {
+            that.spinner.setComplete();
+        }
     }
 
     return (new loading());

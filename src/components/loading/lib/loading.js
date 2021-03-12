@@ -124,7 +124,6 @@
 // ```
 var rebound = {};
 (function () {
-
     var util = rebound.util = {};
     var concat = Array.prototype.concat;
     var slice = Array.prototype.slice;

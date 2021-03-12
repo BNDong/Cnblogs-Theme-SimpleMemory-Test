@@ -41,9 +41,11 @@ export default function main(_) {
      */
     (() => {
         let loadingObj = loading(_);
-        loadingObj.initRebound();
-        loadingObj.initSpinner();
-        loadingObj.spinner.init(loadingObj.spring, true);
+        loadingObj.start();
+
+        setTimeout(function () {
+            loadingObj.stop();
+        }, 3000);
     })();
 
 }
