@@ -6,6 +6,7 @@
  * @describe: 侧边栏处理
  */
 import cla from './classie';
+import Snap from 'snapsvg';
 
 export default function main(_) {
 

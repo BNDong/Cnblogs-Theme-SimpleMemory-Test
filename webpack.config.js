@@ -67,15 +67,6 @@ module.exports = {
                     minimize: true,
                 },
             },
-            {
-                test: require.resolve('./src/vendor/snapsvg/snap.svg-min.js'),
-                use: 'imports-loader?this=>window,fix=>module.exports=0',
-            },
         ],
-    },
-    resolve: {
-        alias: {
-            snapsvg: './src/vendor/snapsvg/snap.svg-min.js',
-        },
     },
 };
