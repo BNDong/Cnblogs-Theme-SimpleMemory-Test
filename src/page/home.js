@@ -5,25 +5,23 @@
  * ----------------------------------------------
  * @describe: 主页处理
  */
-
-import comBefore from '../components/common/comBefore';
-import comAfter from '../components/common/comAfter';
-
 export default function main(_) {
 
     /**
      * 前置公共处理
      */
-    (() => {
-        comBefore(_);
-    })();
+    import(/* webpackChunkName: "comBefore" */ '../components/common/comBefore').then(module => {
+        const main = module.default;
+        main(_);
+    });
 
 
 
     /**
      * 后置公共处理
      */
-    (() => {
-        comAfter(_);
-    })();
+    import(/* webpackChunkName: "comAfter" */ '../components/common/comAfter').then(module => {
+        const main = module.default;
+        main(_);
+    });
 }
