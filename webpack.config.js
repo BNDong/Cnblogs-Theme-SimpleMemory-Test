@@ -60,6 +60,13 @@ module.exports = {
                     parse: json5.parse,
                 },
             },
+            {
+                test: /\.html$/i,
+                loader: 'html-loader',
+                options: {
+                    minimize: true,
+                },
+            },
         ],
     },
 };

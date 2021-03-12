@@ -3,11 +3,10 @@
  * https://www.cnblogs.com/bndong/
  * @author: BNDong, dbnuo@foxmail.com
  * ----------------------------------------------
- * @describe: 主页处理
+ * @describe: 公共处理
  */
-
-import common from '../components/common/common';
+import sidebarTemp from '../../template/sidebar.html';
 
 export default function main(_) {
-    common();
+    console.log(sidebarTemp);
 }

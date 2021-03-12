@@ -15,7 +15,7 @@ $(document).ready(function(){
     _.__status = status(_);
 
     // 开启渲染
-    import(/* webpackChunkName: "page" */ './page/' + _.__status.pageType).then(module => {
+    import(/* webpackChunkName: "page-[request]" */ `./page/${_.__status.pageType}`).then(module => {
         const page = module.default;
         page(_);
     });
