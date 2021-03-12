@@ -8,7 +8,7 @@
 import baseTemp from '../../template/base.html';
 
 export default function main(_) {
-
+    console.log(_);
     // 设置基础模版
     (() => {
         let baseHtml = baseTemp;
