@@ -6,17 +6,20 @@
  * @describe: 公共处理
  */
 import baseTemp from '../../template/base.html';
+import navTemp from '../../template/sidebarNav.html';
+import tools from '../../utils/tools';
 
 export default function main(_) {
-    console.log(_.__config);
-    console.log(_.__status);
+
     // 设置基础模版
     (() => {
-        let baseHtml = baseTemp;
-
-        $('#blog-news').prepend(baseHtml);
-
-        console.log(_);
+        $('#blog-news').prepend(baseTemp);
     })();
 
+    // 设置侧边栏导航
+    (() => {
+        let navHtml = tools.tempReplacement(navTemp, 'user', _.__status.user);
+
+        $('#m-nav-list').append(navHtml);
+    })();
 }
