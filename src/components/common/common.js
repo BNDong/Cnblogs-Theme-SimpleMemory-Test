@@ -45,7 +45,7 @@ export default function main(_) {
 
         setTimeout(function () {
             loadingObj.stop();
-        }, 10000);
+        }, 3000);
     })();
 
 }

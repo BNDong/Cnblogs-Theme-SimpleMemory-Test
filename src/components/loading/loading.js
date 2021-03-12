@@ -64,6 +64,7 @@ export default function main(_) {
             $('body').css('overflow', 'auto');
             that.spinner.setComplete();
             $('div#loading').hide();
+            $('a[name="top"]').hide();
         }
     }
 
