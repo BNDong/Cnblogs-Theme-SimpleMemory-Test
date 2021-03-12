@@ -6,11 +6,12 @@
  * @describe: loading 处理
  */
 
-import './lib/loading';
+import loading from './lib/loading';
 
 export default function main(_) {
+    loading();
 
-    let loading = function() {
+    let obj = function() {
         let that = this;
 
         this.config  = _.__config.loading;
@@ -46,7 +47,7 @@ export default function main(_) {
         }
     }
 
-    return (new loading());
+    return (new obj());
 }
 //
 // /**
