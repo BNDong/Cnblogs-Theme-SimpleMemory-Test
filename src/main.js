@@ -9,10 +9,14 @@
 import _ from 'lodash';
 import config from './components/config/config';
 import status from './components/status/status';
+import tools from './utils/tools';
 
 $(document).ready(function(){
+
+    // 初始化
     _.__config = config();
-    _.__status = status(_);
+    _.__status = status();
+    _.__tools  = tools();
 
     // 开启渲染
     import(/* webpackChunkName: "page-[request]" */ `./page/${_.__status.pageType}`).then(module => {

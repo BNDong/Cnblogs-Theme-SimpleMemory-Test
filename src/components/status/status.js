@@ -6,7 +6,7 @@
  * @describe: 博客基础信息抓取处理
  */
 
-export default function main(_) {
+export default function main() {
     let status = {};
 
     // 提取url信息

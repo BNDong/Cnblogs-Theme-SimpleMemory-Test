@@ -7,7 +7,6 @@
  */
 import baseTemp from '../../template/base.html';
 import navTemp from '../../template/sidebarNav.html';
-import tools from '../../utils/tools';
 
 export default function main(_) {
 
@@ -18,7 +17,7 @@ export default function main(_) {
 
     // 设置侧边栏导航
     (() => {
-        let navHtml = tools.tempReplacement(navTemp, 'user', _.__status.user);
+        let navHtml = _.__tools.tempReplacement(navTemp, 'user', _.__status.user);
 
         $('#m-nav-list').append(navHtml);
     })();
