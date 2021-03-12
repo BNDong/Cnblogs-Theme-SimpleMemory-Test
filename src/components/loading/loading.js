@@ -6,12 +6,14 @@
  * @describe: loading 处理
  */
 
-import loading from './lib/loading';
+import {
+    rebound,
+    Spinner,
+} from 'exports-loader?exports=rebound,Spinner!./lib/loading.js';
 
 export default function main(_) {
-    loading();
 
-    let obj = function() {
+    let loading = function() {
         let that = this;
 
         this.config  = _.__config.loading;
@@ -47,7 +49,7 @@ export default function main(_) {
         }
     }
 
-    return (new obj());
+    return (new loading());
 }
 //
 // /**
