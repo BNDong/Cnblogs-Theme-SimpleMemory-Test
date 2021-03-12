@@ -10,8 +10,6 @@ import baseTemp from '../../template/base.html';
 export default function main(_) {
     let that = this;
 
-    that.setBaseTemp();
-
     // 设置基础模版
     this.setBaseTemp = () => {
         let baseHtml = baseTemp;
@@ -20,4 +18,6 @@ export default function main(_) {
 
         console.log(_);
     }
+
+    that.setBaseTemp();
 }
