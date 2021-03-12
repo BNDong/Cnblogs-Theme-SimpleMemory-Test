@@ -1,20 +1,20 @@
 /**
- * main4.js
- * http://www.codrops.com
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- *
- * Copyright 2014, Codrops
- * http://www.codrops.com
+ * UPDATES AND DOCS AT: https://github.com/BNDong
+ * https://www.cnblogs.com/bndong/
+ * @author: BNDong, dbnuo@foxmail.com
+ * ----------------------------------------------
+ * @describe: 侧边栏处理
  */
-(function() {
+import classie from './classie';
+
+export default function main(_) {
 
 	let bodyEl = document.body,
 		content = document.querySelector( '.content-wrap' ),
 		openbtn = document.getElementById( 'open-button' ),
 		closebtn = document.getElementById( 'close-button' ),
 		isOpen = false,
+		classie = classie(),
 
 		morphEl = document.getElementById( 'morph-shape' ),
 		s = Snap( morphEl.querySelector( 'svg' ) ),
@@ -55,14 +55,6 @@
 
 			$(bodyEl).removeClass('show-menu');
 
-			// 头部图片偏移
-			//$('.main-header').animate({left:'0px'}, 300);
-
-			// 主体内容偏移
-			//for (let i = 0; i <= 250; i++) {
-			//	setTimeout( '$("#home").css("margin-left", (' + homeMarginLeft + ' - ' + i + ') + "px");', 40 );
-			//}
-
 			//setTimeout( "$('body').removeClass('show-menu');", 25);
 
 			$('#content-wrap').fadeOut(300);
@@ -90,13 +82,6 @@
 					pos++;
 				};
 
-			// 头部图片偏移
-			//setTimeout("$('.main-header').animate({left:'250px'}, 250);", 300);
-			// 主体内容偏移
-			//for (let i = 0; i <= 250; i++) {
-			//	setTimeout( '$("#home").css("margin-left", (' + homeMarginLeft + ' + ' + i + ') + "px");', 40 );
-			//}
-
 			$('#content-wrap').fadeIn(300);
 			$('body').css('overflow', 'hidden');
 
@@ -117,5 +102,4 @@
 	}
 
 	init();
-
-})();
+}

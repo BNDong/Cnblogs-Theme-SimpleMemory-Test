@@ -6,7 +6,8 @@
  * @describe: 侧边栏处理
  */
 import '../../style/menu_bubble.css';
-import navTemp from "../../template/sidebarNav.html";
+import navTemp from '../../template/sidebarNav.html';
+import main4 from './lib/main4';
 
 export default function main(_) {
 
@@ -28,5 +29,10 @@ export default function main(_) {
         $('#m-nav-list').append(navHtml);
     })();
 
-
+    /**
+     * 设置侧边栏
+     */
+    (() => {
+        main4();
+    })();
 }
