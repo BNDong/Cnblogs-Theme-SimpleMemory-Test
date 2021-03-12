@@ -40,6 +40,7 @@ export default function main(_) {
      * 开启 loading
      */
     (() => {
+        console.log(loading);
         loading.initRebound();
         loading.initSpinner();
         loading.spinner.init(loading.spring, true);

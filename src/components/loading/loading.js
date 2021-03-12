@@ -46,7 +46,7 @@ export default function main(_) {
         }
     }
 
-    return new loading();
+    return (new loading());
 }
 //
 // /**
