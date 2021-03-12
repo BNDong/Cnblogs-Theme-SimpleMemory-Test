@@ -18,6 +18,8 @@ $(document).ready(function(){
     _.__status = status();
     _.__tools  = tools();
 
+    if (_.__config.info.name === '') _.__config.info.name = _.__status.user;
+
     // 开启渲染
     import(/* webpackChunkName: "page-[request]" */ `./page/${_.__status.pageType}`).then(module => {
         const page = module.default;

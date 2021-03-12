@@ -7,6 +7,7 @@
  */
 import baseTemp from '../../template/base.html';
 import navTemp from '../../template/sidebarNav.html';
+import loading from '../loading/loading';
 
 export default function main(_) {
 
@@ -34,4 +35,14 @@ export default function main(_) {
 
         $('#m-nav-list').append(navHtml);
     })();
+
+    /**
+     * 开启 loading
+     */
+    (() => {
+        loading.initRebound();
+        loading.initSpinner();
+        loading.spinner.init(loading.spring, true);
+    })();
+
 }

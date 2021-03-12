@@ -9,12 +9,37 @@
 {
   // -- 基础信息 --
   info: {
-    name: 'NULL', // 昵称
+    name: '', // 昵称
     startDate: '2021-01-01' // 入园时间
   },
 
   // -- 侧边栏 --
   sidebar: {
-    navList: []
+    navList: [], // 自定义导航
   },
+
+  // -- Loading --
+  loading: {
+    rebound: {
+      tension: 16,
+      friction: 5
+    },
+    spinner: {
+      id: 'spinner',
+      radius: 90,
+      sides: 3,
+      depth: 4,
+      colors: {
+        background: '#f0f0f0',
+        stroke: '#272633',
+        base: null,
+        child: '#272633'
+      },
+      alwaysForward: true,
+      restAt: 0.5,
+      renderBase: false
+    }
+  },
+
+
 }
