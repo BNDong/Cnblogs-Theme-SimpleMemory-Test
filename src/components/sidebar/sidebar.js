@@ -33,6 +33,6 @@ export default function main(_) {
      * 设置侧边栏
      */
     (() => {
-        // main4();
+        main4();
     })();
 }

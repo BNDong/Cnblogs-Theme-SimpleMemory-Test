@@ -25,6 +25,8 @@ export default function main(_) {
 		stepsTotal = steps.length,
 		isAnimating = false;
 
+	console.log(s);
+
 	function init() {
 		initEvents();
 	}
