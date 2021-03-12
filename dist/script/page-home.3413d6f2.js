@@ -1,1 +1,0 @@
-(self.webpackChunkCnblogs_Theme_SimpleMemory=self.webpackChunkCnblogs_Theme_SimpleMemory||[]).push([[628],{436:function(e,l,n){"use strict";n.r(l),n.d(l,{default:function(){return o}});function o(e){console.log("<p>helloworld</p>")}}}]);
